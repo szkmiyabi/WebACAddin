@@ -41,9 +41,9 @@
             this.cellValText = this.Factory.CreateRibbonEditBox();
             this.thisColorCodeBtn = this.Factory.CreateRibbonButton();
             this.thisListMatchBtn = this.Factory.CreateRibbonButton();
+            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
-            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box1.SuspendLayout();
@@ -99,6 +99,10 @@
             this.thisListMatchBtn.Name = "thisListMatchBtn";
             this.thisListMatchBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.thisListMatchBtn_Click);
             // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
+            // 
             // setHrefBtn
             // 
             this.setHrefBtn.Label = "href設定";
@@ -110,10 +114,6 @@
             this.setPageTitleBtn.Label = "title設定";
             this.setPageTitleBtn.Name = "setPageTitleBtn";
             this.setPageTitleBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.setPageTitleBtn_Click);
-            // 
-            // separator1
-            // 
-            this.separator1.Name = "separator1";
             // 
             // Ribbon1
             // 

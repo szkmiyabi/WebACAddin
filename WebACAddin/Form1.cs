@@ -15,5 +15,15 @@ namespace WebACAddin
         {
             InitializeComponent();
         }
+
+        private void reportText_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Ctrl + A を実装
+            if(e.Control && e.KeyCode == Keys.A)
+            {
+                e.SuppressKeyPress = true; //beep解除
+                reportText.SelectAll();
+            }
+        }
     }
 }

@@ -195,6 +195,7 @@ namespace WebACAddin
                 string html = enc.GetString(wbuf);
                 html = _html_clean(html);
                 pg_title = _page_title(html);
+                wc.Dispose();
             }
             catch(Exception ex)
             {

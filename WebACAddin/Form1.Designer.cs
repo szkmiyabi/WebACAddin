@@ -40,6 +40,7 @@
             this.reportText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.reportText.Size = new System.Drawing.Size(447, 216);
             this.reportText.TabIndex = 0;
+            this.reportText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.reportText_KeyDown);
             // 
             // Form1
             // 
