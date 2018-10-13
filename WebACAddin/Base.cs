@@ -13,220 +13,80 @@ namespace WebACAddin
 {
     partial class Ribbon1
     {
-
-        //カラーコード取得
-        private void get_color_code()
+        //TXTファイル保存先を取得
+        private string _get_tsv_save_path()
         {
-            try
+            string path = "";
+            SaveFileDialog fda = new SaveFileDialog();
+            fda.Filter = "CSVファイル(*.txt)|*.txt";
+            fda.Title = "名前を付けて保存";
+            if (fda.ShowDialog() == DialogResult.OK)
             {
-                cellValText.Text = "";
-                string color_code = "";
-                var acl = excelObj.Application.ActiveCell;
-                color_code = acl.Interior.ColorIndex.ToString();
-                cellValText.Text = color_code;
+                path = fda.FileName;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("システムエラー");
-            }
-
+            return path;
         }
 
-        //この色のセルを取得
-        private void get_this_color_cell_list()
+        //TSV行データの生成
+        private string _edit_row_tsv(List<object> row)
         {
-            try
+            string row_str = "";
+            for (int j = 0; j < row.Count; j++)
             {
-                string ret = "";
-
-                var sa = excelObj.Application.Selection;
-                var ash = excelObj.Application.ActiveSheet;
-
-                int cc = Int32.Parse(cellValText.Text);
-                int r1, r2, c = 0;
-
-                r1 = sa.Row;
-                r2 = sa.Rows[sa.Rows.Count].Row;
-                c = sa.Column;
-
-                for (int i = r1; i <= r2; i++)
+                Type t = row[j].GetType();
+                if (t.Equals(typeof(double)))
                 {
-                    int cr_cc = 0;
-                    string cr_val = "";
-
-                    Type t = ash.Cells[i, c].Value.GetType();
-                    if (t.Equals(typeof(string)))
-                    {
-                        cr_cc = ash.Cells[i, c].Interior.ColorIndex;
-                        cr_val = (string)ash.Cells[i, c].Value;
-                    }
-                    if (cc == cr_cc)
-                    {
-                        ret += cr_val + "\r\n";
-                    }
+                    row_str += row[j].ToString();
+                    if (j < (row.Count - 1)) row_str += "\t";
+                }
+                else if (t.Equals(typeof(string)))
+                {
+                    row_str += (string)row[j];
+                    if (j < (row.Count - 1)) row_str += "\t";
                 }
 
-                frmObj.Show();
-                frmObj.reportText.Text = ret;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("システムエラー");
-            }
-
+            row_str += "\r\n";
+            return row_str;
         }
 
-        //リストに一致するセルに色を付ける
-        private void do_coloring_match_list()
+        //セル選択範囲のデータを取得
+        private List<object> _get_select_area_row(int idx)
         {
-            try
-            {
-                string ta = frmObj.reportText.Text;
-                int cc = Int32.Parse(cellValText.Text);
-
-                var sa = excelObj.Application.Selection;
-                var ash = excelObj.Application.ActiveSheet;
-
-                int r1, r2, c = 0;
-
-                if (!ta.Equals(""))
-                {
-
-
-
-                    string[] sep = { "\r\n" };
-                    string[] arr = ta.Split(sep, StringSplitOptions.None);
-
-                    r1 = sa.Row;
-                    r2 = sa.Rows[sa.Rows.Count].Row;
-                    c = sa.Column;
-
-                    for (int i = 0; i < arr.Length; i++)
-                    {
-                        string line = arr[i].ToString();
-
-                        for (int j = r1; j <= r2; j++)
-                        {
-                            Type t = ash.Cells[j, c].Value.GetType();
-                            if (t.Equals(typeof(string)))
-                            {
-                                string cr_val = ash.Cells[j, c].Value;
-                                if (cr_val.Equals(line))
-                                {
-                                    ash.Cells[j, c].Interior.ColorIndex = cc;
-                                }
-                            }
-
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("リストのダイアログが開かれていません");
-                    frmObj.Show();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("システムエラー");
-            }
-
-
-        }
-
-        //選択範囲のURLのセルにハイパーリンク設定
-        private void do_href_add()
-        {
-            var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-
-            int x, y, yn;
-            y = sa.Row;
-            yn = sa.Rows[sa.Rows.Count].Row;
-            x = sa.Column;
-
-            for (int i = y; i <= yn; i++)
-            {
-                var href = ash.Hyperlinks;
-                href.Add(ash.Cells[i, x], ash.Cells[i, x].Value, Type.Missing, ash.Cells[i, x].Value, ash.Cells[i, x].Value);
-            }
-        }
-
-        //選択範囲のURLのセルの隣列にページタイトル取得
-        private void do_page_title_add()
-        {
             var sa = excelObj.Application.Selection;
-            var ash = excelObj.Application.ActiveSheet;
-
-            int x, xn, y, yn;
-            y = sa.Row;
-            yn = sa.Rows[sa.Rows.Count].Row;
-            x = sa.Column;
-            xn = x + 1;
-
-            for (int i = y; i <= yn; i++)
+            List<object> arr = new List<object>();
+            int y = idx;
+            int x = sa.Column;
+            int xn = sa.Columns[sa.Columns.Count].Column;
+            for (int j = x; j <= xn; j++)
             {
-                string cr_val = "";
-
-                Type t = ash.Cells[i, x].Value.GetType();
-                if (t.Equals(typeof(string)))
+                if (ash.Cells[y, j].Value == null)
                 {
-                    cr_val = (string)ash.Cells[i, x].Value;
-                    string tt = _get_page_title(cr_val);
-                    ash.Cells[i, x + 1].Value = tt;
+                    arr.Add((double)0);
+                    continue;
+                }
+                Type t = ash.Cells[y, j].Value.GetType();
+                System.Diagnostics.Debug.WriteLine(t);
+                var dat = ash.Cells[y, j].Value;
+                if (t.Equals(typeof(double)))
+                {
+                    arr.Add((double)ash.Cells[y, j].Value);
+                }
+                else if (t.Equals(typeof(string)))
+                {
+                    arr.Add((string)ash.Cells[y, j].Value);
+                }
+                else if (t.Equals(typeof(DateTime)))
+                {
+                    arr.Add((DateTime)ash.Cells[y, j].Value);
+                }
+                else if (t.Equals(typeof(Boolean)))
+                {
+                    arr.Add((Boolean)ash.Cells[y, j].Value);
                 }
             }
-        }
-
-        //ページタイトルを取得
-        private string _get_page_title(string url)
-        {
-            string pg_title = "";
-
-            try
-            {
-                WebClient wc = new WebClient();
-                wc.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
-                //sslエラー回避
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3;
-                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-                byte[] wbuf = wc.DownloadData(url);
-                System.Text.Encoding enc = _get_self_encoding(wbuf);
-                string html = enc.GetString(wbuf);
-                html = _html_clean(html);
-                pg_title = _page_title(html);
-                wc.Dispose();
-            }
-            catch(Exception ex)
-            {
-                pg_title = "title取得エラー";
-            }
-
-            return pg_title;
-        }
-
-
-
-        //title要素の中身を取得
-        private string _page_title(string str)
-        {
-            string ret = "";
-            try
-            {
-                Regex pt = new Regex(@"(<title.*>)(.+?)(</title>)");
-                MatchCollection mc = pt.Matches(str);
-                if (mc.Count > 0)
-                {
-                    Match mt = mc[0];
-                    ret = mt.Groups[2].Value;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                ret = "title取得エラー";
-            }
-            return ret;
+            return arr;
         }
 
         //HTMLファイルのインデント・改行除去
@@ -237,7 +97,7 @@ namespace WebACAddin
             return ret;
         }
 
-        //
+
         //文字コードを判別する
         private System.Text.Encoding _get_self_encoding(byte[] bytes)
         {

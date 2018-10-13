@@ -74,5 +74,17 @@ namespace WebACAddin
         {
             do_page_title_add();
         }
+
+        //リストを反転
+        private void listReverseButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_reverse_list();
+        }
+
+        //選択範囲をTSV保存
+        private void saveAsTSVButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_selet_area_tsv();
+        }
     }
 }

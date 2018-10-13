@@ -36,41 +36,38 @@
         {
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.box1 = this.Factory.CreateRibbonBox();
             this.cellColorCodeBtn = this.Factory.CreateRibbonButton();
             this.cellValText = this.Factory.CreateRibbonEditBox();
             this.thisColorCodeBtn = this.Factory.CreateRibbonButton();
             this.thisListMatchBtn = this.Factory.CreateRibbonButton();
-            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
+            this.group2 = this.Factory.CreateRibbonGroup();
+            this.separator1 = this.Factory.CreateRibbonSeparator();
+            this.listReverseButton = this.Factory.CreateRibbonButton();
+            this.saveAsTSVButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
-            this.box1.SuspendLayout();
+            this.group2.SuspendLayout();
             this.SuspendLayout();
             // 
             // webACTab
             // 
             this.webACTab.Groups.Add(this.group1);
-            this.webACTab.Label = "WA検査";
+            this.webACTab.Groups.Add(this.group2);
+            this.webACTab.Label = "WebAcc";
             this.webACTab.Name = "webACTab";
             // 
             // group1
             // 
-            this.group1.Items.Add(this.box1);
-            this.group1.Items.Add(this.thisColorCodeBtn);
-            this.group1.Items.Add(this.thisListMatchBtn);
+            this.group1.Items.Add(this.cellValText);
+            this.group1.Items.Add(this.cellColorCodeBtn);
             this.group1.Items.Add(this.separator1);
-            this.group1.Items.Add(this.setHrefBtn);
-            this.group1.Items.Add(this.setPageTitleBtn);
+            this.group1.Items.Add(this.thisListMatchBtn);
+            this.group1.Items.Add(this.thisColorCodeBtn);
+            this.group1.Items.Add(this.listReverseButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
-            // 
-            // box1
-            // 
-            this.box1.Items.Add(this.cellColorCodeBtn);
-            this.box1.Items.Add(this.cellValText);
-            this.box1.Name = "box1";
             // 
             // cellColorCodeBtn
             // 
@@ -99,10 +96,6 @@
             this.thisListMatchBtn.Name = "thisListMatchBtn";
             this.thisListMatchBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.thisListMatchBtn_Click);
             // 
-            // separator1
-            // 
-            this.separator1.Name = "separator1";
-            // 
             // setHrefBtn
             // 
             this.setHrefBtn.Label = "href設定";
@@ -115,6 +108,30 @@
             this.setPageTitleBtn.Name = "setPageTitleBtn";
             this.setPageTitleBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.setPageTitleBtn_Click);
             // 
+            // group2
+            // 
+            this.group2.Items.Add(this.setHrefBtn);
+            this.group2.Items.Add(this.setPageTitleBtn);
+            this.group2.Items.Add(this.saveAsTSVButton);
+            this.group2.Label = "URL処理";
+            this.group2.Name = "group2";
+            // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
+            // 
+            // listReverseButton
+            // 
+            this.listReverseButton.Label = "リスト反転";
+            this.listReverseButton.Name = "listReverseButton";
+            this.listReverseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.listReverseButton_Click);
+            // 
+            // saveAsTSVButton
+            // 
+            this.saveAsTSVButton.Label = "TSV保存";
+            this.saveAsTSVButton.Name = "saveAsTSVButton";
+            this.saveAsTSVButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.saveAsTSVButton_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -125,8 +142,8 @@
             this.webACTab.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
-            this.box1.ResumeLayout(false);
-            this.box1.PerformLayout();
+            this.group2.ResumeLayout(false);
+            this.group2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -139,10 +156,12 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellColorCodeBtn;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton thisColorCodeBtn;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton thisListMatchBtn;
-        internal Microsoft.Office.Tools.Ribbon.RibbonBox box1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton setHrefBtn;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton setPageTitleBtn;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton listReverseButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton saveAsTSVButton;
     }
 
     partial class ThisRibbonCollection

@@ -149,6 +149,9 @@
     <Compile Include="Base.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CellUtil.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +160,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UrlUtil.cs">
+      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
