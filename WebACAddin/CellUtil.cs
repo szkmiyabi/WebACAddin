@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace WebACAddin
@@ -178,6 +179,68 @@ namespace WebACAddin
                 MessageBox.Show("システムエラー！");
             }
 
+        }
+
+        //品質チェック指摘コメントのひな形を作成
+        private void get_wa_check_comment_base()
+        {
+
+            string ret = "";
+            Regex mt = new Regex(@"http.*//.+");
+
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+
+            int r1, r2, c1, c2;
+
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c1 = sa.Column;
+            c2 = sa.Columns[sa.Columns.Count].Column;
+
+            for(int i=r1; i<=r2; i++)
+            {
+                int di = 0;
+                string tmp = ash.Cells[i, 3].Value;
+                if (mt.IsMatch(tmp)) di++;
+
+                string guideline = ash.Cells[i, 2].Value;
+                string pageID = ash.Cells[i, 1].Value;
+                string techID = ash.Cells[i, 4 + di].Value;
+                string sv_flag = ash.Cells[i, 5 + di].Value;
+                string comment = ash.Cells[i, 7 + di].Value;
+                string description = _text_clean(ash.Cells[i, 8 + di].Value);
+                string srccode = _text_clean(ash.Cells[i, 9 + di].Value);
+
+                ret += pageID + "\r\n";
+                ret += "達成基準: " + guideline + "\r\n";
+                ret += "達成方法番号: " + techID + "\r\n";
+                ret += "判定: " + sv_flag + "\r\n";
+                ret += "判定コメント:" + "\r\n" + comment + "\r\n";
+                ret += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
+                ret += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
+
+                frmObj.Show();
+                frmObj.reportText.Clear();
+                frmObj.reportText.Text = ret;
+            }
+
+        }
+
+        private string _text_clean(string str)
+        {
+            string ret = "";
+            try
+            {
+                str = Regex.Replace(str, @"^ +", "", RegexOptions.Multiline);
+                str = Regex.Replace(str, @"\t+", "", RegexOptions.Multiline);
+                str = Regex.Replace(str, @"(\r\n|\r|\n)", "", RegexOptions.Multiline);
+                ret = str;
+            }
+            catch(Exception ex)
+            {
+            }
+            return ret;
         }
 
     }

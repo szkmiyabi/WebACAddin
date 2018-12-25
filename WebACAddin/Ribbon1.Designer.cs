@@ -42,6 +42,7 @@
             this.thisListMatchBtn = this.Factory.CreateRibbonButton();
             this.thisColorCodeBtn = this.Factory.CreateRibbonButton();
             this.listReverseButton = this.Factory.CreateRibbonButton();
+            this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -74,6 +75,7 @@
             this.group1.Items.Add(this.thisListMatchBtn);
             this.group1.Items.Add(this.thisColorCodeBtn);
             this.group1.Items.Add(this.listReverseButton);
+            this.group1.Items.Add(this.waCheckCommentBaseButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -113,6 +115,12 @@
             this.listReverseButton.Label = "リスト反転";
             this.listReverseButton.Name = "listReverseButton";
             this.listReverseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.listReverseButton_Click);
+            // 
+            // waCheckCommentBaseButton
+            // 
+            this.waCheckCommentBaseButton.Label = "品質チェックコメント";
+            this.waCheckCommentBaseButton.Name = "waCheckCommentBaseButton";
+            this.waCheckCommentBaseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.waCheckCommentBaseButton_Click);
             // 
             // group2
             // 
@@ -218,6 +226,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openChromeButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openFirefoxDevButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openChromeBetaButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton waCheckCommentBaseButton;
     }
 
     partial class ThisRibbonCollection
