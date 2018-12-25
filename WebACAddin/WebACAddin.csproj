@@ -149,6 +149,9 @@
     <Compile Include="Base.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BrUtil.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CellUtil.cs">
       <SubType>Component</SubType>
     </Compile>
