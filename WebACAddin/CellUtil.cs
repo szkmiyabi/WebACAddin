@@ -50,6 +50,8 @@ namespace WebACAddin
                     int cr_cc = 0;
                     string cr_val = "";
 
+                    if (ash.Cells[i, c].Value == null) continue;
+
                     Type t = ash.Cells[i, c].Value.GetType();
                     if (t.Equals(typeof(string)))
                     {
@@ -103,6 +105,8 @@ namespace WebACAddin
 
                         for (int j = r1; j <= r2; j++)
                         {
+                            if (ash.Cells[j, c].Value == null) continue;
+
                             Type t = ash.Cells[j, c].Value.GetType();
                             if (t.Equals(typeof(string)))
                             {
