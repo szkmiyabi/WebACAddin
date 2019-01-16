@@ -22,7 +22,7 @@ namespace WebACAddin
         private ThisAddIn excelObj;
         private CultureInfo culture;
         private static Form1 _frmObj;
-
+        private static Random rnd = new Random();  //乱数object
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -30,6 +30,9 @@ namespace WebACAddin
             excelObj = WebACAddin.Globals.ThisAddIn;
             culture = new CultureInfo("ja-JP", true);
             culture.DateTimeFormat.Calendar = new JapaneseCalendar();
+
+            groupLabelWithColorRadio.Checked = true;
+
         }
 
         //Form1インスタンスの取得
@@ -91,6 +94,12 @@ namespace WebACAddin
         private void waCheckCommentBaseButton_Click(object sender, RibbonControlEventArgs e)
         {
             get_wa_check_comment_base();
+        }
+
+        //グループ名を挿入
+        private void groupLabelAddButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_groupname_insert();
         }
     }
 }

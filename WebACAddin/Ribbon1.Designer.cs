@@ -43,6 +43,9 @@
             this.thisColorCodeBtn = this.Factory.CreateRibbonButton();
             this.listReverseButton = this.Factory.CreateRibbonButton();
             this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
+            this.separator2 = this.Factory.CreateRibbonSeparator();
+            this.groupLabelWithColorRadio = this.Factory.CreateRibbonCheckBox();
+            this.groupLabelAddButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -53,6 +56,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.globalAlertOKNGRadio = this.Factory.CreateRibbonCheckBox();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group2.SuspendLayout();
@@ -71,11 +75,15 @@
             // 
             this.group1.Items.Add(this.cellValText);
             this.group1.Items.Add(this.cellColorCodeBtn);
+            this.group1.Items.Add(this.globalAlertOKNGRadio);
             this.group1.Items.Add(this.separator1);
             this.group1.Items.Add(this.thisListMatchBtn);
             this.group1.Items.Add(this.thisColorCodeBtn);
             this.group1.Items.Add(this.listReverseButton);
             this.group1.Items.Add(this.waCheckCommentBaseButton);
+            this.group1.Items.Add(this.separator2);
+            this.group1.Items.Add(this.groupLabelWithColorRadio);
+            this.group1.Items.Add(this.groupLabelAddButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -121,6 +129,21 @@
             this.waCheckCommentBaseButton.Label = "品質チェックコメント";
             this.waCheckCommentBaseButton.Name = "waCheckCommentBaseButton";
             this.waCheckCommentBaseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.waCheckCommentBaseButton_Click);
+            // 
+            // separator2
+            // 
+            this.separator2.Name = "separator2";
+            // 
+            // groupLabelWithColorRadio
+            // 
+            this.groupLabelWithColorRadio.Label = "自動色付";
+            this.groupLabelWithColorRadio.Name = "groupLabelWithColorRadio";
+            // 
+            // groupLabelAddButton
+            // 
+            this.groupLabelAddButton.Label = "グループ名入力";
+            this.groupLabelAddButton.Name = "groupLabelAddButton";
+            this.groupLabelAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.groupLabelAddButton_Click);
             // 
             // group2
             // 
@@ -188,6 +211,11 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // globalAlertOKNGRadio
+            // 
+            this.globalAlertOKNGRadio.Label = "確認非表示";
+            this.globalAlertOKNGRadio.Name = "globalAlertOKNGRadio";
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -227,6 +255,10 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openFirefoxDevButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openChromeBetaButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton waCheckCommentBaseButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton groupLabelAddButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox groupLabelWithColorRadio;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox globalAlertOKNGRadio;
     }
 
     partial class ThisRibbonCollection
