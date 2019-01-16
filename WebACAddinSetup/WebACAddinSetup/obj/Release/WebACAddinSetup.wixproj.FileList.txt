@@ -1,0 +1,7 @@
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddinSetup\WebACAddinSetup\bin\Release\cab1.cab
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddinSetup\WebACAddinSetup\bin\Release\WebACAddinSetup.msi
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddinSetup\WebACAddinSetup\bin\Release\WebACAddinSetup.wixpdb
+obj\Release\Product.wixobj
+obj\Release\WebACAddinSetup.wixproj.BindContentsFileListnull.txt
+obj\Release\WebACAddinSetup.wixproj.BindOutputsFileListnull.txt
+obj\Release\WebACAddinSetup.wixproj.BindBuiltOutputsFileListnull.txt

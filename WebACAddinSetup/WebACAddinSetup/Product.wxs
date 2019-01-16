@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="WebACAddin" Language="1033" Version="0.0.1" Manufacturer="JCI" UpgradeCode="660590b1-8227-478d-b7a8-42182a83ff50">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="WebACAddinSetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="Registry_FriendlyName" />
+      <ComponentRef Id="Registry_Description" />
+      <ComponentRef Id="Registry_Manifest" />
+      <ComponentRef Id="Registry_LoadBehavior" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="WebACAddin" />
+        <Component Id="Registry_FriendlyName">
+          <RegistryValue Id="RegKey_FriendlyName" Root="HKCU"
+                         Key="Software\Microsoft\Office\Excel\AddIns\WebACAddin"
+                         Name="FriendlyName"
+                         Value="My Excel Add-In"
+                         Type="string" KeyPath="yes" />
+        </Component>
+        <Component Id="Registry_Description">
+          <RegistryValue Id="RegKey_Description" Root="HKCU"
+                         Key="Software\Microsoft\Office\Excel\AddIns\WebACAddin"
+                         Name="Description"
+                         Value="My very cool Excel Add-In"
+                         Type="string" KeyPath="yes" />
+        </Component>
+        <Component Id="Registry_Manifest">
+          <RegistryValue Id="RegKey_Manifest" Root="HKCU"
+                         Key="Software\Microsoft\Office\Excel\AddIns\WebACAddin"
+                         Name="Manifest" Value="[INSTALLFOLDER]WebACAddin.vsto|vstolocal"
+                         Type="string" KeyPath="yes" />
+        </Component>
+        <Component Id="Registry_LoadBehavior">
+          <RegistryValue Id="RegKey_LoadBehavior" Root="HKCU"
+                         Key="Software\Microsoft\Office\Excel\AddIns\WebACAddin"
+                         Name="LoadBehavior" Value="3"
+                         Type="integer" KeyPath="yes" />
+        </Component>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+      <Component Id="WebACAddin_vsto_Component">
+        <File Id="WebACAddin_vsto" KeyPath="yes"
+              Name="WebACAddin.vsto" Source="$(var.AddinFiles)"></File>
+      </Component>
+      <Component Id="WebACAddin_dll_manifest_Component">
+        <File Id="WebACAddin_dll_manifest" KeyPath="yes"
+              Name="WebACAddin.dll.manifest" Source="$(var.AddinFiles)"></File>
+      </Component>
+      <Component Id="MSOfficeToolsCommon_dll_Component">
+        <File Id="MSOfficeToolsCommon_dll" KeyPath="yes"
+              Name="Microsoft.Office.Tools.Common.v4.0.Utilities.dll"
+              Source="$(var.AddinFiles)"></File>
+      </Component>
+      <Component Id="MSOfficeToolsExcel_dll_Component">
+        <File Id="MSOfficeToolsExcel_dll" KeyPath="yes"
+              Name="Microsoft.Office.Tools.Excel.dll"
+              Source="$(var.AddinFiles)"></File>
+      </Component>
+      <Component Id="WebACAddin_dll_Component" >
+        <File Id="WebACAddin_dll" KeyPath="yes"
+              Name="WebACAddin.dll" Source="$(var.AddinFiles)" />
+      </Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

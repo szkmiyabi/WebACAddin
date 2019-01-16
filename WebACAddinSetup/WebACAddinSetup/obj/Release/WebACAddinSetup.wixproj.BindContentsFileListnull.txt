@@ -1,0 +1,5 @@
+..\..\WebACAddin\bin\Release\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+..\..\WebACAddin\bin\Release\Microsoft.Office.Tools.Excel.dll
+..\..\WebACAddin\bin\Release\WebACAddin.dll
+..\..\WebACAddin\bin\Release\WebACAddin.dll.manifest
+..\..\WebACAddin\bin\Release\WebACAddin.vsto
