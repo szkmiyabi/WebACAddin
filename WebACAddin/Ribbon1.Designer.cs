@@ -38,11 +38,13 @@
             this.group1 = this.Factory.CreateRibbonGroup();
             this.cellValText = this.Factory.CreateRibbonEditBox();
             this.cellColorCodeBtn = this.Factory.CreateRibbonButton();
+            this.globalAlertOKNGRadio = this.Factory.CreateRibbonCheckBox();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.thisListMatchBtn = this.Factory.CreateRibbonButton();
             this.thisColorCodeBtn = this.Factory.CreateRibbonButton();
             this.listReverseButton = this.Factory.CreateRibbonButton();
             this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
+            this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.separator2 = this.Factory.CreateRibbonSeparator();
             this.groupLabelWithColorRadio = this.Factory.CreateRibbonCheckBox();
             this.groupLabelAddButton = this.Factory.CreateRibbonButton();
@@ -56,7 +58,6 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.globalAlertOKNGRadio = this.Factory.CreateRibbonCheckBox();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group2.SuspendLayout();
@@ -81,6 +82,7 @@
             this.group1.Items.Add(this.thisColorCodeBtn);
             this.group1.Items.Add(this.listReverseButton);
             this.group1.Items.Add(this.waCheckCommentBaseButton);
+            this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.separator2);
             this.group1.Items.Add(this.groupLabelWithColorRadio);
             this.group1.Items.Add(this.groupLabelAddButton);
@@ -101,6 +103,11 @@
             this.cellColorCodeBtn.Label = "色コード";
             this.cellColorCodeBtn.Name = "cellColorCodeBtn";
             this.cellColorCodeBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellColorCodeBtn_Click);
+            // 
+            // globalAlertOKNGRadio
+            // 
+            this.globalAlertOKNGRadio.Label = "確認非表示";
+            this.globalAlertOKNGRadio.Name = "globalAlertOKNGRadio";
             // 
             // separator1
             // 
@@ -129,6 +136,12 @@
             this.waCheckCommentBaseButton.Label = "品質チェックコメント";
             this.waCheckCommentBaseButton.Name = "waCheckCommentBaseButton";
             this.waCheckCommentBaseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.waCheckCommentBaseButton_Click);
+            // 
+            // dispEasyHtmlDocButton
+            // 
+            this.dispEasyHtmlDocButton.Label = "html簡易表示";
+            this.dispEasyHtmlDocButton.Name = "dispEasyHtmlDocButton";
+            this.dispEasyHtmlDocButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispEasyHtmlDocButton_Click);
             // 
             // separator2
             // 
@@ -211,11 +224,6 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
-            // globalAlertOKNGRadio
-            // 
-            this.globalAlertOKNGRadio.Label = "確認非表示";
-            this.globalAlertOKNGRadio.Name = "globalAlertOKNGRadio";
-            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -259,6 +267,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator2;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox groupLabelWithColorRadio;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox globalAlertOKNGRadio;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton dispEasyHtmlDocButton;
     }
 
     partial class ThisRibbonCollection

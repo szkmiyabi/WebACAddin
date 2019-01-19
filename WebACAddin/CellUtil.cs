@@ -302,5 +302,29 @@ namespace WebACAddin
             return arr[counter];
         }
 
+        //修正ソースコードを簡易的に表示
+        private void do_disp_htmlcode()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+
+            int r, c = 0;
+            string prefix = "<!doctype html><html lang='ja'><head><meta charset='utf-8'></head><body>";
+            string body = "";
+            string sufix = "</body></html>";
+
+            r = sa.Row;
+            c = sa.Column;
+
+            if (ash.Cells[r, c].Value == null) return;
+            Type t = ash.Cells[r, c].Value.GetType();
+            if (t.Equals(typeof(string)))
+            {
+                body = (string)ash.Cells[r, c].Value;
+            }
+            brfrmObj.Show();
+            brfrmObj.browserControl.DocumentText = prefix + body + sufix;
+
+        }
     }
 }

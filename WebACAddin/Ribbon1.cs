@@ -23,6 +23,7 @@ namespace WebACAddin
         private CultureInfo culture;
         private static Form1 _frmObj;
         private static Random rnd = new Random();  //乱数object
+        private static BrowserForm _brfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -45,6 +46,19 @@ namespace WebACAddin
                     _frmObj = new Form1();
                 }
                 return _frmObj;
+            }
+        }
+
+        //BrowserFormインスタンスの取得
+        public static BrowserForm brfrmObj
+        {
+            get
+            {
+                if(_brfrmObj == null || _brfrmObj.IsDisposed)
+                {
+                    _brfrmObj = new BrowserForm();
+                }
+                return _brfrmObj;
             }
         }
 
@@ -100,6 +114,12 @@ namespace WebACAddin
         private void groupLabelAddButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_groupname_insert();
+        }
+
+        //HTMLを簡易表示
+        private void dispEasyHtmlDocButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_disp_htmlcode();
         }
     }
 }
