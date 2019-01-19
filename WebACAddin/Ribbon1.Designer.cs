@@ -45,6 +45,7 @@
             this.listReverseButton = this.Factory.CreateRibbonButton();
             this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
+            this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.separator2 = this.Factory.CreateRibbonSeparator();
             this.groupLabelWithColorRadio = this.Factory.CreateRibbonCheckBox();
             this.groupLabelAddButton = this.Factory.CreateRibbonButton();
@@ -83,6 +84,7 @@
             this.group1.Items.Add(this.listReverseButton);
             this.group1.Items.Add(this.waCheckCommentBaseButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
+            this.group1.Items.Add(this.dispContrastRepFormButton);
             this.group1.Items.Add(this.separator2);
             this.group1.Items.Add(this.groupLabelWithColorRadio);
             this.group1.Items.Add(this.groupLabelAddButton);
@@ -142,6 +144,12 @@
             this.dispEasyHtmlDocButton.Label = "html簡易表示";
             this.dispEasyHtmlDocButton.Name = "dispEasyHtmlDocButton";
             this.dispEasyHtmlDocButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispEasyHtmlDocButton_Click);
+            // 
+            // dispContrastRepFormButton
+            // 
+            this.dispContrastRepFormButton.Label = "コントラスト結果";
+            this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
+            this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
             // 
             // separator2
             // 
@@ -268,6 +276,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox groupLabelWithColorRadio;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox globalAlertOKNGRadio;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton dispEasyHtmlDocButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton dispContrastRepFormButton;
     }
 
     partial class ThisRibbonCollection

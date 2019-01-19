@@ -24,6 +24,7 @@ namespace WebACAddin
         private static Form1 _frmObj;
         private static Random rnd = new Random();  //乱数object
         private static BrowserForm _brfrmObj;
+        private static ContrastForm _cnfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -34,6 +35,11 @@ namespace WebACAddin
 
             groupLabelWithColorRadio.Checked = true;
 
+        }
+
+        public ThisAddIn get_excelObj()
+        {
+            return excelObj;
         }
 
         //Form1インスタンスの取得
@@ -59,6 +65,19 @@ namespace WebACAddin
                     _brfrmObj = new BrowserForm();
                 }
                 return _brfrmObj;
+            }
+        }
+
+        //ContrastFormインスタンスの取得
+        public static ContrastForm cnfrmObj
+        {
+            get
+            {
+                if (_cnfrmObj == null || _cnfrmObj.IsDisposed)
+                {
+                    _cnfrmObj = new ContrastForm();
+                }
+                return _cnfrmObj;
             }
         }
 
@@ -120,6 +139,12 @@ namespace WebACAddin
         private void dispEasyHtmlDocButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_disp_htmlcode();
+        }
+
+        //コントラスト比結果表示
+        private void dispContrastRepFormButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_disp_contrast_preview();
         }
     }
 }

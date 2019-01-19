@@ -161,6 +161,12 @@
     <Compile Include="CellUtil.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ContrastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContrastForm.Designer.cs">
+      <DependentUpon>ContrastForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </Compile>
     <EmbeddedResource Include="BrowserForm.resx">
       <DependentUpon>BrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContrastForm.resx">
+      <DependentUpon>ContrastForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

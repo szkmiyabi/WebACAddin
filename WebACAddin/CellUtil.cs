@@ -326,5 +326,25 @@ namespace WebACAddin
             brfrmObj.browserControl.DocumentText = prefix + body + sufix;
 
         }
+
+        //コントラスト比検査結果を簡易的に表示
+        private void do_disp_contrast_preview()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r, c = 0;
+            string body = "";
+            r = sa.Row;
+            c = sa.Column;
+            if (ash.Cells[r, c].Value == null) return;
+            Type t = ash.Cells[r, c].Value.GetType();
+            if (t.Equals(typeof(string)))
+            {
+                body = (string)ash.Cells[r, c].Value;
+            }
+            cnfrmObj.Show();
+            cnfrmObj.contrastRatioText.Text = body;
+        }
+
     }
 }
