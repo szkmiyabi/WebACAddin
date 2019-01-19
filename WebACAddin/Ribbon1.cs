@@ -146,5 +146,17 @@ namespace WebACAddin
         {
             do_disp_contrast_preview();
         }
+
+        //この語句を追記する
+        private void surveyChangeInputButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_add_comment_write();
+        }
+
+        //印を付ける
+        private void markerInputButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_line_mark_write();
+        }
     }
 }

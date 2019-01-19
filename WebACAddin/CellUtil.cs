@@ -249,58 +249,6 @@ namespace WebACAddin
             return ret;
         }
 
-        //PIDのグループ名を自動入力
-        private void do_groupname_insert()
-        {
-            var sa = excelObj.Application.Selection;
-            var ash = excelObj.Application.ActiveSheet;
-
-            int r1, r2, c1, c2 = 0;
-            string grp_first_code = "";
-
-            r1 = sa.Row;
-            r2 = sa.Rows[sa.Rows.Count].Row;
-            c1 = sa.Column;
-            c2 = c1 - 1;
-     
-            if (ash.Cells[r1, c2].Value == null) return;
-            Type t = ash.Cells[r1, c2].Value.GetType();
-            if(t.Equals(typeof(string)))
-            {
-                grp_first_code = (string)ash.Cells[r1, c2].Value;
-            }
-            else if(t.Equals(typeof(int)) || t.Equals(typeof(double)))
-            {
-                grp_first_code = ash.Cells[r1, c2].Value.ToString();
-            }
-
-            grp_first_code = "グループ" + grp_first_code;
-            int[] rgbs = get_random_colode_idx();
-
-            for (int i=r1; i <= r2; i++)
-            {
-                ash.Cells[i, c1].Value = grp_first_code;
-                if(groupLabelWithColorRadio.Checked == true)
-                {
-                    ash.Cells[i, c1].Interior.Color = Color.FromArgb(rgbs[0], rgbs[1], rgbs[2]);
-                }
-
-            }
-            if(globalAlertOKNGRadio.Checked != true) MessageBox.Show("処理が完了しました!");
-
-        }
-
-        //ランダムな色コードを返す
-        private int[] get_random_colode_idx()
-        {
-            List<int[]> arr = new List<int[]>();
-            arr.Add(new int[3] { 204, 255, 255 });
-            arr.Add(new int[3] { 255, 204, 153 });
-            arr.Add(new int[3] { 204, 255, 204 });
-            arr.Add(new int[3] { 255, 255, 204 });
-            int counter = rnd.Next(0, 3);
-            return arr[counter];
-        }
 
         //修正ソースコードを簡易的に表示
         private void do_disp_htmlcode()

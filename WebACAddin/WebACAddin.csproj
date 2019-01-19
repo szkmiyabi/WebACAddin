@@ -180,6 +180,9 @@
     <Compile Include="UrlUtil.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WriteUtil.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="BrowserForm.resx">
       <DependentUpon>BrowserForm.cs</DependentUpon>
     </EmbeddedResource>
