@@ -83,7 +83,7 @@ namespace WebACAddin
             return ret;
         }
 
-        //テキストエリアから前景色RGBコードだけ取得
+        //テキストエリアから背景色RGBコードだけ取得
         private string _get_background_color(string str)
         {
             string ret = "";
