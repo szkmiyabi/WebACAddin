@@ -141,7 +141,7 @@
             // 
             // dispEasyHtmlDocButton
             // 
-            this.dispEasyHtmlDocButton.Label = "html簡易表示";
+            this.dispEasyHtmlDocButton.Label = "簡易HTML表示";
             this.dispEasyHtmlDocButton.Name = "dispEasyHtmlDocButton";
             this.dispEasyHtmlDocButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispEasyHtmlDocButton_Click);
             // 

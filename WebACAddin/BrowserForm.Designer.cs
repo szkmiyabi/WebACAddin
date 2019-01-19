@@ -32,6 +32,12 @@
             this.browserControl = new System.Windows.Forms.WebBrowser();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.previewHtmlUpdateButton = new System.Windows.Forms.Button();
+            this.docSemanticsSurveyButton = new System.Windows.Forms.Button();
+            this.docSemanticListRadio = new System.Windows.Forms.CheckBox();
+            this.docSemanticParagraphRadio = new System.Windows.Forms.CheckBox();
+            this.docSemanticHeadingRadio = new System.Windows.Forms.CheckBox();
+            this.docSemanticTableRadio = new System.Windows.Forms.CheckBox();
+            this.docSemanticsClearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,20 +70,91 @@
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.previewHtmlUpdateButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(374, 282);
+            this.flowLayoutPanel1.Controls.Add(this.docSemanticListRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docSemanticParagraphRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docSemanticHeadingRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docSemanticTableRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docSemanticsSurveyButton);
+            this.flowLayoutPanel1.Controls.Add(this.docSemanticsClearButton);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 282);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(210, 28);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(572, 28);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // previewHtmlUpdateButton
             // 
             this.previewHtmlUpdateButton.Location = new System.Drawing.Point(3, 3);
+            this.previewHtmlUpdateButton.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
             this.previewHtmlUpdateButton.Name = "previewHtmlUpdateButton";
             this.previewHtmlUpdateButton.Size = new System.Drawing.Size(128, 23);
             this.previewHtmlUpdateButton.TabIndex = 0;
             this.previewHtmlUpdateButton.Text = "セル値でプレビュー更新";
             this.previewHtmlUpdateButton.UseVisualStyleBackColor = true;
             this.previewHtmlUpdateButton.Click += new System.EventHandler(this.previewHtmlUpdateButton_Click);
+            // 
+            // docSemanticsSurveyButton
+            // 
+            this.docSemanticsSurveyButton.Location = new System.Drawing.Point(385, 3);
+            this.docSemanticsSurveyButton.Name = "docSemanticsSurveyButton";
+            this.docSemanticsSurveyButton.Size = new System.Drawing.Size(88, 23);
+            this.docSemanticsSurveyButton.TabIndex = 1;
+            this.docSemanticsSurveyButton.Text = "文書構造解析";
+            this.docSemanticsSurveyButton.UseVisualStyleBackColor = true;
+            this.docSemanticsSurveyButton.Click += new System.EventHandler(this.docSemanticsSurveyButton_Click);
+            // 
+            // docSemanticListRadio
+            // 
+            this.docSemanticListRadio.AutoSize = true;
+            this.docSemanticListRadio.Location = new System.Drawing.Point(184, 6);
+            this.docSemanticListRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docSemanticListRadio.Name = "docSemanticListRadio";
+            this.docSemanticListRadio.Size = new System.Drawing.Size(48, 16);
+            this.docSemanticListRadio.TabIndex = 2;
+            this.docSemanticListRadio.Text = "リスト";
+            this.docSemanticListRadio.UseVisualStyleBackColor = true;
+            // 
+            // docSemanticParagraphRadio
+            // 
+            this.docSemanticParagraphRadio.AutoSize = true;
+            this.docSemanticParagraphRadio.Location = new System.Drawing.Point(235, 6);
+            this.docSemanticParagraphRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docSemanticParagraphRadio.Name = "docSemanticParagraphRadio";
+            this.docSemanticParagraphRadio.Size = new System.Drawing.Size(48, 16);
+            this.docSemanticParagraphRadio.TabIndex = 3;
+            this.docSemanticParagraphRadio.Text = "段落";
+            this.docSemanticParagraphRadio.UseVisualStyleBackColor = true;
+            // 
+            // docSemanticHeadingRadio
+            // 
+            this.docSemanticHeadingRadio.AutoSize = true;
+            this.docSemanticHeadingRadio.Location = new System.Drawing.Point(286, 6);
+            this.docSemanticHeadingRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docSemanticHeadingRadio.Name = "docSemanticHeadingRadio";
+            this.docSemanticHeadingRadio.Size = new System.Drawing.Size(57, 16);
+            this.docSemanticHeadingRadio.TabIndex = 4;
+            this.docSemanticHeadingRadio.Text = "見出し";
+            this.docSemanticHeadingRadio.UseVisualStyleBackColor = true;
+            // 
+            // docSemanticTableRadio
+            // 
+            this.docSemanticTableRadio.AutoSize = true;
+            this.docSemanticTableRadio.Location = new System.Drawing.Point(346, 6);
+            this.docSemanticTableRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docSemanticTableRadio.Name = "docSemanticTableRadio";
+            this.docSemanticTableRadio.Size = new System.Drawing.Size(36, 16);
+            this.docSemanticTableRadio.TabIndex = 5;
+            this.docSemanticTableRadio.Text = "表";
+            this.docSemanticTableRadio.UseVisualStyleBackColor = true;
+            // 
+            // docSemanticsClearButton
+            // 
+            this.docSemanticsClearButton.Location = new System.Drawing.Point(479, 3);
+            this.docSemanticsClearButton.Name = "docSemanticsClearButton";
+            this.docSemanticsClearButton.Size = new System.Drawing.Size(75, 23);
+            this.docSemanticsClearButton.TabIndex = 6;
+            this.docSemanticsClearButton.Text = "クリア";
+            this.docSemanticsClearButton.UseVisualStyleBackColor = true;
+            this.docSemanticsClearButton.Click += new System.EventHandler(this.docSemanticsClearButton_Click);
             // 
             // BrowserForm
             // 
@@ -89,6 +166,7 @@
             this.Text = "Browser";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -99,5 +177,11 @@
         public System.Windows.Forms.WebBrowser browserControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button previewHtmlUpdateButton;
+        private System.Windows.Forms.CheckBox docSemanticListRadio;
+        private System.Windows.Forms.CheckBox docSemanticParagraphRadio;
+        private System.Windows.Forms.CheckBox docSemanticHeadingRadio;
+        private System.Windows.Forms.CheckBox docSemanticTableRadio;
+        private System.Windows.Forms.Button docSemanticsSurveyButton;
+        private System.Windows.Forms.Button docSemanticsClearButton;
     }
 }
