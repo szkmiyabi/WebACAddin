@@ -117,7 +117,7 @@ namespace WebACAddin
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Regex Error!");
+                MessageBox.Show("Error!");
             }
         }
 
@@ -126,7 +126,11 @@ namespace WebACAddin
             if (writeFormRegxCheck.Checked == true)
             {
                 Regex pt = new Regex(search, RegexOptions.Compiled | RegexOptions.Multiline);
-                if (pt.IsMatch(src) == false) return null;
+                if (pt.IsMatch(src) == false)
+                {
+                    MessageBox.Show("Regx Error! 検索条件を変えてお試しください!");
+                    return src;
+                }
                 return pt.Replace(src, replace);
             }
             else
