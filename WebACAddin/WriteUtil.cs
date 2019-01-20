@@ -105,11 +105,14 @@ namespace WebACAddin
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-
             int r, c = 0;
+            string range_text = "";
+
             r = sa.Row;
             c = sa.Column;
+            range_text = r.ToString() + ":" + r.ToString();
             ash.Cells[r, c].Value = "*";
+            ash.Rows[range_text].Interior.Color = 65535;
 
         }
 
