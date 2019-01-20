@@ -25,6 +25,7 @@ namespace WebACAddin
         private static Random rnd = new Random();  //乱数object
         private static BrowserForm _brfrmObj;
         private static ContrastForm _cnfrmObj;
+        private static WriteForm _wrfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -78,6 +79,19 @@ namespace WebACAddin
                     _cnfrmObj = new ContrastForm();
                 }
                 return _cnfrmObj;
+            }
+        }
+
+        //WriteFormインスタンスの取得
+        public static WriteForm wrfrmObj
+        {
+            get
+            {
+                if(_wrfrmObj == null || _wrfrmObj.IsDisposed)
+                {
+                    _wrfrmObj = new WriteForm();
+                }
+                return _wrfrmObj;
             }
         }
 
@@ -157,6 +171,12 @@ namespace WebACAddin
         private void markerInputButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_line_mark_write();
+        }
+
+        //セル文字編集フォームを表示
+        private void writeFormOpenButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_write_form();
         }
     }
 }

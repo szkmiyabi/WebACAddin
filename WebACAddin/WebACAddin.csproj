@@ -180,6 +180,12 @@
     <Compile Include="UrlUtil.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="WriteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForm.Designer.cs">
+      <DependentUpon>WriteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteUtil.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </Compile>
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForm.resx">
+      <DependentUpon>WriteForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

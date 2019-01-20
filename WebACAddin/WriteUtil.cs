@@ -116,5 +116,29 @@ namespace WebACAddin
 
         }
 
+        //セル文字編集フォームを表示
+        private void do_write_form()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            Regex unixbr = new Regex(@"\n", RegexOptions.Compiled | RegexOptions.Multiline);
+
+            int r, c = 0;
+            string body = "";
+            r = sa.Row;
+            c = sa.Column;
+            if (ash.Cells[r, c].Value != null)
+            {
+                Type t = ash.Cells[r, c].Value.GetType();
+                if (t.Equals(typeof(string)))
+                {
+                    body = (string)ash.Cells[r, c].Value;
+                }
+                body = unixbr.Replace(body, "\r\n");
+            }
+            wrfrmObj.Show();
+            wrfrmObj.writeFormText.Text = body;
+        }
+
     }
 }
