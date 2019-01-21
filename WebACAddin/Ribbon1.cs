@@ -21,8 +21,10 @@ namespace WebACAddin
     {
         private ThisAddIn excelObj;
         private CultureInfo culture;
-        private static Form1 _frmObj;
         private static Random rnd = new Random();  //乱数object
+
+        //Formオブジェクト
+        private static Form1 _frmObj;
         private static BrowserForm _brfrmObj;
         private static ContrastForm _cnfrmObj;
         private static WriteForm _wrfrmObj;
@@ -35,7 +37,7 @@ namespace WebACAddin
             culture.DateTimeFormat.Calendar = new JapaneseCalendar();
 
             groupLabelWithColorCheck.Checked = true;
-            writeCommentBreakCheck.Checked = true;
+            //writeCommentBreakCheck.Checked = true;
 
         }
 

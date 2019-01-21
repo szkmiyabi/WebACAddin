@@ -17,6 +17,11 @@ namespace WebACAddin
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            //Excel終了時フォームを強制的に閉じる
+            if (Ribbon1.frmObj.IsDisposed == false) Ribbon1.frmObj.Dispose();
+            if (Ribbon1.brfrmObj.IsDisposed == false) Ribbon1.brfrmObj.Dispose();
+            if (Ribbon1.cnfrmObj.IsDisposed == false) Ribbon1.cnfrmObj.Dispose();
+            if (Ribbon1.wrfrmObj.IsDisposed == false) Ribbon1.wrfrmObj.Dispose();
         }
 
         #region VSTO で生成されたコード
