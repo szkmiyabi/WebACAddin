@@ -70,13 +70,12 @@ namespace WebACAddin
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
 
-            Regex svpat = new Regex(@"(適合|不適合|適合\(注記\)|非適用)", RegexOptions.Compiled);
+            Regex svpat = new Regex(@"^(適合|不適合|適合\(注記\)|非適用)", RegexOptions.Compiled);
             string prefix = "\r\n↓\r\n";
 
             int r1, r2, c1, c2 = 0;
 
             string src = writeCommentFlagCombo.Text;
-            string buff = "";
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
@@ -86,6 +85,9 @@ namespace WebACAddin
             //行ループ
             for(int i=r1; i<=r2; i++)
             {
+
+                string buff = "";
+
                 //列のループ
                 for(int j=c1; j<=c2; j++)
                 {
