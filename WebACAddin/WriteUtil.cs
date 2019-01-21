@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Tools.Ribbon;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace WebACAddin
             for (int i = r1; i <= r2; i++)
             {
                 ash.Cells[i, c1].Value = grp_first_code;
-                if (groupLabelWithColorRadio.Checked == true)
+                if (groupLabelWithColorCheck.Checked == true)
                 {
                     ash.Cells[i, c1].Interior.Color = Color.FromArgb(rgbs[0], rgbs[1], rgbs[2]);
                 }
@@ -79,14 +80,7 @@ namespace WebACAddin
             r = sa.Row;
             c = sa.Column;
 
-            if (ash.Cells[r, c].Value == null) return;
-            Type t = ash.Cells[r, c].Value.GetType();
-            if (t.Equals(typeof(string)))
-            {
-                buff = ash.Cells[r, c].Value;
-            }
-
-            if(src != null && buff != "")
+            if (ash.Cells[r, c].Value == null)
             {
                 if (svpat.IsMatch(src))
                 {
@@ -94,10 +88,80 @@ namespace WebACAddin
                 }
                 else
                 {
-                    ash.Cells[r, c].Value = buff + "\r\n\r\n" + src + "\r\n";
+                    if (writeCommentBreakCheck.Checked == true)
+                    {
+                        ash.Cells[r, c].Value = buff + "\r\n\r\n" + src + "\r\n";
+                    }
+                    else
+                    {
+                        ash.Cells[r, c].Value = buff + src;
+                    }
+                }
+            }
+            else
+            {
+                Type t = ash.Cells[r, c].Value.GetType();
+                if (t.Equals(typeof(string)))
+                {
+                    buff = ash.Cells[r, c].Value;
+                }
+
+                if (src != null)
+                {
+                    if (svpat.IsMatch(src))
+                    {
+                        ash.Cells[r, c].Value = buff + prefix + src;
+                    }
+                    else
+                    {
+                        if(writeCommentBreakCheck.Checked == true)
+                        {
+                            ash.Cells[r, c].Value = buff + "\r\n\r\n" + src + "\r\n";
+                        }
+                        else
+                        {
+                            ash.Cells[r, c].Value = buff + src;
+                        }
+
+                    }
                 }
             }
 
+        }
+
+        //項目を追加する
+        private void do_add_comment()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            Regex pat = new Regex(@"(\r\n|\r|\n)+", RegexOptions.Compiled | RegexOptions.Multiline);
+
+            int r, c = 0;
+            string buff = "";
+
+            r = sa.Row;
+            c = sa.Column;
+            if (ash.Cells[r, c].Value == null)
+            {
+                MessageBox.Show("セルの値が空です!");
+                return;
+            }
+            Type t = ash.Cells[r, c].Value.GetType();
+            if (t.Equals(typeof(string)))
+            {
+                buff = ash.Cells[r, c].Value;
+                if(pat.IsMatch(buff))
+                {
+                    buff = pat.Replace(buff, "");
+                }
+            }
+            if(buff != "")
+            {
+                RibbonDropDownItem item = Factory.CreateRibbonDropDownItem();
+                item.Label = buff;
+                writeCommentFlagCombo.Items.Add(item);
+            }
+            
         }
 
         //印を付ける

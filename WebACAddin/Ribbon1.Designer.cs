@@ -57,9 +57,12 @@
             this.writeCommentFlagCombo = this.Factory.CreateRibbonComboBox();
             this.writeCommentInputButton = this.Factory.CreateRibbonButton();
             this.markerInputButton = this.Factory.CreateRibbonButton();
-            this.groupLabelWithColorRadio = this.Factory.CreateRibbonCheckBox();
-            this.groupLabelAddButton = this.Factory.CreateRibbonButton();
+            this.writeCommentBreakCheck = this.Factory.CreateRibbonCheckBox();
+            this.writeCommentAddButton = this.Factory.CreateRibbonButton();
             this.writeFormOpenButton = this.Factory.CreateRibbonButton();
+            this.separator2 = this.Factory.CreateRibbonSeparator();
+            this.groupLabelWithColorCheck = this.Factory.CreateRibbonCheckBox();
+            this.groupLabelAddButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -70,7 +73,6 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.separator2 = this.Factory.CreateRibbonSeparator();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group4.SuspendLayout();
@@ -167,10 +169,12 @@
             this.group4.Items.Add(this.writeCommentFlagCombo);
             this.group4.Items.Add(this.writeCommentInputButton);
             this.group4.Items.Add(this.markerInputButton);
-            this.group4.Items.Add(this.separator2);
-            this.group4.Items.Add(this.groupLabelWithColorRadio);
-            this.group4.Items.Add(this.groupLabelAddButton);
+            this.group4.Items.Add(this.writeCommentBreakCheck);
+            this.group4.Items.Add(this.writeCommentAddButton);
             this.group4.Items.Add(this.writeFormOpenButton);
+            this.group4.Items.Add(this.separator2);
+            this.group4.Items.Add(this.groupLabelWithColorCheck);
+            this.group4.Items.Add(this.groupLabelAddButton);
             this.group4.Label = "表編集";
             this.group4.Name = "group4";
             // 
@@ -206,22 +210,37 @@
             this.markerInputButton.Name = "markerInputButton";
             this.markerInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.markerInputButton_Click);
             // 
-            // groupLabelWithColorRadio
+            // writeCommentBreakCheck
             // 
-            this.groupLabelWithColorRadio.Label = "自動色付";
-            this.groupLabelWithColorRadio.Name = "groupLabelWithColorRadio";
+            this.writeCommentBreakCheck.Label = "空行有";
+            this.writeCommentBreakCheck.Name = "writeCommentBreakCheck";
             // 
-            // groupLabelAddButton
+            // writeCommentAddButton
             // 
-            this.groupLabelAddButton.Label = "グループ名入力";
-            this.groupLabelAddButton.Name = "groupLabelAddButton";
-            this.groupLabelAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.groupLabelAddButton_Click);
+            this.writeCommentAddButton.Label = "項目追加";
+            this.writeCommentAddButton.Name = "writeCommentAddButton";
+            this.writeCommentAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddButton_Click);
             // 
             // writeFormOpenButton
             // 
             this.writeFormOpenButton.Label = "セル文字編集";
             this.writeFormOpenButton.Name = "writeFormOpenButton";
             this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
+            // 
+            // separator2
+            // 
+            this.separator2.Name = "separator2";
+            // 
+            // groupLabelWithColorCheck
+            // 
+            this.groupLabelWithColorCheck.Label = "自動色付";
+            this.groupLabelWithColorCheck.Name = "groupLabelWithColorCheck";
+            // 
+            // groupLabelAddButton
+            // 
+            this.groupLabelAddButton.Label = "グループ名入力";
+            this.groupLabelAddButton.Name = "groupLabelAddButton";
+            this.groupLabelAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.groupLabelAddButton_Click);
             // 
             // group2
             // 
@@ -289,10 +308,6 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
-            // separator2
-            // 
-            this.separator2.Name = "separator2";
-            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -335,7 +350,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openChromeBetaButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton waCheckCommentBaseButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton groupLabelAddButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox groupLabelWithColorRadio;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox groupLabelWithColorCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox globalAlertOKNGRadio;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton dispEasyHtmlDocButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton dispContrastRepFormButton;
@@ -345,6 +360,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton markerInputButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton writeFormOpenButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton writeCommentAddButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentBreakCheck;
     }
 
     partial class ThisRibbonCollection

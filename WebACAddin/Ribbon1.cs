@@ -34,7 +34,8 @@ namespace WebACAddin
             culture = new CultureInfo("ja-JP", true);
             culture.DateTimeFormat.Calendar = new JapaneseCalendar();
 
-            groupLabelWithColorRadio.Checked = true;
+            groupLabelWithColorCheck.Checked = true;
+            writeCommentBreakCheck.Checked = true;
 
         }
 
@@ -167,6 +168,12 @@ namespace WebACAddin
             do_add_comment_write();
         }
 
+        //項目追加する
+        private void writeCommentAddButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_add_comment();
+        }
+
         //印を付ける
         private void markerInputButton_Click(object sender, RibbonControlEventArgs e)
         {
@@ -178,5 +185,6 @@ namespace WebACAddin
         {
             do_write_form();
         }
+
     }
 }
