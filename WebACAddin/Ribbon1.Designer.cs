@@ -217,7 +217,7 @@
             // 
             // writeCommentAddButton
             // 
-            this.writeCommentAddButton.Label = "項目追加";
+            this.writeCommentAddButton.Label = "値追加";
             this.writeCommentAddButton.Name = "writeCommentAddButton";
             this.writeCommentAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddButton_Click);
             // 

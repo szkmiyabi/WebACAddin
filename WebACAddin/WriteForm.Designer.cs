@@ -36,6 +36,7 @@
             this.tabStringDeleteButton = new System.Windows.Forms.Button();
             this.writeFormSnipetCombo = new System.Windows.Forms.ComboBox();
             this.writeFormSnipetInputButton = new System.Windows.Forms.Button();
+            this.writeFormSnipetAddButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.writeFormRegxCheck = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.writeReplaceText = new System.Windows.Forms.TextBox();
             this.writeReplaceButton = new System.Windows.Forms.Button();
-            this.writeFormSnipetAddButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -130,7 +130,7 @@
             "※削除",
             "※修正",
             "(<p.*?>)(.+?)(</p>)",
-            "(alt=\\\\\")(.+?)(\\\\\")"});
+            "(alt=\")(.+?)(\")"});
             this.writeFormSnipetCombo.Location = new System.Drawing.Point(244, 3);
             this.writeFormSnipetCombo.Name = "writeFormSnipetCombo";
             this.writeFormSnipetCombo.Size = new System.Drawing.Size(147, 20);
@@ -145,6 +145,16 @@
             this.writeFormSnipetInputButton.Text = "語句挿入";
             this.writeFormSnipetInputButton.UseVisualStyleBackColor = true;
             this.writeFormSnipetInputButton.Click += new System.EventHandler(this.writeFormSnipetInputButton_Click);
+            // 
+            // writeFormSnipetAddButton
+            // 
+            this.writeFormSnipetAddButton.Location = new System.Drawing.Point(470, 3);
+            this.writeFormSnipetAddButton.Name = "writeFormSnipetAddButton";
+            this.writeFormSnipetAddButton.Size = new System.Drawing.Size(55, 23);
+            this.writeFormSnipetAddButton.TabIndex = 5;
+            this.writeFormSnipetAddButton.Text = "値追加";
+            this.writeFormSnipetAddButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetAddButton.Click += new System.EventHandler(this.writeFormSnipetAddButton_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -218,16 +228,6 @@
             this.writeReplaceButton.Text = "置換";
             this.writeReplaceButton.UseVisualStyleBackColor = true;
             this.writeReplaceButton.Click += new System.EventHandler(this.writeReplaceButton_Click);
-            // 
-            // writeFormSnipetAddButton
-            // 
-            this.writeFormSnipetAddButton.Location = new System.Drawing.Point(470, 3);
-            this.writeFormSnipetAddButton.Name = "writeFormSnipetAddButton";
-            this.writeFormSnipetAddButton.Size = new System.Drawing.Size(55, 23);
-            this.writeFormSnipetAddButton.TabIndex = 5;
-            this.writeFormSnipetAddButton.Text = "値追加";
-            this.writeFormSnipetAddButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetAddButton.Click += new System.EventHandler(this.writeFormSnipetAddButton_Click);
             // 
             // WriteForm
             // 

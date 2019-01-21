@@ -90,7 +90,7 @@ namespace WebACAddin
                 {
                     if (writeCommentBreakCheck.Checked == true)
                     {
-                        ash.Cells[r, c].Value = buff + "\r\n\r\n" + src + "\r\n";
+                        ash.Cells[r, c].Value = buff + "\r\n" + src + "\r\n";
                     }
                     else
                     {
@@ -116,7 +116,7 @@ namespace WebACAddin
                     {
                         if(writeCommentBreakCheck.Checked == true)
                         {
-                            ash.Cells[r, c].Value = buff + "\r\n\r\n" + src + "\r\n";
+                            ash.Cells[r, c].Value = buff + "\r\n" + src + "\r\n";
                         }
                         else
                         {
@@ -129,7 +129,7 @@ namespace WebACAddin
 
         }
 
-        //項目を追加する
+        //ドロップダウンに値を追加する
         private void do_add_comment()
         {
             var sa = excelObj.Application.Selection;

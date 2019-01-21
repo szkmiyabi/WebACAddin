@@ -159,7 +159,7 @@ namespace WebACAddin
             if(cont == writeFormText)
             {
                 string buff = cont.Text;
-                cont.Text = buff + "\r\n\r\n" + src + "\r\n\r\n";
+                cont.Text = buff + "\r\n" + src + "\r\n";
             }
             else
             {
