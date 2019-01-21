@@ -73,59 +73,73 @@ namespace WebACAddin
             Regex svpat = new Regex(@"(適合|不適合|適合\(注記\)|非適用)", RegexOptions.Compiled);
             string prefix = "\r\n↓\r\n";
 
-            int r, c = 0;
+            int r1, r2, c1, c2 = 0;
+
             string src = writeCommentFlagCombo.Text;
             string buff = "";
 
-            r = sa.Row;
-            c = sa.Column;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c1 = sa.Column;
+            c2 = sa.Columns[sa.Columns.Count].Column;
 
-            if (ash.Cells[r, c].Value == null)
+            //行ループ
+            for(int i=r1; i<=r2; i++)
             {
-                if (svpat.IsMatch(src))
+                //列のループ
+                for(int j=c1; j<=c2; j++)
                 {
-                    ash.Cells[r, c].Value = buff + prefix + src;
-                }
-                else
-                {
-                    if (writeCommentBreakCheck.Checked == true)
-                    {
-                        ash.Cells[r, c].Value = buff + "\r\n" + src + "\r\n";
-                    }
-                    else
-                    {
-                        ash.Cells[r, c].Value = buff + src;
-                    }
-                }
-            }
-            else
-            {
-                Type t = ash.Cells[r, c].Value.GetType();
-                if (t.Equals(typeof(string)))
-                {
-                    buff = ash.Cells[r, c].Value;
-                }
 
-                if (src != null)
-                {
-                    if (svpat.IsMatch(src))
+                    if (ash.Cells[i, j].Value == null)
                     {
-                        ash.Cells[r, c].Value = buff + prefix + src;
-                    }
-                    else
-                    {
-                        if(writeCommentBreakCheck.Checked == true)
+                        if (svpat.IsMatch(src))
                         {
-                            ash.Cells[r, c].Value = buff + "\r\n" + src + "\r\n";
+                            ash.Cells[i, j].Value = buff + prefix + src;
                         }
                         else
                         {
-                            ash.Cells[r, c].Value = buff + src;
+                            if (writeCommentBreakCheck.Checked == true)
+                            {
+                                ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                            }
+                            else
+                            {
+                                ash.Cells[i, j].Value = buff + src;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Type t = ash.Cells[i, j].Value.GetType();
+                        if (t.Equals(typeof(string)))
+                        {
+                            buff = ash.Cells[i, j].Value;
                         }
 
+                        if (src != null)
+                        {
+                            if (svpat.IsMatch(src))
+                            {
+                                ash.Cells[i, j].Value = buff + prefix + src;
+                            }
+                            else
+                            {
+                                if (writeCommentBreakCheck.Checked == true)
+                                {
+                                    ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                }
+                                else
+                                {
+                                    ash.Cells[i, j].Value = buff + src;
+                                }
+
+                            }
+                        }
                     }
+
                 }
             }
+
 
         }
 
@@ -169,15 +183,22 @@ namespace WebACAddin
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-            int r, c = 0;
+            int r1, r2, c = 0;
             string range_text = "";
 
-            r = sa.Row;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
             c = sa.Column;
-            range_text = r.ToString() + ":" + r.ToString();
-            ash.Cells[r, c].Value = "*";
-            ash.Rows[range_text].Interior.Color = 65535;
 
+            //行のループ
+            for(int i= r1; i<=r2; i++)
+            {
+
+                range_text = i.ToString() + ":" + i.ToString();
+                ash.Cells[i, c].Value = "*";
+                ash.Rows[range_text].Interior.Color = 65535;
+
+            }
         }
 
         //セル文字編集フォームを表示
