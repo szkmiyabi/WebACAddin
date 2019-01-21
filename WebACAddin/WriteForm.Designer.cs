@@ -126,7 +126,7 @@
             // 
             this.writeFormSnipetCombo.FormattingEnabled = true;
             this.writeFormSnipetCombo.Items.AddRange(new object[] {
-            "※追加",
+            "※追記",
             "※削除",
             "※修正",
             "(<p.*?>)(.+?)(</p>)",
