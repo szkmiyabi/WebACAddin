@@ -42,7 +42,7 @@ namespace WebACAddin
             for (int i = r1; i <= r2; i++)
             {
                 ash.Cells[i, c1].Value = grp_first_code;
-                if (groupLabelWithColorCheck.Checked == true)
+                if (addLabelColorCheck.Checked == true)
                 {
                     ash.Cells[i, c1].Interior.Color = Color.FromArgb(rgbs[0], rgbs[1], rgbs[2]);
                 }
@@ -64,8 +64,8 @@ namespace WebACAddin
             return arr[counter];
         }
 
-        //語句を追記する
-        private void do_add_comment_write()
+        //判定を追記する
+        private void do_add_survey_write()
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
@@ -75,7 +75,7 @@ namespace WebACAddin
 
             int r1, r2, c1, c2 = 0;
 
-            string src = writeCommentFlagCombo.Text;
+            string src = svRedimFlagCombo.Text;
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
@@ -83,13 +83,13 @@ namespace WebACAddin
             c2 = sa.Columns[sa.Columns.Count].Column;
 
             //行ループ
-            for(int i=r1; i<=r2; i++)
+            for (int i = r1; i <= r2; i++)
             {
 
                 string buff = "";
 
                 //列のループ
-                for(int j=c1; j<=c2; j++)
+                for (int j = c1; j <= c2; j++)
                 {
 
                     if (ash.Cells[i, j].Value == null)
@@ -141,7 +141,83 @@ namespace WebACAddin
 
                 }
             }
+        }
 
+        //語句を追記する
+        private void do_add_comment_write()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+
+            int r1, r2, c1, c2 = 0;
+
+            string src = writeCommentFlagCombo.Text;
+
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c1 = sa.Column;
+            c2 = sa.Columns[sa.Columns.Count].Column;
+
+            //行ループ
+            for(int i=r1; i<=r2; i++)
+            {
+
+                string buff = "";
+
+                //列のループ
+                for(int j=c1; j<=c2; j++)
+                {
+
+                    if (ash.Cells[i, j].Value == null)
+                    {
+                        if(writeCommentOverrideCheck.Checked == false)
+                        {
+                            ash.Cells[i, j].Value = src;
+                        }
+                        else
+                        {
+                            if (writeCommentBreakCheck.Checked == true)
+                            {
+                                ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                            }
+                            else
+                            {
+                                ash.Cells[i, j].Value = buff + src;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        Type t = ash.Cells[i, j].Value.GetType();
+                        if (t.Equals(typeof(string)))
+                        {
+                            buff = ash.Cells[i, j].Value;
+                        }
+
+                        if (src != null)
+                        {
+
+                            if(writeCommentOverrideCheck.Checked == false)
+                            {
+                                ash.Cells[i, j].Value = src;
+                            }
+                            else
+                            {
+                                if (writeCommentBreakCheck.Checked == true)
+                                {
+                                    ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                }
+                                else
+                                {
+                                    ash.Cells[i, j].Value = buff + src;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
 
         }
 
@@ -198,7 +274,10 @@ namespace WebACAddin
 
                 range_text = i.ToString() + ":" + i.ToString();
                 ash.Cells[i, c].Value = "*";
-                ash.Rows[range_text].Interior.Color = 65535;
+                if(addLabelColorCheck.Checked == true)
+                {
+                    ash.Rows[range_text].Interior.Color = 65535;
+                }
 
             }
         }
