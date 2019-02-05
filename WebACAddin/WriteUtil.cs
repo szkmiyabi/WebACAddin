@@ -7,6 +7,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Core;
+using Microsoft.Office.Tools.Excel;
+using System.IO;
+
 namespace WebACAddin
 {
     partial class Ribbon1
@@ -65,6 +70,24 @@ namespace WebACAddin
         }
 
         //判定を追記する
+        private void do_add_survey_write_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_add_survey_write();
+            }
+        }
         private void do_add_survey_write()
         {
             var sa = excelObj.Application.Selection;
@@ -144,6 +167,24 @@ namespace WebACAddin
         }
 
         //語句を追記する
+        private void do_add_comment_write_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach(Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for(int i=0; i<selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_add_comment_write();
+            }
+        }
         private void do_add_comment_write()
         {
             var sa = excelObj.Application.Selection;
@@ -151,7 +192,7 @@ namespace WebACAddin
 
             int r1, r2, c1, c2 = 0;
 
-            string src = writeCommentFlagCombo.Text;
+            string src = writeCommentCombo.Text;
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
@@ -251,12 +292,90 @@ namespace WebACAddin
             {
                 RibbonDropDownItem item = Factory.CreateRibbonDropDownItem();
                 item.Label = buff;
-                writeCommentFlagCombo.Items.Add(item);
+                writeCommentCombo.Items.Add(item);
             }
             
         }
 
+        //テキストファイルからドロップダウンに値を追加する
+        private void do_add_comment_from_file()
+        {
+            string filename = "";
+            string body = "";
+            List<string> arr = new List<string>();
+
+            //check onなら全クリア
+            if (addCommentPreClearCheck.Checked == true) do_clear_combo_comment_all();
+
+            OpenFileDialog f = new OpenFileDialog();
+            f.Filter = "テキストファイル(*.txt)|*.txt";
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                filename = f.FileName;
+            }
+            if (filename == "") return;
+            StreamReader sr = new StreamReader(filename, System.Text.Encoding.GetEncoding("shift_jis"));
+            while (sr.Peek() > -1)
+            {
+                string line = sr.ReadLine();
+                arr.Add(line);
+            }
+            sr.Close();
+
+            for (int i = 0; i < arr.Count; i++)
+            {
+                RibbonDropDownItem item = Factory.CreateRibbonDropDownItem();
+                item.Label = arr[i].ToString();
+                writeCommentCombo.Items.Add(item);
+            }
+
+        }
+
+        //ドロップダウン選択項目削除
+        private void do_clear_combo_comment_single()
+        {
+            int idx = 0;
+            string cr = writeCommentCombo.Text;
+
+            for (int i = 0; i < writeCommentCombo.Items.Count; i++)
+            {
+                RibbonDropDownItem opt = writeCommentCombo.Items[i];
+                if (opt.Label.Equals(cr))
+                {
+                    writeCommentCombo.Items.RemoveAt(idx);
+                    writeCommentCombo.Text = "";
+                    break;
+                }
+                idx++;
+            }
+        }
+
+        //ドロップダウン項目全削除
+        private void do_clear_combo_comment_all()
+        {
+            writeCommentCombo.Items.Clear();
+            writeCommentCombo.Text = "";
+        }
+
         //印を付ける
+        private void do_line_mark_write_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_line_mark_write();
+            }
+        }
         private void do_line_mark_write()
         {
             var sa = excelObj.Application.Selection;

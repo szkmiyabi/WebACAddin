@@ -28,6 +28,7 @@ namespace WebACAddin
         private static BrowserForm _brfrmObj;
         private static ContrastForm _cnfrmObj;
         private static WriteForm _wrfrmObj;
+        private static DocForm _docfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -39,6 +40,7 @@ namespace WebACAddin
             addLabelColorCheck.Checked = true;
             //writeCommentBreakCheck.Checked = true;
             writeCommentOverrideCheck.Checked = true;
+            addCommentPreClearCheck.Checked = true;
 
         }
 
@@ -96,6 +98,19 @@ namespace WebACAddin
                     _wrfrmObj = new WriteForm();
                 }
                 return _wrfrmObj;
+            }
+        }
+
+        //DocFormインスタンスの取得
+        public static DocForm docfrmObj
+        {
+            get
+            {
+                if(_docfrmObj == null || _docfrmObj.IsDisposed)
+                {
+                    _docfrmObj = new DocForm();
+                }
+                return _docfrmObj;
             }
         }
 
@@ -169,25 +184,31 @@ namespace WebACAddin
         //判定を追記する
         private void svRedimInputButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_add_survey_write();
+            do_add_survey_write_wrapper();
         }
 
         //この語句を追記する
         private void surveyChangeInputButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_add_comment_write();
+            do_add_comment_write_wrapper();
         }
 
-        //項目追加する
+        //セルから値追加
         private void writeCommentAddButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_add_comment();
         }
 
+        //ファイルから値追加
+        private void writeCommentAddFromFileButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_add_comment_from_file();
+        }
+
         //印を付ける
         private void markerInputButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_line_mark_write();
+            do_line_mark_write_wrapper();
         }
 
         //セル文字編集フォームを表示
@@ -196,5 +217,22 @@ namespace WebACAddin
             do_write_form();
         }
 
+        //テキスト編集
+        private void documentEditButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_doc_form();
+        }
+
+        //項目1件削除
+        private void delCommentSingleButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_clear_combo_comment_single();
+        }
+
+        //項目全削除
+        private void delCommentAllButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_clear_combo_comment_all();
+        }
     }
 }

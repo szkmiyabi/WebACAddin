@@ -18,3 +18,4 @@ C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.dll
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.pdb
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.ContrastForm.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.WriteForm.resources
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.DocForm.resources
