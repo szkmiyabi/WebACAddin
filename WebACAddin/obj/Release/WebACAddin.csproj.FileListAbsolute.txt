@@ -18,3 +18,4 @@ C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.Write
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.csproj.GenerateResource.Cache
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.dll
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.pdb
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.csprojResolveAssemblyReference.cache

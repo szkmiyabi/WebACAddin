@@ -33,156 +33,162 @@ namespace WebACAddin
         //この色のセルを取得
         private void get_this_color_cell_list()
         {
-            try
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+
+            string ret = "";
+            string cell_val = "";
+            int r1, r2, c = 0;
+            int cc = 0;
+
+            cell_val = cellValText.Text;
+            if (cell_val.Equals(""))
             {
-                string ret = "";
+                MessageBox.Show("セル色コード欄が空です!");
+                return;
+            }
 
-                var sa = excelObj.Application.Selection;
-                var ash = excelObj.Application.ActiveSheet;
+            cc = Int32.Parse(cellValText.Text);
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c = sa.Column;
 
-                int cc = Int32.Parse(cellValText.Text);
-                int r1, r2, c = 0;
+            for (int i = r1; i <= r2; i++)
+            {
+                int cr_cc = 0;
+                string cr_val = "";
 
-                r1 = sa.Row;
-                r2 = sa.Rows[sa.Rows.Count].Row;
-                c = sa.Column;
+                if (ash.Cells[i, c].Value == null) continue;
 
-                for (int i = r1; i <= r2; i++)
+                Type t = ash.Cells[i, c].Value.GetType();
+                if (t.Equals(typeof(string)))
                 {
-                    int cr_cc = 0;
-                    string cr_val = "";
-
-                    if (ash.Cells[i, c].Value == null) continue;
-
-                    Type t = ash.Cells[i, c].Value.GetType();
-                    if (t.Equals(typeof(string)))
-                    {
-                        cr_cc = ash.Cells[i, c].Interior.ColorIndex;
-                        cr_val = (string)ash.Cells[i, c].Value;
-                    }
-                    if (cc == cr_cc)
-                    {
-                        ret += cr_val + "\r\n";
-                    }
+                    cr_cc = ash.Cells[i, c].Interior.ColorIndex;
+                    cr_val = (string)ash.Cells[i, c].Value;
                 }
-
-                frmObj.Show();
-                frmObj.reportText.Text = ret;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("システムエラー");
+                if (cc == cr_cc)
+                {
+                    ret += cr_val + "\r\n";
+                }
             }
 
+            if(frmObj.Visible == false) frmObj.Show();
+            frmObj.reportText.Text = ret;
         }
 
         //リストに一致するセルに色を付ける
         private void do_coloring_match_list()
         {
-            try
+            string ta = "";
+            string cell_val = "";
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r1, r2, c = 0;
+            int cc = 0;
+
+            if(frmObj.Visible == false)
             {
-                string ta = frmObj.reportText.Text;
-                int cc = Int32.Parse(cellValText.Text);
+                MessageBox.Show("フォームが開かれていません!");
+                frmObj.Show();
+                return;
+            }
 
-                var sa = excelObj.Application.Selection;
-                var ash = excelObj.Application.ActiveSheet;
+            ta = frmObj.reportText.Text;
+            cell_val = cellValText.Text;
 
-                int r1, r2, c = 0;
+            if(cell_val.Equals(""))
+            {
+                MessageBox.Show("セル色コード欄が空です!");
+                return;
+            }
 
-                if (!ta.Equals(""))
+            cc = Int32.Parse(cell_val);
+  
+            if (ta.Equals(""))
+            {
+                MessageBox.Show("フォーム内のデータが空です!");
+            }
+            else
+            {
+                string[] sep = { "\r\n" };
+                string[] arr = ta.Split(sep, StringSplitOptions.None);
+
+                r1 = sa.Row;
+                r2 = sa.Rows[sa.Rows.Count].Row;
+                c = sa.Column;
+
+                for (int i = 0; i < arr.Length; i++)
                 {
+                    string line = arr[i].ToString();
 
-
-
-                    string[] sep = { "\r\n" };
-                    string[] arr = ta.Split(sep, StringSplitOptions.None);
-
-                    r1 = sa.Row;
-                    r2 = sa.Rows[sa.Rows.Count].Row;
-                    c = sa.Column;
-
-                    for (int i = 0; i < arr.Length; i++)
+                    for (int j = r1; j <= r2; j++)
                     {
-                        string line = arr[i].ToString();
+                        if (ash.Cells[j, c].Value == null) continue;
 
-                        for (int j = r1; j <= r2; j++)
+                        Type t = ash.Cells[j, c].Value.GetType();
+                        if (t.Equals(typeof(string)))
                         {
-                            if (ash.Cells[j, c].Value == null) continue;
-
-                            Type t = ash.Cells[j, c].Value.GetType();
-                            if (t.Equals(typeof(string)))
+                            string cr_val = ash.Cells[j, c].Value;
+                            if (cr_val.Equals(line))
                             {
-                                string cr_val = ash.Cells[j, c].Value;
-                                if (cr_val.Equals(line))
-                                {
-                                    ash.Cells[j, c].Interior.ColorIndex = cc;
-                                }
+                                ash.Cells[j, c].Interior.ColorIndex = cc;
                             }
-
                         }
+
                     }
                 }
-                else
-                {
-                    MessageBox.Show("リストのダイアログが開かれていません");
-                    frmObj.Show();
-                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("システムエラー");
-            }
-
-
         }
 
         //生成されたリストを反転
         private void do_reverse_list()
         {
-            try
+            string ta = "";
+            string new_ta = "";
+
+            if(frmObj.Visible == false)
             {
-                string ta = frmObj.reportText.Text;
-                string new_ta = "";
+                MessageBox.Show("フォームが開かれていません!");
+                frmObj.Show();
+                return;
+            }
 
-                if (!ta.Equals(""))
+            ta = frmObj.reportText.Text;
+
+            if (ta.Equals(""))
+            {
+                MessageBox.Show("フォーム内のデータが空です!");
+            }
+            else
+            {
+                string[] sep = { "\r\n" };
+                string[] arr = ta.Split(sep, StringSplitOptions.RemoveEmptyEntries);
+
+                int max_cnt = arr.Length;
+                if (max_cnt > 1)
                 {
-                    string[] sep = { "\r\n" };
-                    string[] arr = ta.Split(sep, StringSplitOptions.RemoveEmptyEntries);
-
-                    int max_cnt = arr.Length;
-                    if (max_cnt > 1)
+                    for (int i = max_cnt; i != -1; i--)
                     {
-                        for (int i = max_cnt; i != -1; i--)
+                        string line = "";
+                        try
                         {
-                            string line = "";
-                            try
-                            {
-                                line = arr[i].ToString();
-                            }
-                            catch (Exception ex)
-                            {
-                            }
-
-                            new_ta += line + "\r\n";
+                            line = arr[i].ToString();
+                        }
+                        catch (Exception ex)
+                        {
                         }
 
-                        frmObj.reportText.Text = new_ta.TrimStart();
-                        MessageBox.Show("リストの反転が完了しました！");
+                        new_ta += line + "\r\n";
+                    }
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("リストが1項目なので反転は不要です！");
-                    }
+                    frmObj.reportText.Text = new_ta.TrimStart();
+                    MessageBox.Show("リストの反転が完了しました！");
+
                 }
                 else
                 {
-                    MessageBox.Show("レポートフォームからリストを取得できません！");
+                    MessageBox.Show("リストが1項目なので反転は不要です！");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("システムエラー！");
             }
 
         }
