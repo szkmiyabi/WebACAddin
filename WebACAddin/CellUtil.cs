@@ -11,6 +11,8 @@ namespace WebACAddin
     partial class Ribbon1
     {
 
+        private string tab_sp = "<bkmk:tab>";
+        private string br_sp = "<bkmk:br>";
 
         //カラーコード取得
         private void get_color_code()
@@ -191,6 +193,66 @@ namespace WebACAddin
                 }
             }
 
+        }
+
+        //判定ひな形を作成
+        private void get_survey_base()
+        {
+            if(frmObj.Visible == false)
+            {
+                frmObj.Show();
+            }
+
+            string ret = "";
+            Regex mt = new Regex(@"http.*//.+");
+
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+
+            int r1, r2, c1, c2;
+
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c1 = sa.Column;
+            c2 = sa.Columns[sa.Columns.Count].Column;
+
+            for (int i = r1; i <= r2; i++)
+            {
+                int di = 0;
+                string tmp = ash.Cells[i, 3].Value;
+                if (mt.IsMatch(tmp)) di++;
+
+                string guideline = ash.Cells[i, 2].Value;
+                string pageID = ash.Cells[i, 1].Value;
+                string techID = ash.Cells[i, 4 + di].Value;
+                string sv_flag = ash.Cells[i, 5 + di].Value;
+                string comment = _br_encode(ash.Cells[i, 7 + di].Value);
+                string description = _br_encode(ash.Cells[i, 8 + di].Value);
+                string srccode = _br_encode(ash.Cells[i, 9 + di].Value);
+                string sv_copy_flag = "no";
+
+                ret = techID + tab_sp + sv_flag + tab_sp + sv_copy_flag + tab_sp + "who" + tab_sp;
+                ret += comment + tab_sp + description + tab_sp + srccode;
+
+                frmObj.Show();
+                frmObj.reportText.Clear();
+                frmObj.reportText.Text = ret;
+            }
+
+            frmObj.reportText.Clear();
+            frmObj.reportText.Text = ret;
+
+        }
+        private string _br_encode(string str)
+        {
+            if (str.Equals("")) return str;
+            string ret = "";
+            Regex brpt = new Regex(@"(\r\n|\n|\r)", RegexOptions.Compiled | RegexOptions.Multiline);
+            if(brpt.IsMatch(str))
+            {
+                ret = brpt.Replace(str, br_sp);
+            }
+            return ret;
         }
 
         //品質チェック指摘コメントのひな形を作成

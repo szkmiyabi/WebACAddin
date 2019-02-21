@@ -31,10 +31,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.docFormText = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.docLoadCellDataButton = new System.Windows.Forms.Button();
             this.failCategoryFieldCheck = new System.Windows.Forms.CheckBox();
             this.pageNumIncludeCheck = new System.Windows.Forms.CheckBox();
             this.urlstrIncludeCheck = new System.Windows.Forms.CheckBox();
+            this.docLoadCellDataButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,16 +78,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(527, 32);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // docLoadCellDataButton
-            // 
-            this.docLoadCellDataButton.Location = new System.Drawing.Point(193, 3);
-            this.docLoadCellDataButton.Name = "docLoadCellDataButton";
-            this.docLoadCellDataButton.Size = new System.Drawing.Size(75, 23);
-            this.docLoadCellDataButton.TabIndex = 0;
-            this.docLoadCellDataButton.Text = "セル読込";
-            this.docLoadCellDataButton.UseVisualStyleBackColor = true;
-            this.docLoadCellDataButton.Click += new System.EventHandler(this.docLoadCellDataButton_Click);
-            // 
             // failCategoryFieldCheck
             // 
             this.failCategoryFieldCheck.AutoSize = true;
@@ -118,6 +108,16 @@
             this.urlstrIncludeCheck.Text = "URL有";
             this.urlstrIncludeCheck.UseVisualStyleBackColor = true;
             // 
+            // docLoadCellDataButton
+            // 
+            this.docLoadCellDataButton.Location = new System.Drawing.Point(193, 3);
+            this.docLoadCellDataButton.Name = "docLoadCellDataButton";
+            this.docLoadCellDataButton.Size = new System.Drawing.Size(75, 23);
+            this.docLoadCellDataButton.TabIndex = 0;
+            this.docLoadCellDataButton.Text = "セル読込";
+            this.docLoadCellDataButton.UseVisualStyleBackColor = true;
+            this.docLoadCellDataButton.Click += new System.EventHandler(this.docLoadCellDataButton_Click);
+            // 
             // DocForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -125,7 +125,7 @@
             this.ClientSize = new System.Drawing.Size(533, 335);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DocForm";
-            this.Text = "DocForm";
+            this.Text = "文書フォーム";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

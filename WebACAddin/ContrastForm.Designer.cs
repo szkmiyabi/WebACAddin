@@ -33,10 +33,10 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.contrastRatioText = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.contrastRatioTextClearButton = new System.Windows.Forms.Button();
+            this.loadCellDataButton = new System.Windows.Forms.Button();
             this.contrastRatioPvButton = new System.Windows.Forms.Button();
             this.contrastRatioClearButton = new System.Windows.Forms.Button();
-            this.loadCellDataButton = new System.Windows.Forms.Button();
-            this.contrastRatioTextClearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -103,6 +103,27 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(392, 30);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
+            // contrastRatioTextClearButton
+            // 
+            this.contrastRatioTextClearButton.Location = new System.Drawing.Point(3, 3);
+            this.contrastRatioTextClearButton.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);
+            this.contrastRatioTextClearButton.Name = "contrastRatioTextClearButton";
+            this.contrastRatioTextClearButton.Size = new System.Drawing.Size(98, 23);
+            this.contrastRatioTextClearButton.TabIndex = 3;
+            this.contrastRatioTextClearButton.Text = "テキスト欄クリア";
+            this.contrastRatioTextClearButton.UseVisualStyleBackColor = true;
+            this.contrastRatioTextClearButton.Click += new System.EventHandler(this.contrastRatioTextClearButton_Click);
+            // 
+            // loadCellDataButton
+            // 
+            this.loadCellDataButton.Location = new System.Drawing.Point(129, 3);
+            this.loadCellDataButton.Name = "loadCellDataButton";
+            this.loadCellDataButton.Size = new System.Drawing.Size(90, 23);
+            this.loadCellDataButton.TabIndex = 2;
+            this.loadCellDataButton.Text = "セル値を取得";
+            this.loadCellDataButton.UseVisualStyleBackColor = true;
+            this.loadCellDataButton.Click += new System.EventHandler(this.loadCellDataButton_Click);
+            // 
             // contrastRatioPvButton
             // 
             this.contrastRatioPvButton.Location = new System.Drawing.Point(225, 3);
@@ -123,27 +144,6 @@
             this.contrastRatioClearButton.UseVisualStyleBackColor = true;
             this.contrastRatioClearButton.Click += new System.EventHandler(this.contrastRatioClearButton_Click);
             // 
-            // loadCellDataButton
-            // 
-            this.loadCellDataButton.Location = new System.Drawing.Point(129, 3);
-            this.loadCellDataButton.Name = "loadCellDataButton";
-            this.loadCellDataButton.Size = new System.Drawing.Size(90, 23);
-            this.loadCellDataButton.TabIndex = 2;
-            this.loadCellDataButton.Text = "セル値を取得";
-            this.loadCellDataButton.UseVisualStyleBackColor = true;
-            this.loadCellDataButton.Click += new System.EventHandler(this.loadCellDataButton_Click);
-            // 
-            // contrastRatioTextClearButton
-            // 
-            this.contrastRatioTextClearButton.Location = new System.Drawing.Point(3, 3);
-            this.contrastRatioTextClearButton.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);
-            this.contrastRatioTextClearButton.Name = "contrastRatioTextClearButton";
-            this.contrastRatioTextClearButton.Size = new System.Drawing.Size(98, 23);
-            this.contrastRatioTextClearButton.TabIndex = 3;
-            this.contrastRatioTextClearButton.Text = "テキスト欄クリア";
-            this.contrastRatioTextClearButton.UseVisualStyleBackColor = true;
-            this.contrastRatioTextClearButton.Click += new System.EventHandler(this.contrastRatioTextClearButton_Click);
-            // 
             // ContrastForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -151,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(470, 273);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ContrastForm";
-            this.Text = "ContrastBrowser";
+            this.Text = "コントラストブラウザー";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

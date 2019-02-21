@@ -49,7 +49,7 @@
             this.ClientSize = new System.Drawing.Size(447, 216);
             this.Controls.Add(this.reportText);
             this.Name = "Form1";
-            this.Text = "WebACAddin";
+            this.Text = "セル解析フォーム";
             this.ResumeLayout(false);
             this.PerformLayout();
 

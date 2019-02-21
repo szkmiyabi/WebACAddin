@@ -234,5 +234,11 @@ namespace WebACAddin
         {
             do_clear_combo_comment_all();
         }
+
+        //判定ひな形生成
+        private void svDataForPasteButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            get_survey_base();
+        }
     }
 }

@@ -53,7 +53,6 @@ namespace WebACAddin
                 }
 
             }
-            if (globalAlertOKNGRadio.Checked != true) MessageBox.Show("処理が完了しました!");
 
         }
 

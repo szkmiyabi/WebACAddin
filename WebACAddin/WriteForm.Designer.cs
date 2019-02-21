@@ -236,7 +236,7 @@
             this.ClientSize = new System.Drawing.Size(555, 291);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "WriteForm";
-            this.Text = "WriteForm";
+            this.Text = "セル編集";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

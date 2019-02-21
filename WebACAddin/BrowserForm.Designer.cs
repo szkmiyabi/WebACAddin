@@ -32,11 +32,11 @@
             this.browserControl = new System.Windows.Forms.WebBrowser();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.previewHtmlUpdateButton = new System.Windows.Forms.Button();
-            this.docSemanticsSurveyButton = new System.Windows.Forms.Button();
             this.docSemanticListRadio = new System.Windows.Forms.CheckBox();
             this.docSemanticParagraphRadio = new System.Windows.Forms.CheckBox();
             this.docSemanticHeadingRadio = new System.Windows.Forms.CheckBox();
             this.docSemanticTableRadio = new System.Windows.Forms.CheckBox();
+            this.docSemanticsSurveyButton = new System.Windows.Forms.Button();
             this.docSemanticsClearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -92,16 +92,6 @@
             this.previewHtmlUpdateButton.UseVisualStyleBackColor = true;
             this.previewHtmlUpdateButton.Click += new System.EventHandler(this.previewHtmlUpdateButton_Click);
             // 
-            // docSemanticsSurveyButton
-            // 
-            this.docSemanticsSurveyButton.Location = new System.Drawing.Point(385, 3);
-            this.docSemanticsSurveyButton.Name = "docSemanticsSurveyButton";
-            this.docSemanticsSurveyButton.Size = new System.Drawing.Size(88, 23);
-            this.docSemanticsSurveyButton.TabIndex = 1;
-            this.docSemanticsSurveyButton.Text = "文書構造解析";
-            this.docSemanticsSurveyButton.UseVisualStyleBackColor = true;
-            this.docSemanticsSurveyButton.Click += new System.EventHandler(this.docSemanticsSurveyButton_Click);
-            // 
             // docSemanticListRadio
             // 
             this.docSemanticListRadio.AutoSize = true;
@@ -146,6 +136,16 @@
             this.docSemanticTableRadio.Text = "表";
             this.docSemanticTableRadio.UseVisualStyleBackColor = true;
             // 
+            // docSemanticsSurveyButton
+            // 
+            this.docSemanticsSurveyButton.Location = new System.Drawing.Point(385, 3);
+            this.docSemanticsSurveyButton.Name = "docSemanticsSurveyButton";
+            this.docSemanticsSurveyButton.Size = new System.Drawing.Size(88, 23);
+            this.docSemanticsSurveyButton.TabIndex = 1;
+            this.docSemanticsSurveyButton.Text = "文書構造解析";
+            this.docSemanticsSurveyButton.UseVisualStyleBackColor = true;
+            this.docSemanticsSurveyButton.Click += new System.EventHandler(this.docSemanticsSurveyButton_Click);
+            // 
             // docSemanticsClearButton
             // 
             this.docSemanticsClearButton.Location = new System.Drawing.Point(479, 3);
@@ -163,7 +163,7 @@
             this.ClientSize = new System.Drawing.Size(587, 313);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "BrowserForm";
-            this.Text = "Browser";
+            this.Text = "簡易ブラウザー";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
