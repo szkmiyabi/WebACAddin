@@ -6,6 +6,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Core;
+using Microsoft.Office.Tools.Excel;
+using System.IO;
+
 namespace WebACAddin
 {
     partial class Ribbon1
@@ -354,14 +359,13 @@ namespace WebACAddin
         }
 
         //色付け決め打ち
-        private void do_static_cell_coloring(string operation)
+        private void do_static_cell_coloring_wrapper(string operation)
         {
-            var sa = excelObj.Application.Selection;
-            var ash = excelObj.Application.ActiveSheet;
-            int r = sa.Row;
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
             List<int[]> arr = _get_color_rgb_list();
             int[] cr_row = null;
-            string range_text = "";
             switch (operation)
             {
                 case "blue":
@@ -377,9 +381,25 @@ namespace WebACAddin
                     cr_row = arr[3];
                     break;
             }
-            range_text = r.ToString() + ":" + r.ToString();
-            ash.Rows[range_text].Interior.Color = Color.FromArgb(cr_row[0], cr_row[1], cr_row[2]);
-
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_static_cell_coloring(cr_row);
+            }
+        }
+        private void do_static_cell_coloring(int[] color_arr)
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r = sa.Row;
+            string range_text = r.ToString() + ":" + r.ToString();
+            ash.Rows[range_text].Interior.Color = Color.FromArgb(color_arr[0], color_arr[1], color_arr[2]);
         }
         private List<int[]> _get_color_rgb_list() {
             List<int[]> arr = new List<int[]>();

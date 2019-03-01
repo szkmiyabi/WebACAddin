@@ -244,19 +244,19 @@ namespace WebACAddin
         //色付け決め打ち
         private void ccBlueButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_static_cell_coloring("blue");
+            do_static_cell_coloring_wrapper("blue");
         }
         private void ccGreenButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_static_cell_coloring("green");
+            do_static_cell_coloring_wrapper("green");
         }
         private void ccPinkButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_static_cell_coloring("pink");
+            do_static_cell_coloring_wrapper("pink");
         }
         private void ccPurpleButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_static_cell_coloring("purple");
+            do_static_cell_coloring_wrapper("purple");
         }
     }
 }
