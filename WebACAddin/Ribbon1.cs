@@ -240,5 +240,23 @@ namespace WebACAddin
         {
             get_survey_base();
         }
+
+        //色付け決め打ち
+        private void ccBlueButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_static_cell_coloring("blue");
+        }
+        private void ccGreenButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_static_cell_coloring("green");
+        }
+        private void ccPinkButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_static_cell_coloring("pink");
+        }
+        private void ccPurpleButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_static_cell_coloring("purple");
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace WebACAddin
         private string tab_sp = "<bkmk:tab>";
         private string br_sp = "<bkmk:br>";
 
+
         //カラーコード取得
         private void get_color_code()
         {
@@ -219,24 +220,21 @@ namespace WebACAddin
             for (int i = r1; i <= r2; i++)
             {
                 int di = 0;
-                string tmp = ash.Cells[i, 3].Value;
+                string tmp = (string)ash.Cells[i, 3].Value;
                 if (mt.IsMatch(tmp)) di++;
 
-                string guideline = ash.Cells[i, 2].Value;
-                string pageID = ash.Cells[i, 1].Value;
-                string techID = ash.Cells[i, 4 + di].Value;
-                string sv_flag = ash.Cells[i, 5 + di].Value;
-                string comment = _br_encode(ash.Cells[i, 7 + di].Value);
-                string description = _br_encode(ash.Cells[i, 8 + di].Value);
-                string srccode = _br_encode(ash.Cells[i, 9 + di].Value);
+                string guideline = (string)ash.Cells[i, 2].Value;
+                string pageID = (string)ash.Cells[i, 1].Value;
+                string techID = (string)ash.Cells[i, 4 + di].Value;
+                string sv_flag = (string)ash.Cells[i, 5 + di].Value;
+                string comment = _br_encode((string)ash.Cells[i, 7 + di].Value);
+                string description = _br_encode((string)ash.Cells[i, 8 + di].Value);
+                string srccode = _br_encode((string)ash.Cells[i, 9 + di].Value);
                 string sv_copy_flag = "no";
 
                 ret = techID + tab_sp + sv_flag + tab_sp + sv_copy_flag + tab_sp + "who" + tab_sp;
                 ret += comment + tab_sp + description + tab_sp + srccode;
 
-                frmObj.Show();
-                frmObj.reportText.Clear();
-                frmObj.reportText.Text = ret;
             }
 
             frmObj.reportText.Clear();
@@ -245,14 +243,7 @@ namespace WebACAddin
         }
         private string _br_encode(string str)
         {
-            if (str.Equals("")) return str;
-            string ret = "";
-            Regex brpt = new Regex(@"(\r\n|\n|\r)", RegexOptions.Compiled | RegexOptions.Multiline);
-            if(brpt.IsMatch(str))
-            {
-                ret = brpt.Replace(str, br_sp);
-            }
-            return ret;
+            return Regex.Replace(str, @"(\r\n|\r|\n)", br_sp, RegexOptions.Multiline);
         }
 
         //品質チェック指摘コメントのひな形を作成
@@ -360,6 +351,43 @@ namespace WebACAddin
             }
             cnfrmObj.Show();
             cnfrmObj.contrastRatioText.Text = body;
+        }
+
+        //色付け決め打ち
+        private void do_static_cell_coloring(string operation)
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r = sa.Row;
+            List<int[]> arr = _get_color_rgb_list();
+            int[] cr_row = null;
+            string range_text = "";
+            switch (operation)
+            {
+                case "blue":
+                    cr_row = arr[0];
+                    break;
+                case "green":
+                    cr_row = arr[1];
+                    break;
+                case "pink":
+                    cr_row = arr[2];
+                    break;
+                case "purple":
+                    cr_row = arr[3];
+                    break;
+            }
+            range_text = r.ToString() + ":" + r.ToString();
+            ash.Rows[range_text].Interior.Color = Color.FromArgb(cr_row[0], cr_row[1], cr_row[2]);
+
+        }
+        private List<int[]> _get_color_rgb_list() {
+            List<int[]> arr = new List<int[]>();
+            arr.Add(new int[3] { 0, 176, 240 });   //水色
+            arr.Add(new int[3] { 146, 208, 80 });  //緑色
+            arr.Add(new int[3] { 255, 102, 153 }); //桃色
+            arr.Add(new int[3] { 153, 102, 255 }); //紫色
+            return arr;
         }
 
     }

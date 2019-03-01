@@ -46,15 +46,20 @@
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.box4 = this.Factory.CreateRibbonBox();
-            this.cellValText = this.Factory.CreateRibbonEditBox();
             this.cellColorCodeBtn = this.Factory.CreateRibbonButton();
+            this.cellValText = this.Factory.CreateRibbonEditBox();
             this.thisColorCodeBtn = this.Factory.CreateRibbonButton();
             this.thisListMatchBtn = this.Factory.CreateRibbonButton();
             this.listReverseButton = this.Factory.CreateRibbonButton();
-            this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
             this.svDataForPasteButton = this.Factory.CreateRibbonButton();
+            this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
+            this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
+            this.ccBlueButton = this.Factory.CreateRibbonButton();
+            this.ccGreenButton = this.Factory.CreateRibbonButton();
+            this.ccPinkButton = this.Factory.CreateRibbonButton();
+            this.ccPurpleButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
@@ -91,6 +96,7 @@
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box4.SuspendLayout();
+            this.buttonGroup1.SuspendLayout();
             this.group4.SuspendLayout();
             this.box3.SuspendLayout();
             this.box1.SuspendLayout();
@@ -122,6 +128,7 @@
             this.group1.Items.Add(this.waCheckCommentBaseButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
+            this.group1.Items.Add(this.buttonGroup1);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -131,6 +138,12 @@
             this.box4.Items.Add(this.cellValText);
             this.box4.Name = "box4";
             // 
+            // cellColorCodeBtn
+            // 
+            this.cellColorCodeBtn.Label = "色コード";
+            this.cellColorCodeBtn.Name = "cellColorCodeBtn";
+            this.cellColorCodeBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellColorCodeBtn_Click);
+            // 
             // cellValText
             // 
             this.cellValText.Label = "editBox1";
@@ -139,12 +152,6 @@
             this.cellValText.ShowLabel = false;
             this.cellValText.SizeString = "AAAAAA";
             this.cellValText.Text = null;
-            // 
-            // cellColorCodeBtn
-            // 
-            this.cellColorCodeBtn.Label = "色コード";
-            this.cellColorCodeBtn.Name = "cellColorCodeBtn";
-            this.cellColorCodeBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellColorCodeBtn_Click);
             // 
             // thisColorCodeBtn
             // 
@@ -164,17 +171,17 @@
             this.listReverseButton.Name = "listReverseButton";
             this.listReverseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.listReverseButton_Click);
             // 
-            // waCheckCommentBaseButton
-            // 
-            this.waCheckCommentBaseButton.Label = "品質チェックコメント";
-            this.waCheckCommentBaseButton.Name = "waCheckCommentBaseButton";
-            this.waCheckCommentBaseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.waCheckCommentBaseButton_Click);
-            // 
             // svDataForPasteButton
             // 
             this.svDataForPasteButton.Label = "判定ひな形生成";
             this.svDataForPasteButton.Name = "svDataForPasteButton";
             this.svDataForPasteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svDataForPasteButton_Click);
+            // 
+            // waCheckCommentBaseButton
+            // 
+            this.waCheckCommentBaseButton.Label = "品質チェックコメント";
+            this.waCheckCommentBaseButton.Name = "waCheckCommentBaseButton";
+            this.waCheckCommentBaseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.waCheckCommentBaseButton_Click);
             // 
             // dispEasyHtmlDocButton
             // 
@@ -187,6 +194,38 @@
             this.dispContrastRepFormButton.Label = "コントラスト結果";
             this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
             this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
+            // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Items.Add(this.ccBlueButton);
+            this.buttonGroup1.Items.Add(this.ccGreenButton);
+            this.buttonGroup1.Items.Add(this.ccPinkButton);
+            this.buttonGroup1.Items.Add(this.ccPurpleButton);
+            this.buttonGroup1.Name = "buttonGroup1";
+            // 
+            // ccBlueButton
+            // 
+            this.ccBlueButton.Label = "空";
+            this.ccBlueButton.Name = "ccBlueButton";
+            this.ccBlueButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccBlueButton_Click);
+            // 
+            // ccGreenButton
+            // 
+            this.ccGreenButton.Label = "緑";
+            this.ccGreenButton.Name = "ccGreenButton";
+            this.ccGreenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccGreenButton_Click);
+            // 
+            // ccPinkButton
+            // 
+            this.ccPinkButton.Label = "桃";
+            this.ccPinkButton.Name = "ccPinkButton";
+            this.ccPinkButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccPinkButton_Click);
+            // 
+            // ccPurpleButton
+            // 
+            this.ccPurpleButton.Label = "紫";
+            this.ccPurpleButton.Name = "ccPurpleButton";
+            this.ccPurpleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccPurpleButton_Click);
             // 
             // group4
             // 
@@ -428,6 +467,8 @@
             this.group1.PerformLayout();
             this.box4.ResumeLayout(false);
             this.box4.PerformLayout();
+            this.buttonGroup1.ResumeLayout(false);
+            this.buttonGroup1.PerformLayout();
             this.group4.ResumeLayout(false);
             this.group4.PerformLayout();
             this.box3.ResumeLayout(false);
@@ -497,6 +538,11 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton delCommentAllButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox addCommentPreClearCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton svDataForPasteButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ccBlueButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ccPurpleButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ccPinkButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ccGreenButton;
     }
 
     partial class ThisRibbonCollection
