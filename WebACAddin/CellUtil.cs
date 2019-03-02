@@ -65,14 +65,19 @@ namespace WebACAddin
             {
                 int cr_cc = 0;
                 string cr_val = "";
+                cr_cc = ash.Cells[i, c].Interior.ColorIndex;
 
                 if (ash.Cells[i, c].Value == null) continue;
 
                 Type t = ash.Cells[i, c].Value.GetType();
                 if (t.Equals(typeof(string)))
                 {
-                    cr_cc = ash.Cells[i, c].Interior.ColorIndex;
                     cr_val = (string)ash.Cells[i, c].Value;
+                }
+                else if(t.Equals(typeof(double)))
+                {
+                    double cr_val_ref = ash.Cells[i, c].Value;
+                    cr_val = cr_val_ref.ToString();
                 }
                 if (cc == cr_cc)
                 {
