@@ -424,5 +424,190 @@ namespace WebACAddin
             wrfrmObj.writeFormText.Text = body;
         }
 
+        //色付け決め打ち
+        private void do_static_cell_coloring_wrapper(string operation)
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<int[]> arr = _get_color_rgb_list();
+            int[] cr_row = null;
+            switch (operation)
+            {
+                case "blue":
+                    cr_row = arr[0];
+                    break;
+                case "green":
+                    cr_row = arr[1];
+                    break;
+                case "pink":
+                    cr_row = arr[2];
+                    break;
+                case "purple":
+                    cr_row = arr[3];
+                    break;
+                case "yellow":
+                    cr_row = arr[4];
+                    break;
+            }
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_static_cell_coloring(cr_row);
+            }
+        }
+        private void do_static_cell_coloring(int[] color_arr)
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r = sa.Row;
+            string range_text = r.ToString() + ":" + r.ToString();
+            ash.Rows[range_text].Interior.Color = Color.FromArgb(color_arr[0], color_arr[1], color_arr[2]);
+        }
+        private List<int[]> _get_color_rgb_list()
+        {
+            List<int[]> arr = new List<int[]>();
+            arr.Add(new int[3] { 0, 176, 240 });   //水色
+            arr.Add(new int[3] { 146, 208, 80 });  //緑色
+            arr.Add(new int[3] { 255, 102, 153 }); //桃色
+            arr.Add(new int[3] { 153, 102, 255 }); //紫色
+            arr.Add(new int[3] { 255, 255, 0 });   //黄色
+            return arr;
+        }
+
+        //色付け解除
+        private void do_cell_coloring_empty_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_cell_coloring_empty();
+            }
+        }
+        private void do_cell_coloring_empty()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r = sa.Row;
+            string range_text = r.ToString() + ":" + r.ToString();
+            ash.Rows[range_text].Interior.ColorIndex = 0;
+        }
+
+        //太字
+        private void do_cell_bold_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_cell_bold();
+            }
+        }
+        private void do_cell_bold()
+        {
+            Excel.Range sa = excelObj.Application.Selection;
+            if (sa.Font.Bold == true) sa.Font.Bold = false;
+            else sa.Font.Bold = true;
+        }
+
+        //赤字
+        private void do_cell_red_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_cell_red();
+            }
+        }
+        private void do_cell_red()
+        {
+            Excel.Range sa = excelObj.Application.Selection;
+            if (sa.Font.ColorIndex == 3) sa.Font.ColorIndex = 1;
+            else sa.Font.ColorIndex = 3;
+        }
+
+        //縦中
+        private void do_cell_vcenter_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_cell_vcenter();
+            }
+        }
+        private void do_cell_vcenter()
+        {
+            Excel.Range sa = excelObj.Application.Selection;
+            // -4108 == Excel.Constants.xlCenter
+            if (sa.VerticalAlignment == -4108) sa.VerticalAlignment = Excel.Constants.xlTop;
+            else sa.VerticalAlignment = Excel.Constants.xlCenter;
+        }
+
+        //折り返し
+        private void do_cell_linebreak_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_cell_linebreak();
+            }
+        }
+        private void do_cell_linebreak()
+        {
+            Excel.Range sa = excelObj.Application.Selection;
+            if (sa.WrapText) sa.WrapText = false;
+            else sa.WrapText = true;
+        }
+
     }
 }

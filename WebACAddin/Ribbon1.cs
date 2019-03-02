@@ -268,5 +268,29 @@ namespace WebACAddin
         {
             do_cell_coloring_empty_wrapper();
         }
+
+        //太字
+        private void fontBoldButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_cell_bold_wrapper();
+        }
+
+        //赤字
+        private void fontRedButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_cell_red_wrapper();
+        }
+
+        //縦中
+        private void cellVerticalCenterButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_cell_vcenter_wrapper();
+        }
+
+        //折り返し
+        private void cellLineBreakButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_cell_linebreak_wrapper();
+        }
     }
 }
