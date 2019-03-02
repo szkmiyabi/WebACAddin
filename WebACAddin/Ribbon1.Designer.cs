@@ -60,6 +60,7 @@
             this.ccGreenButton = this.Factory.CreateRibbonButton();
             this.ccPinkButton = this.Factory.CreateRibbonButton();
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
+            this.ccYellowButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
@@ -93,6 +94,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.ccEmptyButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box4.SuspendLayout();
@@ -197,10 +199,12 @@
             // 
             // buttonGroup1
             // 
+            this.buttonGroup1.Items.Add(this.ccEmptyButton);
             this.buttonGroup1.Items.Add(this.ccBlueButton);
             this.buttonGroup1.Items.Add(this.ccGreenButton);
             this.buttonGroup1.Items.Add(this.ccPinkButton);
             this.buttonGroup1.Items.Add(this.ccPurpleButton);
+            this.buttonGroup1.Items.Add(this.ccYellowButton);
             this.buttonGroup1.Name = "buttonGroup1";
             // 
             // ccBlueButton
@@ -226,6 +230,12 @@
             this.ccPurpleButton.Label = "紫";
             this.ccPurpleButton.Name = "ccPurpleButton";
             this.ccPurpleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccPurpleButton_Click);
+            // 
+            // ccYellowButton
+            // 
+            this.ccYellowButton.Label = "黄";
+            this.ccYellowButton.Name = "ccYellowButton";
+            this.ccYellowButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccYellowButton_Click);
             // 
             // group4
             // 
@@ -455,6 +465,12 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // ccEmptyButton
+            // 
+            this.ccEmptyButton.Label = "無";
+            this.ccEmptyButton.Name = "ccEmptyButton";
+            this.ccEmptyButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccEmptyButton_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -543,6 +559,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccPurpleButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccPinkButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccGreenButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ccYellowButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ccEmptyButton;
     }
 
     partial class ThisRibbonCollection

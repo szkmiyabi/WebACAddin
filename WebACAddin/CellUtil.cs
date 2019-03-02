@@ -380,6 +380,9 @@ namespace WebACAddin
                 case "purple":
                     cr_row = arr[3];
                     break;
+                case "yellow":
+                    cr_row = arr[4];
+                    break;
             }
             List<string> selectionList = new List<string>();
             foreach (Excel.Range item in areas)
@@ -407,8 +410,35 @@ namespace WebACAddin
             arr.Add(new int[3] { 146, 208, 80 });  //緑色
             arr.Add(new int[3] { 255, 102, 153 }); //桃色
             arr.Add(new int[3] { 153, 102, 255 }); //紫色
+            arr.Add(new int[3] { 255, 255, 0 });   //黄色
             return arr;
         }
 
+        //色付け解除
+        private void do_cell_coloring_empty_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_cell_coloring_empty();
+            }
+        }
+        private void do_cell_coloring_empty()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r = sa.Row;
+            string range_text = r.ToString() + ":" + r.ToString();
+            ash.Rows[range_text].Interior.ColorIndex = 0;
+        }
     }
 }

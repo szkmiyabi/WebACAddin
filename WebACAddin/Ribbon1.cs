@@ -258,5 +258,15 @@ namespace WebACAddin
         {
             do_static_cell_coloring_wrapper("purple");
         }
+        private void ccYellowButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_static_cell_coloring_wrapper("yellow");
+        }
+
+        //色付け除去
+        private void ccEmptyButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_cell_coloring_empty_wrapper();
+        }
     }
 }
