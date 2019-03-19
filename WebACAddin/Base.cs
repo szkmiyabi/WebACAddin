@@ -18,7 +18,7 @@ namespace WebACAddin
         {
             string path = "";
             SaveFileDialog fda = new SaveFileDialog();
-            fda.Filter = "CSVファイル(*.txt)|*.txt";
+            fda.Filter = "TSVファイル(*.txt)|*.txt";
             fda.Title = "名前を付けて保存";
             if (fda.ShowDialog() == DialogResult.OK)
             {
