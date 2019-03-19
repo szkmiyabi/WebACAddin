@@ -162,12 +162,6 @@ namespace WebACAddin
             get_wa_check_comment_base();
         }
 
-        //グループ名を挿入
-        private void groupLabelAddButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            do_groupname_insert();
-        }
-
         //HTMLを簡易表示
         private void dispEasyHtmlDocButton_Click(object sender, RibbonControlEventArgs e)
         {
@@ -291,6 +285,24 @@ namespace WebACAddin
         private void cellLineBreakButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_cell_linebreak_wrapper();
+        }
+
+        //通し番号
+        private void autoNumberButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_insert_auto_number();
+        }
+
+        //行複写
+        private void insertRowcontentButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_insert_rowcontent();
+        }
+
+        //フッタークリア
+        private void excelFooterClearButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_excel_footer_clear();
         }
     }
 }

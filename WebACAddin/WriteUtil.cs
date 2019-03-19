@@ -381,6 +381,10 @@ namespace WebACAddin
             var ash = excelObj.Application.ActiveSheet;
             int r1, r2, c = 0;
             string range_text = "";
+            string marker_str = "";
+
+            marker_str = markerDropdown.Text;
+            if (marker_str == "" || marker_str == null) marker_str = "*";
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
@@ -391,7 +395,7 @@ namespace WebACAddin
             {
 
                 range_text = i.ToString() + ":" + i.ToString();
-                ash.Cells[i, c].Value = "*";
+                ash.Cells[i, c].Value = marker_str;
                 if(addLabelColorCheck.Checked == true)
                 {
                     ash.Rows[range_text].Interior.Color = 65535;
@@ -608,6 +612,54 @@ namespace WebACAddin
             if (sa.WrapText) sa.WrapText = false;
             else sa.WrapText = true;
         }
+
+        //通番号付与
+        private void do_insert_auto_number()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            double r1, r2, c, cnt = 1;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c = sa.Column;
+            if(ash.Cells[r1, c].Value == null)
+            {
+                cnt = 1;
+            }
+            else
+            {
+                Type t = ash.Cells[r1, c].Value.GetType();
+                if (t.Equals(typeof(double)))
+                {
+                    cnt = ash.Cells[r1, c].Value;
+                }
+            }
+            for(double i=r1; i<=r2; i++)
+            {
+                ash.Cells[i, c].Value = cnt;
+                cnt++;
+            }
+        }
+
+        //行複写
+        private void do_insert_rowcontent()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            double r1, r2, c;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c = sa.Column;
+            if (ash.Cells[r1, c].Value == null) return;
+            var content = ash.Cells[r1, c].Value;
+
+            for (double i = r1; i <= r2; i++)
+            {
+                if (i == r1) continue;
+                ash.Cells[i, c].Value = content;
+            }
+        }
+
 
     }
 }

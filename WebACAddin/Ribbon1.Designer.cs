@@ -43,6 +43,12 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl7 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl8 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl9 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl10 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl11 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl12 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl13 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl14 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl15 = this.Factory.CreateRibbonDropDownItem();
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.box4 = this.Factory.CreateRibbonBox();
@@ -53,7 +59,6 @@
             this.listReverseButton = this.Factory.CreateRibbonButton();
             this.svDataForPasteButton = this.Factory.CreateRibbonButton();
             this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
-            this.documentEditButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
@@ -74,22 +79,27 @@
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
             this.addCommentPreClearCheck = this.Factory.CreateRibbonCheckBox();
-            this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
-            this.groupLabelAddButton = this.Factory.CreateRibbonButton();
+            this.box7 = this.Factory.CreateRibbonBox();
+            this.markerDropdown = this.Factory.CreateRibbonComboBox();
             this.markerInputButton = this.Factory.CreateRibbonButton();
-            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
-            this.buttonGroup3 = this.Factory.CreateRibbonButtonGroup();
+            this.autoNumberButton = this.Factory.CreateRibbonButton();
+            this.insertRowcontentButton = this.Factory.CreateRibbonButton();
+            this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
             this.ccBlueButton = this.Factory.CreateRibbonButton();
             this.ccGreenButton = this.Factory.CreateRibbonButton();
             this.ccPinkButton = this.Factory.CreateRibbonButton();
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
-            this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
+            this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
             this.fontBoldButton = this.Factory.CreateRibbonButton();
             this.fontRedButton = this.Factory.CreateRibbonButton();
             this.cellVerticalCenterButton = this.Factory.CreateRibbonButton();
             this.cellLineBreakButton = this.Factory.CreateRibbonButton();
+            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
+            this.group5 = this.Factory.CreateRibbonGroup();
+            this.documentEditButton = this.Factory.CreateRibbonButton();
+            this.excelFooterClearButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -109,9 +119,10 @@
             this.box5.SuspendLayout();
             this.box6.SuspendLayout();
             this.box2.SuspendLayout();
+            this.box7.SuspendLayout();
             this.buttonGroup2.SuspendLayout();
-            this.buttonGroup3.SuspendLayout();
-            this.buttonGroup1.SuspendLayout();
+            this.buttonGroup4.SuspendLayout();
+            this.group5.SuspendLayout();
             this.group2.SuspendLayout();
             this.group3.SuspendLayout();
             this.SuspendLayout();
@@ -120,6 +131,7 @@
             // 
             this.webACTab.Groups.Add(this.group1);
             this.webACTab.Groups.Add(this.group4);
+            this.webACTab.Groups.Add(this.group5);
             this.webACTab.Groups.Add(this.group2);
             this.webACTab.Groups.Add(this.group3);
             this.webACTab.Label = "WEB_ACC";
@@ -133,7 +145,6 @@
             this.group1.Items.Add(this.listReverseButton);
             this.group1.Items.Add(this.svDataForPasteButton);
             this.group1.Items.Add(this.waCheckCommentBaseButton);
-            this.group1.Items.Add(this.documentEditButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
             this.group1.Label = "セル解析";
@@ -190,12 +201,6 @@
             this.waCheckCommentBaseButton.Name = "waCheckCommentBaseButton";
             this.waCheckCommentBaseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.waCheckCommentBaseButton_Click);
             // 
-            // documentEditButton
-            // 
-            this.documentEditButton.Label = "テキスト編集";
-            this.documentEditButton.Name = "documentEditButton";
-            this.documentEditButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.documentEditButton_Click);
-            // 
             // dispEasyHtmlDocButton
             // 
             this.dispEasyHtmlDocButton.Label = "簡易HTML表示";
@@ -216,9 +221,9 @@
             this.group4.Items.Add(this.box5);
             this.group4.Items.Add(this.box6);
             this.group4.Items.Add(this.box2);
+            this.group4.Items.Add(this.box7);
             this.group4.Items.Add(this.buttonGroup2);
-            this.group4.Items.Add(this.buttonGroup3);
-            this.group4.Items.Add(this.buttonGroup1);
+            this.group4.Items.Add(this.buttonGroup4);
             this.group4.Label = "表編集";
             this.group4.Name = "group4";
             // 
@@ -247,6 +252,7 @@
             this.svRedimFlagCombo.Label = "判定修正";
             this.svRedimFlagCombo.Name = "svRedimFlagCombo";
             this.svRedimFlagCombo.ShowLabel = false;
+            this.svRedimFlagCombo.SizeString = "AAAAAAAA";
             this.svRedimFlagCombo.Text = null;
             // 
             // svRedimInputButton
@@ -290,6 +296,7 @@
             this.writeCommentCombo.Items.Add(ribbonDropDownItemImpl9);
             this.writeCommentCombo.Label = "文言";
             this.writeCommentCombo.Name = "writeCommentCombo";
+            this.writeCommentCombo.SizeString = "AAAAAAAAAA";
             this.writeCommentCombo.Text = null;
             // 
             // writeCommentInputButton
@@ -340,18 +347,33 @@
             this.addCommentPreClearCheck.Label = "全クリアして追加";
             this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
             // 
-            // buttonGroup2
+            // box7
             // 
-            this.buttonGroup2.Items.Add(this.groupLabelAddButton);
-            this.buttonGroup2.Items.Add(this.markerInputButton);
-            this.buttonGroup2.Items.Add(this.writeFormOpenButton);
-            this.buttonGroup2.Name = "buttonGroup2";
+            this.box7.Items.Add(this.markerDropdown);
+            this.box7.Items.Add(this.markerInputButton);
+            this.box7.Items.Add(this.autoNumberButton);
+            this.box7.Items.Add(this.insertRowcontentButton);
+            this.box7.Name = "box7";
             // 
-            // groupLabelAddButton
+            // markerDropdown
             // 
-            this.groupLabelAddButton.Label = "グループ名";
-            this.groupLabelAddButton.Name = "groupLabelAddButton";
-            this.groupLabelAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.groupLabelAddButton_Click);
+            ribbonDropDownItemImpl10.Label = "*";
+            ribbonDropDownItemImpl11.Label = "-";
+            ribbonDropDownItemImpl12.Label = "○";
+            ribbonDropDownItemImpl13.Label = "△";
+            ribbonDropDownItemImpl14.Label = "×";
+            ribbonDropDownItemImpl15.Label = "■";
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl10);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl11);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl12);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl13);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl14);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl15);
+            this.markerDropdown.Label = "comboBox1";
+            this.markerDropdown.Name = "markerDropdown";
+            this.markerDropdown.ShowLabel = false;
+            this.markerDropdown.SizeString = "AA";
+            this.markerDropdown.Text = null;
             // 
             // markerInputButton
             // 
@@ -359,21 +381,27 @@
             this.markerInputButton.Name = "markerInputButton";
             this.markerInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.markerInputButton_Click);
             // 
-            // writeFormOpenButton
+            // autoNumberButton
             // 
-            this.writeFormOpenButton.Label = "セル文字編集";
-            this.writeFormOpenButton.Name = "writeFormOpenButton";
-            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
+            this.autoNumberButton.Label = "通番";
+            this.autoNumberButton.Name = "autoNumberButton";
+            this.autoNumberButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoNumberButton_Click);
             // 
-            // buttonGroup3
+            // insertRowcontentButton
             // 
-            this.buttonGroup3.Items.Add(this.ccEmptyButton);
-            this.buttonGroup3.Items.Add(this.ccYellowButton);
-            this.buttonGroup3.Items.Add(this.ccBlueButton);
-            this.buttonGroup3.Items.Add(this.ccGreenButton);
-            this.buttonGroup3.Items.Add(this.ccPinkButton);
-            this.buttonGroup3.Items.Add(this.ccPurpleButton);
-            this.buttonGroup3.Name = "buttonGroup3";
+            this.insertRowcontentButton.Label = "行複写";
+            this.insertRowcontentButton.Name = "insertRowcontentButton";
+            this.insertRowcontentButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertRowcontentButton_Click);
+            // 
+            // buttonGroup2
+            // 
+            this.buttonGroup2.Items.Add(this.ccEmptyButton);
+            this.buttonGroup2.Items.Add(this.ccYellowButton);
+            this.buttonGroup2.Items.Add(this.ccBlueButton);
+            this.buttonGroup2.Items.Add(this.ccGreenButton);
+            this.buttonGroup2.Items.Add(this.ccPinkButton);
+            this.buttonGroup2.Items.Add(this.ccPurpleButton);
+            this.buttonGroup2.Name = "buttonGroup2";
             // 
             // ccEmptyButton
             // 
@@ -411,13 +439,14 @@
             this.ccPurpleButton.Name = "ccPurpleButton";
             this.ccPurpleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccPurpleButton_Click);
             // 
-            // buttonGroup1
+            // buttonGroup4
             // 
-            this.buttonGroup1.Items.Add(this.fontBoldButton);
-            this.buttonGroup1.Items.Add(this.fontRedButton);
-            this.buttonGroup1.Items.Add(this.cellVerticalCenterButton);
-            this.buttonGroup1.Items.Add(this.cellLineBreakButton);
-            this.buttonGroup1.Name = "buttonGroup1";
+            this.buttonGroup4.Items.Add(this.fontBoldButton);
+            this.buttonGroup4.Items.Add(this.fontRedButton);
+            this.buttonGroup4.Items.Add(this.cellVerticalCenterButton);
+            this.buttonGroup4.Items.Add(this.cellLineBreakButton);
+            this.buttonGroup4.Items.Add(this.writeFormOpenButton);
+            this.buttonGroup4.Name = "buttonGroup4";
             // 
             // fontBoldButton
             // 
@@ -442,6 +471,31 @@
             this.cellLineBreakButton.Label = "折返";
             this.cellLineBreakButton.Name = "cellLineBreakButton";
             this.cellLineBreakButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellLineBreakButton_Click);
+            // 
+            // writeFormOpenButton
+            // 
+            this.writeFormOpenButton.Label = "セル文字編集";
+            this.writeFormOpenButton.Name = "writeFormOpenButton";
+            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
+            // 
+            // group5
+            // 
+            this.group5.Items.Add(this.documentEditButton);
+            this.group5.Items.Add(this.excelFooterClearButton);
+            this.group5.Label = "文書処理";
+            this.group5.Name = "group5";
+            // 
+            // documentEditButton
+            // 
+            this.documentEditButton.Label = "テキスト編集";
+            this.documentEditButton.Name = "documentEditButton";
+            this.documentEditButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.documentEditButton_Click);
+            // 
+            // excelFooterClearButton
+            // 
+            this.excelFooterClearButton.Label = "フッタークリア";
+            this.excelFooterClearButton.Name = "excelFooterClearButton";
+            this.excelFooterClearButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.excelFooterClearButton_Click);
             // 
             // group2
             // 
@@ -533,12 +587,14 @@
             this.box6.PerformLayout();
             this.box2.ResumeLayout(false);
             this.box2.PerformLayout();
+            this.box7.ResumeLayout(false);
+            this.box7.PerformLayout();
             this.buttonGroup2.ResumeLayout(false);
             this.buttonGroup2.PerformLayout();
-            this.buttonGroup3.ResumeLayout(false);
-            this.buttonGroup3.PerformLayout();
-            this.buttonGroup1.ResumeLayout(false);
-            this.buttonGroup1.PerformLayout();
+            this.buttonGroup4.ResumeLayout(false);
+            this.buttonGroup4.PerformLayout();
+            this.group5.ResumeLayout(false);
+            this.group5.PerformLayout();
             this.group2.ResumeLayout(false);
             this.group2.PerformLayout();
             this.group3.ResumeLayout(false);
@@ -567,7 +623,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openFirefoxDevButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openChromeBetaButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton waCheckCommentBaseButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton groupLabelAddButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox addLabelColorCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton dispEasyHtmlDocButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton dispContrastRepFormButton;
@@ -599,13 +654,18 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccGreenButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccYellowButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccEmptyButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup2;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup3;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton fontBoldButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton fontRedButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellVerticalCenterButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellLineBreakButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton autoNumberButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertRowcontentButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group5;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton excelFooterClearButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonBox box7;
+        internal Microsoft.Office.Tools.Ribbon.RibbonComboBox markerDropdown;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup4;
     }
 
     partial class ThisRibbonCollection
