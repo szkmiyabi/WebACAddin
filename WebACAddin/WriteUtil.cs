@@ -16,6 +16,9 @@ namespace WebACAddin
 {
     partial class Ribbon1
     {
+        //通番号
+        private double autoNumberCnt = 0;
+
         //PIDのグループ名を自動入力
         private void do_groupname_insert()
         {
@@ -614,30 +617,50 @@ namespace WebACAddin
         }
 
         //通番号付与
+        private void do_insert_auto_number_wrapper()
+        {
+            autoNumberCnt = 0;
+
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_insert_auto_number();
+            }
+        }
         private void do_insert_auto_number()
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-            double r1, r2, c, cnt = 1;
+            double r1, r2, c;
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
             c = sa.Column;
             if(ash.Cells[r1, c].Value == null)
             {
-                cnt = 1;
+                if(autoNumberCnt == 0) autoNumberCnt = 1;
             }
             else
             {
                 Type t = ash.Cells[r1, c].Value.GetType();
                 if (t.Equals(typeof(double)))
                 {
-                    cnt = ash.Cells[r1, c].Value;
+                    autoNumberCnt = ash.Cells[r1, c].Value;
                 }
             }
             for(double i=r1; i<=r2; i++)
             {
-                ash.Cells[i, c].Value = cnt;
-                cnt++;
+                ash.Cells[i, c].Value = autoNumberCnt;
+                autoNumberCnt++;
             }
         }
 

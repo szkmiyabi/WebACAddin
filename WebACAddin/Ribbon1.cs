@@ -290,7 +290,7 @@ namespace WebACAddin
         //通し番号
         private void autoNumberButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_insert_auto_number();
+            do_insert_auto_number_wrapper();
         }
 
         //行複写
