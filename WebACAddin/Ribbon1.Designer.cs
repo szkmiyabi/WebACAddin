@@ -110,6 +110,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box4.SuspendLayout();
@@ -401,6 +402,7 @@
             this.buttonGroup2.Items.Add(this.ccGreenButton);
             this.buttonGroup2.Items.Add(this.ccPinkButton);
             this.buttonGroup2.Items.Add(this.ccPurpleButton);
+            this.buttonGroup2.Items.Add(this.writeFormOpenButton);
             this.buttonGroup2.Name = "buttonGroup2";
             // 
             // ccEmptyButton
@@ -445,7 +447,7 @@
             this.buttonGroup4.Items.Add(this.fontRedButton);
             this.buttonGroup4.Items.Add(this.cellVerticalCenterButton);
             this.buttonGroup4.Items.Add(this.cellLineBreakButton);
-            this.buttonGroup4.Items.Add(this.writeFormOpenButton);
+            this.buttonGroup4.Items.Add(this.cellStrDeleteButton);
             this.buttonGroup4.Name = "buttonGroup4";
             // 
             // fontBoldButton
@@ -563,6 +565,12 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // cellStrDeleteButton
+            // 
+            this.cellStrDeleteButton.Label = "削除";
+            this.cellStrDeleteButton.Name = "cellStrDeleteButton";
+            this.cellStrDeleteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellStrDeleteButton_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -666,6 +674,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox markerDropdown;
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup4;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton cellStrDeleteButton;
     }
 
     partial class ThisRibbonCollection

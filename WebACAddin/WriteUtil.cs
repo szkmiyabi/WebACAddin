@@ -660,6 +660,51 @@ namespace WebACAddin
             }
         }
 
+        //セル内文字削除
+        private void do_cell_clear_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_cell_clear();
+            }
+        }
+        private void do_cell_clear()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r1, r2, c1, c2 = 0;
+
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c1 = sa.Column;
+            c2 = sa.Columns[sa.Columns.Count].Column;
+
+            //ループ処理
+            for (int i = r1; i <= r2; i++)
+            {
+                for(int j=c1; j <= c2; j++)
+                {
+                    try
+                    {
+                        ash.Cells[i, j].Value = "";
+                    }
+                    catch (Exception ex) { }
+                }
+
+            }
+        }
+
 
     }
 }

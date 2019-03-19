@@ -304,5 +304,11 @@ namespace WebACAddin
         {
             do_excel_footer_clear();
         }
+
+        //セル文字削除
+        private void cellStrDeleteButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_cell_clear_wrapper();
+        }
     }
 }
