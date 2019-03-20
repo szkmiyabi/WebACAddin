@@ -12,6 +12,7 @@ C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.Brows
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.ContrastForm.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.DocForm.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.Form1.resources
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.InputForm.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.Properties.Resources.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.Ribbon1.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.WriteForm.resources

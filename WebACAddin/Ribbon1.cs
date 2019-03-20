@@ -29,6 +29,7 @@ namespace WebACAddin
         private static ContrastForm _cnfrmObj;
         private static WriteForm _wrfrmObj;
         private static DocForm _docfrmObj;
+        private static InputForm _inpfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -111,6 +112,19 @@ namespace WebACAddin
                     _docfrmObj = new DocForm();
                 }
                 return _docfrmObj;
+            }
+        }
+
+        //InputFormインスタンスの取得
+        public static InputForm inpfrmObj
+        {
+            get
+            {
+                if (_inpfrmObj == null || _inpfrmObj.IsDisposed)
+                {
+                    _inpfrmObj = new InputForm();
+                }
+                return _inpfrmObj;
             }
         }
 
@@ -309,6 +323,12 @@ namespace WebACAddin
         private void cellStrDeleteButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_cell_clear_wrapper();
+        }
+
+        //フォームから値追加
+        private void writeCommentAddFromFormButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            inpfrmObj.Show();
         }
     }
 }

@@ -75,6 +75,7 @@
             this.box6 = this.Factory.CreateRibbonBox();
             this.writeCommentAddButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFileButton = this.Factory.CreateRibbonButton();
+            this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
             this.box2 = this.Factory.CreateRibbonBox();
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
@@ -91,12 +92,13 @@
             this.ccGreenButton = this.Factory.CreateRibbonButton();
             this.ccPinkButton = this.Factory.CreateRibbonButton();
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
+            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
             this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
             this.fontBoldButton = this.Factory.CreateRibbonButton();
             this.fontRedButton = this.Factory.CreateRibbonButton();
             this.cellVerticalCenterButton = this.Factory.CreateRibbonButton();
             this.cellLineBreakButton = this.Factory.CreateRibbonButton();
-            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
+            this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
             this.documentEditButton = this.Factory.CreateRibbonButton();
             this.excelFooterClearButton = this.Factory.CreateRibbonButton();
@@ -110,7 +112,6 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box4.SuspendLayout();
@@ -309,6 +310,7 @@
             // box6
             // 
             this.box6.Items.Add(this.writeCommentAddButton);
+            this.box6.Items.Add(this.writeCommentAddFromFormButton);
             this.box6.Items.Add(this.writeCommentAddFromFileButton);
             this.box6.Name = "box6";
             // 
@@ -320,9 +322,15 @@
             // 
             // writeCommentAddFromFileButton
             // 
-            this.writeCommentAddFromFileButton.Label = "ファイルから値追加";
+            this.writeCommentAddFromFileButton.Label = "ファイルから";
             this.writeCommentAddFromFileButton.Name = "writeCommentAddFromFileButton";
             this.writeCommentAddFromFileButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFileButton_Click);
+            // 
+            // writeCommentAddFromFormButton
+            // 
+            this.writeCommentAddFromFormButton.Label = "フォームから";
+            this.writeCommentAddFromFormButton.Name = "writeCommentAddFromFormButton";
+            this.writeCommentAddFromFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFormButton_Click);
             // 
             // box2
             // 
@@ -441,6 +449,12 @@
             this.ccPurpleButton.Name = "ccPurpleButton";
             this.ccPurpleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccPurpleButton_Click);
             // 
+            // writeFormOpenButton
+            // 
+            this.writeFormOpenButton.Label = "セル文字編集";
+            this.writeFormOpenButton.Name = "writeFormOpenButton";
+            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
+            // 
             // buttonGroup4
             // 
             this.buttonGroup4.Items.Add(this.fontBoldButton);
@@ -474,11 +488,11 @@
             this.cellLineBreakButton.Name = "cellLineBreakButton";
             this.cellLineBreakButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellLineBreakButton_Click);
             // 
-            // writeFormOpenButton
+            // cellStrDeleteButton
             // 
-            this.writeFormOpenButton.Label = "セル文字編集";
-            this.writeFormOpenButton.Name = "writeFormOpenButton";
-            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
+            this.cellStrDeleteButton.Label = "削除";
+            this.cellStrDeleteButton.Name = "cellStrDeleteButton";
+            this.cellStrDeleteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellStrDeleteButton_Click);
             // 
             // group5
             // 
@@ -564,12 +578,6 @@
             this.openChromeBetaButton.Label = "Chrome(beta)";
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
-            // 
-            // cellStrDeleteButton
-            // 
-            this.cellStrDeleteButton.Label = "削除";
-            this.cellStrDeleteButton.Name = "cellStrDeleteButton";
-            this.cellStrDeleteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellStrDeleteButton_Click);
             // 
             // Ribbon1
             // 
@@ -675,6 +683,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup4;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellStrDeleteButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton writeCommentAddFromFormButton;
     }
 
     partial class ThisRibbonCollection
