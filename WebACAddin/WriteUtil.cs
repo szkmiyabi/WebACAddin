@@ -473,9 +473,15 @@ namespace WebACAddin
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-            int r = sa.Row;
-            string range_text = r.ToString() + ":" + r.ToString();
-            ash.Rows[range_text].Interior.Color = Color.FromArgb(color_arr[0], color_arr[1], color_arr[2]);
+            int r1, r2 = 0;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+
+            for(int i=r1; i<=r2; i++)
+            {
+                string range_text = i.ToString() + ":" + i.ToString();
+                ash.Rows[range_text].Interior.Color = Color.FromArgb(color_arr[0], color_arr[1], color_arr[2]);
+            }
         }
         private List<int[]> _get_color_rgb_list()
         {
@@ -510,9 +516,14 @@ namespace WebACAddin
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-            int r = sa.Row;
-            string range_text = r.ToString() + ":" + r.ToString();
-            ash.Rows[range_text].Interior.ColorIndex = 0;
+            int r1, r2 = 0;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            for(int i=r1; i<=r2; i++)
+            {
+                string range_text = i.ToString() + ":" + i.ToString();
+                ash.Rows[range_text].Interior.ColorIndex = 0;
+            }
         }
 
         //太字
