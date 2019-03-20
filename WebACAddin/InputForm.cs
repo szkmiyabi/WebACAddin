@@ -42,6 +42,7 @@ namespace WebACAddin
 
             }
             MessageBox.Show("値の追加に成功しました");
+            this.Dispose();
 
         }
 
