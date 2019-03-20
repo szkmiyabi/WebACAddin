@@ -42,6 +42,7 @@ namespace WebACAddin
             //writeCommentBreakCheck.Checked = true;
             writeCommentOverrideCheck.Checked = true;
             addCommentPreClearCheck.Checked = true;
+            addColorRowCheck.Checked = true;
 
         }
 
@@ -270,6 +271,10 @@ namespace WebACAddin
         {
             do_static_cell_coloring_wrapper("yellow");
         }
+        private void ccRedButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_static_cell_coloring_wrapper("red");
+        }
 
         //色付け除去
         private void ccEmptyButton_Click(object sender, RibbonControlEventArgs e)
@@ -330,5 +335,7 @@ namespace WebACAddin
         {
             inpfrmObj.Show();
         }
+
+
     }
 }

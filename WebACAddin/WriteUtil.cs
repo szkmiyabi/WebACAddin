@@ -401,7 +401,14 @@ namespace WebACAddin
                 ash.Cells[i, c].Value = marker_str;
                 if(addLabelColorCheck.Checked == true)
                 {
-                    ash.Rows[range_text].Interior.Color = 65535;
+                    if(addColorRowCheck.Checked == true)
+                    {
+                        ash.Rows[range_text].Interior.Color = 65535;
+                    }
+                    else
+                    {
+                        sa.Interior.Color = 65535;
+                    }
                 }
 
             }
@@ -456,6 +463,9 @@ namespace WebACAddin
                 case "yellow":
                     cr_row = arr[4];
                     break;
+                case "red":
+                    cr_row = arr[5];
+                    break;
             }
             List<string> selectionList = new List<string>();
             foreach (Excel.Range item in areas)
@@ -479,8 +489,15 @@ namespace WebACAddin
 
             for(int i=r1; i<=r2; i++)
             {
-                string range_text = i.ToString() + ":" + i.ToString();
-                ash.Rows[range_text].Interior.Color = Color.FromArgb(color_arr[0], color_arr[1], color_arr[2]);
+                if(addColorRowCheck.Checked == true)
+                {
+                    string range_text = i.ToString() + ":" + i.ToString();
+                    ash.Rows[range_text].Interior.Color = Color.FromArgb(color_arr[0], color_arr[1], color_arr[2]);
+                }
+                else
+                {
+                    sa.Interior.Color = Color.FromArgb(color_arr[0], color_arr[1], color_arr[2]);
+                }
             }
         }
         private List<int[]> _get_color_rgb_list()
@@ -491,6 +508,7 @@ namespace WebACAddin
             arr.Add(new int[3] { 255, 102, 153 }); //桃色
             arr.Add(new int[3] { 153, 102, 255 }); //紫色
             arr.Add(new int[3] { 255, 255, 0 });   //黄色
+            arr.Add(new int[3] { 255, 0, 0 });     //赤色
             return arr;
         }
 
@@ -521,8 +539,15 @@ namespace WebACAddin
             r2 = sa.Rows[sa.Rows.Count].Row;
             for(int i=r1; i<=r2; i++)
             {
-                string range_text = i.ToString() + ":" + i.ToString();
-                ash.Rows[range_text].Interior.ColorIndex = 0;
+                if(addColorRowCheck.Checked == true)
+                {
+                    string range_text = i.ToString() + ":" + i.ToString();
+                    ash.Rows[range_text].Interior.ColorIndex = 0;
+                }
+                else
+                {
+                    sa.Interior.ColorIndex = 0;
+                }
             }
         }
 

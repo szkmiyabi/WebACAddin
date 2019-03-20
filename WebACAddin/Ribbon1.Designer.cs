@@ -68,14 +68,16 @@
             this.box1 = this.Factory.CreateRibbonBox();
             this.writeCommentBreakCheck = this.Factory.CreateRibbonCheckBox();
             this.writeCommentOverrideCheck = this.Factory.CreateRibbonCheckBox();
+            this.box8 = this.Factory.CreateRibbonBox();
             this.addLabelColorCheck = this.Factory.CreateRibbonCheckBox();
+            this.addColorRowCheck = this.Factory.CreateRibbonCheckBox();
             this.box5 = this.Factory.CreateRibbonBox();
             this.writeCommentCombo = this.Factory.CreateRibbonComboBox();
             this.writeCommentInputButton = this.Factory.CreateRibbonButton();
             this.box6 = this.Factory.CreateRibbonBox();
             this.writeCommentAddButton = this.Factory.CreateRibbonButton();
-            this.writeCommentAddFromFileButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
+            this.writeCommentAddFromFileButton = this.Factory.CreateRibbonButton();
             this.box2 = this.Factory.CreateRibbonBox();
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
@@ -87,6 +89,7 @@
             this.insertRowcontentButton = this.Factory.CreateRibbonButton();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
+            this.ccRedButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
             this.ccBlueButton = this.Factory.CreateRibbonButton();
             this.ccGreenButton = this.Factory.CreateRibbonButton();
@@ -118,6 +121,7 @@
             this.group4.SuspendLayout();
             this.box3.SuspendLayout();
             this.box1.SuspendLayout();
+            this.box8.SuspendLayout();
             this.box5.SuspendLayout();
             this.box6.SuspendLayout();
             this.box2.SuspendLayout();
@@ -219,7 +223,7 @@
             // 
             this.group4.Items.Add(this.box3);
             this.group4.Items.Add(this.box1);
-            this.group4.Items.Add(this.addLabelColorCheck);
+            this.group4.Items.Add(this.box8);
             this.group4.Items.Add(this.box5);
             this.group4.Items.Add(this.box6);
             this.group4.Items.Add(this.box2);
@@ -279,10 +283,21 @@
             this.writeCommentOverrideCheck.Label = "追記";
             this.writeCommentOverrideCheck.Name = "writeCommentOverrideCheck";
             // 
+            // box8
+            // 
+            this.box8.Items.Add(this.addLabelColorCheck);
+            this.box8.Items.Add(this.addColorRowCheck);
+            this.box8.Name = "box8";
+            // 
             // addLabelColorCheck
             // 
             this.addLabelColorCheck.Label = "自動色付";
             this.addLabelColorCheck.Name = "addLabelColorCheck";
+            // 
+            // addColorRowCheck
+            // 
+            this.addColorRowCheck.Label = "行色付";
+            this.addColorRowCheck.Name = "addColorRowCheck";
             // 
             // box5
             // 
@@ -320,17 +335,17 @@
             this.writeCommentAddButton.Name = "writeCommentAddButton";
             this.writeCommentAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddButton_Click);
             // 
-            // writeCommentAddFromFileButton
-            // 
-            this.writeCommentAddFromFileButton.Label = "ファイルから";
-            this.writeCommentAddFromFileButton.Name = "writeCommentAddFromFileButton";
-            this.writeCommentAddFromFileButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFileButton_Click);
-            // 
             // writeCommentAddFromFormButton
             // 
             this.writeCommentAddFromFormButton.Label = "フォームから";
             this.writeCommentAddFromFormButton.Name = "writeCommentAddFromFormButton";
             this.writeCommentAddFromFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFormButton_Click);
+            // 
+            // writeCommentAddFromFileButton
+            // 
+            this.writeCommentAddFromFileButton.Label = "ファイルから";
+            this.writeCommentAddFromFileButton.Name = "writeCommentAddFromFileButton";
+            this.writeCommentAddFromFileButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFileButton_Click);
             // 
             // box2
             // 
@@ -410,6 +425,7 @@
             this.buttonGroup2.Items.Add(this.ccGreenButton);
             this.buttonGroup2.Items.Add(this.ccPinkButton);
             this.buttonGroup2.Items.Add(this.ccPurpleButton);
+            this.buttonGroup2.Items.Add(this.ccRedButton);
             this.buttonGroup2.Items.Add(this.writeFormOpenButton);
             this.buttonGroup2.Name = "buttonGroup2";
             // 
@@ -418,6 +434,12 @@
             this.ccEmptyButton.Label = "無";
             this.ccEmptyButton.Name = "ccEmptyButton";
             this.ccEmptyButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccEmptyButton_Click);
+            // 
+            // ccRedButton
+            // 
+            this.ccRedButton.Label = "赤";
+            this.ccRedButton.Name = "ccRedButton";
+            this.ccRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccRedButton_Click);
             // 
             // ccYellowButton
             // 
@@ -597,6 +619,8 @@
             this.box3.PerformLayout();
             this.box1.ResumeLayout(false);
             this.box1.PerformLayout();
+            this.box8.ResumeLayout(false);
+            this.box8.PerformLayout();
             this.box5.ResumeLayout(false);
             this.box5.PerformLayout();
             this.box6.ResumeLayout(false);
@@ -684,6 +708,9 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup4;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellStrDeleteButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton writeCommentAddFromFormButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonBox box8;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox addColorRowCheck;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ccRedButton;
     }
 
     partial class ThisRibbonCollection
