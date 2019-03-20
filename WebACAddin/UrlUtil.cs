@@ -9,12 +9,34 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Core;
+using Microsoft.Office.Tools.Excel;
+
+
 namespace WebACAddin
 {
     partial class Ribbon1
     {
 
         //選択範囲のURLのセルにハイパーリンク設定
+        private void do_href_add_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_href_add();
+            }
+        }
         private void do_href_add()
         {
             var sa = excelObj.Application.Selection;
@@ -33,6 +55,24 @@ namespace WebACAddin
         }
 
         //選択範囲のURLのセルの隣列にページタイトル取得
+        private void do_page_title_add_wrapper()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                do_page_title_add();
+            }
+            MessageBox.Show("ページタイトル取得が完了しました！");
+        }
         private void do_page_title_add()
         {
             var sa = excelObj.Application.Selection;
@@ -56,8 +96,7 @@ namespace WebACAddin
                     ash.Cells[i, x + 1].Value = tt;
                 }
             }
-
-            MessageBox.Show("ページタイトル取得が完了しました！");
+            //MessageBox.Show("ページタイトル取得が完了しました！");
         }
 
         //ページタイトルを取得

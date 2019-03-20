@@ -150,13 +150,13 @@ namespace WebACAddin
         //ハイパーリンクを設定
         private void setHrefBtn_Click(object sender, RibbonControlEventArgs e)
         {
-            do_href_add();
+            do_href_add_wrapper();
         }
 
         //ページタイトルを取得
         private void setPageTitleBtn_Click(object sender, RibbonControlEventArgs e)
         {
-            do_page_title_add();
+            do_page_title_add_wrapper();
         }
 
         //リストを反転
