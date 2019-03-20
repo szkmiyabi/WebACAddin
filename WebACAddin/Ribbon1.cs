@@ -336,6 +336,10 @@ namespace WebACAddin
             inpfrmObj.Show();
         }
 
-
+        //オートフィル
+        private void selectedAutoFillButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_selected_auto_fill();
+        }
     }
 }

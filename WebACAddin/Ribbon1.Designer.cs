@@ -87,14 +87,15 @@
             this.markerInputButton = this.Factory.CreateRibbonButton();
             this.autoNumberButton = this.Factory.CreateRibbonButton();
             this.insertRowcontentButton = this.Factory.CreateRibbonButton();
+            this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
-            this.ccRedButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
             this.ccBlueButton = this.Factory.CreateRibbonButton();
             this.ccGreenButton = this.Factory.CreateRibbonButton();
             this.ccPinkButton = this.Factory.CreateRibbonButton();
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
+            this.ccRedButton = this.Factory.CreateRibbonButton();
             this.writeFormOpenButton = this.Factory.CreateRibbonButton();
             this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
             this.fontBoldButton = this.Factory.CreateRibbonButton();
@@ -377,6 +378,7 @@
             this.box7.Items.Add(this.markerInputButton);
             this.box7.Items.Add(this.autoNumberButton);
             this.box7.Items.Add(this.insertRowcontentButton);
+            this.box7.Items.Add(this.selectedAutoFillButton);
             this.box7.Name = "box7";
             // 
             // markerDropdown
@@ -417,6 +419,12 @@
             this.insertRowcontentButton.Name = "insertRowcontentButton";
             this.insertRowcontentButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertRowcontentButton_Click);
             // 
+            // selectedAutoFillButton
+            // 
+            this.selectedAutoFillButton.Label = "オートフィル";
+            this.selectedAutoFillButton.Name = "selectedAutoFillButton";
+            this.selectedAutoFillButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectedAutoFillButton_Click);
+            // 
             // buttonGroup2
             // 
             this.buttonGroup2.Items.Add(this.ccEmptyButton);
@@ -434,12 +442,6 @@
             this.ccEmptyButton.Label = "無";
             this.ccEmptyButton.Name = "ccEmptyButton";
             this.ccEmptyButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccEmptyButton_Click);
-            // 
-            // ccRedButton
-            // 
-            this.ccRedButton.Label = "赤";
-            this.ccRedButton.Name = "ccRedButton";
-            this.ccRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccRedButton_Click);
             // 
             // ccYellowButton
             // 
@@ -470,6 +472,12 @@
             this.ccPurpleButton.Label = "紫";
             this.ccPurpleButton.Name = "ccPurpleButton";
             this.ccPurpleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccPurpleButton_Click);
+            // 
+            // ccRedButton
+            // 
+            this.ccRedButton.Label = "赤";
+            this.ccRedButton.Name = "ccRedButton";
+            this.ccRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccRedButton_Click);
             // 
             // writeFormOpenButton
             // 
@@ -711,6 +719,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box8;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox addColorRowCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccRedButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton selectedAutoFillButton;
     }
 
     partial class ThisRibbonCollection

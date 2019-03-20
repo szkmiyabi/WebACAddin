@@ -764,6 +764,28 @@ namespace WebACAddin
             }
         }
 
+        //選択範囲単位をオートフィル
+        private void do_selected_auto_fill()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r1, r2, c = 0;
+
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c = sa.Column;
+
+            if (ash.Cells[r1, c].FormulaR1C1 == null) return;
+            var buff = ash.Cells[r1, c].FormulaR1C1;
+
+            //ループ処理
+            for(int i=r1+1; i<=r2; i++)
+            {
+                ash.Cells[i, c].FormulaR1C1 = buff;
+            }
+
+        }
+
 
     }
 }
