@@ -14,6 +14,20 @@ namespace WebACAddin
     partial class Ribbon1
     {
         //TXTファイル保存先を取得
+        private string _get_txt_save_path()
+        {
+            string path = "";
+            SaveFileDialog fda = new SaveFileDialog();
+            fda.Filter = "Textファイル(*.txt)|*.txt";
+            fda.Title = "名前を付けて保存";
+            if (fda.ShowDialog() == DialogResult.OK)
+            {
+                path = fda.FileName;
+            }
+            return path;
+        }
+
+        //TSVファイル保存先を取得
         private string _get_tsv_save_path()
         {
             string path = "";

@@ -74,6 +74,7 @@
             this.box5 = this.Factory.CreateRibbonBox();
             this.writeCommentCombo = this.Factory.CreateRibbonComboBox();
             this.writeCommentInputButton = this.Factory.CreateRibbonButton();
+            this.writeCommentComboSaveButton = this.Factory.CreateRibbonButton();
             this.box6 = this.Factory.CreateRibbonBox();
             this.writeCommentAddButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
@@ -323,6 +324,12 @@
             this.writeCommentInputButton.Name = "writeCommentInputButton";
             this.writeCommentInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.surveyChangeInputButton_Click);
             // 
+            // writeCommentComboSaveButton
+            // 
+            this.writeCommentComboSaveButton.Label = "保存";
+            this.writeCommentComboSaveButton.Name = "writeCommentComboSaveButton";
+            this.writeCommentComboSaveButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentComboSaveButton_Click);
+            // 
             // box6
             // 
             this.box6.Items.Add(this.writeCommentAddButton);
@@ -352,6 +359,7 @@
             // 
             this.box2.Items.Add(this.delCommentSingleButton);
             this.box2.Items.Add(this.delCommentAllButton);
+            this.box2.Items.Add(this.writeCommentComboSaveButton);
             this.box2.Items.Add(this.addCommentPreClearCheck);
             this.box2.Name = "box2";
             // 
@@ -720,6 +728,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox addColorRowCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccRedButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton selectedAutoFillButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton writeCommentComboSaveButton;
     }
 
     partial class ThisRibbonCollection

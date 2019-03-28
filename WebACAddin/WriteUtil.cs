@@ -359,6 +359,25 @@ namespace WebACAddin
             writeCommentCombo.Text = "";
         }
 
+        //ドロップダウンの値を保存
+        private void do_save_val_comment()
+        {
+            int cnt = writeCommentCombo.Items.Count;
+            string body = "";
+            for (int i = 0; i < cnt; i++)
+            {
+                string val = writeCommentCombo.Items[i].Label;
+                body += val;
+                if (i != (cnt - 1)) body += "\r\n";
+            }
+            string path = _get_txt_save_path();
+            Encoding enc = Encoding.GetEncoding("Shift_JIS");
+            StreamWriter sw = new StreamWriter(path, false, enc);
+            sw.WriteLine(body);
+            sw.Close();
+            MessageBox.Show("保存できました!");
+        }
+
         //印を付ける
         private void do_line_mark_write_wrapper()
         {
@@ -785,7 +804,6 @@ namespace WebACAddin
             }
 
         }
-
 
     }
 }

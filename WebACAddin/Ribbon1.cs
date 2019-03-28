@@ -341,5 +341,11 @@ namespace WebACAddin
         {
             do_selected_auto_fill();
         }
+
+        //ドロップダウンの値を保存
+        private void writeCommentComboSaveButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_save_val_comment();
+        }
     }
 }
