@@ -215,32 +215,57 @@ namespace WebACAddin
             }
 
             string ret = "";
-            Regex mt = new Regex(@"http.*//.+");
-
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
 
             int r1, r2, c1, c2;
+            string excel_type = "";
+            string opt_type = "";
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
             c1 = sa.Column;
             c2 = sa.Columns[sa.Columns.Count].Column;
 
+            try
+            {
+                excel_type = (string)ash.Cells[1, 3].Value;
+            }
+            catch (Exception ex) {}
+            if (excel_type == "達成基準" || excel_type == "") opt_type = "my-excel";
+            else if (excel_type == "対象ソースコード") opt_type = "libra-excel";
+
+            //libra検査報告書Excelは未対応
+            if(opt_type == "libra-excel")
+            {
+                MessageBox.Show("Libraの検査報告書Excelには、まだ対応していません");
+                frmObj.Dispose();
+                return;
+            }
+
             for (int i = r1; i <= r2; i++)
             {
-                int di = 0;
-                string tmp = (string)ash.Cells[i, 3].Value;
-                if (mt.IsMatch(tmp)) di++;
 
-                string guideline = (string)ash.Cells[i, 2].Value;
-                string pageID = (string)ash.Cells[i, 1].Value;
-                string techID = (string)ash.Cells[i, 4 + di].Value;
-                string sv_flag = (string)ash.Cells[i, 5 + di].Value;
-                string comment = _br_encode((string)ash.Cells[i, 7 + di].Value);
-                string description = _br_encode((string)ash.Cells[i, 8 + di].Value);
-                string srccode = _br_encode((string)ash.Cells[i, 9 + di].Value);
+                string guideline = "";
+                string pageID = "";
+                string techID = "";
+                string sv_flag = "";
+                string comment = "";
+                string description = "";
+                string srccode = "";
                 string sv_copy_flag = "no";
+
+                //my-excel
+                if(opt_type == "my-excel")
+                {
+                    guideline = (string)ash.Cells[i, 3].Value;
+                    pageID = (string)ash.Cells[i, 1].Value;
+                    techID = (string)ash.Cells[i, 5].Value;
+                    sv_flag = (string)ash.Cells[i, 6].Value;
+                    comment = _br_encode((string)ash.Cells[i, 8].Value);
+                    description = _br_encode((string)ash.Cells[i, 9].Value);
+                    srccode = _br_encode((string)ash.Cells[i, 10].Value);
+                }
 
                 ret = techID + tab_sp + sv_flag + tab_sp + sv_copy_flag + tab_sp + "who" + tab_sp;
                 ret += comment + tab_sp + description + tab_sp + srccode;
