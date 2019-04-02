@@ -235,14 +235,6 @@ namespace WebACAddin
             if (excel_type == "達成基準" || excel_type == "") opt_type = "my-excel";
             else if (excel_type == "対象ソースコード") opt_type = "libra-excel";
 
-            //libra検査報告書Excelは未対応
-            if(opt_type == "libra-excel")
-            {
-                MessageBox.Show("Libraの検査報告書Excelには、まだ対応していません");
-                frmObj.Dispose();
-                return;
-            }
-
             for (int i = r1; i <= r2; i++)
             {
 
@@ -265,6 +257,25 @@ namespace WebACAddin
                     comment = _br_encode((string)ash.Cells[i, 8].Value);
                     description = _br_encode((string)ash.Cells[i, 9].Value);
                     srccode = _br_encode((string)ash.Cells[i, 10].Value);
+                }
+                //libra-excel
+                else if(opt_type == "libra-excel")
+                {
+                    string sheetName = ash.Name;
+                    if(sheetName == "検査結果(ページ単位)" || sheetName == "検査結果(対象ソースコード単位)")
+                    {
+                        sv_flag = "不適合";
+                    }
+                    else if(sheetName == "検査結果(適合(注記))")
+                    {
+                        sv_flag = "適合(注記)";
+                    }
+                    guideline = (string)ash.Cells[i, 6].Value;
+                    pageID = (string)ash.Cells[i, 1].Value;
+                    techID = (string)ash.Cells[i, 6].Value; //guidelineと同じセル
+                    comment = _text_clean((string)ash.Cells[i, 4].Value);
+                    description = _br_encode((string)ash.Cells[i, 3].Value);
+                    srccode = _text_clean((string)ash.Cells[i, 5].Value);
                 }
 
                 ret = techID + tab_sp + sv_flag + tab_sp + sv_copy_flag + tab_sp + "who" + tab_sp;
