@@ -22,6 +22,7 @@ namespace WebACAddin
 
         //メソッドが使用するプライベートな広域変数
         private string get_wa_check_comment_base_body = "";
+        private string get_survey_base_body = "";
 
 
         //カラーコード取得
@@ -211,14 +212,41 @@ namespace WebACAddin
         }
 
         //判定ひな形を作成
-        private void get_survey_base()
+        private void get_survey_base_wrapper()
         {
-            if(frmObj.Visible == false)
+            if (frmObj.Visible == false)
             {
                 frmObj.Show();
             }
 
-            string ret = "";
+            if(get_survey_base_body != "")
+            {
+                get_survey_base_body = "";
+            }
+
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                get_survey_base();
+            }
+
+            frmObj.reportText.Clear();
+            frmObj.reportText.Text = get_survey_base_body;
+
+        }
+        private void get_survey_base()
+        {
+
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
 
@@ -282,13 +310,12 @@ namespace WebACAddin
                     srccode = _text_clean((string)ash.Cells[i, 5].Value);
                 }
 
-                ret = techID + tab_sp + sv_flag + tab_sp + sv_copy_flag + tab_sp + "who" + tab_sp;
-                ret += comment + tab_sp + description + tab_sp + srccode;
+                get_survey_base_body += techID + tab_sp + sv_flag + tab_sp + sv_copy_flag + tab_sp + "who" + tab_sp;
+                get_survey_base_body += comment + tab_sp + description + tab_sp + srccode;
+                get_survey_base_body += "\r\n\r\n";
+                get_survey_base_body += "---------------------\r\n\r\n";
 
             }
-
-            frmObj.reportText.Clear();
-            frmObj.reportText.Text = ret;
 
         }
         private string _br_encode(string str)

@@ -247,7 +247,7 @@ namespace WebACAddin
         //判定ひな形生成
         private void svDataForPasteButton_Click(object sender, RibbonControlEventArgs e)
         {
-            get_survey_base();
+            get_survey_base_wrapper();
         }
 
         //色付け決め打ち
