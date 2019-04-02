@@ -16,8 +16,12 @@ namespace WebACAddin
     partial class Ribbon1
     {
 
+        //独自改行タグ
         private string tab_sp = "<bkmk:tab>";
         private string br_sp = "<bkmk:br>";
+
+        //メソッドが使用するプライベートな広域変数
+        private string get_wa_check_comment_base_body = "";
 
 
         //カラーコード取得
@@ -297,14 +301,41 @@ namespace WebACAddin
         }
 
         //品質チェック指摘コメントのひな形を作成
-        private void get_wa_check_comment_base()
+        private void get_wa_check_comment_base_wrapper()
         {
+            if (get_wa_check_comment_base_body != "")
+            {
+                get_wa_check_comment_base_body = "";
+            }
+
             if (frmObj.Visible == false)
             {
                 frmObj.Show();
             }
 
-            string ret = "";
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                get_wa_check_comment_base();
+            }
+
+            frmObj.reportText.Clear();
+            frmObj.reportText.Text = get_wa_check_comment_base_body;
+
+        }
+        private void get_wa_check_comment_base()
+        {
+
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
 
@@ -339,13 +370,13 @@ namespace WebACAddin
                     string description = _text_clean((string)ash.Cells[i, 9].Value);
                     string srccode = _text_clean((string)ash.Cells[i, 10].Value);
 
-                    ret += pageID + "\r\n";
-                    ret += "達成基準: " + guideline + "\r\n";
-                    ret += "達成方法番号: " + techID + "\r\n";
-                    ret += "判定: " + sv_flag + "\r\n";
-                    ret += "判定コメント:" + "\r\n" + comment + "\r\n";
-                    ret += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
-                    ret += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
+                    get_wa_check_comment_base_body += pageID + "\r\n";
+                    get_wa_check_comment_base_body += "達成基準: " + guideline + "\r\n";
+                    get_wa_check_comment_base_body += "達成方法番号: " + techID + "\r\n";
+                    get_wa_check_comment_base_body += "判定: " + sv_flag + "\r\n";
+                    get_wa_check_comment_base_body += "判定コメント:" + "\r\n" + comment + "\r\n";
+                    get_wa_check_comment_base_body += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
+                    get_wa_check_comment_base_body += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
                 }
                 //libra-excel
                 else if(opt_type == "libra-excel")
@@ -353,21 +384,17 @@ namespace WebACAddin
                     string guidelineAndtechID = (string)ash.Cells[i, 6].Value;
                     string pageID = (string)ash.Cells[i, 1].Value;
                     string comment = _text_clean((string)ash.Cells[i, 4].Value);
-                    string description = _br_encode((string)ash.Cells[i, 3].Value);
+                    string description = _text_clean((string)ash.Cells[i, 3].Value);
                     string srccode = _text_clean((string)ash.Cells[i, 5].Value);
 
-                    ret += pageID + "\r\n";
-                    ret += "達成基準/実装番号:\r\n" + guidelineAndtechID + "\r\n";
-                    ret += "判定コメント:" + "\r\n" + comment + "\r\n";
-                    ret += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
-                    ret += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
+                    get_wa_check_comment_base_body += pageID + "\r\n";
+                    get_wa_check_comment_base_body += "達成基準/実装番号:\r\n" + guidelineAndtechID + "\r\n";
+                    get_wa_check_comment_base_body += "判定コメント:" + "\r\n" + comment + "\r\n";
+                    get_wa_check_comment_base_body += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
+                    get_wa_check_comment_base_body += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
                 }
 
             }
-
-            frmObj.Show();
-            frmObj.reportText.Clear();
-            frmObj.reportText.Text = ret;
 
         }
         private string _text_clean(string str)

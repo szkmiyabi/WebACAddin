@@ -174,7 +174,7 @@ namespace WebACAddin
         //品質チェックコメントを取得
         private void waCheckCommentBaseButton_Click(object sender, RibbonControlEventArgs e)
         {
-            get_wa_check_comment_base();
+            get_wa_check_comment_base_wrapper();
         }
 
         //HTMLを簡易表示
