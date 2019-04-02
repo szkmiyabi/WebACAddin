@@ -278,55 +278,87 @@ namespace WebACAddin
         }
         private string _br_encode(string str)
         {
+            if (str == "" || str == null)
+            {
+                return "";
+            }
             return Regex.Replace(str, @"(\r\n|\r|\n)", br_sp, RegexOptions.Multiline);
         }
 
         //品質チェック指摘コメントのひな形を作成
         private void get_wa_check_comment_base()
         {
+            if (frmObj.Visible == false)
+            {
+                frmObj.Show();
+            }
 
             string ret = "";
-            Regex mt = new Regex(@"http.*//.+");
-
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
 
             int r1, r2, c1, c2;
+            string excel_type = "";
+            string opt_type = "";
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
             c1 = sa.Column;
             c2 = sa.Columns[sa.Columns.Count].Column;
 
-            for(int i=r1; i<=r2; i++)
+            try
             {
-                int di = 0;
-                string tmp = ash.Cells[i, 3].Value;
-                if (mt.IsMatch(tmp)) di++;
+                excel_type = (string)ash.Cells[1, 3].Value;
+            }
+            catch (Exception ex) { }
+            if (excel_type == "達成基準" || excel_type == "") opt_type = "my-excel";
+            else if (excel_type == "対象ソースコード") opt_type = "libra-excel";
 
-                string guideline = ash.Cells[i, 2].Value;
-                string pageID = ash.Cells[i, 1].Value;
-                string techID = ash.Cells[i, 4 + di].Value;
-                string sv_flag = ash.Cells[i, 5 + di].Value;
-                string comment = ash.Cells[i, 7 + di].Value;
-                string description = _text_clean(ash.Cells[i, 8 + di].Value);
-                string srccode = _text_clean(ash.Cells[i, 9 + di].Value);
+            for (int i=r1; i<=r2; i++)
+            {
 
-                ret += pageID + "\r\n";
-                ret += "達成基準: " + guideline + "\r\n";
-                ret += "達成方法番号: " + techID + "\r\n";
-                ret += "判定: " + sv_flag + "\r\n";
-                ret += "判定コメント:" + "\r\n" + comment + "\r\n";
-                ret += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
-                ret += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
+                //my-excel
+                if(opt_type == "my-excel" || opt_type == "")
+                {
+                    string guideline = (string)ash.Cells[i, 3].Value;
+                    string pageID = (string)ash.Cells[i, 1].Value;
+                    string techID = (string)ash.Cells[i, 5].Value;
+                    string sv_flag = (string)ash.Cells[i, 6].Value;
+                    string comment = _text_clean((string)ash.Cells[i, 8].Value);
+                    string description = _text_clean((string)ash.Cells[i, 9].Value);
+                    string srccode = _text_clean((string)ash.Cells[i, 10].Value);
 
-                frmObj.Show();
-                frmObj.reportText.Clear();
-                frmObj.reportText.Text = ret;
+                    ret += pageID + "\r\n";
+                    ret += "達成基準: " + guideline + "\r\n";
+                    ret += "達成方法番号: " + techID + "\r\n";
+                    ret += "判定: " + sv_flag + "\r\n";
+                    ret += "判定コメント:" + "\r\n" + comment + "\r\n";
+                    ret += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
+                    ret += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
+                }
+                //libra-excel
+                else if(opt_type == "libra-excel")
+                {
+                    string guidelineAndtechID = (string)ash.Cells[i, 6].Value;
+                    string pageID = (string)ash.Cells[i, 1].Value;
+                    string comment = _text_clean((string)ash.Cells[i, 4].Value);
+                    string description = _br_encode((string)ash.Cells[i, 3].Value);
+                    string srccode = _text_clean((string)ash.Cells[i, 5].Value);
+
+                    ret += pageID + "\r\n";
+                    ret += "達成基準/実装番号:\r\n" + guidelineAndtechID + "\r\n";
+                    ret += "判定コメント:" + "\r\n" + comment + "\r\n";
+                    ret += "対象ソース:" + "\r\n" + description + "\r\n\r\n";
+                    ret += "修正ソース:" + "\r\n" + srccode + "\r\n\r\n\r\n";
+                }
+
             }
 
-        }
+            frmObj.Show();
+            frmObj.reportText.Clear();
+            frmObj.reportText.Text = ret;
 
+        }
         private string _text_clean(string str)
         {
             string ret = "";
@@ -342,7 +374,6 @@ namespace WebACAddin
             }
             return ret;
         }
-
 
         //修正ソースコードを簡易的に表示
         private void do_disp_htmlcode()
