@@ -74,7 +74,6 @@
             this.box5 = this.Factory.CreateRibbonBox();
             this.writeCommentCombo = this.Factory.CreateRibbonComboBox();
             this.writeCommentInputButton = this.Factory.CreateRibbonButton();
-            this.writeCommentComboSaveButton = this.Factory.CreateRibbonButton();
             this.box6 = this.Factory.CreateRibbonBox();
             this.writeCommentAddButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
@@ -82,12 +81,12 @@
             this.box2 = this.Factory.CreateRibbonBox();
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
+            this.writeCommentComboSaveButton = this.Factory.CreateRibbonButton();
             this.addCommentPreClearCheck = this.Factory.CreateRibbonCheckBox();
             this.box7 = this.Factory.CreateRibbonBox();
             this.markerDropdown = this.Factory.CreateRibbonComboBox();
             this.markerInputButton = this.Factory.CreateRibbonButton();
             this.autoNumberButton = this.Factory.CreateRibbonButton();
-            this.insertRowcontentButton = this.Factory.CreateRibbonButton();
             this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
@@ -324,12 +323,6 @@
             this.writeCommentInputButton.Name = "writeCommentInputButton";
             this.writeCommentInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.surveyChangeInputButton_Click);
             // 
-            // writeCommentComboSaveButton
-            // 
-            this.writeCommentComboSaveButton.Label = "保存";
-            this.writeCommentComboSaveButton.Name = "writeCommentComboSaveButton";
-            this.writeCommentComboSaveButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentComboSaveButton_Click);
-            // 
             // box6
             // 
             this.box6.Items.Add(this.writeCommentAddButton);
@@ -375,6 +368,12 @@
             this.delCommentAllButton.Name = "delCommentAllButton";
             this.delCommentAllButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.delCommentAllButton_Click);
             // 
+            // writeCommentComboSaveButton
+            // 
+            this.writeCommentComboSaveButton.Label = "保存";
+            this.writeCommentComboSaveButton.Name = "writeCommentComboSaveButton";
+            this.writeCommentComboSaveButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentComboSaveButton_Click);
+            // 
             // addCommentPreClearCheck
             // 
             this.addCommentPreClearCheck.Label = "全クリアして追加";
@@ -385,7 +384,6 @@
             this.box7.Items.Add(this.markerDropdown);
             this.box7.Items.Add(this.markerInputButton);
             this.box7.Items.Add(this.autoNumberButton);
-            this.box7.Items.Add(this.insertRowcontentButton);
             this.box7.Items.Add(this.selectedAutoFillButton);
             this.box7.Name = "box7";
             // 
@@ -420,12 +418,6 @@
             this.autoNumberButton.Label = "通番";
             this.autoNumberButton.Name = "autoNumberButton";
             this.autoNumberButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoNumberButton_Click);
-            // 
-            // insertRowcontentButton
-            // 
-            this.insertRowcontentButton.Label = "行複写";
-            this.insertRowcontentButton.Name = "insertRowcontentButton";
-            this.insertRowcontentButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertRowcontentButton_Click);
             // 
             // selectedAutoFillButton
             // 
@@ -715,7 +707,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellVerticalCenterButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellLineBreakButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton autoNumberButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertRowcontentButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group5;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton excelFooterClearButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box7;

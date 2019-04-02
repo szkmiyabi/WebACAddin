@@ -312,12 +312,6 @@ namespace WebACAddin
             do_insert_auto_number_wrapper();
         }
 
-        //行複写
-        private void insertRowcontentButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            do_insert_rowcontent();
-        }
-
         //フッタークリア
         private void excelFooterClearButton_Click(object sender, RibbonControlEventArgs e)
         {

@@ -292,11 +292,15 @@ namespace WebACAddin
             }
             if(buff != "")
             {
+                //check onなら全クリア
+                if (addCommentPreClearCheck.Checked == true) do_clear_combo_comment_all();
+
                 RibbonDropDownItem item = Factory.CreateRibbonDropDownItem();
                 item.Label = buff;
                 writeCommentCombo.Items.Add(item);
             }
-            
+            MessageBox.Show("値の追加に成功しました");
+
         }
 
         //テキストファイルからドロップダウンに値を追加する
@@ -330,6 +334,7 @@ namespace WebACAddin
                 item.Label = arr[i].ToString();
                 writeCommentCombo.Items.Add(item);
             }
+            MessageBox.Show("値の追加に成功しました");
 
         }
 
@@ -716,25 +721,6 @@ namespace WebACAddin
             {
                 ash.Cells[i, c].Value = autoNumberCnt;
                 autoNumberCnt++;
-            }
-        }
-
-        //行複写
-        private void do_insert_rowcontent()
-        {
-            var sa = excelObj.Application.Selection;
-            var ash = excelObj.Application.ActiveSheet;
-            double r1, r2, c;
-            r1 = sa.Row;
-            r2 = sa.Rows[sa.Rows.Count].Row;
-            c = sa.Column;
-            if (ash.Cells[r1, c].Value == null) return;
-            var content = ash.Cells[r1, c].Value;
-
-            for (double i = r1; i <= r2; i++)
-            {
-                if (i == r1) continue;
-                ash.Cells[i, c].Value = content;
             }
         }
 
