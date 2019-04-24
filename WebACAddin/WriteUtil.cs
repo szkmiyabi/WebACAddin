@@ -460,6 +460,7 @@ namespace WebACAddin
             }
             wrfrmObj.Show();
             wrfrmObj.writeFormText.Text = body;
+            wrfrmObj.WindowState = FormWindowState.Normal;
         }
 
         //色付け決め打ち

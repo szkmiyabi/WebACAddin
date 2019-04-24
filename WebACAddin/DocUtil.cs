@@ -16,12 +16,6 @@ namespace WebACAddin
     partial class Ribbon1
     {
 
-        //Form表示
-        private void do_doc_form()
-        {
-            docfrmObj.Show();
-        }
-
         //検査報告書等Excelのフッター未指定処理
         private void do_excel_footer_clear()
         {

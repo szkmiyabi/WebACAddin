@@ -167,12 +167,6 @@
     <Compile Include="ContrastForm.Designer.cs">
       <DependentUpon>ContrastForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DocForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DocForm.Designer.cs">
-      <DependentUpon>DocForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="DocUtil.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -209,9 +203,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContrastForm.resx">
       <DependentUpon>ContrastForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DocForm.resx">
-      <DependentUpon>DocForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

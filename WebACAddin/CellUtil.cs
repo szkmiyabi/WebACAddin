@@ -92,6 +92,8 @@ namespace WebACAddin
 
             if(frmObj.Visible == false) frmObj.Show();
             frmObj.reportText.Text = ret;
+            frmObj.WindowState = FormWindowState.Normal;
+            frmObj.Activate();
         }
 
         //リストに一致するセルに色を付ける
@@ -152,9 +154,20 @@ namespace WebACAddin
                                 ash.Cells[j, c].Interior.ColorIndex = cc;
                             }
                         }
+                        else if(t.Equals(typeof(double)))
+                        {
+                            double tmp = ash.Cells[j, c].Value;
+                            string cr_val = tmp.ToString();
+                            if (cr_val.Equals(line))
+                            {
+                                ash.Cells[j, c].Interior.ColorIndex = cc;
+                            }
+                        }
 
                     }
                 }
+                frmObj.WindowState = FormWindowState.Normal;
+                frmObj.Activate();
             }
         }
 
@@ -201,6 +214,8 @@ namespace WebACAddin
 
                     frmObj.reportText.Text = new_ta.TrimStart();
                     MessageBox.Show("リストの反転が完了しました！");
+                    frmObj.WindowState = FormWindowState.Normal;
+                    frmObj.Activate();
 
                 }
                 else
@@ -239,9 +254,9 @@ namespace WebACAddin
                 ash.Range[selectionList[i]].Select();
                 get_survey_base();
             }
-
             frmObj.reportText.Clear();
             frmObj.reportText.Text = get_survey_base_body;
+            frmObj.WindowState = FormWindowState.Normal;
 
         }
         private void get_survey_base()
@@ -358,6 +373,7 @@ namespace WebACAddin
 
             frmObj.reportText.Clear();
             frmObj.reportText.Text = get_wa_check_comment_base_body;
+            frmObj.WindowState = FormWindowState.Normal;
 
         }
         private void get_wa_check_comment_base()
@@ -462,6 +478,7 @@ namespace WebACAddin
             }
             brfrmObj.Show();
             brfrmObj.browserControl.DocumentText = prefix + body + sufix;
+            brfrmObj.WindowState = FormWindowState.Normal;
 
         }
 
@@ -482,6 +499,7 @@ namespace WebACAddin
             }
             cnfrmObj.Show();
             cnfrmObj.contrastRatioText.Text = body;
+            cnfrmObj.WindowState = FormWindowState.Normal;
         }
 
     }

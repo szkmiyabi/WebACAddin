@@ -28,7 +28,6 @@ namespace WebACAddin
         private static BrowserForm _brfrmObj;
         private static ContrastForm _cnfrmObj;
         private static WriteForm _wrfrmObj;
-        private static DocForm _docfrmObj;
         private static InputForm _inpfrmObj;
 
         //コンストラクタ
@@ -100,19 +99,6 @@ namespace WebACAddin
                     _wrfrmObj = new WriteForm();
                 }
                 return _wrfrmObj;
-            }
-        }
-
-        //DocFormインスタンスの取得
-        public static DocForm docfrmObj
-        {
-            get
-            {
-                if(_docfrmObj == null || _docfrmObj.IsDisposed)
-                {
-                    _docfrmObj = new DocForm();
-                }
-                return _docfrmObj;
             }
         }
 
@@ -224,12 +210,6 @@ namespace WebACAddin
         private void writeFormOpenButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_write_form();
-        }
-
-        //テキスト編集
-        private void documentEditButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            do_doc_form();
         }
 
         //項目1件削除

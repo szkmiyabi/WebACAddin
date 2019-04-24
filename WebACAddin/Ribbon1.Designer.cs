@@ -104,7 +104,6 @@
             this.cellLineBreakButton = this.Factory.CreateRibbonButton();
             this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
-            this.documentEditButton = this.Factory.CreateRibbonButton();
             this.excelFooterClearButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
@@ -526,16 +525,9 @@
             // 
             // group5
             // 
-            this.group5.Items.Add(this.documentEditButton);
             this.group5.Items.Add(this.excelFooterClearButton);
             this.group5.Label = "文書処理";
             this.group5.Name = "group5";
-            // 
-            // documentEditButton
-            // 
-            this.documentEditButton.Label = "テキスト編集";
-            this.documentEditButton.Name = "documentEditButton";
-            this.documentEditButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.documentEditButton_Click);
             // 
             // excelFooterClearButton
             // 
@@ -686,7 +678,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox svRedimFlagCombo;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton svRedimInputButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentOverrideCheck;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton documentEditButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box1;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box5;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box6;
