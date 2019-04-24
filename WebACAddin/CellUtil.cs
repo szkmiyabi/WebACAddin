@@ -257,6 +257,7 @@ namespace WebACAddin
             frmObj.reportText.Clear();
             frmObj.reportText.Text = get_survey_base_body;
             frmObj.WindowState = FormWindowState.Normal;
+            frmObj.Activate();
 
         }
         private void get_survey_base()
@@ -374,6 +375,7 @@ namespace WebACAddin
             frmObj.reportText.Clear();
             frmObj.reportText.Text = get_wa_check_comment_base_body;
             frmObj.WindowState = FormWindowState.Normal;
+            frmObj.Activate();
 
         }
         private void get_wa_check_comment_base()
@@ -479,6 +481,7 @@ namespace WebACAddin
             brfrmObj.Show();
             brfrmObj.browserControl.DocumentText = prefix + body + sufix;
             brfrmObj.WindowState = FormWindowState.Normal;
+            brfrmObj.Activate();
 
         }
 
@@ -500,6 +503,7 @@ namespace WebACAddin
             cnfrmObj.Show();
             cnfrmObj.contrastRatioText.Text = body;
             cnfrmObj.WindowState = FormWindowState.Normal;
+            cnfrmObj.Activate();
         }
 
     }
