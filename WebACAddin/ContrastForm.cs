@@ -16,13 +16,14 @@ namespace WebACAddin
 {
     public partial class ContrastForm : Form
     {
-        private string prefix = "<!doctype html><html lang='ja'><head><meta charset='utf-8'>";
-        private string header_end = "</head><body>";
-        private string body = "<div id='canvas'><strong>あいうえおABCDE</strong></div>";
+        private string prefix = "<!doctype html><html lang='ja'><head><meta charset='utf-8'><style>* { font-family:'メイリオ',Meiryo,sans-serif; }</style></head><body>";
+        private string body = "";
         private string sufix = "</body></html>";
 
+        private Regex svpat = new Regex(@"(.+?)(前景色:.+?)(背景色:.+?)(コントラスト比:.+?)(:1)", RegexOptions.Compiled);
         private Regex fgpat = new Regex(@"(前景色:)(#[0-9a-fA-F]+)", RegexOptions.Compiled);
         private Regex bgpat = new Regex(@"(背景色:)(#[0-9a-fA-F]+)", RegexOptions.Compiled);
+
 
         public ContrastForm()
         {
@@ -33,21 +34,42 @@ namespace WebACAddin
         //コントラストをプレビュー
         private void disp_preview()
         {
+            body = "";
             string src = contrastRatioText.Text;
-            string css_text = "<style>";
-            css_text += "#canvas {  font-family: Meiryo,sans-serif; width: calc(100% - 40px); padding: 20px; text-align:center; font-size: 24px;";
-            css_text += "background-color: " + _get_background_color(src) + ";";
-            css_text += "color: " + _get_foreground_color(src) + ";";
-            css_text += " }</style>";
-            contrastBrowser.DocumentText = prefix + css_text + header_end + body + sufix;
+            List<string> rows = _get_sv_arr(src);
+            foreach (string row in rows)
+            {
+                string[] tmp = row.Split('\t');
+                string str = tmp[0];
+                string fgc = _get_foreground_color(tmp[1]);
+                string bgc = _get_background_color(tmp[2]);
+                body += @"<p style=""color:" + fgc + @";background-color:" + bgc + @";padding:10px;text-align:center;"">" + str + "</p>";
+            }
+            contrastBrowser.DocumentText = prefix + body + sufix;
         }
 
         //コントラストのプレビューをクリア
         private void reset_preview()
         {
-            string css_text = "<style>";
-            css_text += "#canvas { font-family: Meiryo,sans-serif; width: calc(100% - 40px); padding: 20px; text-align:center; font-size: 24px; background-color: #FFF; color: #000; }</style>";
-            contrastBrowser.DocumentText = prefix + css_text + header_end + body + sufix;
+            body = @"<p style=""color:#000000;background-color:#ffffff;padding:10px;text-align:center;"">あいうえお</p>";
+            contrastBrowser.DocumentText = prefix + body + sufix;
+        }
+
+        //指摘コレクションの取得
+        private List<string> _get_sv_arr(string str)
+        {
+            List<string> arr = new List<string>();
+            str = _text_clean(str);
+            if (svpat.IsMatch(str))
+            {
+                MatchCollection mc = svpat.Matches(str);
+                foreach (Match m in mc)
+                {
+                    string row = m.Groups[1] + "\t" + m.Groups[2] + "\t" + m.Groups[3];
+                    arr.Add(row);
+                }
+            }
+            return arr;
         }
 
         //アクティブセルのデータを取得
@@ -73,7 +95,6 @@ namespace WebACAddin
         private string _get_foreground_color(string str)
         {
             string ret = "";
-            str = _text_clean(str);
             if (fgpat.IsMatch(str))
             {
                 MatchCollection mc = fgpat.Matches(str);
@@ -87,7 +108,6 @@ namespace WebACAddin
         private string _get_background_color(string str)
         {
             string ret = "";
-            str = _text_clean(str);
             if (bgpat.IsMatch(str))
             {
                 MatchCollection mc = bgpat.Matches(str);
@@ -102,6 +122,12 @@ namespace WebACAddin
         {
             Regex pt = new Regex(@"(\r\n|\r|\n)+");
             str = pt.Replace(str, "");
+            try
+            {
+                str = new Regex(@"<").Replace(str, "&lt;");
+                str = new Regex(@">").Replace(str, "&gt;");
+            }
+            catch(Exception ex) { }
             return str;
         }
 

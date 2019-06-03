@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.49084F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.50916F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 273);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(470, 316);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // contrastBrowser
@@ -63,7 +63,7 @@
             this.contrastBrowser.Location = new System.Drawing.Point(3, 3);
             this.contrastBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.contrastBrowser.Name = "contrastBrowser";
-            this.contrastBrowser.Size = new System.Drawing.Size(464, 109);
+            this.contrastBrowser.Size = new System.Drawing.Size(464, 128);
             this.contrastBrowser.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -73,13 +73,13 @@
             this.tableLayoutPanel2.Controls.Add(this.contrastRatioText, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 118);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 137);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(464, 152);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(464, 176);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // contrastRatioText
@@ -88,7 +88,8 @@
             this.contrastRatioText.Location = new System.Drawing.Point(3, 3);
             this.contrastRatioText.Multiline = true;
             this.contrastRatioText.Name = "contrastRatioText";
-            this.contrastRatioText.Size = new System.Drawing.Size(458, 110);
+            this.contrastRatioText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.contrastRatioText.Size = new System.Drawing.Size(458, 134);
             this.contrastRatioText.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -98,7 +99,7 @@
             this.flowLayoutPanel1.Controls.Add(this.loadCellDataButton);
             this.flowLayoutPanel1.Controls.Add(this.contrastRatioPvButton);
             this.flowLayoutPanel1.Controls.Add(this.contrastRatioClearButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(69, 119);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(69, 143);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(392, 30);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -148,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 273);
+            this.ClientSize = new System.Drawing.Size(470, 316);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ContrastForm";
             this.Text = "コントラストブラウザー";
