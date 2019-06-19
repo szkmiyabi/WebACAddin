@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="WebACAddin" Language="1033" Version="0.0.3.4" Manufacturer="JCI" UpgradeCode="660590b1-8227-478d-b7a8-42182a83ff50">
+	<Product Id="*" Name="WebACAddin" Language="1033" Version="0.0.3.5" Manufacturer="JCI" UpgradeCode="660590b1-8227-478d-b7a8-42182a83ff50">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
