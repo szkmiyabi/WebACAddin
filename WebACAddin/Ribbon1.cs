@@ -321,5 +321,17 @@ namespace WebACAddin
         {
             do_save_val_comment();
         }
+
+        //シート一覧を読み込み
+        private void readActiveBookSheetsButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            set_active_book_sheets();
+        }
+
+        //コンボで選択したシートに切り替える
+        private void activeBookSheetsCombo_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+            change_sheet_by_combo();
+        }
     }
 }

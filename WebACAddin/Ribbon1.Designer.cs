@@ -105,6 +105,9 @@
             this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
             this.excelFooterClearButton = this.Factory.CreateRibbonButton();
+            this.box9 = this.Factory.CreateRibbonBox();
+            this.activeBookSheetsCombo = this.Factory.CreateRibbonComboBox();
+            this.readActiveBookSheetsButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -129,6 +132,7 @@
             this.buttonGroup2.SuspendLayout();
             this.buttonGroup4.SuspendLayout();
             this.group5.SuspendLayout();
+            this.box9.SuspendLayout();
             this.group2.SuspendLayout();
             this.group3.SuspendLayout();
             this.SuspendLayout();
@@ -526,6 +530,7 @@
             // group5
             // 
             this.group5.Items.Add(this.excelFooterClearButton);
+            this.group5.Items.Add(this.box9);
             this.group5.Label = "文書処理";
             this.group5.Name = "group5";
             // 
@@ -534,6 +539,30 @@
             this.excelFooterClearButton.Label = "フッタークリア";
             this.excelFooterClearButton.Name = "excelFooterClearButton";
             this.excelFooterClearButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.excelFooterClearButton_Click);
+            // 
+            // box9
+            // 
+            this.box9.Items.Add(this.activeBookSheetsCombo);
+            this.box9.Items.Add(this.readActiveBookSheetsButton);
+            this.box9.Name = "box9";
+            // 
+            // activeBookSheetsCombo
+            // 
+            this.activeBookSheetsCombo.Label = "シート切換";
+            this.activeBookSheetsCombo.Name = "activeBookSheetsCombo";
+            this.activeBookSheetsCombo.ShowLabel = false;
+            this.activeBookSheetsCombo.SizeString = "AAAAA";
+            this.activeBookSheetsCombo.Text = null;
+            this.activeBookSheetsCombo.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.activeBookSheetsCombo_TextChanged);
+            // 
+            // readActiveBookSheetsButton
+            // 
+            this.readActiveBookSheetsButton.Label = "読込";
+            this.readActiveBookSheetsButton.Name = "readActiveBookSheetsButton";
+            this.readActiveBookSheetsButton.OfficeImageId = "AccessListCustomDatasheet";
+            this.readActiveBookSheetsButton.ShowImage = true;
+            this.readActiveBookSheetsButton.ShowLabel = false;
+            this.readActiveBookSheetsButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.readActiveBookSheetsButton_Click);
             // 
             // group2
             // 
@@ -635,6 +664,8 @@
             this.buttonGroup4.PerformLayout();
             this.group5.ResumeLayout(false);
             this.group5.PerformLayout();
+            this.box9.ResumeLayout(false);
+            this.box9.PerformLayout();
             this.group2.ResumeLayout(false);
             this.group2.PerformLayout();
             this.group3.ResumeLayout(false);
@@ -711,6 +742,9 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccRedButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton selectedAutoFillButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton writeCommentComboSaveButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonComboBox activeBookSheetsCombo;
+        internal Microsoft.Office.Tools.Ribbon.RibbonBox box9;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton readActiveBookSheetsButton;
     }
 
     partial class ThisRibbonCollection
