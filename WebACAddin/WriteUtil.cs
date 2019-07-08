@@ -98,6 +98,8 @@ namespace WebACAddin
             Regex svpat = new Regex(@"^(適合|不適合|適合\(注記\)|非適用)", RegexOptions.Compiled);
             string prefix = "\r\n↓\r\n";
 
+            Boolean resv_flg = writeCommentReSurveyCheck.Checked;
+
             int r1, r2, c1, c2 = 0;
 
             string src = svRedimFlagCombo.Text;
@@ -121,7 +123,15 @@ namespace WebACAddin
                     {
                         if (svpat.IsMatch(src))
                         {
-                            ash.Cells[i, j].Value = buff + prefix + src;
+                            if(resv_flg == true)
+                            {
+                                ash.Cells[i, j].Value = src;
+                            }
+                            else
+                            {
+                                ash.Cells[i, j].Value = buff + prefix + src;
+
+                            }
                         }
                         else
                         {
@@ -147,7 +157,15 @@ namespace WebACAddin
                         {
                             if (svpat.IsMatch(src))
                             {
-                                ash.Cells[i, j].Value = buff + prefix + src;
+                                if (resv_flg == true)
+                                {
+                                    ash.Cells[i, j].Value = src;
+                                }
+                                else
+                                {
+                                    ash.Cells[i, j].Value = buff + prefix + src;
+
+                                }
                             }
                             else
                             {
@@ -195,6 +213,7 @@ namespace WebACAddin
             int r1, r2, c1, c2 = 0;
 
             string src = writeCommentCombo.Text;
+            src = src.Replace(br_sp, "\r\n");
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
@@ -287,7 +306,7 @@ namespace WebACAddin
                 buff = ash.Cells[r, c].Value;
                 if(pat.IsMatch(buff))
                 {
-                    buff = pat.Replace(buff, "");
+                    buff = pat.Replace(buff, br_sp);
                 }
             }
             if(buff != "")

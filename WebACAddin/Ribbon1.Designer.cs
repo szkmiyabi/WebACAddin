@@ -49,6 +49,7 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl13 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl14 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl15 = this.Factory.CreateRibbonDropDownItem();
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl16 = this.Factory.CreateRibbonDropDownItem();
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.box4 = this.Factory.CreateRibbonBox();
@@ -118,6 +119,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.writeCommentReSurveyCheck = this.Factory.CreateRibbonCheckBox();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box4.SuspendLayout();
@@ -275,11 +277,12 @@
             // 
             this.box1.Items.Add(this.writeCommentBreakCheck);
             this.box1.Items.Add(this.writeCommentOverrideCheck);
+            this.box1.Items.Add(this.writeCommentReSurveyCheck);
             this.box1.Name = "box1";
             // 
             // writeCommentBreakCheck
             // 
-            this.writeCommentBreakCheck.Label = "空行あり";
+            this.writeCommentBreakCheck.Label = "空行有";
             this.writeCommentBreakCheck.Name = "writeCommentBreakCheck";
             // 
             // writeCommentOverrideCheck
@@ -311,10 +314,12 @@
             // 
             // writeCommentCombo
             // 
-            ribbonDropDownItemImpl8.Label = "見落としがあります";
-            ribbonDropDownItemImpl9.Label = "過剰指摘です";
+            ribbonDropDownItemImpl8.Label = "同上";
+            ribbonDropDownItemImpl9.Label = "見落としがあります";
+            ribbonDropDownItemImpl10.Label = "過剰指摘です";
             this.writeCommentCombo.Items.Add(ribbonDropDownItemImpl8);
             this.writeCommentCombo.Items.Add(ribbonDropDownItemImpl9);
+            this.writeCommentCombo.Items.Add(ribbonDropDownItemImpl10);
             this.writeCommentCombo.Label = "文言";
             this.writeCommentCombo.Name = "writeCommentCombo";
             this.writeCommentCombo.SizeString = "AAAAAAAAAA";
@@ -392,18 +397,18 @@
             // 
             // markerDropdown
             // 
-            ribbonDropDownItemImpl10.Label = "*";
-            ribbonDropDownItemImpl11.Label = "-";
-            ribbonDropDownItemImpl12.Label = "○";
-            ribbonDropDownItemImpl13.Label = "△";
-            ribbonDropDownItemImpl14.Label = "×";
-            ribbonDropDownItemImpl15.Label = "■";
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl10);
+            ribbonDropDownItemImpl11.Label = "*";
+            ribbonDropDownItemImpl12.Label = "-";
+            ribbonDropDownItemImpl13.Label = "○";
+            ribbonDropDownItemImpl14.Label = "△";
+            ribbonDropDownItemImpl15.Label = "×";
+            ribbonDropDownItemImpl16.Label = "■";
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl11);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl12);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl13);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl14);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl15);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl16);
             this.markerDropdown.Label = "comboBox1";
             this.markerDropdown.Name = "markerDropdown";
             this.markerDropdown.ShowLabel = false;
@@ -630,6 +635,11 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // writeCommentReSurveyCheck
+            // 
+            this.writeCommentReSurveyCheck.Label = "再検";
+            this.writeCommentReSurveyCheck.Name = "writeCommentReSurveyCheck";
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -745,6 +755,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox activeBookSheetsCombo;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box9;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton readActiveBookSheetsButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentReSurveyCheck;
     }
 
     partial class ThisRibbonCollection
