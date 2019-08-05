@@ -240,11 +240,27 @@ namespace WebACAddin
                         {
                             if (writeCommentBreakCheck.Checked == true)
                             {
-                                ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                if (writeCommentInsertPositionCheck.Checked == true)
+                                {
+                                    ash.Cells[i, j].Value = src + "\r\n" + buff + "\r\n";
+
+                                }
+                                else
+                                {
+                                    ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                }
                             }
                             else
                             {
-                                ash.Cells[i, j].Value = buff + src;
+                                if (writeCommentInsertPositionCheck.Checked == true)
+                                {
+                                    ash.Cells[i, j].Value = src + buff;
+
+                                }
+                                else
+                                {
+                                    ash.Cells[i, j].Value = buff + src;
+                                }
                             }
                         }
 
@@ -268,11 +284,27 @@ namespace WebACAddin
                             {
                                 if (writeCommentBreakCheck.Checked == true)
                                 {
-                                    ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                    if (writeCommentInsertPositionCheck.Checked == true)
+                                    {
+                                        ash.Cells[i, j].Value =  src + "\r\n" + buff + "\r\n";
+
+                                    }
+                                    else
+                                    {
+                                        ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                    }
                                 }
                                 else
                                 {
-                                    ash.Cells[i, j].Value = buff + src;
+                                    if (writeCommentInsertPositionCheck.Checked == true)
+                                    {
+                                        ash.Cells[i, j].Value = src + buff;
+
+                                    }
+                                    else
+                                    {
+                                        ash.Cells[i, j].Value = buff + src;
+                                    }
                                 }
                             }
                         }
@@ -549,9 +581,9 @@ namespace WebACAddin
         {
             List<int[]> arr = new List<int[]>();
             arr.Add(new int[3] { 0, 176, 240 });   //水色
-            arr.Add(new int[3] { 146, 208, 80 });  //緑色
+            arr.Add(new int[3] { 0, 255, 204 });  //緑色
             arr.Add(new int[3] { 255, 102, 153 }); //桃色
-            arr.Add(new int[3] { 153, 102, 255 }); //紫色
+            arr.Add(new int[3] { 204, 153, 255 }); //紫色
             arr.Add(new int[3] { 255, 255, 0 });   //黄色
             arr.Add(new int[3] { 255, 0, 0 });     //赤色
             return arr;

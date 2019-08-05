@@ -121,6 +121,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.writeCommentInsertPositionCheck = this.Factory.CreateRibbonCheckBox();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box4.SuspendLayout();
@@ -280,12 +281,12 @@
             // 
             this.box1.Items.Add(this.writeCommentBreakCheck);
             this.box1.Items.Add(this.writeCommentOverrideCheck);
-            this.box1.Items.Add(this.writeCommentReSurveyCheck);
+            this.box1.Items.Add(this.writeCommentInsertPositionCheck);
             this.box1.Name = "box1";
             // 
             // writeCommentBreakCheck
             // 
-            this.writeCommentBreakCheck.Label = "空行有";
+            this.writeCommentBreakCheck.Label = "空行";
             this.writeCommentBreakCheck.Name = "writeCommentBreakCheck";
             // 
             // writeCommentOverrideCheck
@@ -302,6 +303,7 @@
             // 
             this.box8.Items.Add(this.addLabelColorCheck);
             this.box8.Items.Add(this.addColorRowCheck);
+            this.box8.Items.Add(this.writeCommentReSurveyCheck);
             this.box8.Name = "box8";
             // 
             // addLabelColorCheck
@@ -643,6 +645,11 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // writeCommentInsertPositionCheck
+            // 
+            this.writeCommentInsertPositionCheck.Label = "先頭";
+            this.writeCommentInsertPositionCheck.Name = "writeCommentInsertPositionCheck";
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -759,6 +766,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box9;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton readActiveBookSheetsButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentReSurveyCheck;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentInsertPositionCheck;
     }
 
     partial class ThisRibbonCollection
