@@ -22,10 +22,15 @@ namespace WebACAddin
         public BrowserForm()
         {
             InitializeComponent();
+
             //最初にチェックを入れておく
-            docSemanticListRadio.Checked = true;
-            docSemanticParagraphRadio.Checked = true;
-            docSemanticHeadingRadio.Checked = true;
+            docStructListRadio.Checked = true;
+            docStructParagraphRadio.Checked = true;
+            docStructHeadingRadio.Checked = true;
+            docStructTableRadio.Checked = true;
+            docStructBrRadio.Checked = true;
+            docStructSemanticRadio.Checked = true;
+            doLabelCheckTitleRadio.Checked = true;
         }
 
         //アクティブセルのデータを取得
@@ -59,15 +64,27 @@ namespace WebACAddin
             preview_update();
         }
 
-        //文書構造解析ボタンクリック
-        private void docSemanticsSurveyButton_Click(object sender, EventArgs e)
+        //文書構造解析ボタンをクリック
+        private void docStructSurveyButton_Click(object sender, EventArgs e)
         {
             storage = browserControl.DocumentText;
             PreservUtil pu = new PreservUtil(ref browserControl);
-            if (docSemanticListRadio.Checked == true) pu.tag_list();
-            if (docSemanticParagraphRadio.Checked == true) pu.tag_paragraph();
-            if (docSemanticHeadingRadio.Checked == true) pu.tag_heading();
-            if (docSemanticTableRadio.Checked == true) pu.tag_table();
+            if (docStructParagraphRadio.Checked == true) pu.tag_paragraph();
+            if (docStructBrRadio.Checked == true) pu.tag_br();
+            if (docStructHeadingRadio.Checked == true) pu.tag_heading();
+            if (docStructListRadio.Checked == true) pu.tag_list();
+            if (docStructTableRadio.Checked == true) pu.tag_table();
+            if (docStructSemanticRadio.Checked == true) pu.tag_semantic();
+
+        }
+
+        //ラベル解析ボタンをクリック
+        private void doLabelCheckButton_Click(object sender, EventArgs e)
+        {
+            storage = browserControl.DocumentText;
+            PreservUtil pu = new PreservUtil(ref browserControl);
+            pu.tag_label();
+            if (doLabelCheckTitleRadio.Checked == true) pu.attr_title();
         }
 
         //クリアボタンクリック
@@ -75,5 +92,6 @@ namespace WebACAddin
         {
             preview_default();
         }
+
     }
 }

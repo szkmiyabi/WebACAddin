@@ -31,11 +31,28 @@ namespace WebACAddin
             int i = 0;
             foreach (HtmlElement p in ps)
             {
-                p.Style = "border:2px dotted red; position: relative;";
-                add_label(p, i);
+                p.Style = "border:1px solid #3A87AD; position: relative;";
+                add_label(p, i, "afterbegin", "#3A87AD");
                 i++;
             }
 
+        }
+
+        //br要素を枠で囲う
+        public void tag_br()
+        {
+            HtmlElementCollection brs = d.GetElementsByTagName("br");
+            int i = 0;
+            foreach (HtmlElement br in brs)
+            {
+                HtmlElement span = d.CreateElement("span");
+                string span_id = "bkm-br-span-" + i;
+                string css_txt = "color:#fff;font-size:90%!important;padding:1px;border-radius:3px;";
+                span.Id = span_id;
+                span.Style = css_txt;
+                br.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                i++;
+            }
         }
 
         //リストを枠で囲う
@@ -55,22 +72,8 @@ namespace WebACAddin
             int i = 0;
             foreach (HtmlElement t in ts)
             {
-                t.Style = "border:2px dotted red; position: relative;";
-                add_label(t, i);
-                if (tag.Equals("dt"))
-                {
-                    HtmlElement span = d.GetElementById("bkm-dt-span-" + i);
-                    string old_css_text = span.Style;
-                    string new_css_text = old_css_text.Replace("left: 2px;", "left: 20px;");
-                    span.Style = new_css_text;
-                }
-                else if (tag.Equals("dd"))
-                {
-                    HtmlElement span = d.GetElementById("bkm-dd-span-" + i);
-                    string old_css_text = span.Style;
-                    string new_css_text = old_css_text.Replace("left: 2px;", "left: 20px;");
-                    span.Style = new_css_text;
-                }
+                t.Style = "border:1px solid #468847; position: relative;";
+                add_label(t, i, "afterbegin", "#468847");
                 i++;
             }
         }
@@ -78,7 +81,7 @@ namespace WebACAddin
         //セマンティック要素を枠で囲う
         public void tag_semantic()
         {
-            string[] tags = { "strong", "em" };
+            string[] tags = { "strong", "em", "address", "nav", "section" };
             for (int i = 0; i < tags.Length; i++)
             {
                 string val = tags[i].ToString();
@@ -91,8 +94,8 @@ namespace WebACAddin
             int i = 0;
             foreach (HtmlElement t in ts)
             {
-                t.Style = "border:2px dotted red; position: relative;";
-                add_label(t, i);
+                t.Style = "border:1px solid #808080; position: relative;";
+                add_label(t, i, "afterbegin", "#888888");
                 i++;
             }
         }
@@ -104,7 +107,7 @@ namespace WebACAddin
             for (int i = 0; i < tags.Length; i++)
             {
                 string val = tags[i].ToString();
-                _tag_semantic_func(val);
+                _tag_heading_func(val);
             }
         }
         private void _tag_heading_func(string tag)
@@ -113,8 +116,8 @@ namespace WebACAddin
             int i = 0;
             foreach (HtmlElement t in ts)
             {
-                t.Style = "border:2px dotted red; position: relative;";
-                add_label(t, i);
+                t.Style = "border:1px solid red; position: relative;";
+                add_label(t, i, "afterbegin", "#B94A48");
                 i++;
             }
         }
@@ -132,37 +135,20 @@ namespace WebACAddin
             int i = 0;
             foreach (HtmlElement tbl in tbls)
             {
-                tbl.Style = "border:2px dotted red; position: relative;";
-                add_label(tbl, i);
+                tbl.Style = "border:2px solid red!important; position: relative;";
+                add_label(tbl, i, "beforebegin", "#800000");
                 i++;
             }
             i = 0;
             foreach (HtmlElement tbl in tbls)
             {
-                string tbl_tag = tbl.OuterHtml;
-                tbl_tag = _text_clean(tbl_tag);
-                if (_is_exist_summary_attr(tbl_tag))
-                {
-                    string smry = tbl.GetAttribute("summary");
-                    HtmlElement span = d.GetElementById("bkm-table-span-" + i);
-                    string now_label_text = span.InnerHtml;
-                    now_label_text = _html_decode(now_label_text);
-                    string new_label_text = "";
-                    if (smry.Equals("")) new_label_text = now_label_text + ", summary: 空";
-                    else new_label_text = now_label_text + ", summary: " + smry;
-                    span.InnerText = new_label_text;
-                    string old_css_text = span.Style;
-                    string new_css_text = old_css_text.Replace("top: 2px;", "top: -20px;");
-                    span.Style = new_css_text;
-                }
+                string smry = tbl.GetAttribute("summary");
+                HtmlElement span = d.GetElementById("bkm-table-span-" + i);
+                string now_label_text = span.InnerHtml;
+                string new_label_text = (smry.Equals("") == true) ? now_label_text : now_label_text + ", summary:" + smry;
+                span.InnerHtml = new_label_text;
                 i++;
             }
-        }
-        private Boolean _is_exist_summary_attr(string str)
-        {
-            Regex pt = new Regex(@"summary="".*?""", RegexOptions.IgnoreCase);
-            if (pt.IsMatch(str)) return true;
-            else return false;
         }
         private void _tag_table_caption()
         {
@@ -170,18 +156,8 @@ namespace WebACAddin
             int i = 0;
             foreach (HtmlElement cp in cps)
             {
-                cp.Style = "border:2px dotted red; position: relative;";
-                add_label(cp, i);
-                i++;
-            }
-            i = 0;
-            foreach (HtmlElement cp in cps)
-            {
-                HtmlElement span = d.GetElementById("bkm-caption-span-" + i);
-                string old_css_text = span.Style;
-                string new_css_text = old_css_text.Replace("top: 2px;", "top: -20px;");
-                new_css_text = new_css_text.Replace("left: 2px;", "right: 2px;");
-                span.Style = new_css_text;
+                cp.Style = "border:1px solid red!important; position: relative;";
+                add_label(cp, i, "afterbegin", "#800000");
                 i++;
             }
         }
@@ -191,35 +167,20 @@ namespace WebACAddin
             int i = 0;
             foreach (HtmlElement th in ths)
             {
-                th.Style = "border:2px dotted red; position: relative;";
-                add_label(th, i);
+                th.Style = "border:2px solid red!important; position: relative;";
+                add_label(th, i, "afterbegin", "#800000");
                 i++;
             }
             i = 0;
             foreach (HtmlElement th in ths)
             {
-                string th_tag = th.OuterHtml;
-                th_tag = _text_clean(th_tag);
-
-                string new_label_text = "";
-
-                if (_is_exist_scope_attr(th_tag))
-                {
-                    string scope = th.GetAttribute("scope");
-                    HtmlElement span = d.GetElementById("bkm-th-span-" + i);
-                    string now_label_text = span.InnerHtml;
-                    if (scope.Equals("")) new_label_text = now_label_text + ", scope: 空";
-                    else new_label_text = now_label_text + ", scope: " + scope;
-                    span.InnerHtml = new_label_text;
-                }
+                string scope = th.GetAttribute("scope");
+                HtmlElement span = d.GetElementById("bkm-th-span-" + i);
+                string now_label_text = span.InnerHtml;
+                string new_label_text = (scope.Equals("") == true) ? now_label_text : now_label_text + ", scope:" + scope;
+                span.InnerHtml = new_label_text;
                 i++;
             }
-        }
-        private Boolean _is_exist_scope_attr(string str)
-        {
-            Regex pt = new Regex(@"scope="".*?""", RegexOptions.IgnoreCase);
-            if (pt.IsMatch(str)) return true;
-            else return false;
         }
 
         //ラベル要素を枠で表示する
@@ -230,7 +191,6 @@ namespace WebACAddin
             _tag_label_textarea();
             _tag_label_select();
         }
-
         private void _tag_label_label()
         {
             HtmlElementCollection lbs = d.GetElementsByTagName("label");
@@ -239,26 +199,36 @@ namespace WebACAddin
             {
                 string lb_html = lb.OuterHtml;
                 lb_html = _text_clean(lb_html);
-                lb.Style = "border:2px solid red; position: relative;";
-                if (_for_attr_check(lb_html))
+                lb.Style = "border:1px solid #468847!important; position: relative;";
+                string span_html = "";
+                string span_style = "";
+                string span_id = "bkm-label-span-" + i;
+                string type = "";
+                if(_has_attribute(lb_html, "for"))
                 {
-                    HtmlElement span = d.CreateElement("span");
-                    span.Id = "bmk-label-span-" + i;
-                    if (!_label_not_empty(lb_html))
-                    {
-                        span.Style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#C00000;";
-                    }
-                    else
-                    {
-                        span.Style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#600060;";
-                    }
-                    string for_attr_str = _get_for_attr_val(lb_html);
-                    string in_html_str = "";
-                    in_html_str += "for属性有: " + for_attr_str;
-                    if (!_label_not_empty(lb_html)) in_html_str = "中身無し, " + in_html_str;
-                    span.InnerHtml = in_html_str;
-                    lb.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                    type = "for-is-yes";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#008000;border-radius:5px;";
                 }
+                else
+                {
+                    type = "for-is-no";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#C00000;border-radius:5px;";
+                }
+                if (type.Equals("for-is-yes"))
+                {
+                    string for_vl = _get_attribute(lb_html, "for");
+                    span_html = (for_vl.Equals("") == true) ? "for属性有:(空)" : "for属性有:" + for_vl;
+                    span_html = "&lt;" + lb.TagName.ToLower() + "&gt; , " + span_html;
+                }
+                else if(type.Equals("for-is-no"))
+                {
+                    span_html = "&lt;" + lb.TagName.ToLower() + "&gt; , for属性なし";
+                }
+                HtmlElement span = d.CreateElement("span");
+                span.Id = span_id;
+                span.Style = span_style;
+                span.InnerHtml = span_html;
+                lb.InsertAdjacentElement(HtmlElementInsertionOrientation.AfterBegin, span);
                 i++;
             }
         }
@@ -270,20 +240,37 @@ namespace WebACAddin
             {
                 string ip_html = ip.OuterHtml;
                 ip_html = _text_clean(ip_html);
-                string typeattr = ip.GetAttribute("type");
-                if (typeattr == "text" || typeattr == "radio" || typeattr == "checkbox")
+                string span_html = "";
+                string span_style = "";
+                string span_id = "bkm-input-span-" + i;
+                ip.Style = "border:1px solid blue; position: relative;";
+                string type = "";
+                Regex pt = new Regex(@"type=""*hidden""*");
+                if (pt.IsMatch(ip_html)) continue;
+
+                if (_has_attribute(ip_html, "id"))
                 {
-                    ip.Style = "border:2px solid blue; position: relative;";
-                    if (_id_attr_check(ip_html))
-                    {
-                        HtmlElement span = d.CreateElement("span");
-                        span.Id = "bkm-input-span-" + i;
-                        string id_attr_str = ip.Id;
-                        span.InnerHtml = "id属性有: " + id_attr_str;
-                        span.Style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#600060;";
-                        ip.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
-                    }
+                    type = "id-yes";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#3A87AD;border-radius:5px;";
                 }
+                else
+                {
+                    type = "id-no";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#C00000;border-radius:5px;";
+                }
+                if(type.Equals("id-yes"))
+                {
+                    string id_vl = _get_attribute(ip_html, "id");
+                    span_html = (id_vl.Equals("") == true) ? "id属性有:(空)" : "id属性有: " + id_vl;
+                } else if (type.Equals("id-no"))
+                {
+                    span_html = "id属性なし";
+                }
+                HtmlElement span = d.CreateElement("span");
+                span.Id = span_id;
+                span.Style = span_style;
+                span.InnerHtml = span_html;
+                ip.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
                 i++;
             }
 
@@ -296,16 +283,35 @@ namespace WebACAddin
             {
                 string ta_html = ta.OuterHtml;
                 ta_html = _text_clean(ta_html);
-                ta.Style = "border:2px solid blue; position: relative;";
-                if (_id_attr_check(ta_html))
+                ta.Style = "border:1px solid blue; position: relative;";
+                string span_html = "";
+                string span_style = "";
+                string span_id = "bkm-textarea-span-" + i;
+                string type = "";
+                if (_has_attribute(ta_html, "id"))
                 {
-                    HtmlElement span = d.CreateElement("span");
-                    span.Id = "bkm-textarea-span-" + i;
-                    string id_attr_str = ta.Id;
-                    span.InnerHtml = "id属性有: " + id_attr_str;
-                    span.Style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#600060;";
-                    ta.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                    type = "id-yes";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#3A87AD;border-radius:5px;";
                 }
+                else
+                {
+                    type = "id-no";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#C00000;border-radius:5px;";
+                }
+                if (type.Equals("id-yes"))
+                {
+                    string id_vl = _get_attribute(ta_html, "id");
+                    span_html = (id_vl.Equals("") == true) ? "id属性有:(空)" : "id属性有: " + id_vl;
+                }
+                else if (type.Equals("id-no"))
+                {
+                    span_html = "id属性なし";
+                }
+                HtmlElement span = d.CreateElement("span");
+                span.Id = span_id;
+                span.Style = span_style;
+                span.InnerHtml = span_html;
+                ta.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
                 i++;
             }
 
@@ -318,67 +324,175 @@ namespace WebACAddin
             {
                 string sl_html = sl.OuterHtml;
                 sl_html = _text_clean(sl_html);
-                sl.Style = "border:2px solid blue; position: relative;";
-                if (_id_attr_check(sl_html))
+                sl.Style = "border:1px solid blue; position: relative;";
+                string span_html = "";
+                string span_style = "";
+                string span_id = "bkm-select-span-" + i;
+                string type = "";
+                if (_has_attribute(sl_html, "id"))
                 {
-                    HtmlElement span = d.CreateElement("span");
-                    span.Id = "bkm-select-span-" + i;
-                    string id_attr_str = sl.Id;
-                    span.InnerHtml = "id属性有: " + id_attr_str;
-                    span.Style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#600060;";
-                    sl.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                    type = "id-yes";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#3A87AD;border-radius:5px;";
                 }
+                else
+                {
+                    type = "id-no";
+                    span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#C00000;border-radius:5px;";
+                }
+                if (type.Equals("id-yes"))
+                {
+                    string id_vl = _get_attribute(sl_html, "id");
+                    span_html = (id_vl.Equals("") == true) ? "id属性有:(空)" : "id属性有: " + id_vl;
+                }
+                else if (type.Equals("id-no"))
+                {
+                    span_html = "id属性なし";
+                }
+                HtmlElement span = d.CreateElement("span");
+                span.Id = span_id;
+                span.Style = span_style;
+                span.InnerHtml = span_html;
+                sl.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
                 i++;
             }
 
         }
 
-        private Boolean _for_attr_check(string str)
+        //title属性を表示する
+        public void attr_title()
         {
-            Regex pt = new Regex(@"for="".*?""", RegexOptions.IgnoreCase);
-            if (pt.IsMatch(str)) return true;
-            else return false;
-        }
-        private string _get_for_attr_val(string str)
-        {
-            Regex pt = new Regex(@"for=""(.+?)\""");
-            MatchCollection mt = pt.Matches(str);
-            if (mt.Count > 0)
+            string[] tags = { "a", "input", "textarea", "select" };
+            for(int i=0; i<tags.Length; i++)
             {
-                Match m = mt[0];
-                return m.Groups[1].Value;
+                string val = tags[i].ToString();
+                _title_attr_func(val);
+            }
+        }
+        private void _title_attr_func(string tag)
+        {
+            HtmlElementCollection ts = d.GetElementsByTagName(tag);
+            int i = 0;
+            foreach(HtmlElement t in ts)
+            {
+                string t_html = t.OuterHtml;
+                t_html = _text_clean(t_html);
+                var tag_name = t.TagName.ToLower();
+                if (tag_name.Equals("input"))
+                {
+
+                    string span_html = "";
+                    string span_style = "";
+                    string span_id = "bkm-title-attr-span-" + i;
+                    string type = "";
+                    Regex pt = new Regex(@"type=""*hidden""*");
+                    if (pt.IsMatch(t_html)) continue;
+                    if (_has_attribute(t_html, "title"))
+                    {
+                        type = "title-yes";
+                        span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#008000;border-radius:5px;";
+                    }
+                    else
+                    {
+                        type = "title-no";
+                        span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#C00000;border-radius:5px;";
+                    }
+                    if (type.Equals("title-yes"))
+                    {
+                        string title_vl = _get_attribute(t_html, "title");
+                        span_html = (title_vl.Equals("") == true) ? "title属性有:(空)" : "title属性有: " + title_vl;
+                    }
+                    else if (type.Equals("title-no"))
+                    {
+                        span_html = "title属性なし";
+                    }
+                    HtmlElement span = d.CreateElement("span");
+                    span.Id = span_id;
+                    span.Style = span_style;
+                    span.InnerHtml = span_html;
+                    t.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                    i++;
+                }
+                else if(tag_name.Equals("textarea") || tag_name.Equals("select"))
+                {
+                    string span_html = "";
+                    string span_style = "";
+                    string span_id = "bkm-title-attr-span-" + i;
+                    string type = "";
+                    if (_has_attribute(t_html, "title"))
+                    {
+                        type = "title-yes";
+                        span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#008000;border-radius:5px;";
+                    }
+                    else
+                    {
+                        type = "title-no";
+                        span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#C00000;border-radius:5px;";
+                    }
+                    if (type.Equals("title-yes"))
+                    {
+                        string title_vl = _get_attribute(t_html, "title");
+                        span_html = (title_vl.Equals("") == true) ? "title属性有:(空)" : "title属性有: " + title_vl;
+                    }
+                    else if (type.Equals("title-no"))
+                    {
+                        span_html = "title属性なし";
+                    }
+                    HtmlElement span = d.CreateElement("span");
+                    span.Id = span_id;
+                    span.Style = span_style;
+                    span.InnerHtml = span_html;
+                    t.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                    i++;
+                }
+                else
+                {
+                    string span_html = "";
+                    string span_style = "";
+                    string span_id = "bkm-title-attr-span-" + i;
+                    if(_has_attribute(t_html, "title"))
+                    {
+                        string title_vl = _get_attribute(t_html, "title");
+                        span_style = "padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#008000;border-radius:5px;";
+                        span_html = (title_vl.Equals("") == true) ? "title属性有:(空)" : "title属性有: " + title_vl;
+                        HtmlElement span = d.CreateElement("span");
+                        span.Id = span_id;
+                        span.Style = span_style;
+                        span.InnerHtml = span_html;
+                        t.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                        i++;
+                    }
+                }
+            }
+
+        }
+
+        //属性の有無判定
+        private Boolean _has_attribute(string html, string attr)
+        {
+            Boolean flg = false;
+            Regex pt1 = new Regex(attr + @"="".*?""");
+            Regex pt2 = new Regex(attr + "=");
+            if (pt1.IsMatch(html)) flg = true;
+            if (pt2.IsMatch(html)) flg = true;
+            return flg;
+        }
+
+        //属性値の取得
+        private string _get_attribute(string html, string attr)
+        {
+            Regex pt = new Regex(attr + @"=([a-zA-Z0-9\-_]+) *");
+            MatchCollection mt = pt.Matches(html);
+            if(mt.Count > 0)
+            {
+                return mt[0].Groups[1].Value;
             }
             else
             {
-                return null;
-            }
-        }
-        private Boolean _label_not_empty(string str)
-        {
-            Regex pt = new Regex(@"(<label.*?>)(.+?)(</label>)", RegexOptions.IgnoreCase);
-            if (pt.IsMatch(str)) return true;
-            else return false;
-
-        }
-        private Boolean _id_attr_check(string str)
-        {
-            Regex pt = new Regex(@"id="".*?""", RegexOptions.IgnoreCase);
-            if (pt.IsMatch(str)) return true;
-            else return false;
-        }
-
-        //br要素を枠で囲う
-        public void tag_br()
-        {
-            HtmlElementCollection brs = d.GetElementsByTagName("br");
-            int i = 0;
-            foreach (HtmlElement br in brs)
-            {
-                br.Style = "border:2px dotted red;position: relative;";
-                i++;
+                return "";
             }
         }
 
+        //テキスト処理
         private string _text_clean(string str)
         {
             str = Regex.Replace(str, @"^ +", "", RegexOptions.Multiline);
@@ -386,14 +500,12 @@ namespace WebACAddin
             str = Regex.Replace(str, @"(\r\n|\r|\n)", "", RegexOptions.Multiline);
             return str;
         }
-
         private string _html_decode(string str)
         {
             str = Regex.Replace(str, @"&lt;", "<");
             str = Regex.Replace(str, @"&gt;", ">");
             return str;
         }
-
         private string _html_encode(string str)
         {
             str = Regex.Replace(str, @"<", "&lt;");
@@ -401,19 +513,33 @@ namespace WebACAddin
             return str;
         }
 
-
         //要素名ラベルを表示
-        private void add_label(HtmlElement obj, int cnt)
+        private void add_label(HtmlElement obj, int cnt, string pos, string colorcode)
         {
             HtmlElement span = d.CreateElement("span");
             string tag_name = obj.TagName;
             tag_name = tag_name.ToLower();
             string span_id = "bkm-" + tag_name + "-span-" + cnt;
-            string css_txt = "color:#000;font-size:12px;opacity:0.8;display:block;border:1px solid red;padding:1px;background:yellow;position:absolute;top:2px;left:2px;text-indent:0!important;";
-            span.InnerHtml = "&lt;" + tag_name + "&gt;";
+            string css_txt = "color:#fff;font-size:90%!important;font-weight:normal!important;padding:1px;border-radius:3px;";
+            css_txt += "background:" + colorcode + ";";
+            string html_str = "&lt;" + tag_name + "&gt;";
+            span.InnerHtml = html_str;
             span.Id = span_id;
             span.Style = css_txt;
-            obj.AppendChild(span);
+            switch (pos){
+                case "afterbegin":
+                    obj.InsertAdjacentElement(HtmlElementInsertionOrientation.AfterBegin, span);
+                    break;
+                case "afterend":
+                    obj.InsertAdjacentElement(HtmlElementInsertionOrientation.AfterEnd, span);
+                    break;
+                case "beforebegin":
+                    obj.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeBegin, span);
+                    break;
+                case "beforeend":
+                    obj.InsertAdjacentElement(HtmlElementInsertionOrientation.BeforeEnd, span);
+                    break;
+            }
         }
 
     }

@@ -32,11 +32,15 @@
             this.browserControl = new System.Windows.Forms.WebBrowser();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.previewHtmlUpdateButton = new System.Windows.Forms.Button();
-            this.docSemanticListRadio = new System.Windows.Forms.CheckBox();
-            this.docSemanticParagraphRadio = new System.Windows.Forms.CheckBox();
-            this.docSemanticHeadingRadio = new System.Windows.Forms.CheckBox();
-            this.docSemanticTableRadio = new System.Windows.Forms.CheckBox();
-            this.docSemanticsSurveyButton = new System.Windows.Forms.Button();
+            this.docStructParagraphRadio = new System.Windows.Forms.CheckBox();
+            this.docStructBrRadio = new System.Windows.Forms.CheckBox();
+            this.docStructHeadingRadio = new System.Windows.Forms.CheckBox();
+            this.docStructListRadio = new System.Windows.Forms.CheckBox();
+            this.docStructTableRadio = new System.Windows.Forms.CheckBox();
+            this.docStructSemanticRadio = new System.Windows.Forms.CheckBox();
+            this.docStructSurveyButton = new System.Windows.Forms.Button();
+            this.doLabelCheckTitleRadio = new System.Windows.Forms.CheckBox();
+            this.doLabelCheckButton = new System.Windows.Forms.Button();
             this.docSemanticsClearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -52,9 +56,9 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.13738F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.86262F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(587, 313);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.40404F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.59596F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(801, 396);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // browserControl
@@ -63,28 +67,31 @@
             this.browserControl.Location = new System.Drawing.Point(3, 3);
             this.browserControl.MinimumSize = new System.Drawing.Size(20, 20);
             this.browserControl.Name = "browserControl";
-            this.browserControl.Size = new System.Drawing.Size(581, 273);
+            this.browserControl.Size = new System.Drawing.Size(795, 351);
             this.browserControl.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.previewHtmlUpdateButton);
-            this.flowLayoutPanel1.Controls.Add(this.docSemanticListRadio);
-            this.flowLayoutPanel1.Controls.Add(this.docSemanticParagraphRadio);
-            this.flowLayoutPanel1.Controls.Add(this.docSemanticHeadingRadio);
-            this.flowLayoutPanel1.Controls.Add(this.docSemanticTableRadio);
-            this.flowLayoutPanel1.Controls.Add(this.docSemanticsSurveyButton);
+            this.flowLayoutPanel1.Controls.Add(this.docStructParagraphRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docStructBrRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docStructHeadingRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docStructListRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docStructTableRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docStructSemanticRadio);
+            this.flowLayoutPanel1.Controls.Add(this.docStructSurveyButton);
+            this.flowLayoutPanel1.Controls.Add(this.doLabelCheckTitleRadio);
+            this.flowLayoutPanel1.Controls.Add(this.doLabelCheckButton);
             this.flowLayoutPanel1.Controls.Add(this.docSemanticsClearButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 282);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 360);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(572, 28);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(786, 28);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // previewHtmlUpdateButton
             // 
             this.previewHtmlUpdateButton.Location = new System.Drawing.Point(3, 3);
-            this.previewHtmlUpdateButton.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
             this.previewHtmlUpdateButton.Name = "previewHtmlUpdateButton";
             this.previewHtmlUpdateButton.Size = new System.Drawing.Size(128, 23);
             this.previewHtmlUpdateButton.TabIndex = 0;
@@ -92,63 +99,106 @@
             this.previewHtmlUpdateButton.UseVisualStyleBackColor = true;
             this.previewHtmlUpdateButton.Click += new System.EventHandler(this.previewHtmlUpdateButton_Click);
             // 
-            // docSemanticListRadio
+            // docStructParagraphRadio
             // 
-            this.docSemanticListRadio.AutoSize = true;
-            this.docSemanticListRadio.Location = new System.Drawing.Point(184, 6);
-            this.docSemanticListRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.docSemanticListRadio.Name = "docSemanticListRadio";
-            this.docSemanticListRadio.Size = new System.Drawing.Size(48, 16);
-            this.docSemanticListRadio.TabIndex = 2;
-            this.docSemanticListRadio.Text = "リスト";
-            this.docSemanticListRadio.UseVisualStyleBackColor = true;
+            this.docStructParagraphRadio.AutoSize = true;
+            this.docStructParagraphRadio.Location = new System.Drawing.Point(137, 6);
+            this.docStructParagraphRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docStructParagraphRadio.Name = "docStructParagraphRadio";
+            this.docStructParagraphRadio.Size = new System.Drawing.Size(48, 16);
+            this.docStructParagraphRadio.TabIndex = 3;
+            this.docStructParagraphRadio.Text = "段落";
+            this.docStructParagraphRadio.UseVisualStyleBackColor = true;
             // 
-            // docSemanticParagraphRadio
+            // docStructBrRadio
             // 
-            this.docSemanticParagraphRadio.AutoSize = true;
-            this.docSemanticParagraphRadio.Location = new System.Drawing.Point(235, 6);
-            this.docSemanticParagraphRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.docSemanticParagraphRadio.Name = "docSemanticParagraphRadio";
-            this.docSemanticParagraphRadio.Size = new System.Drawing.Size(48, 16);
-            this.docSemanticParagraphRadio.TabIndex = 3;
-            this.docSemanticParagraphRadio.Text = "段落";
-            this.docSemanticParagraphRadio.UseVisualStyleBackColor = true;
+            this.docStructBrRadio.AutoSize = true;
+            this.docStructBrRadio.Location = new System.Drawing.Point(188, 6);
+            this.docStructBrRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docStructBrRadio.Name = "docStructBrRadio";
+            this.docStructBrRadio.Size = new System.Drawing.Size(48, 16);
+            this.docStructBrRadio.TabIndex = 8;
+            this.docStructBrRadio.Text = "改行";
+            this.docStructBrRadio.UseVisualStyleBackColor = true;
             // 
-            // docSemanticHeadingRadio
+            // docStructHeadingRadio
             // 
-            this.docSemanticHeadingRadio.AutoSize = true;
-            this.docSemanticHeadingRadio.Location = new System.Drawing.Point(286, 6);
-            this.docSemanticHeadingRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.docSemanticHeadingRadio.Name = "docSemanticHeadingRadio";
-            this.docSemanticHeadingRadio.Size = new System.Drawing.Size(57, 16);
-            this.docSemanticHeadingRadio.TabIndex = 4;
-            this.docSemanticHeadingRadio.Text = "見出し";
-            this.docSemanticHeadingRadio.UseVisualStyleBackColor = true;
+            this.docStructHeadingRadio.AutoSize = true;
+            this.docStructHeadingRadio.Location = new System.Drawing.Point(239, 6);
+            this.docStructHeadingRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docStructHeadingRadio.Name = "docStructHeadingRadio";
+            this.docStructHeadingRadio.Size = new System.Drawing.Size(57, 16);
+            this.docStructHeadingRadio.TabIndex = 4;
+            this.docStructHeadingRadio.Text = "見出し";
+            this.docStructHeadingRadio.UseVisualStyleBackColor = true;
             // 
-            // docSemanticTableRadio
+            // docStructListRadio
             // 
-            this.docSemanticTableRadio.AutoSize = true;
-            this.docSemanticTableRadio.Location = new System.Drawing.Point(346, 6);
-            this.docSemanticTableRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
-            this.docSemanticTableRadio.Name = "docSemanticTableRadio";
-            this.docSemanticTableRadio.Size = new System.Drawing.Size(36, 16);
-            this.docSemanticTableRadio.TabIndex = 5;
-            this.docSemanticTableRadio.Text = "表";
-            this.docSemanticTableRadio.UseVisualStyleBackColor = true;
+            this.docStructListRadio.AutoSize = true;
+            this.docStructListRadio.Location = new System.Drawing.Point(299, 6);
+            this.docStructListRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docStructListRadio.Name = "docStructListRadio";
+            this.docStructListRadio.Size = new System.Drawing.Size(48, 16);
+            this.docStructListRadio.TabIndex = 2;
+            this.docStructListRadio.Text = "リスト";
+            this.docStructListRadio.UseVisualStyleBackColor = true;
             // 
-            // docSemanticsSurveyButton
+            // docStructTableRadio
             // 
-            this.docSemanticsSurveyButton.Location = new System.Drawing.Point(385, 3);
-            this.docSemanticsSurveyButton.Name = "docSemanticsSurveyButton";
-            this.docSemanticsSurveyButton.Size = new System.Drawing.Size(88, 23);
-            this.docSemanticsSurveyButton.TabIndex = 1;
-            this.docSemanticsSurveyButton.Text = "文書構造解析";
-            this.docSemanticsSurveyButton.UseVisualStyleBackColor = true;
-            this.docSemanticsSurveyButton.Click += new System.EventHandler(this.docSemanticsSurveyButton_Click);
+            this.docStructTableRadio.AutoSize = true;
+            this.docStructTableRadio.Location = new System.Drawing.Point(350, 6);
+            this.docStructTableRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docStructTableRadio.Name = "docStructTableRadio";
+            this.docStructTableRadio.Size = new System.Drawing.Size(36, 16);
+            this.docStructTableRadio.TabIndex = 5;
+            this.docStructTableRadio.Text = "表";
+            this.docStructTableRadio.UseVisualStyleBackColor = true;
+            // 
+            // docStructSemanticRadio
+            // 
+            this.docStructSemanticRadio.AutoSize = true;
+            this.docStructSemanticRadio.Location = new System.Drawing.Point(389, 6);
+            this.docStructSemanticRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.docStructSemanticRadio.Name = "docStructSemanticRadio";
+            this.docStructSemanticRadio.Size = new System.Drawing.Size(60, 16);
+            this.docStructSemanticRadio.TabIndex = 10;
+            this.docStructSemanticRadio.Text = "強調等";
+            this.docStructSemanticRadio.UseVisualStyleBackColor = true;
+            // 
+            // docStructSurveyButton
+            // 
+            this.docStructSurveyButton.Location = new System.Drawing.Point(452, 3);
+            this.docStructSurveyButton.Name = "docStructSurveyButton";
+            this.docStructSurveyButton.Size = new System.Drawing.Size(88, 23);
+            this.docStructSurveyButton.TabIndex = 1;
+            this.docStructSurveyButton.Text = "文書構造解析";
+            this.docStructSurveyButton.UseVisualStyleBackColor = true;
+            this.docStructSurveyButton.Click += new System.EventHandler(this.docStructSurveyButton_Click);
+            // 
+            // doLabelCheckTitleRadio
+            // 
+            this.doLabelCheckTitleRadio.AutoSize = true;
+            this.doLabelCheckTitleRadio.Location = new System.Drawing.Point(546, 6);
+            this.doLabelCheckTitleRadio.Margin = new System.Windows.Forms.Padding(3, 6, 0, 3);
+            this.doLabelCheckTitleRadio.Name = "doLabelCheckTitleRadio";
+            this.doLabelCheckTitleRadio.Size = new System.Drawing.Size(68, 16);
+            this.doLabelCheckTitleRadio.TabIndex = 9;
+            this.doLabelCheckTitleRadio.Text = "title属性";
+            this.doLabelCheckTitleRadio.UseVisualStyleBackColor = true;
+            // 
+            // doLabelCheckButton
+            // 
+            this.doLabelCheckButton.Location = new System.Drawing.Point(617, 3);
+            this.doLabelCheckButton.Name = "doLabelCheckButton";
+            this.doLabelCheckButton.Size = new System.Drawing.Size(75, 23);
+            this.doLabelCheckButton.TabIndex = 7;
+            this.doLabelCheckButton.Text = "ラベル解析";
+            this.doLabelCheckButton.UseVisualStyleBackColor = true;
+            this.doLabelCheckButton.Click += new System.EventHandler(this.doLabelCheckButton_Click);
             // 
             // docSemanticsClearButton
             // 
-            this.docSemanticsClearButton.Location = new System.Drawing.Point(479, 3);
+            this.docSemanticsClearButton.Location = new System.Drawing.Point(698, 3);
             this.docSemanticsClearButton.Name = "docSemanticsClearButton";
             this.docSemanticsClearButton.Size = new System.Drawing.Size(75, 23);
             this.docSemanticsClearButton.TabIndex = 6;
@@ -160,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 313);
+            this.ClientSize = new System.Drawing.Size(801, 396);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "BrowserForm";
             this.Text = "簡易ブラウザー";
@@ -177,11 +227,15 @@
         public System.Windows.Forms.WebBrowser browserControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button previewHtmlUpdateButton;
-        private System.Windows.Forms.CheckBox docSemanticListRadio;
-        private System.Windows.Forms.CheckBox docSemanticParagraphRadio;
-        private System.Windows.Forms.CheckBox docSemanticHeadingRadio;
-        private System.Windows.Forms.CheckBox docSemanticTableRadio;
-        private System.Windows.Forms.Button docSemanticsSurveyButton;
+        private System.Windows.Forms.CheckBox docStructListRadio;
+        private System.Windows.Forms.CheckBox docStructParagraphRadio;
+        private System.Windows.Forms.CheckBox docStructHeadingRadio;
+        private System.Windows.Forms.CheckBox docStructTableRadio;
+        private System.Windows.Forms.Button docStructSurveyButton;
         private System.Windows.Forms.Button docSemanticsClearButton;
+        private System.Windows.Forms.Button doLabelCheckButton;
+        private System.Windows.Forms.CheckBox docStructBrRadio;
+        private System.Windows.Forms.CheckBox docStructSemanticRadio;
+        private System.Windows.Forms.CheckBox doLabelCheckTitleRadio;
     }
 }

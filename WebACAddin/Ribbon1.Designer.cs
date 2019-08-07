@@ -70,10 +70,11 @@
             this.box1 = this.Factory.CreateRibbonBox();
             this.writeCommentBreakCheck = this.Factory.CreateRibbonCheckBox();
             this.writeCommentOverrideCheck = this.Factory.CreateRibbonCheckBox();
-            this.writeCommentReSurveyCheck = this.Factory.CreateRibbonCheckBox();
+            this.writeCommentInsertPositionCheck = this.Factory.CreateRibbonCheckBox();
             this.box8 = this.Factory.CreateRibbonBox();
             this.addLabelColorCheck = this.Factory.CreateRibbonCheckBox();
             this.addColorRowCheck = this.Factory.CreateRibbonCheckBox();
+            this.writeCommentReSurveyCheck = this.Factory.CreateRibbonCheckBox();
             this.box5 = this.Factory.CreateRibbonBox();
             this.writeCommentCombo = this.Factory.CreateRibbonComboBox();
             this.writeCommentInputButton = this.Factory.CreateRibbonButton();
@@ -121,7 +122,6 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.writeCommentInsertPositionCheck = this.Factory.CreateRibbonCheckBox();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.box4.SuspendLayout();
@@ -294,10 +294,10 @@
             this.writeCommentOverrideCheck.Label = "追記";
             this.writeCommentOverrideCheck.Name = "writeCommentOverrideCheck";
             // 
-            // writeCommentReSurveyCheck
+            // writeCommentInsertPositionCheck
             // 
-            this.writeCommentReSurveyCheck.Label = "再検";
-            this.writeCommentReSurveyCheck.Name = "writeCommentReSurveyCheck";
+            this.writeCommentInsertPositionCheck.Label = "先頭";
+            this.writeCommentInsertPositionCheck.Name = "writeCommentInsertPositionCheck";
             // 
             // box8
             // 
@@ -315,6 +315,11 @@
             // 
             this.addColorRowCheck.Label = "行色付";
             this.addColorRowCheck.Name = "addColorRowCheck";
+            // 
+            // writeCommentReSurveyCheck
+            // 
+            this.writeCommentReSurveyCheck.Label = "再検";
+            this.writeCommentReSurveyCheck.Name = "writeCommentReSurveyCheck";
             // 
             // box5
             // 
@@ -644,11 +649,6 @@
             this.openChromeBetaButton.Label = "Chrome(beta)";
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
-            // 
-            // writeCommentInsertPositionCheck
-            // 
-            this.writeCommentInsertPositionCheck.Label = "先頭";
-            this.writeCommentInsertPositionCheck.Name = "writeCommentInsertPositionCheck";
             // 
             // Ribbon1
             // 
