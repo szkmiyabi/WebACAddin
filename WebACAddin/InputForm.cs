@@ -16,6 +16,9 @@ namespace WebACAddin
 {
     public partial class InputForm : Form
     {
+
+        private string br_sp = "<bkmk:br>";
+
         public InputForm()
         {
             InitializeComponent();
@@ -46,6 +49,20 @@ namespace WebACAddin
 
         }
 
+        //改行タグを挿入
+        private void do_insert_br()
+        {
+            string buff = InputFormText.Text;
+            int cnt = buff.Length;
+            int st = InputFormText.SelectionStart;
+            int ed = InputFormText.SelectionLength;
+            string front_txt = buff.Substring(0, st);
+            string back_txt = buff.Substring(st + ed);
+
+            InputFormText.Text = front_txt + br_sp + back_txt;
+            InputFormText.Select(st + ed + br_sp.Length, 0);
+        }
+
         //ドロップダウン項目全削除
         private void do_clear_combo_comment_all()
         {
@@ -67,6 +84,12 @@ namespace WebACAddin
                 e.SuppressKeyPress = true; //beep disabled
                 InputFormText.SelectAll();
             }
+        }
+
+        //改行タグ挿入クリック
+        private void doInsertBrButton_Click(object sender, EventArgs e)
+        {
+            do_insert_br();
         }
     }
 }
