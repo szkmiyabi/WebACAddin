@@ -10,7 +10,9 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
+using Microsoft.Office.Tools.Ribbon;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace WebACAddin
 {
@@ -18,6 +20,7 @@ namespace WebACAddin
     {
 
         private string pre_focuced_control = "";
+        private string br_sp = "<bkmk:br>";
 
         public WriteForm()
         {
@@ -152,32 +155,173 @@ namespace WebACAddin
         private void do_insert_snipet()
         {
             string src = writeFormSnipetCombo.Text;
-            Control cont = null;
+            src = src.Replace(br_sp, "\r\n");
+
+            TextBox cont = null;
             if (pre_focuced_control.Equals("writeFormText")) cont = writeFormText;
             else if (pre_focuced_control.Equals("writeSearchText")) cont = writeSearchText;
             else if (pre_focuced_control.Equals("writeReplaceText")) cont = writeReplaceText;
-            if(cont == writeFormText)
+
+            string buff = cont.Text;
+            int cnt = buff.Length;
+            int st = cont.SelectionStart;
+            int ed = cont.SelectionLength;
+            string front_txt = buff.Substring(0, st);
+            string back_txt = buff.Substring(st + ed);
+
+            cont.Text = front_txt + src + back_txt;
+            cont.Select(st + ed + src.Length, 0);
+        }
+
+        //改行を挿入
+        private void do_insert_br()
+        {
+            string buff = writeFormText.Text;
+            int cnt = buff.Length;
+            int st = writeFormText.SelectionStart;
+            int ed = writeFormText.SelectionLength;
+            string front_txt = buff.Substring(0, st);
+            string back_txt = buff.Substring(st + ed);
+
+            writeFormText.Text = front_txt + "\r\n" + back_txt;
+            writeFormText.Select(st + ed + "\r\n".Length, 0);
+        }
+
+        //選択範囲の文字列を取得
+        private string get_selection()
+        {
+            int st = writeFormText.SelectionStart;
+            int ed = writeFormText.SelectionLength;
+            string src = writeFormText.Text;
+            return src.Substring(st, ed);
+        }
+
+        //選択語句からドロップダウンに値を追加する
+        private void do_add_snipet()
+        {
+            Regex pat = new Regex(@"(\r\n|\r|\n)+", RegexOptions.Compiled | RegexOptions.Multiline);
+            string txt = get_selection();
+            if (txt.Equals("")) return;
+            if (addCommentPreClearCheck.Checked == true) do_clear_combo_comment_all();
+            if (pat.IsMatch(txt))
             {
-                string buff = cont.Text;
-                cont.Text = buff + "\r\n" + src + "\r\n";
+                txt = pat.Replace(txt, br_sp);
             }
-            else
+            writeFormSnipetCombo.Items.Add(txt);
+            combobox_fetch();
+            MessageBox.Show("値の追加に成功しました");
+        }
+
+        //テキストファイルからドロップダウンに値を追加する
+        private void do_add_comment_from_file()
+        {
+            string filename = "";
+            string body = "";
+            List<string> arr = new List<string>();
+
+            //check onなら全クリア
+            if (addCommentPreClearCheck.Checked == true) do_clear_combo_comment_all();
+
+            OpenFileDialog f = new OpenFileDialog();
+            f.Filter = "テキストファイル(*.txt)|*.txt";
+            if (f.ShowDialog() == DialogResult.OK)
             {
-                cont.Text = src;
+                filename = f.FileName;
+            }
+            if (filename == "") return;
+            StreamReader sr = new StreamReader(filename, System.Text.Encoding.GetEncoding("shift_jis"));
+            while (sr.Peek() > -1)
+            {
+                string line = sr.ReadLine();
+                arr.Add(line);
+            }
+            sr.Close();
+
+            for (int i = 0; i < arr.Count; i++)
+            {
+                writeFormSnipetCombo.Items.Add(arr[i]);
+            }
+            MessageBox.Show("値の追加に成功しました");
+
+        }
+
+        //リボンからからドロップダウンに値を追加する
+        private void do_add_comment_from_ribbon()
+        {
+            RibbonComboBox cmb = Globals.Ribbons.Ribbon1.writeCommentCombo;
+            List<string> arr = new List<string>();
+            if (addCommentPreClearCheck.Checked == true) do_clear_combo_comment_all();
+            for (int i = 0; i < cmb.Items.Count; i++)
+            {
+                RibbonDropDownItem itm = cmb.Items[i];
+                string cr = itm.Label;
+                arr.Add(cr);
+            }
+            for (int i = 0; i < arr.Count; i++)
+            {
+                writeFormSnipetCombo.Items.Add(arr[i]);
+            }
+            MessageBox.Show("値の追加に成功しました");
+
+        }
+
+        //ドロップダウン選択項目削除
+        private void do_clear_combo_comment_single()
+        {
+            int idx = 0;
+            string cr = writeFormSnipetCombo.Text;
+
+            for (int i = 0; i < writeFormSnipetCombo.Items.Count; i++)
+            {
+                if (writeFormSnipetCombo.Text.Equals(cr))
+                {
+                    writeFormSnipetCombo.Items.RemoveAt(idx);
+                    break;
+                }
+                idx++;
             }
         }
 
-        //選択語句を追加
-        private void do_add_snipet()
+        //ドロップダウン項目全削除
+        private void do_clear_combo_comment_all()
         {
-            Control cont = null;
-            if (pre_focuced_control.Equals("writeFormText")) cont = writeFormText;
-            else if (pre_focuced_control.Equals("writeSearchText")) cont = writeSearchText;
-            else if (pre_focuced_control.Equals("writeReplaceText")) cont = writeReplaceText;
-            if (cont.Name.Equals("writeFormText")) return;
-            writeFormSnipetCombo.Items.Add(cont.Text);
-            combobox_fetch();
+            writeFormSnipetCombo.Items.Clear();
+            writeFormSnipetCombo.Text = "";
         }
+
+        //ドロップダウンの値を保存
+        private void do_save_val_comment()
+        {
+            int cnt = writeFormSnipetCombo.Items.Count;
+            string body = "";
+            for (int i = 0; i < cnt; i++)
+            {
+                string val = writeFormSnipetCombo.Items[i].ToString();
+                body += val;
+                if (i != (cnt - 1)) body += "\r\n";
+            }
+            string path = _get_txt_save_path();
+            Encoding enc = Encoding.GetEncoding("Shift_JIS");
+            StreamWriter sw = new StreamWriter(path, false, enc);
+            sw.WriteLine(body);
+            sw.Close();
+            MessageBox.Show("保存できました!");
+        }
+
+        //TXTファイル保存先を取得
+        private string _get_txt_save_path()
+        {
+            string path = "";
+            SaveFileDialog fda = new SaveFileDialog();
+            fda.Filter = "Textファイル(*.txt)|*.txt";
+            fda.Title = "名前を付けて保存";
+            if (fda.ShowDialog() == DialogResult.OK)
+            {
+                path = fda.FileName;
+            }
+            return path;
+        }
+
 
         //セルから読込みクリック
         private void pullFromCellDataButton_Click(object sender, EventArgs e)
@@ -210,13 +354,47 @@ namespace WebACAddin
         }
 
 
-        //値追加クリック
+        //選択範囲から追加クリック
         private void writeFormSnipetAddButton_Click(object sender, EventArgs e)
         {
             do_add_snipet();
         }
 
+        //ファイルから追加クリック
+        private void writeFormSnipetAddFromFileButton_Click(object sender, EventArgs e)
+        {
+            do_add_comment_from_file();
+        }
 
+        //改行をクリック
+        private void BrInputButton_Click(object sender, EventArgs e)
+        {
+            do_insert_br();
+        }
+
+        //リボンからクリック
+        private void writeFormSnipetAddFromRibbonButton_Click(object sender, EventArgs e)
+        {
+            do_add_comment_from_ribbon();
+        }
+
+        //削除クリック
+        private void delCommentSingleButton_Click(object sender, EventArgs e)
+        {
+            do_clear_combo_comment_single();
+        }
+
+        //全件削除クリック
+        private void delCommentAllButton_Click(object sender, EventArgs e)
+        {
+            do_clear_combo_comment_all();
+        }
+
+        //保存クリック
+        private void writeFormSnipetSaveButton_Click(object sender, EventArgs e)
+        {
+            do_save_val_comment();
+        }
     }
 
 
