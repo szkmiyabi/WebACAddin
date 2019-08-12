@@ -85,6 +85,7 @@
             // contrastRatioText
             // 
             this.contrastRatioText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contrastRatioText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.contrastRatioText.Location = new System.Drawing.Point(3, 3);
             this.contrastRatioText.Multiline = true;
             this.contrastRatioText.Name = "contrastRatioText";

@@ -40,7 +40,11 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.addCommentPreClearCheck = new System.Windows.Forms.CheckBox();
             this.writeFormSnipetAddButton = new System.Windows.Forms.Button();
+            this.writeFormSnipetAddFromRibbonButton = new System.Windows.Forms.Button();
             this.writeFormSnipetAddFromFileButton = new System.Windows.Forms.Button();
+            this.delCommentSingleButton = new System.Windows.Forms.Button();
+            this.delCommentAllButton = new System.Windows.Forms.Button();
+            this.writeFormSnipetSaveButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.writeFormRegxCheck = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,10 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.writeReplaceText = new System.Windows.Forms.TextBox();
             this.writeReplaceButton = new System.Windows.Forms.Button();
-            this.writeFormSnipetAddFromRibbonButton = new System.Windows.Forms.Button();
-            this.delCommentSingleButton = new System.Windows.Forms.Button();
-            this.delCommentAllButton = new System.Windows.Forms.Button();
-            this.writeFormSnipetSaveButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -80,6 +80,7 @@
             // writeFormText
             // 
             this.writeFormText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.writeFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.writeFormText.Location = new System.Drawing.Point(3, 3);
             this.writeFormText.Multiline = true;
             this.writeFormText.Name = "writeFormText";
@@ -205,6 +206,16 @@
             this.writeFormSnipetAddButton.UseVisualStyleBackColor = true;
             this.writeFormSnipetAddButton.Click += new System.EventHandler(this.writeFormSnipetAddButton_Click);
             // 
+            // writeFormSnipetAddFromRibbonButton
+            // 
+            this.writeFormSnipetAddFromRibbonButton.Location = new System.Drawing.Point(229, 3);
+            this.writeFormSnipetAddFromRibbonButton.Name = "writeFormSnipetAddFromRibbonButton";
+            this.writeFormSnipetAddFromRibbonButton.Size = new System.Drawing.Size(58, 23);
+            this.writeFormSnipetAddFromRibbonButton.TabIndex = 8;
+            this.writeFormSnipetAddFromRibbonButton.Text = "リボンから";
+            this.writeFormSnipetAddFromRibbonButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetAddFromRibbonButton.Click += new System.EventHandler(this.writeFormSnipetAddFromRibbonButton_Click);
+            // 
             // writeFormSnipetAddFromFileButton
             // 
             this.writeFormSnipetAddFromFileButton.Location = new System.Drawing.Point(293, 3);
@@ -214,6 +225,36 @@
             this.writeFormSnipetAddFromFileButton.Text = "ファイルから";
             this.writeFormSnipetAddFromFileButton.UseVisualStyleBackColor = true;
             this.writeFormSnipetAddFromFileButton.Click += new System.EventHandler(this.writeFormSnipetAddFromFileButton_Click);
+            // 
+            // delCommentSingleButton
+            // 
+            this.delCommentSingleButton.Location = new System.Drawing.Point(368, 3);
+            this.delCommentSingleButton.Name = "delCommentSingleButton";
+            this.delCommentSingleButton.Size = new System.Drawing.Size(42, 23);
+            this.delCommentSingleButton.TabIndex = 9;
+            this.delCommentSingleButton.Text = "削除";
+            this.delCommentSingleButton.UseVisualStyleBackColor = true;
+            this.delCommentSingleButton.Click += new System.EventHandler(this.delCommentSingleButton_Click);
+            // 
+            // delCommentAllButton
+            // 
+            this.delCommentAllButton.Location = new System.Drawing.Point(416, 3);
+            this.delCommentAllButton.Name = "delCommentAllButton";
+            this.delCommentAllButton.Size = new System.Drawing.Size(63, 23);
+            this.delCommentAllButton.TabIndex = 10;
+            this.delCommentAllButton.Text = "全件削除";
+            this.delCommentAllButton.UseVisualStyleBackColor = true;
+            this.delCommentAllButton.Click += new System.EventHandler(this.delCommentAllButton_Click);
+            // 
+            // writeFormSnipetSaveButton
+            // 
+            this.writeFormSnipetSaveButton.Location = new System.Drawing.Point(485, 3);
+            this.writeFormSnipetSaveButton.Name = "writeFormSnipetSaveButton";
+            this.writeFormSnipetSaveButton.Size = new System.Drawing.Size(47, 23);
+            this.writeFormSnipetSaveButton.TabIndex = 11;
+            this.writeFormSnipetSaveButton.Text = "保存";
+            this.writeFormSnipetSaveButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetSaveButton.Click += new System.EventHandler(this.writeFormSnipetSaveButton_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -287,46 +328,6 @@
             this.writeReplaceButton.Text = "置換";
             this.writeReplaceButton.UseVisualStyleBackColor = true;
             this.writeReplaceButton.Click += new System.EventHandler(this.writeReplaceButton_Click);
-            // 
-            // writeFormSnipetAddFromRibbonButton
-            // 
-            this.writeFormSnipetAddFromRibbonButton.Location = new System.Drawing.Point(229, 3);
-            this.writeFormSnipetAddFromRibbonButton.Name = "writeFormSnipetAddFromRibbonButton";
-            this.writeFormSnipetAddFromRibbonButton.Size = new System.Drawing.Size(58, 23);
-            this.writeFormSnipetAddFromRibbonButton.TabIndex = 8;
-            this.writeFormSnipetAddFromRibbonButton.Text = "リボンから";
-            this.writeFormSnipetAddFromRibbonButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetAddFromRibbonButton.Click += new System.EventHandler(this.writeFormSnipetAddFromRibbonButton_Click);
-            // 
-            // delCommentSingleButton
-            // 
-            this.delCommentSingleButton.Location = new System.Drawing.Point(368, 3);
-            this.delCommentSingleButton.Name = "delCommentSingleButton";
-            this.delCommentSingleButton.Size = new System.Drawing.Size(42, 23);
-            this.delCommentSingleButton.TabIndex = 9;
-            this.delCommentSingleButton.Text = "削除";
-            this.delCommentSingleButton.UseVisualStyleBackColor = true;
-            this.delCommentSingleButton.Click += new System.EventHandler(this.delCommentSingleButton_Click);
-            // 
-            // delCommentAllButton
-            // 
-            this.delCommentAllButton.Location = new System.Drawing.Point(416, 3);
-            this.delCommentAllButton.Name = "delCommentAllButton";
-            this.delCommentAllButton.Size = new System.Drawing.Size(63, 23);
-            this.delCommentAllButton.TabIndex = 10;
-            this.delCommentAllButton.Text = "全件削除";
-            this.delCommentAllButton.UseVisualStyleBackColor = true;
-            this.delCommentAllButton.Click += new System.EventHandler(this.delCommentAllButton_Click);
-            // 
-            // writeFormSnipetSaveButton
-            // 
-            this.writeFormSnipetSaveButton.Location = new System.Drawing.Point(485, 3);
-            this.writeFormSnipetSaveButton.Name = "writeFormSnipetSaveButton";
-            this.writeFormSnipetSaveButton.Size = new System.Drawing.Size(47, 23);
-            this.writeFormSnipetSaveButton.TabIndex = 11;
-            this.writeFormSnipetSaveButton.Text = "保存";
-            this.writeFormSnipetSaveButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetSaveButton.Click += new System.EventHandler(this.writeFormSnipetSaveButton_Click);
             // 
             // WriteForm
             // 
