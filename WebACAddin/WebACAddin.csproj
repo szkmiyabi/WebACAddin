@@ -161,6 +161,12 @@
     <Compile Include="CellUtil.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ConditionFormatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConditionFormatForm.Designer.cs">
+      <DependentUpon>ConditionFormatForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContrastForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </Compile>
     <EmbeddedResource Include="BrowserForm.resx">
       <DependentUpon>BrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConditionFormatForm.resx">
+      <DependentUpon>ConditionFormatForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContrastForm.resx">
       <DependentUpon>ContrastForm.cs</DependentUpon>

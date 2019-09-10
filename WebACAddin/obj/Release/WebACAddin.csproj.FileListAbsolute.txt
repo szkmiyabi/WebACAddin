@@ -19,3 +19,4 @@ C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.cspro
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.dll
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.pdb
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.csprojResolveAssemblyReference.cache
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Release\WebACAddin.ConditionFormatForm.resources

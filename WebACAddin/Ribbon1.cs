@@ -29,6 +29,7 @@ namespace WebACAddin
         private static ContrastForm _cnfrmObj;
         private static WriteForm _wrfrmObj;
         private static InputForm _inpfrmObj;
+        private static ConditionFormatForm _ccffrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -112,6 +113,19 @@ namespace WebACAddin
                     _inpfrmObj = new InputForm();
                 }
                 return _inpfrmObj;
+            }
+        }
+
+        //ConditionFormatFormインスタンスの取得
+        public static ConditionFormatForm ccffrmObj
+        {
+            get
+            {
+                if (_ccffrmObj == null || _ccffrmObj.IsDisposed)
+                {
+                    _ccffrmObj = new ConditionFormatForm();
+                }
+                return _ccffrmObj;
             }
         }
 
@@ -332,6 +346,12 @@ namespace WebACAddin
         private void activeBookSheetsCombo_TextChanged(object sender, RibbonControlEventArgs e)
         {
             change_sheet_by_combo();
+        }
+
+        //カスタム条件書式
+        private void customConditionFormatButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            ccffrmObj.Show();
         }
     }
 }

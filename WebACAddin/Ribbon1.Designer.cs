@@ -63,6 +63,7 @@
             this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
+            this.customConditionFormatButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
@@ -161,6 +162,7 @@
             this.group1.Items.Add(this.waCheckCommentBaseButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
+            this.group1.Items.Add(this.customConditionFormatButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -226,6 +228,12 @@
             this.dispContrastRepFormButton.Label = "コントラスト結果";
             this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
             this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
+            // 
+            // customConditionFormatButton
+            // 
+            this.customConditionFormatButton.Label = "カスタム条件書式";
+            this.customConditionFormatButton.Name = "customConditionFormatButton";
+            this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
             // 
             // group4
             // 
@@ -767,6 +775,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton readActiveBookSheetsButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentReSurveyCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentInsertPositionCheck;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton customConditionFormatButton;
     }
 
     partial class ThisRibbonCollection
