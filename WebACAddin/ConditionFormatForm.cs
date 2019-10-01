@@ -49,75 +49,130 @@ namespace WebACAddin
             string keyword = conditionKeyword.Text;
             Color argb = encode_from_tuple(bgcolorRgb.Text);
             int cr_condition_tp = conditionType.SelectedIndex;
-
-            Excel.Range sa = Globals.ThisAddIn.Application.Selection;
-            Excel.FormatCondition fcs = null;
-
-            switch(cr_condition_tp)
+            string search_type = "";
+            switch (cr_condition_tp)
             {
                 case 0:
-                    fcs = sa.FormatConditions.Add(
-                        XlFormatConditionType.xlTextString,
-                        Type.Missing,
-                        Type.Missing,
-                        Type.Missing,
-                        keyword,
-                        XlContainsOperator.xlContains,
-                        Type.Missing,
-                        Type.Missing);
-
+                    search_type = "include";
                     break;
                 case 1:
-                    fcs = sa.FormatConditions.Add(
-                        XlFormatConditionType.xlTextString,
-                        Type.Missing,
-                        Type.Missing,
-                        Type.Missing,
-                        keyword,
-                        XlContainsOperator.xlDoesNotContain,
-                        Type.Missing,
-                        Type.Missing);
+                    search_type = "same";
                     break;
                 case 2:
-                    fcs = sa.FormatConditions.Add(
-                        XlFormatConditionType.xlTextString,
-                        Type.Missing,
-                        Type.Missing,
-                        Type.Missing,
-                        keyword,
-                        XlContainsOperator.xlBeginsWith,
-                        Type.Missing,
-                        Type.Missing);
-                    break;
-                case 3:
-                    fcs = sa.FormatConditions.Add(
-                        XlFormatConditionType.xlTextString,
-                        Type.Missing,
-                        Type.Missing,
-                        Type.Missing,
-                        keyword,
-                        XlContainsOperator.xlEndsWith,
-                        Type.Missing,
-                        Type.Missing);
+                    search_type = "regex";
                     break;
             }
 
-            fcs.Interior.Color = argb;
+            Regex keyword_regex = null;
+            if(search_type == "regex")
+            {
+                keyword_regex = new Regex(keyword, RegexOptions.Compiled);
+            }
+            else if(search_type == "include")
+            {
+                keyword_regex = new Regex(@".*" + keyword + ".*", RegexOptions.Compiled);
+            }
+
+            int cc, nr, nc = 0;
+            int r1, r2 = 0;
+
+            Excel.Range sa = Globals.ThisAddIn.Application.Selection;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Range vrange = ash.Range["A1"].End[Excel.XlDirection.xlDown];
+            Excel.Range hrange = ash.Range["A1"].End[Excel.XlDirection.xlToRight];
+            cc = sa.Column;
+            nr = vrange.Rows[vrange.Rows.Count].Row;
+            nc = hrange.Columns[hrange.Columns.Count].Column;
+
+            for(int i=1; i<=nr; i++)
+            {
+                Excel.Range cell = ash.Cells[i, cc];
+                if (cell.Value == null) continue;
+                string cell_val = "";
+                Type t = cell.Value.GetType();
+                if (t.Equals(typeof(string))) cell_val = (string)cell.Value;
+                else cell_val = cell.Value.ToString();
+                if(search_type == "same" && keyword == cell_val)
+                {
+                    ash.Range[ash.Cells[i, 1], ash.Cells[i, nc]].Interior.Color = argb;
+                }
+                else if (search_type == "include" && keyword_regex.IsMatch(cell_val))
+                {
+                    ash.Range[ash.Cells[i, 1], ash.Cells[i, nc]].Interior.Color = argb;
+                }
+                else if (search_type == "regex" && keyword_regex.IsMatch(cell_val))
+                {
+                    ash.Range[ash.Cells[i, 1], ash.Cells[i, nc]].Interior.Color = argb;
+                }
+            }
+
         }
 
         //条件付き書式除去
         private void del_condition_format()
         {
-            Excel.Range sa = Globals.ThisAddIn.Application.Selection;
-            try
-            {
-                sa.FormatConditions.Delete();
+            if (bgcolorRgb.Text == "" || conditionKeyword.Text == "") return;
 
-            }
-            catch (Exception ex)
+            string keyword = conditionKeyword.Text;
+            Color argb = encode_from_tuple(bgcolorRgb.Text);
+            int cr_condition_tp = conditionType.SelectedIndex;
+            string search_type = "";
+            switch (cr_condition_tp)
             {
-                MessageBox.Show("条件付き書式はありません。");
+                case 0:
+                    search_type = "include";
+                    break;
+                case 1:
+                    search_type = "same";
+                    break;
+                case 2:
+                    search_type = "regex";
+                    break;
             }
+
+            Regex keyword_regex = null;
+            if (search_type == "regex")
+            {
+                keyword_regex = new Regex(keyword, RegexOptions.Compiled);
+            }
+            else if (search_type == "include")
+            {
+                keyword_regex = new Regex(@".*" + keyword + ".*", RegexOptions.Compiled);
+            }
+
+            int cc, nr, nc = 0;
+            int r1, r2 = 0;
+
+            Excel.Range sa = Globals.ThisAddIn.Application.Selection;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Range vrange = ash.Range["A1"].End[Excel.XlDirection.xlDown];
+            Excel.Range hrange = ash.Range["A1"].End[Excel.XlDirection.xlToRight];
+            cc = sa.Column;
+            nr = vrange.Rows[vrange.Rows.Count].Row;
+            nc = hrange.Columns[hrange.Columns.Count].Column;
+
+            for (int i = 1; i <= nr; i++)
+            {
+                Excel.Range cell = ash.Cells[i, cc];
+                if (cell.Value == null) continue;
+                string cell_val = "";
+                Type t = cell.Value.GetType();
+                if (t.Equals(typeof(string))) cell_val = (string)cell.Value;
+                else cell_val = cell.Value.ToString();
+                if (search_type == "same" && keyword == cell_val)
+                {
+                    ash.Range[ash.Cells[i, 1], ash.Cells[i, nc]].Interior.ColorIndex = Excel.XlColorIndex.xlColorIndexNone;
+                }
+                else if (search_type == "include" && keyword_regex.IsMatch(cell_val))
+                {
+                    ash.Range[ash.Cells[i, 1], ash.Cells[i, nc]].Interior.ColorIndex = Excel.XlColorIndex.xlColorIndexNone;
+                }
+                else if (search_type == "regex" && keyword_regex.IsMatch(cell_val))
+                {
+                    ash.Range[ash.Cells[i, 1], ash.Cells[i, nc]].Interior.ColorIndex = Excel.XlColorIndex.xlColorIndexNone;
+                }
+            }
+
         }
 
         //Color構造体からタプルに変換
