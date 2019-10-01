@@ -93,6 +93,7 @@
             this.markerInputButton = this.Factory.CreateRibbonButton();
             this.autoNumberButton = this.Factory.CreateRibbonButton();
             this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
@@ -416,6 +417,7 @@
             this.box7.Items.Add(this.markerInputButton);
             this.box7.Items.Add(this.autoNumberButton);
             this.box7.Items.Add(this.selectedAutoFillButton);
+            this.box7.Items.Add(this.autoFilteredQueryButton);
             this.box7.Name = "box7";
             // 
             // markerDropdown
@@ -455,6 +457,12 @@
             this.selectedAutoFillButton.Label = "オートフィル";
             this.selectedAutoFillButton.Name = "selectedAutoFillButton";
             this.selectedAutoFillButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectedAutoFillButton_Click);
+            // 
+            // autoFilteredQueryButton
+            // 
+            this.autoFilteredQueryButton.Label = "抽出";
+            this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
+            this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
             // 
             // buttonGroup2
             // 
@@ -776,6 +784,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentReSurveyCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentInsertPositionCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton customConditionFormatButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton autoFilteredQueryButton;
     }
 
     partial class ThisRibbonCollection

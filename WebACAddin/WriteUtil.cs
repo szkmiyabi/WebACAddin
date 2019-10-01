@@ -844,5 +844,92 @@ namespace WebACAddin
 
         }
 
+        //オートフィルタ抽出行をシートに書き出す
+        private void do_auto_filtered_query()
+        {
+            List<List<string>> data = _get_auto_filtered_rows();
+            var awb = excelObj.Application.ActiveWorkbook;
+            var aws = awb.Worksheets;
+
+            Excel.Worksheet ws = aws.Add(After: aws[aws.Count]);
+            ws.Name = "抽出_" + _get_logtime("yyyyMMdd_HHmmss");
+
+            for(int i=0; i<data.Count; i++)
+            {
+                List<string> row = data[i];
+                for(int j=0; j<row.Count; j++)
+                {
+                    Excel.Range cell = ws.Cells[i + 1, j + 1];
+                    cell.Value = row[j];
+                    cell.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    cell.VerticalAlignment = Excel.XlVAlign.xlVAlignTop;
+                    cell.WrapText = false;
+                }
+            }
+            MessageBox.Show("オートフィルターの抽出行を新しいシートに書き出しました。");
+
+        }
+        private List<List<string>> _get_auto_filtered_rows()
+        {
+            var ash = excelObj.Application.ActiveSheet;
+
+            //データ入力範囲の処理
+            Excel.Range vrange = ash.Range["A1"].End[Excel.XlDirection.xlDown];
+            Excel.Range hrange = ash.Range["A1"].End[Excel.XlDirection.xlToRight];
+
+            int nr, nc = 0;
+            nr = vrange.Rows[vrange.Rows.Count].Row;
+            nc = hrange.Columns[hrange.Columns.Count].Column;
+
+            //データ入力範囲を自動選択
+            Excel.Range sa = ash.Range[ash.Cells[1, 1], ash.Cells[nr, nc]];
+            sa.Select();
+
+            int r1, r2, c1, c2 = 0;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c1 = sa.Column;
+            c2 = sa.Columns[sa.Columns.Count].Column;
+
+            List<List<string>> data = new List<List<string>>();
+
+            for(int i=r1; i<=r2; i++)
+            {
+                if (sa.Cells[i, 1].EntireRow.Hidden == true) continue;
+                List<string> row_data = new List<string>();
+                
+                for (int j = c1; j <= c2; j++)
+                {
+                    Excel.Range cell = sa.Cells[i, j];
+                    if(cell.Value == null)
+                    {
+                        row_data.Add("");
+                    }
+                    else
+                    {
+                        Type t = cell.Value.GetType();
+                        if(t.Equals(typeof(string)))
+                        {
+                            row_data.Add((string)cell.Value);
+                        }
+                        else if(t.Equals(typeof(DateTime)))
+                        {
+                            row_data.Add(cell.Value.ToString("yyyy/MM/dd"));
+                        }
+                        else
+                        {
+                            row_data.Add(cell.Value.ToString());
+                        }
+                    }
+                }
+                data.Add(row_data);
+            }
+
+            ash.Range["A1"].Select();
+
+            return data;
+
+        }
+
     }
 }

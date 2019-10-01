@@ -31,6 +31,10 @@ namespace WebACAddin
             docStructBrRadio.Checked = true;
             docStructSemanticRadio.Checked = true;
             doLabelCheckTitleRadio.Checked = true;
+
+            //常に前面表示
+            TopMost = true;
+            BrowserFormTopMostCheck.Checked = true;
         }
 
         //アクティブセルのデータを取得
@@ -93,5 +97,10 @@ namespace WebACAddin
             preview_default();
         }
 
+        //常に前面表示のトグル
+        private void BrowserFormTopMostCheck_Click(object sender, EventArgs e)
+        {
+            TopMost = !TopMost;
+        }
     }
 }

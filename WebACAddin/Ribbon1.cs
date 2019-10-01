@@ -353,5 +353,11 @@ namespace WebACAddin
         {
             ccffrmObj.Show();
         }
+
+        //抽出
+        private void autoFilteredQueryButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_auto_filtered_query();
+        }
     }
 }

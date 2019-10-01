@@ -42,8 +42,11 @@
             this.doLabelCheckTitleRadio = new System.Windows.Forms.CheckBox();
             this.doLabelCheckButton = new System.Windows.Forms.Button();
             this.docSemanticsClearButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BrowserFormTopMostCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -52,13 +55,15 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.browserControl, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.40404F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.59596F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(801, 396);
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.52631F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.473684F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(801, 423);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // browserControl
@@ -67,7 +72,7 @@
             this.browserControl.Location = new System.Drawing.Point(3, 3);
             this.browserControl.MinimumSize = new System.Drawing.Size(20, 20);
             this.browserControl.Name = "browserControl";
-            this.browserControl.Size = new System.Drawing.Size(795, 351);
+            this.browserControl.Size = new System.Drawing.Size(795, 347);
             this.browserControl.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -84,7 +89,7 @@
             this.flowLayoutPanel1.Controls.Add(this.doLabelCheckTitleRadio);
             this.flowLayoutPanel1.Controls.Add(this.doLabelCheckButton);
             this.flowLayoutPanel1.Controls.Add(this.docSemanticsClearButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 360);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 356);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(786, 28);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -206,17 +211,39 @@
             this.docSemanticsClearButton.UseVisualStyleBackColor = true;
             this.docSemanticsClearButton.Click += new System.EventHandler(this.docSemanticsClearButton_Click);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.BrowserFormTopMostCheck);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 392);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(786, 28);
+            this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // BrowserFormTopMostCheck
+            // 
+            this.BrowserFormTopMostCheck.AutoSize = true;
+            this.BrowserFormTopMostCheck.Location = new System.Drawing.Point(3, 3);
+            this.BrowserFormTopMostCheck.Name = "BrowserFormTopMostCheck";
+            this.BrowserFormTopMostCheck.Size = new System.Drawing.Size(93, 16);
+            this.BrowserFormTopMostCheck.TabIndex = 0;
+            this.BrowserFormTopMostCheck.Text = "常に前面表示";
+            this.BrowserFormTopMostCheck.UseVisualStyleBackColor = true;
+            this.BrowserFormTopMostCheck.Click += new System.EventHandler(this.BrowserFormTopMostCheck_Click);
+            // 
             // BrowserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 396);
+            this.ClientSize = new System.Drawing.Size(801, 423);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "BrowserForm";
             this.Text = "簡易ブラウザー";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -237,5 +264,7 @@
         private System.Windows.Forms.CheckBox docStructBrRadio;
         private System.Windows.Forms.CheckBox docStructSemanticRadio;
         private System.Windows.Forms.CheckBox doLabelCheckTitleRadio;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.CheckBox BrowserFormTopMostCheck;
     }
 }

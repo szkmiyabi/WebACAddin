@@ -52,10 +52,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.writeReplaceText = new System.Windows.Forms.TextBox();
             this.writeReplaceButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.writeFormTopMostCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -66,15 +69,17 @@
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel4, 0, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.56522F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.43478F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.46154F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.53846F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(548, 418);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(548, 436);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // writeFormText
@@ -85,7 +90,7 @@
             this.writeFormText.Multiline = true;
             this.writeFormText.Name = "writeFormText";
             this.writeFormText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.writeFormText.Size = new System.Drawing.Size(542, 303);
+            this.writeFormText.Size = new System.Drawing.Size(542, 289);
             this.writeFormText.TabIndex = 0;
             this.writeFormText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.writeFormText_KeyDown);
             this.writeFormText.Leave += new System.EventHandler(this.writeFormText_Leave);
@@ -99,9 +104,9 @@
             this.flowLayoutPanel1.Controls.Add(this.pullFromCellDataButton);
             this.flowLayoutPanel1.Controls.Add(this.pushToCellDataButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 312);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 298);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(542, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(542, 32);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // writeFormSnipetCombo
@@ -180,9 +185,9 @@
             this.flowLayoutPanel2.Controls.Add(this.delCommentAllButton);
             this.flowLayoutPanel2.Controls.Add(this.writeFormSnipetSaveButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 348);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 336);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(542, 29);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(542, 31);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // addCommentPreClearCheck
@@ -265,9 +270,9 @@
             this.flowLayoutPanel3.Controls.Add(this.writeReplaceText);
             this.flowLayoutPanel3.Controls.Add(this.writeReplaceButton);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 383);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 373);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(542, 32);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(542, 31);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // writeFormRegxCheck
@@ -329,11 +334,30 @@
             this.writeReplaceButton.UseVisualStyleBackColor = true;
             this.writeReplaceButton.Click += new System.EventHandler(this.writeReplaceButton_Click);
             // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.writeFormTopMostCheck);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 410);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(200, 23);
+            this.flowLayoutPanel4.TabIndex = 4;
+            // 
+            // writeFormTopMostCheck
+            // 
+            this.writeFormTopMostCheck.AutoSize = true;
+            this.writeFormTopMostCheck.Location = new System.Drawing.Point(3, 3);
+            this.writeFormTopMostCheck.Name = "writeFormTopMostCheck";
+            this.writeFormTopMostCheck.Size = new System.Drawing.Size(93, 16);
+            this.writeFormTopMostCheck.TabIndex = 0;
+            this.writeFormTopMostCheck.Text = "常に前面表示";
+            this.writeFormTopMostCheck.UseVisualStyleBackColor = true;
+            this.writeFormTopMostCheck.Click += new System.EventHandler(this.writeFormTopMostCheck_Click);
+            // 
             // WriteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 418);
+            this.ClientSize = new System.Drawing.Size(548, 436);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "WriteForm";
             this.Text = "セル編集";
@@ -344,6 +368,8 @@
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -374,5 +400,7 @@
         private System.Windows.Forms.Button delCommentSingleButton;
         private System.Windows.Forms.Button delCommentAllButton;
         private System.Windows.Forms.Button writeFormSnipetSaveButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.CheckBox writeFormTopMostCheck;
     }
 }

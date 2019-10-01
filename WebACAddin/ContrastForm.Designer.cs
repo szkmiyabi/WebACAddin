@@ -37,6 +37,7 @@
             this.loadCellDataButton = new System.Windows.Forms.Button();
             this.contrastRatioPvButton = new System.Windows.Forms.Button();
             this.contrastRatioClearButton = new System.Windows.Forms.Button();
+            this.ContrastFormTopMostCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -95,19 +96,20 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.flowLayoutPanel1.Controls.Add(this.ContrastFormTopMostCheck);
             this.flowLayoutPanel1.Controls.Add(this.contrastRatioTextClearButton);
             this.flowLayoutPanel1.Controls.Add(this.loadCellDataButton);
             this.flowLayoutPanel1.Controls.Add(this.contrastRatioPvButton);
             this.flowLayoutPanel1.Controls.Add(this.contrastRatioClearButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(69, 143);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 143);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(392, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(458, 30);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // contrastRatioTextClearButton
             // 
-            this.contrastRatioTextClearButton.Location = new System.Drawing.Point(3, 3);
+            this.contrastRatioTextClearButton.Location = new System.Drawing.Point(111, 3);
             this.contrastRatioTextClearButton.Margin = new System.Windows.Forms.Padding(3, 3, 25, 3);
             this.contrastRatioTextClearButton.Name = "contrastRatioTextClearButton";
             this.contrastRatioTextClearButton.Size = new System.Drawing.Size(98, 23);
@@ -118,7 +120,7 @@
             // 
             // loadCellDataButton
             // 
-            this.loadCellDataButton.Location = new System.Drawing.Point(129, 3);
+            this.loadCellDataButton.Location = new System.Drawing.Point(237, 3);
             this.loadCellDataButton.Name = "loadCellDataButton";
             this.loadCellDataButton.Size = new System.Drawing.Size(90, 23);
             this.loadCellDataButton.TabIndex = 2;
@@ -128,9 +130,9 @@
             // 
             // contrastRatioPvButton
             // 
-            this.contrastRatioPvButton.Location = new System.Drawing.Point(225, 3);
+            this.contrastRatioPvButton.Location = new System.Drawing.Point(333, 3);
             this.contrastRatioPvButton.Name = "contrastRatioPvButton";
-            this.contrastRatioPvButton.Size = new System.Drawing.Size(75, 23);
+            this.contrastRatioPvButton.Size = new System.Drawing.Size(62, 23);
             this.contrastRatioPvButton.TabIndex = 0;
             this.contrastRatioPvButton.Text = "プレビュー";
             this.contrastRatioPvButton.UseVisualStyleBackColor = true;
@@ -138,13 +140,25 @@
             // 
             // contrastRatioClearButton
             // 
-            this.contrastRatioClearButton.Location = new System.Drawing.Point(306, 3);
+            this.contrastRatioClearButton.Location = new System.Drawing.Point(3, 32);
             this.contrastRatioClearButton.Name = "contrastRatioClearButton";
-            this.contrastRatioClearButton.Size = new System.Drawing.Size(75, 23);
+            this.contrastRatioClearButton.Size = new System.Drawing.Size(55, 23);
             this.contrastRatioClearButton.TabIndex = 1;
             this.contrastRatioClearButton.Text = "クリア";
             this.contrastRatioClearButton.UseVisualStyleBackColor = true;
             this.contrastRatioClearButton.Click += new System.EventHandler(this.contrastRatioClearButton_Click);
+            // 
+            // ContrastFormTopMostCheck
+            // 
+            this.ContrastFormTopMostCheck.AutoSize = true;
+            this.ContrastFormTopMostCheck.Location = new System.Drawing.Point(3, 8);
+            this.ContrastFormTopMostCheck.Margin = new System.Windows.Forms.Padding(3, 8, 12, 3);
+            this.ContrastFormTopMostCheck.Name = "ContrastFormTopMostCheck";
+            this.ContrastFormTopMostCheck.Size = new System.Drawing.Size(93, 16);
+            this.ContrastFormTopMostCheck.TabIndex = 4;
+            this.ContrastFormTopMostCheck.Text = "常に前面表示";
+            this.ContrastFormTopMostCheck.UseVisualStyleBackColor = true;
+            this.ContrastFormTopMostCheck.Click += new System.EventHandler(this.ContrastFormTopMostCheck_Click);
             // 
             // ContrastForm
             // 
@@ -158,6 +172,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -173,5 +188,6 @@
         public System.Windows.Forms.TextBox contrastRatioText;
         private System.Windows.Forms.Button loadCellDataButton;
         private System.Windows.Forms.Button contrastRatioTextClearButton;
+        private System.Windows.Forms.CheckBox ContrastFormTopMostCheck;
     }
 }

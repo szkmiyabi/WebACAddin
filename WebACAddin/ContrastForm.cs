@@ -29,6 +29,8 @@ namespace WebACAddin
         {
             InitializeComponent();
             reset_preview();
+            TopMost = true;
+            ContrastFormTopMostCheck.Checked = true;
         }
 
         //コントラストをプレビュー
@@ -153,6 +155,12 @@ namespace WebACAddin
         private void contrastRatioTextClearButton_Click(object sender, EventArgs e)
         {
             contrastRatioText.Clear();
+        }
+
+        //常に前面表示のトグル処理
+        private void ContrastFormTopMostCheck_Click(object sender, EventArgs e)
+        {
+            TopMost = !TopMost;
         }
     }
 

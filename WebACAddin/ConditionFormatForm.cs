@@ -25,6 +25,7 @@ namespace WebACAddin
             conditionType.SelectedIndex = 0;
             //常に前面表示
             TopMost = true;
+            ConditionFormatFormTopMostCheck.Checked = true;
             bgcolorRgb.Text = "(255,128,64)";
         }
 
@@ -152,6 +153,12 @@ namespace WebACAddin
         {
             del_condition_format();
             //this.Dispose();
+        }
+
+        //常に前面表示のトグル
+        private void ConditionFormatFormTopMostCheck_Click(object sender, EventArgs e)
+        {
+            TopMost = !TopMost;
         }
     }
 }

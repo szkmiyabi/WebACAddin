@@ -26,6 +26,9 @@ namespace WebACAddin
         {
             InitializeComponent();
             combobox_fetch();
+            //常に前面表示
+            TopMost = true;
+            writeFormTopMostCheck.Checked = true;
         }
 
         //コンボボックスのサイズを調整
@@ -394,6 +397,12 @@ namespace WebACAddin
         private void writeFormSnipetSaveButton_Click(object sender, EventArgs e)
         {
             do_save_val_comment();
+        }
+
+        //常に前面表示のトグル
+        private void writeFormTopMostCheck_Click(object sender, EventArgs e)
+        {
+            TopMost = !TopMost;
         }
     }
 

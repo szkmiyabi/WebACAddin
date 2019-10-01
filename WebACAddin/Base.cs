@@ -111,6 +111,12 @@ namespace WebACAddin
             return ret;
         }
 
+        //ログタイムを取得
+        private string _get_logtime(string formatter)
+        {
+            DateTime dt = DateTime.Now;
+            return dt.ToString(formatter);
+        }
 
         //文字コードを判別する
         private System.Text.Encoding _get_self_encoding(byte[] bytes)

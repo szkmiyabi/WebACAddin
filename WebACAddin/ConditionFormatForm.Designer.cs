@@ -32,6 +32,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.conditionKeyword = new System.Windows.Forms.TextBox();
+            this.conditionType = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.bgcolorRgb = new System.Windows.Forms.TextBox();
@@ -39,7 +40,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.conditionType = new System.Windows.Forms.ComboBox();
+            this.ConditionFormatFormTopMostCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -60,7 +61,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 116);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 126);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -71,7 +72,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 28);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(258, 32);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -88,8 +89,21 @@
             // 
             this.conditionKeyword.Location = new System.Drawing.Point(50, 3);
             this.conditionKeyword.Name = "conditionKeyword";
-            this.conditionKeyword.Size = new System.Drawing.Size(103, 19);
+            this.conditionKeyword.Size = new System.Drawing.Size(114, 19);
             this.conditionKeyword.TabIndex = 1;
+            // 
+            // conditionType
+            // 
+            this.conditionType.FormattingEnabled = true;
+            this.conditionType.Items.AddRange(new object[] {
+            "を含む",
+            "を含まない",
+            "で始まる",
+            "で終わる"});
+            this.conditionType.Location = new System.Drawing.Point(170, 3);
+            this.conditionType.Name = "conditionType";
+            this.conditionType.Size = new System.Drawing.Size(75, 20);
+            this.conditionType.TabIndex = 2;
             // 
             // flowLayoutPanel2
             // 
@@ -97,9 +111,9 @@
             this.flowLayoutPanel2.Controls.Add(this.bgcolorRgb);
             this.flowLayoutPanel2.Controls.Add(this.openConditionColorPalletButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 37);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 41);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(258, 35);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(258, 41);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // label2
@@ -116,12 +130,12 @@
             // 
             this.bgcolorRgb.Location = new System.Drawing.Point(50, 3);
             this.bgcolorRgb.Name = "bgcolorRgb";
-            this.bgcolorRgb.Size = new System.Drawing.Size(103, 19);
+            this.bgcolorRgb.Size = new System.Drawing.Size(114, 19);
             this.bgcolorRgb.TabIndex = 1;
             // 
             // openConditionColorPalletButton
             // 
-            this.openConditionColorPalletButton.Location = new System.Drawing.Point(159, 3);
+            this.openConditionColorPalletButton.Location = new System.Drawing.Point(170, 3);
             this.openConditionColorPalletButton.Name = "openConditionColorPalletButton";
             this.openConditionColorPalletButton.Size = new System.Drawing.Size(59, 23);
             this.openConditionColorPalletButton.TabIndex = 2;
@@ -131,19 +145,20 @@
             // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.Controls.Add(this.ConditionFormatFormTopMostCheck);
             this.flowLayoutPanel3.Controls.Add(this.addButton);
             this.flowLayoutPanel3.Controls.Add(this.deleteButton);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(53, 78);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 88);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(208, 35);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(258, 35);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(3, 3);
+            this.addButton.Location = new System.Drawing.Point(110, 3);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.Size = new System.Drawing.Size(63, 23);
             this.addButton.TabIndex = 0;
             this.addButton.Text = "追加";
             this.addButton.UseVisualStyleBackColor = true;
@@ -151,32 +166,31 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(84, 3);
+            this.deleteButton.Location = new System.Drawing.Point(179, 3);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.Size = new System.Drawing.Size(61, 23);
             this.deleteButton.TabIndex = 1;
             this.deleteButton.Text = "削除";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // conditionType
+            // ConditionFormatFormTopMostCheck
             // 
-            this.conditionType.FormattingEnabled = true;
-            this.conditionType.Items.AddRange(new object[] {
-            "を含む",
-            "を含まない",
-            "で始まる",
-            "で終わる"});
-            this.conditionType.Location = new System.Drawing.Point(159, 3);
-            this.conditionType.Name = "conditionType";
-            this.conditionType.Size = new System.Drawing.Size(75, 20);
-            this.conditionType.TabIndex = 2;
+            this.ConditionFormatFormTopMostCheck.AutoSize = true;
+            this.ConditionFormatFormTopMostCheck.Location = new System.Drawing.Point(3, 9);
+            this.ConditionFormatFormTopMostCheck.Margin = new System.Windows.Forms.Padding(3, 9, 11, 3);
+            this.ConditionFormatFormTopMostCheck.Name = "ConditionFormatFormTopMostCheck";
+            this.ConditionFormatFormTopMostCheck.Size = new System.Drawing.Size(93, 16);
+            this.ConditionFormatFormTopMostCheck.TabIndex = 2;
+            this.ConditionFormatFormTopMostCheck.Text = "常に前面表示";
+            this.ConditionFormatFormTopMostCheck.UseVisualStyleBackColor = true;
+            this.ConditionFormatFormTopMostCheck.Click += new System.EventHandler(this.ConditionFormatFormTopMostCheck_Click);
             // 
             // ConditionFormatForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 116);
+            this.ClientSize = new System.Drawing.Size(264, 126);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -188,6 +202,7 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -206,5 +221,6 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.ComboBox conditionType;
+        private System.Windows.Forms.CheckBox ConditionFormatFormTopMostCheck;
     }
 }
