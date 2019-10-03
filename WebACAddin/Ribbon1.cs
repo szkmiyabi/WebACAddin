@@ -30,6 +30,7 @@ namespace WebACAddin
         private static WriteForm _wrfrmObj;
         private static InputForm _inpfrmObj;
         private static ConditionFormatForm _ccffrmObj;
+        private static CellForm _cllfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -126,6 +127,19 @@ namespace WebACAddin
                     _ccffrmObj = new ConditionFormatForm();
                 }
                 return _ccffrmObj;
+            }
+        }
+
+        //CellFormインスタンスの取得
+        public static CellForm cllfrmObj
+        {
+            get
+            {
+                if(_cllfrmObj == null || _cllfrmObj.IsDisposed)
+                {
+                    _cllfrmObj = new CellForm();
+                }
+                return _cllfrmObj;
             }
         }
 
@@ -358,6 +372,12 @@ namespace WebACAddin
         private void autoFilteredQueryButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_auto_filtered_query();
+        }
+
+        //セル解析
+        private void cellAnalysisButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            cllfrmObj.Show();
         }
     }
 }

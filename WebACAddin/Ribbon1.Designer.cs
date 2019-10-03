@@ -64,6 +64,7 @@
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.customConditionFormatButton = this.Factory.CreateRibbonButton();
+            this.cellAnalysisButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
@@ -164,6 +165,7 @@
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
             this.group1.Items.Add(this.customConditionFormatButton);
+            this.group1.Items.Add(this.cellAnalysisButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -235,6 +237,12 @@
             this.customConditionFormatButton.Label = "カスタム条件書式";
             this.customConditionFormatButton.Name = "customConditionFormatButton";
             this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
+            // 
+            // cellAnalysisButton
+            // 
+            this.cellAnalysisButton.Label = "セル解析";
+            this.cellAnalysisButton.Name = "cellAnalysisButton";
+            this.cellAnalysisButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellAnalysisButton_Click);
             // 
             // group4
             // 
@@ -785,6 +793,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentInsertPositionCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton customConditionFormatButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton autoFilteredQueryButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton cellAnalysisButton;
     }
 
     partial class ThisRibbonCollection
