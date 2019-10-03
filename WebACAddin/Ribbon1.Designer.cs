@@ -53,12 +53,6 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl17 = this.Factory.CreateRibbonDropDownItem();
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.box4 = this.Factory.CreateRibbonBox();
-            this.cellColorCodeBtn = this.Factory.CreateRibbonButton();
-            this.cellValText = this.Factory.CreateRibbonEditBox();
-            this.thisColorCodeBtn = this.Factory.CreateRibbonButton();
-            this.thisListMatchBtn = this.Factory.CreateRibbonButton();
-            this.listReverseButton = this.Factory.CreateRibbonButton();
             this.svDataForPasteButton = this.Factory.CreateRibbonButton();
             this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
@@ -127,7 +121,6 @@
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
-            this.box4.SuspendLayout();
             this.group4.SuspendLayout();
             this.box3.SuspendLayout();
             this.box1.SuspendLayout();
@@ -156,57 +149,14 @@
             // 
             // group1
             // 
-            this.group1.Items.Add(this.box4);
-            this.group1.Items.Add(this.thisColorCodeBtn);
-            this.group1.Items.Add(this.thisListMatchBtn);
-            this.group1.Items.Add(this.listReverseButton);
+            this.group1.Items.Add(this.cellAnalysisButton);
             this.group1.Items.Add(this.svDataForPasteButton);
             this.group1.Items.Add(this.waCheckCommentBaseButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
             this.group1.Items.Add(this.customConditionFormatButton);
-            this.group1.Items.Add(this.cellAnalysisButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
-            // 
-            // box4
-            // 
-            this.box4.Items.Add(this.cellColorCodeBtn);
-            this.box4.Items.Add(this.cellValText);
-            this.box4.Name = "box4";
-            // 
-            // cellColorCodeBtn
-            // 
-            this.cellColorCodeBtn.Label = "色コード";
-            this.cellColorCodeBtn.Name = "cellColorCodeBtn";
-            this.cellColorCodeBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellColorCodeBtn_Click);
-            // 
-            // cellValText
-            // 
-            this.cellValText.Label = "editBox1";
-            this.cellValText.MaxLength = 6;
-            this.cellValText.Name = "cellValText";
-            this.cellValText.ShowLabel = false;
-            this.cellValText.SizeString = "AAAAAA";
-            this.cellValText.Text = null;
-            // 
-            // thisColorCodeBtn
-            // 
-            this.thisColorCodeBtn.Label = "この色のセル";
-            this.thisColorCodeBtn.Name = "thisColorCodeBtn";
-            this.thisColorCodeBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.thisColorCodeBtn_Click);
-            // 
-            // thisListMatchBtn
-            // 
-            this.thisListMatchBtn.Label = "リスト一致";
-            this.thisListMatchBtn.Name = "thisListMatchBtn";
-            this.thisListMatchBtn.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.thisListMatchBtn_Click);
-            // 
-            // listReverseButton
-            // 
-            this.listReverseButton.Label = "リスト反転";
-            this.listReverseButton.Name = "listReverseButton";
-            this.listReverseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.listReverseButton_Click);
             // 
             // svDataForPasteButton
             // 
@@ -240,7 +190,7 @@
             // 
             // cellAnalysisButton
             // 
-            this.cellAnalysisButton.Label = "セル解析";
+            this.cellAnalysisButton.Label = "セルデータ解析";
             this.cellAnalysisButton.Name = "cellAnalysisButton";
             this.cellAnalysisButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellAnalysisButton_Click);
             // 
@@ -684,8 +634,6 @@
             this.webACTab.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
-            this.box4.ResumeLayout(false);
-            this.box4.PerformLayout();
             this.group4.ResumeLayout(false);
             this.group4.PerformLayout();
             this.box3.ResumeLayout(false);
@@ -722,13 +670,8 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab webACTab;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox cellValText;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton cellColorCodeBtn;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton thisColorCodeBtn;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton thisListMatchBtn;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton setHrefBtn;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton setPageTitleBtn;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton listReverseButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton saveAsTSVButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group3;
@@ -748,7 +691,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton writeFormOpenButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton writeCommentAddButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox writeCommentBreakCheck;
-        internal Microsoft.Office.Tools.Ribbon.RibbonBox box4;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box3;
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox svRedimFlagCombo;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton svRedimInputButton;

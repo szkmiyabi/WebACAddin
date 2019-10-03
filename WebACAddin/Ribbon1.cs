@@ -143,24 +143,6 @@ namespace WebACAddin
             }
         }
 
-        //色コードを取得
-        private void cellColorCodeBtn_Click(object sender, RibbonControlEventArgs e)
-        {
-            get_color_code();
-        }
-
-        //この色のセルをリスト表示
-        private void thisColorCodeBtn_Click(object sender, RibbonControlEventArgs e)
-        {
-            get_this_color_cell_list();
-        }
-
-        //このリストに一致するセルに色を付ける
-        private void thisListMatchBtn_Click(object sender, RibbonControlEventArgs e)
-        {
-            do_coloring_match_list();
-        }
-
         //ハイパーリンクを設定
         private void setHrefBtn_Click(object sender, RibbonControlEventArgs e)
         {
@@ -171,12 +153,6 @@ namespace WebACAddin
         private void setPageTitleBtn_Click(object sender, RibbonControlEventArgs e)
         {
             do_page_title_add_wrapper();
-        }
-
-        //リストを反転
-        private void listReverseButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            do_reverse_list();
         }
 
         //選択範囲をTSV保存
