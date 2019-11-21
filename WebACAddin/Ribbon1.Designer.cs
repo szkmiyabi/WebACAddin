@@ -53,12 +53,12 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl17 = this.Factory.CreateRibbonDropDownItem();
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
+            this.cellAnalysisButton = this.Factory.CreateRibbonButton();
             this.svDataForPasteButton = this.Factory.CreateRibbonButton();
             this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.customConditionFormatButton = this.Factory.CreateRibbonButton();
-            this.cellAnalysisButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
@@ -119,6 +119,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group4.SuspendLayout();
@@ -158,6 +159,12 @@
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
+            // cellAnalysisButton
+            // 
+            this.cellAnalysisButton.Label = "セルデータ解析";
+            this.cellAnalysisButton.Name = "cellAnalysisButton";
+            this.cellAnalysisButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellAnalysisButton_Click);
+            // 
             // svDataForPasteButton
             // 
             this.svDataForPasteButton.Label = "判定ひな形生成";
@@ -187,12 +194,6 @@
             this.customConditionFormatButton.Label = "カスタム条件書式";
             this.customConditionFormatButton.Name = "customConditionFormatButton";
             this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
-            // 
-            // cellAnalysisButton
-            // 
-            this.cellAnalysisButton.Label = "セルデータ解析";
-            this.cellAnalysisButton.Name = "cellAnalysisButton";
-            this.cellAnalysisButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellAnalysisButton_Click);
             // 
             // group4
             // 
@@ -489,6 +490,7 @@
             this.buttonGroup4.Items.Add(this.cellVerticalCenterButton);
             this.buttonGroup4.Items.Add(this.cellLineBreakButton);
             this.buttonGroup4.Items.Add(this.cellStrDeleteButton);
+            this.buttonGroup4.Items.Add(this.CursolControlFormButton);
             this.buttonGroup4.Name = "buttonGroup4";
             // 
             // fontBoldButton
@@ -624,6 +626,12 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // CursolControlFormButton
+            // 
+            this.CursolControlFormButton.Label = "カーソル";
+            this.CursolControlFormButton.Name = "CursolControlFormButton";
+            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -736,6 +744,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton customConditionFormatButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton autoFilteredQueryButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellAnalysisButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton CursolControlFormButton;
     }
 
     partial class ThisRibbonCollection
