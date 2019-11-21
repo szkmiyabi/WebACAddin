@@ -15,6 +15,9 @@ namespace WebACAddin
 {
     public partial class CtrlForm : Form
     {
+
+        private Excel.Range mmRange;
+
         public CtrlForm()
         {
             InitializeComponent();
@@ -22,6 +25,7 @@ namespace WebACAddin
             TopMost = true;
             //サイズ変更不可
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            mmRange = null;
         }
 
         //下へカーソル移動
@@ -92,6 +96,23 @@ namespace WebACAddin
         {
             if (this.Opacity == 1) this.Opacity = 0.7;
             else this.Opacity = 1;
+        }
+
+        //メモリーボタンクリック
+        private void locationMemoryButton_Click(object sender, EventArgs e)
+        {
+            mmRange = Globals.ThisAddIn.Application.Selection;
+        }
+
+        //Backボタンクリック
+        private void MemoryBackButton_Click(object sender, EventArgs e)
+        {
+            if(mmRange != null)
+            {
+                Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+                Excel.Range mmCell = ash.Cells[mmRange.Row, mmRange.Column];
+                mmCell.Select();
+            }
         }
     }
 }
