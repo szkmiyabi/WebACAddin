@@ -10,13 +10,24 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
+using System.Runtime.InteropServices;
 
 namespace WebACAddin
 {
     public partial class CtrlForm : Form
     {
 
+        //タイトルバーなしでドラッグ操作可能にするメンバ、メソッド定義
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HT_CAPTION = 0x2;
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+        [DllImportAttribute("user32.dll")]
+        private static extern bool ReleaseCapture();
+
+        //セル位置記憶
         private Excel.Range mmRange;
+
 
         public CtrlForm()
         {
@@ -72,7 +83,6 @@ namespace WebACAddin
                 rx--;
             }
             while (ash.Rows[rx].EntireRow.Hidden == true);
-
 
             Excel.Range nextCell = ash.Cells[rx, c];
             nextCell.Select();
@@ -146,6 +156,24 @@ namespace WebACAddin
                 Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
                 Excel.Range mmCell = ash.Cells[mmRange.Row, mmRange.Column];
                 mmCell.Select();
+            }
+        }
+
+        //閉じるボタンクリック
+        private void CtrlFormCloseButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //タイトルバーなしでフォームをドラッグ操作可能にする
+        private void CtrlForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                //マウスのキャプチャを解除
+                ReleaseCapture();
+                //タイトルバーでマウスの左ボタンが押されたことにする
+                SendMessage(Handle, WM_NCLBUTTONDOWN, (IntPtr)HT_CAPTION, IntPtr.Zero);
             }
         }
     }
