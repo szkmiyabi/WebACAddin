@@ -28,6 +28,7 @@ namespace WebACAddin
             mmRange = null;
         }
 
+
         //下へカーソル移動
         private void cellGoBottomButton_Click(object sender, EventArgs e)
         {
@@ -37,7 +38,15 @@ namespace WebACAddin
             int r, c = 0;
             r = sa.Row;
             c = sa.Column;
-            Excel.Range nextCell = ash.Cells[r + 1, c];
+
+            int rx = r;
+            do
+            {
+                rx++;
+            }
+            while (ash.Rows[rx].EntireRow.Hidden == true);
+
+            Excel.Range nextCell = ash.Cells[rx, c];
             nextCell.Select();
 
         }
@@ -56,7 +65,16 @@ namespace WebACAddin
                 MessageBox.Show("これ以上、上に移動できません！");
                 return;
             }
-            Excel.Range nextCell = ash.Cells[r - 1, c];
+
+            int rx = r;
+            do
+            {
+                rx--;
+            }
+            while (ash.Rows[rx].EntireRow.Hidden == true);
+
+
+            Excel.Range nextCell = ash.Cells[rx, c];
             nextCell.Select();
         }
 
@@ -74,7 +92,15 @@ namespace WebACAddin
                 MessageBox.Show("これ以上、左に移動できません！");
                 return;
             }
-            Excel.Range nextCell = ash.Cells[r, c-1];
+
+            int cx = c;
+            do
+            {
+                cx--;
+            }
+            while (ash.Columns[cx].EntireColumn.Hidden == true);
+
+            Excel.Range nextCell = ash.Cells[r, cx];
             nextCell.Select();
         }
 
@@ -87,7 +113,15 @@ namespace WebACAddin
             int r, c = 0;
             r = sa.Row;
             c = sa.Column;
-            Excel.Range nextCell = ash.Cells[r, c+1];
+
+            int cx = c;
+            do
+            {
+                cx++;
+            }
+            while (ash.Columns[cx].EntireColumn.Hidden == true);
+
+            Excel.Range nextCell = ash.Cells[r, cx];
             nextCell.Select();
         }
 
