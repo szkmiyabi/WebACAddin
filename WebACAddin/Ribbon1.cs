@@ -32,6 +32,7 @@ namespace WebACAddin
         private static ConditionFormatForm _ccffrmObj;
         private static CellForm _cllfrmObj;
         private static CtrlForm _ctrlfrmObj;
+        private static ComboEditForm _cmbefrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -154,6 +155,19 @@ namespace WebACAddin
                     _ctrlfrmObj = new CtrlForm();
                 }
                 return _ctrlfrmObj;
+            }
+        }
+
+        //ComboEditFormインスタンスの取得
+        public static ComboEditForm cmbefrmObj
+        {
+            get
+            {
+                if(_cmbefrmObj == null || _cmbefrmObj.IsDisposed)
+                {
+                    _cmbefrmObj = new ComboEditForm();
+                }
+                return _cmbefrmObj;
             }
         }
 
@@ -374,6 +388,12 @@ namespace WebACAddin
         private void CursolControlFormButton_Click(object sender, RibbonControlEventArgs e)
         {
             ctrlfrmObj.Show();
+        }
+
+        //値編集
+        private void doEditComboButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            cmbefrmObj.Show();
         }
     }
 }

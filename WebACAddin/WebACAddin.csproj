@@ -167,6 +167,12 @@
     <Compile Include="CellUtil.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ComboEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComboEditForm.Designer.cs">
+      <DependentUpon>ComboEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConditionFormatForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CellForm.resx">
       <DependentUpon>CellForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComboEditForm.resx">
+      <DependentUpon>ComboEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConditionFormatForm.resx">
       <DependentUpon>ConditionFormatForm.cs</DependentUpon>

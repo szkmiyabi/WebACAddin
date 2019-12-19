@@ -104,6 +104,7 @@
             this.cellVerticalCenterButton = this.Factory.CreateRibbonButton();
             this.cellLineBreakButton = this.Factory.CreateRibbonButton();
             this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
+            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
             this.excelFooterClearButton = this.Factory.CreateRibbonButton();
             this.box9 = this.Factory.CreateRibbonBox();
@@ -119,7 +120,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
+            this.doEditComboButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group4.SuspendLayout();
@@ -343,6 +344,7 @@
             // 
             this.box2.Items.Add(this.delCommentSingleButton);
             this.box2.Items.Add(this.delCommentAllButton);
+            this.box2.Items.Add(this.doEditComboButton);
             this.box2.Items.Add(this.writeCommentComboSaveButton);
             this.box2.Items.Add(this.addCommentPreClearCheck);
             this.box2.Name = "box2";
@@ -367,7 +369,7 @@
             // 
             // addCommentPreClearCheck
             // 
-            this.addCommentPreClearCheck.Label = "全クリアして追加";
+            this.addCommentPreClearCheck.Label = "全クリア追加";
             this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
             // 
             // box7
@@ -523,6 +525,12 @@
             this.cellStrDeleteButton.Name = "cellStrDeleteButton";
             this.cellStrDeleteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellStrDeleteButton_Click);
             // 
+            // CursolControlFormButton
+            // 
+            this.CursolControlFormButton.Label = "カーソル";
+            this.CursolControlFormButton.Name = "CursolControlFormButton";
+            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
+            // 
             // group5
             // 
             this.group5.Items.Add(this.excelFooterClearButton);
@@ -626,11 +634,11 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
-            // CursolControlFormButton
+            // doEditComboButton
             // 
-            this.CursolControlFormButton.Label = "カーソル";
-            this.CursolControlFormButton.Name = "CursolControlFormButton";
-            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
+            this.doEditComboButton.Label = "値編集";
+            this.doEditComboButton.Name = "doEditComboButton";
+            this.doEditComboButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doEditComboButton_Click);
             // 
             // Ribbon1
             // 
@@ -745,6 +753,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton autoFilteredQueryButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellAnalysisButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton CursolControlFormButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton doEditComboButton;
     }
 
     partial class ThisRibbonCollection
