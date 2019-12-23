@@ -395,5 +395,17 @@ namespace WebACAddin
         {
             cmbefrmObj.Show();
         }
+
+        //升目
+        private void borderMatrixButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_border_matrix();
+        }
+
+        //無地
+        private void borderClearButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_border_clear();
+        }
     }
 }

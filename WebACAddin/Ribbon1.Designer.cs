@@ -81,6 +81,7 @@
             this.box2 = this.Factory.CreateRibbonBox();
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
+            this.doEditComboButton = this.Factory.CreateRibbonButton();
             this.writeCommentComboSaveButton = this.Factory.CreateRibbonButton();
             this.addCommentPreClearCheck = this.Factory.CreateRibbonCheckBox();
             this.box7 = this.Factory.CreateRibbonBox();
@@ -98,13 +99,15 @@
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
             this.ccRedButton = this.Factory.CreateRibbonButton();
             this.writeFormOpenButton = this.Factory.CreateRibbonButton();
+            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
             this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
             this.fontBoldButton = this.Factory.CreateRibbonButton();
             this.fontRedButton = this.Factory.CreateRibbonButton();
             this.cellVerticalCenterButton = this.Factory.CreateRibbonButton();
             this.cellLineBreakButton = this.Factory.CreateRibbonButton();
             this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
-            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
+            this.borderMatrixButton = this.Factory.CreateRibbonButton();
+            this.borderClearButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
             this.excelFooterClearButton = this.Factory.CreateRibbonButton();
             this.box9 = this.Factory.CreateRibbonBox();
@@ -120,7 +123,6 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.doEditComboButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group4.SuspendLayout();
@@ -361,6 +363,12 @@
             this.delCommentAllButton.Name = "delCommentAllButton";
             this.delCommentAllButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.delCommentAllButton_Click);
             // 
+            // doEditComboButton
+            // 
+            this.doEditComboButton.Label = "値編集";
+            this.doEditComboButton.Name = "doEditComboButton";
+            this.doEditComboButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doEditComboButton_Click);
+            // 
             // writeCommentComboSaveButton
             // 
             this.writeCommentComboSaveButton.Label = "保存";
@@ -435,6 +443,7 @@
             this.buttonGroup2.Items.Add(this.ccPurpleButton);
             this.buttonGroup2.Items.Add(this.ccRedButton);
             this.buttonGroup2.Items.Add(this.writeFormOpenButton);
+            this.buttonGroup2.Items.Add(this.CursolControlFormButton);
             this.buttonGroup2.Name = "buttonGroup2";
             // 
             // ccEmptyButton
@@ -481,9 +490,15 @@
             // 
             // writeFormOpenButton
             // 
-            this.writeFormOpenButton.Label = "セル文字編集";
+            this.writeFormOpenButton.Label = "セル編集";
             this.writeFormOpenButton.Name = "writeFormOpenButton";
             this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
+            // 
+            // CursolControlFormButton
+            // 
+            this.CursolControlFormButton.Label = "カーソル";
+            this.CursolControlFormButton.Name = "CursolControlFormButton";
+            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
             // 
             // buttonGroup4
             // 
@@ -492,7 +507,8 @@
             this.buttonGroup4.Items.Add(this.cellVerticalCenterButton);
             this.buttonGroup4.Items.Add(this.cellLineBreakButton);
             this.buttonGroup4.Items.Add(this.cellStrDeleteButton);
-            this.buttonGroup4.Items.Add(this.CursolControlFormButton);
+            this.buttonGroup4.Items.Add(this.borderMatrixButton);
+            this.buttonGroup4.Items.Add(this.borderClearButton);
             this.buttonGroup4.Name = "buttonGroup4";
             // 
             // fontBoldButton
@@ -525,11 +541,17 @@
             this.cellStrDeleteButton.Name = "cellStrDeleteButton";
             this.cellStrDeleteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellStrDeleteButton_Click);
             // 
-            // CursolControlFormButton
+            // borderMatrixButton
             // 
-            this.CursolControlFormButton.Label = "カーソル";
-            this.CursolControlFormButton.Name = "CursolControlFormButton";
-            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
+            this.borderMatrixButton.Label = "升目";
+            this.borderMatrixButton.Name = "borderMatrixButton";
+            this.borderMatrixButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.borderMatrixButton_Click);
+            // 
+            // borderClearButton
+            // 
+            this.borderClearButton.Label = "無地";
+            this.borderClearButton.Name = "borderClearButton";
+            this.borderClearButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.borderClearButton_Click);
             // 
             // group5
             // 
@@ -633,12 +655,6 @@
             this.openChromeBetaButton.Label = "Chrome(beta)";
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
-            // 
-            // doEditComboButton
-            // 
-            this.doEditComboButton.Label = "値編集";
-            this.doEditComboButton.Name = "doEditComboButton";
-            this.doEditComboButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doEditComboButton_Click);
             // 
             // Ribbon1
             // 
@@ -754,6 +770,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellAnalysisButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton CursolControlFormButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton doEditComboButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton borderMatrixButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton borderClearButton;
     }
 
     partial class ThisRibbonCollection

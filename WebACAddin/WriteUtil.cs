@@ -931,5 +931,20 @@ namespace WebACAddin
 
         }
 
+        //升目に罫線を引く
+        private void do_border_matrix()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.Selection;
+            sa.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+        }
+
+        //罫線を無地にする
+        private void do_border_clear()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.Selection;
+            sa.Borders.LineStyle = Excel.XlLineStyle.xlLineStyleNone;
+        }
+
+
     }
 }
