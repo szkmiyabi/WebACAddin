@@ -33,6 +33,7 @@ namespace WebACAddin
         private static CellForm _cllfrmObj;
         private static CtrlForm _ctrlfrmObj;
         private static ComboEditForm _cmbefrmObj;
+        private static RepoUpdForm _rupfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -171,6 +172,19 @@ namespace WebACAddin
             }
         }
 
+        //RepoUpdFormインスタンスの取得
+        public static RepoUpdForm rupfrmObj
+        {
+            get
+            {
+                if(_rupfrmObj == null || _rupfrmObj.IsDisposed)
+                {
+                    _rupfrmObj = new RepoUpdForm();
+                }
+                return _rupfrmObj;
+            }
+        }
+
         //ハイパーリンクを設定
         private void setHrefBtn_Click(object sender, RibbonControlEventArgs e)
         {
@@ -187,12 +201,6 @@ namespace WebACAddin
         private void saveAsTSVButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_selet_area_tsv();
-        }
-
-        //品質チェックコメントを取得
-        private void waCheckCommentBaseButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            get_wa_check_comment_base_wrapper();
         }
 
         //HTMLを簡易表示
@@ -406,6 +414,12 @@ namespace WebACAddin
         private void borderClearButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_border_clear();
+        }
+
+        //レポート行修正
+        private void repoRowUpdateButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            rupfrmObj.Show();
         }
     }
 }

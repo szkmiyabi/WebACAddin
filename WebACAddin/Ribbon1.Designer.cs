@@ -55,7 +55,7 @@
             this.group1 = this.Factory.CreateRibbonGroup();
             this.cellAnalysisButton = this.Factory.CreateRibbonButton();
             this.svDataForPasteButton = this.Factory.CreateRibbonButton();
-            this.waCheckCommentBaseButton = this.Factory.CreateRibbonButton();
+            this.repoRowUpdateButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.customConditionFormatButton = this.Factory.CreateRibbonButton();
@@ -155,7 +155,7 @@
             // 
             this.group1.Items.Add(this.cellAnalysisButton);
             this.group1.Items.Add(this.svDataForPasteButton);
-            this.group1.Items.Add(this.waCheckCommentBaseButton);
+            this.group1.Items.Add(this.repoRowUpdateButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
             this.group1.Items.Add(this.customConditionFormatButton);
@@ -174,11 +174,11 @@
             this.svDataForPasteButton.Name = "svDataForPasteButton";
             this.svDataForPasteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svDataForPasteButton_Click);
             // 
-            // waCheckCommentBaseButton
+            // repoRowUpdateButton
             // 
-            this.waCheckCommentBaseButton.Label = "品質チェックコメント";
-            this.waCheckCommentBaseButton.Name = "waCheckCommentBaseButton";
-            this.waCheckCommentBaseButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.waCheckCommentBaseButton_Click);
+            this.repoRowUpdateButton.Label = "レポート行修正";
+            this.repoRowUpdateButton.Name = "repoRowUpdateButton";
+            this.repoRowUpdateButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.repoRowUpdateButton_Click);
             // 
             // dispEasyHtmlDocButton
             // 
@@ -712,7 +712,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openChromeButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openFirefoxDevButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton openChromeBetaButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton waCheckCommentBaseButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox addLabelColorCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton dispEasyHtmlDocButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton dispContrastRepFormButton;
@@ -772,6 +771,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton doEditComboButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton borderMatrixButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton borderClearButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton repoRowUpdateButton;
     }
 
     partial class ThisRibbonCollection

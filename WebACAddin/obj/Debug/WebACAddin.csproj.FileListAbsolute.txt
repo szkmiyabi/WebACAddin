@@ -23,3 +23,4 @@ C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.WriteFo
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.GenerateResource.Cache
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.dll
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.pdb
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.RepoUpdForm.resources
