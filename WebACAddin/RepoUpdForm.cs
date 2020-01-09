@@ -99,6 +99,7 @@ namespace WebACAddin
         private void repoUpdateButton_Click(object sender, EventArgs e)
         {
             update_report_row();
+            this.Dispose();
         }
     }
 }
