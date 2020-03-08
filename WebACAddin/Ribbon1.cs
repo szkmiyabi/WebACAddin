@@ -48,6 +48,9 @@ namespace WebACAddin
             addCommentPreClearCheck.Checked = true;
             addColorRowCheck.Checked = true;
 
+            //writeCommentComboに初期スニペット登録
+            init_writeCommentCombo();
+
         }
 
         public ThisAddIn get_excelObj()
@@ -225,7 +228,7 @@ namespace WebACAddin
         //この語句を追記する
         private void surveyChangeInputButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_add_comment_write_wrapper();
+            do_add_comment_write();
         }
 
         //セルから値追加
@@ -420,6 +423,12 @@ namespace WebACAddin
         private void repoRowUpdateButton_Click(object sender, RibbonControlEventArgs e)
         {
             rupfrmObj.Show();
+        }
+
+        //再検査チェックをクリック
+        private void writeCommentReSurveyCheck_Click(object sender, RibbonControlEventArgs e)
+        {
+            init_reserv_check_option();
         }
     }
 }

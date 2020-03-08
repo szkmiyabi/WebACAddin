@@ -49,8 +49,6 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl13 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl14 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl15 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl16 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl17 = this.Factory.CreateRibbonDropDownItem();
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.cellAnalysisButton = this.Factory.CreateRibbonButton();
@@ -67,6 +65,7 @@
             this.writeCommentBreakCheck = this.Factory.CreateRibbonCheckBox();
             this.writeCommentOverrideCheck = this.Factory.CreateRibbonCheckBox();
             this.writeCommentInsertPositionCheck = this.Factory.CreateRibbonCheckBox();
+            this.gridPasteCheck = this.Factory.CreateRibbonCheckBox();
             this.box8 = this.Factory.CreateRibbonBox();
             this.addLabelColorCheck = this.Factory.CreateRibbonCheckBox();
             this.addColorRowCheck = this.Factory.CreateRibbonCheckBox();
@@ -78,12 +77,12 @@
             this.writeCommentAddButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFileButton = this.Factory.CreateRibbonButton();
+            this.addCommentPreClearCheck = this.Factory.CreateRibbonCheckBox();
             this.box2 = this.Factory.CreateRibbonBox();
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
             this.doEditComboButton = this.Factory.CreateRibbonButton();
             this.writeCommentComboSaveButton = this.Factory.CreateRibbonButton();
-            this.addCommentPreClearCheck = this.Factory.CreateRibbonCheckBox();
             this.box7 = this.Factory.CreateRibbonBox();
             this.markerDropdown = this.Factory.CreateRibbonComboBox();
             this.markerInputButton = this.Factory.CreateRibbonButton();
@@ -225,9 +224,10 @@
             ribbonDropDownItemImpl3.Label = "非適用";
             ribbonDropDownItemImpl4.Label = "適合(注記)";
             ribbonDropDownItemImpl5.Label = "未修正";
-            ribbonDropDownItemImpl6.Label = "※追記";
-            ribbonDropDownItemImpl7.Label = "※修正";
-            ribbonDropDownItemImpl8.Label = "※削除";
+            ribbonDropDownItemImpl6.Label = "判断保留";
+            ribbonDropDownItemImpl7.Label = "※追記";
+            ribbonDropDownItemImpl8.Label = "※修正";
+            ribbonDropDownItemImpl9.Label = "※削除";
             this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl1);
             this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl2);
             this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl3);
@@ -236,6 +236,7 @@
             this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl6);
             this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl7);
             this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl8);
+            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl9);
             this.svRedimFlagCombo.Label = "判定修正";
             this.svRedimFlagCombo.Name = "svRedimFlagCombo";
             this.svRedimFlagCombo.ShowLabel = false;
@@ -253,6 +254,7 @@
             this.box1.Items.Add(this.writeCommentBreakCheck);
             this.box1.Items.Add(this.writeCommentOverrideCheck);
             this.box1.Items.Add(this.writeCommentInsertPositionCheck);
+            this.box1.Items.Add(this.gridPasteCheck);
             this.box1.Name = "box1";
             // 
             // writeCommentBreakCheck
@@ -269,6 +271,11 @@
             // 
             this.writeCommentInsertPositionCheck.Label = "先頭";
             this.writeCommentInsertPositionCheck.Name = "writeCommentInsertPositionCheck";
+            // 
+            // gridPasteCheck
+            // 
+            this.gridPasteCheck.Label = "升貼";
+            this.gridPasteCheck.Name = "gridPasteCheck";
             // 
             // box8
             // 
@@ -289,8 +296,9 @@
             // 
             // writeCommentReSurveyCheck
             // 
-            this.writeCommentReSurveyCheck.Label = "再検";
+            this.writeCommentReSurveyCheck.Label = "再検査";
             this.writeCommentReSurveyCheck.Name = "writeCommentReSurveyCheck";
+            this.writeCommentReSurveyCheck.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentReSurveyCheck_Click);
             // 
             // box5
             // 
@@ -300,12 +308,6 @@
             // 
             // writeCommentCombo
             // 
-            ribbonDropDownItemImpl9.Label = "同上";
-            ribbonDropDownItemImpl10.Label = "見落としがあります";
-            ribbonDropDownItemImpl11.Label = "過剰指摘です";
-            this.writeCommentCombo.Items.Add(ribbonDropDownItemImpl9);
-            this.writeCommentCombo.Items.Add(ribbonDropDownItemImpl10);
-            this.writeCommentCombo.Items.Add(ribbonDropDownItemImpl11);
             this.writeCommentCombo.Label = "文言";
             this.writeCommentCombo.Name = "writeCommentCombo";
             this.writeCommentCombo.SizeString = "AAAAAAAAAA";
@@ -313,7 +315,7 @@
             // 
             // writeCommentInputButton
             // 
-            this.writeCommentInputButton.Label = "選択文言を記入";
+            this.writeCommentInputButton.Label = "語句挿入";
             this.writeCommentInputButton.Name = "writeCommentInputButton";
             this.writeCommentInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.surveyChangeInputButton_Click);
             // 
@@ -322,25 +324,31 @@
             this.box6.Items.Add(this.writeCommentAddButton);
             this.box6.Items.Add(this.writeCommentAddFromFormButton);
             this.box6.Items.Add(this.writeCommentAddFromFileButton);
+            this.box6.Items.Add(this.addCommentPreClearCheck);
             this.box6.Name = "box6";
             // 
             // writeCommentAddButton
             // 
-            this.writeCommentAddButton.Label = "セルから値追加";
+            this.writeCommentAddButton.Label = "セルから追加";
             this.writeCommentAddButton.Name = "writeCommentAddButton";
             this.writeCommentAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddButton_Click);
             // 
             // writeCommentAddFromFormButton
             // 
-            this.writeCommentAddFromFormButton.Label = "フォームから";
+            this.writeCommentAddFromFormButton.Label = "フォーム";
             this.writeCommentAddFromFormButton.Name = "writeCommentAddFromFormButton";
             this.writeCommentAddFromFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFormButton_Click);
             // 
             // writeCommentAddFromFileButton
             // 
-            this.writeCommentAddFromFileButton.Label = "ファイルから";
+            this.writeCommentAddFromFileButton.Label = "ファイル";
             this.writeCommentAddFromFileButton.Name = "writeCommentAddFromFileButton";
             this.writeCommentAddFromFileButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFileButton_Click);
+            // 
+            // addCommentPreClearCheck
+            // 
+            this.addCommentPreClearCheck.Label = "全クリア追加";
+            this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
             // 
             // box2
             // 
@@ -348,7 +356,6 @@
             this.box2.Items.Add(this.delCommentAllButton);
             this.box2.Items.Add(this.doEditComboButton);
             this.box2.Items.Add(this.writeCommentComboSaveButton);
-            this.box2.Items.Add(this.addCommentPreClearCheck);
             this.box2.Name = "box2";
             // 
             // delCommentSingleButton
@@ -375,11 +382,6 @@
             this.writeCommentComboSaveButton.Name = "writeCommentComboSaveButton";
             this.writeCommentComboSaveButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentComboSaveButton_Click);
             // 
-            // addCommentPreClearCheck
-            // 
-            this.addCommentPreClearCheck.Label = "全クリア追加";
-            this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
-            // 
             // box7
             // 
             this.box7.Items.Add(this.markerDropdown);
@@ -391,18 +393,18 @@
             // 
             // markerDropdown
             // 
-            ribbonDropDownItemImpl12.Label = "*";
-            ribbonDropDownItemImpl13.Label = "-";
-            ribbonDropDownItemImpl14.Label = "○";
-            ribbonDropDownItemImpl15.Label = "△";
-            ribbonDropDownItemImpl16.Label = "×";
-            ribbonDropDownItemImpl17.Label = "■";
+            ribbonDropDownItemImpl10.Label = "*";
+            ribbonDropDownItemImpl11.Label = "-";
+            ribbonDropDownItemImpl12.Label = "○";
+            ribbonDropDownItemImpl13.Label = "△";
+            ribbonDropDownItemImpl14.Label = "×";
+            ribbonDropDownItemImpl15.Label = "■";
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl10);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl11);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl12);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl13);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl14);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl15);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl16);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl17);
             this.markerDropdown.Label = "comboBox1";
             this.markerDropdown.Name = "markerDropdown";
             this.markerDropdown.ShowLabel = false;
@@ -772,6 +774,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton borderMatrixButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton borderClearButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton repoRowUpdateButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox gridPasteCheck;
     }
 
     partial class ThisRibbonCollection

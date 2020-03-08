@@ -19,6 +19,10 @@ namespace WebACAddin
         //通番号
         private double autoNumberCnt = 0;
 
+        private string horizon_sp = "<cell:tab>";
+        private string vertical_sp = "<cell:br>";
+
+
         //PIDのグループ名を自動入力
         private void do_groupname_insert()
         {
@@ -187,7 +191,31 @@ namespace WebACAddin
         }
 
         //語句を追記する
-        private void do_add_comment_write_wrapper()
+        private void do_add_comment_write()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.Selection;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            string src = writeCommentCombo.Text;
+            string operation = "";
+            if (_contains_cell_tag_horizon(src) && gridPasteCheck.Checked) operation = "hr";
+            else if (_contains_cell_tag_vertical(src) && gridPasteCheck.Checked) operation = "vr";
+            else operation = "normal";
+
+            switch (operation)
+            {
+                case "hr":
+                    _insert_snippet_hr(sa, ash, src);
+                    break;
+                case "vr":
+                    _insert_snippet_vr(sa, ash, src);
+                    break;
+                case "normal":
+                    _insert_snippet_normal_wrapper();
+                    break;
+            }
+
+        }
+        private void _insert_snippet_normal_wrapper()
         {
             Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
             Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
@@ -202,10 +230,10 @@ namespace WebACAddin
             for(int i=0; i<selectionList.Count; i++)
             {
                 ash.Range[selectionList[i]].Select();
-                do_add_comment_write();
+                _insert_snippet_normal();
             }
         }
-        private void do_add_comment_write()
+        private void _insert_snippet_normal()
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
@@ -313,6 +341,74 @@ namespace WebACAddin
                 }
             }
 
+        }
+        private void _insert_snippet_hr(Excel.Range sa, Excel.Worksheet ash, string src)
+        {
+            int r, c = 0;
+            r = sa.Row;
+            c = sa.Column;
+            string[] cols = Regex.Split(src, horizon_sp);
+            int cn = cols.Length;
+            int counter = 0;
+            int cx = c + cn;
+            for (int j = c; j < cx; j++)
+            {
+                string aval = cols[counter].Replace(br_sp, "\r\n");
+                if (writeCommentOverrideCheck.Checked)
+                {
+                    try
+                    {
+                        var old = ash.Cells[r, j].Value;
+                        ash.Cells[r, j].Value = old + aval;
+                        counter++;
+                        continue;
+                    }
+                    catch (Exception ex) { }
+                }
+                ash.Cells[r, j].Value = aval;
+                counter++;
+            }
+
+        }
+        private void _insert_snippet_vr(Excel.Range sa, Excel.Worksheet ash, string src)
+        {
+            int r, c = 0;
+            r = sa.Row;
+            c = sa.Column;
+            string[] rows = Regex.Split(src, vertical_sp);
+            int rn = rows.Length;
+            int counter = 0;
+            int rx = r + rn;
+            for (int i = r; i < rx; i++)
+            {
+                string aval = rows[counter].Replace(br_sp, "\r\n");
+                if (writeCommentOverrideCheck.Checked)
+                {
+                    try
+                    {
+                        var old = ash.Cells[i, c].Value;
+                        ash.Cells[i, c].Value = old + aval;
+                        counter++;
+                        continue;
+                    }
+                    catch (Exception ex) { }
+                }
+                ash.Cells[i, c].Value = aval;
+                counter++;
+            }
+
+        }
+        private Boolean _contains_cell_tag_horizon(string str)
+        {
+            Regex pt = new Regex(horizon_sp, RegexOptions.Compiled);
+            if (pt.IsMatch(str)) return true;
+            else return false;
+        }
+        private Boolean _contains_cell_tag_vertical(string str)
+        {
+            Regex pt = new Regex(vertical_sp, RegexOptions.Compiled);
+            if (pt.IsMatch(str)) return true;
+            else return false;
         }
 
         //ドロップダウンに値を追加する
@@ -943,6 +1039,38 @@ namespace WebACAddin
         {
             Excel.Range sa = Globals.ThisAddIn.Application.Selection;
             sa.Borders.LineStyle = Excel.XlLineStyle.xlLineStyleNone;
+        }
+
+        //再検査モードの自動チェック
+        private void init_reserv_check_option()
+        {
+            writeCommentInsertPositionCheck.Checked = !writeCommentInsertPositionCheck.Checked;
+            addColorRowCheck.Checked = !addColorRowCheck.Checked;
+        }
+
+        //初期スニペットの設定
+        private void init_writeCommentCombo()
+        {
+            List<string> data = new List<string>();
+            DateTime ymd = DateTime.Now;
+            string md = ymd.ToString("M/d");
+            data.Add("同上");
+            data.Add("見落としがあります");
+            data.Add("過剰指摘です");
+            data.Add(md + " 修正を確認" + br_sp + br_sp);
+            data.Add(md + " 未修正" + br_sp + br_sp);
+            data.Add(md + " 新たな問題が発生しています。" + br_sp + br_sp);
+            data.Add(md + " 問題が残っています" + br_sp + br_sp);
+            data.Add(md + " 適合に差し換え" + br_sp + br_sp);
+            data.Add(md + " 非適用に差し換え" + br_sp + br_sp);
+            data.Add(md + " 承知しました。" + br_sp + br_sp);
+            foreach(string vl in data)
+            {
+                RibbonDropDownItem item = Factory.CreateRibbonDropDownItem();
+                item.Label = vl;
+                writeCommentCombo.Items.Add(item);
+            }
+
         }
 
 

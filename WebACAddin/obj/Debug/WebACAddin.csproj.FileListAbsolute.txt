@@ -18,9 +18,9 @@ C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.CtrlFor
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.Form1.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.InputForm.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.Properties.Resources.resources
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.RepoUpdForm.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.Ribbon1.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.WriteForm.resources
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.GenerateResource.Cache
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.dll
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.pdb
-C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.RepoUpdForm.resources
