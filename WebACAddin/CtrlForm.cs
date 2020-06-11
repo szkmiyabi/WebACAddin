@@ -11,6 +11,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace WebACAddin
 {
@@ -175,6 +176,24 @@ namespace WebACAddin
                 //タイトルバーでマウスの左ボタンが押されたことにする
                 SendMessage(Handle, WM_NCLBUTTONDOWN, (IntPtr)HT_CAPTION, IntPtr.Zero);
             }
+        }
+
+        //Goボタンクリック
+        private void jumpThisCellButton_Click(object sender, EventArgs e)
+        {
+            string addr = jumpCellAddrText.Text;
+            if (addr == "" || addr == null) return;
+            Regex pt = new Regex(@"([a-zA-Z]*)([0-9]+)", RegexOptions.Compiled);
+            if (!pt.IsMatch(addr)) return;
+            addr = addr.ToUpper();
+            Regex pt_num = new Regex(@"^[0-9]+", RegexOptions.Compiled);
+            if(pt_num.IsMatch(addr))
+            {
+                addr = "A" + addr;
+            }
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            ash.Range[addr].Select();
+
         }
     }
 }
