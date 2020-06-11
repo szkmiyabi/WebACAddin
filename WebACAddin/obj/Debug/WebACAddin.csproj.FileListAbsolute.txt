@@ -23,3 +23,34 @@ C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.WriteFo
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.GenerateResource.Cache
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.dll
 C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.pdb
+<<<<<<< HEAD
+=======
+C:\Users\szkmiyabi\vs_project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.RepoUpdForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\WebACAddin.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\WebACAddin.pdb
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\WebACAddin.dll.manifest
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\WebACAddin.vsto
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.Tools.Common.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.Tools.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.Tools.Excel.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.Tools.v4.0.Framework.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.BrowserForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.CellForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.ComboEditForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.ConditionFormatForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.ContrastForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.CtrlForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.Form1.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.InputForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.Properties.Resources.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.RepoUpdForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.Ribbon1.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.WriteForm.resources
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.GenerateResource.cache
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.CoreCompileInputs.cache
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.CopyComplete
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.dll
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.pdb
+>>>>>>> master
