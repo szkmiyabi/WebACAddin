@@ -75,6 +75,33 @@ namespace WebACAddin
             return arr[counter];
         }
 
+        //乱数を発生させる
+        private void do_random_nums()
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+            int r1, r2, c1, c2 = 0;
+
+            string src = svRedimFlagCombo.Text;
+
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            c1 = sa.Column;
+            c2 = sa.Columns[sa.Columns.Count].Column;
+
+            //行ループ
+            for (int i = r1; i <= r2; i++)
+            {
+                //列のループ
+                for (int j = c1; j <= c2; j++)
+                {
+                    Random rnd_bs = new Random(seed++);
+                    ash.Cells[i, j].Value = rnd.Next(1, 50000);
+                }
+            }
+        }
+
+
         //判定を追記する
         private void do_add_survey_write_wrapper()
         {

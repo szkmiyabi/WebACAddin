@@ -9,7 +9,6 @@ C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.To
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.Tools.Excel.dll
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.Office.Tools.v4.0.Framework.dll
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\bin\Debug\Microsoft.VisualStudio.Tools.Applications.Runtime.dll
-C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csprojAssemblyReference.cache
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.BrowserForm.resources
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.CellForm.resources
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.ComboEditForm.resources
@@ -27,3 +26,4 @@ C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.C
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.CopyComplete
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.dll
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.pdb
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csprojAssemblyReference.cache

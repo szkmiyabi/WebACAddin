@@ -22,6 +22,7 @@ namespace WebACAddin
         private ThisAddIn excelObj;
         private CultureInfo culture;
         private static Random rnd = new Random();  //乱数object
+        private int seed;
 
         //Formオブジェクト
         private static Form1 _frmObj;
@@ -50,6 +51,9 @@ namespace WebACAddin
 
             //writeCommentComboに初期スニペット登録
             init_writeCommentCombo();
+
+            //乱数のシード値
+            seed = Environment.TickCount;
 
         }
 
@@ -429,6 +433,12 @@ namespace WebACAddin
         private void writeCommentReSurveyCheck_Click(object sender, RibbonControlEventArgs e)
         {
             init_reserv_check_option();
+        }
+
+        //乱数
+        private void doRandomNumsButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            do_random_nums();
         }
     }
 }

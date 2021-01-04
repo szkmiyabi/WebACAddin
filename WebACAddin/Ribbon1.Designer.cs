@@ -89,6 +89,7 @@
             this.autoNumberButton = this.Factory.CreateRibbonButton();
             this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
             this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
+            this.doRandomNumsButton = this.Factory.CreateRibbonButton();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
@@ -389,6 +390,7 @@
             this.box7.Items.Add(this.autoNumberButton);
             this.box7.Items.Add(this.selectedAutoFillButton);
             this.box7.Items.Add(this.autoFilteredQueryButton);
+            this.box7.Items.Add(this.doRandomNumsButton);
             this.box7.Name = "box7";
             // 
             // markerDropdown
@@ -434,6 +436,12 @@
             this.autoFilteredQueryButton.Label = "抽出";
             this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
             this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
+            // 
+            // doRandomNumsButton
+            // 
+            this.doRandomNumsButton.Label = "乱数";
+            this.doRandomNumsButton.Name = "doRandomNumsButton";
+            this.doRandomNumsButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doRandomNumsButton_Click);
             // 
             // buttonGroup2
             // 
@@ -775,6 +783,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton borderClearButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton repoRowUpdateButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox gridPasteCheck;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton doRandomNumsButton;
     }
 
     partial class ThisRibbonCollection
