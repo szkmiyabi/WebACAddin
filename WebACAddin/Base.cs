@@ -7,12 +7,61 @@ using System.Windows.Forms;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using Microsoft.Office.Tools.Ribbon;
 
 namespace WebACAddin
 {
     partial class Ribbon1
     {
+
+        private List<string> libraSvArr = new List<string>()
+        {
+            "適合",
+            "不適合",
+            "非適用",
+            "適合(注記)"
+        };
+        private List<string> libraplusSvArr = new List<string>()
+        {
+            "はい",
+            "いいえ",
+            "なし",
+            "はい(注記)"
+        };
+        private List<string> shareSvArr = new List<string>()
+        {
+            "未修正",
+            "判断保留",
+            "※追記",
+            "※修正",
+            "※削除"
+        };
+
+        //判定修正スニペットコンボ初期化
+        private void init_svRedimFlagCombo()
+        {
+            svRedimFlagCombo.Items.Clear();
+            List<string> lst = new List<string>();
+            if(isLibraPlusOn)
+            {
+                lst.AddRange(libraplusSvArr);
+                lst.AddRange(shareSvArr);
+            }
+            else
+            {
+                lst.AddRange(libraSvArr);
+                lst.AddRange(shareSvArr);
+            }
+
+            foreach (string vl in lst)
+            {
+                RibbonDropDownItem item = Factory.CreateRibbonDropDownItem();
+                item.Label = vl;
+                svRedimFlagCombo.Items.Add(item);
+            }
+        }
+
+
         //TXTファイル保存先を取得
         private string _get_txt_save_path()
         {

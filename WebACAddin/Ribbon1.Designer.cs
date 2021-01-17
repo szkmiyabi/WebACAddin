@@ -40,23 +40,16 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl4 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl5 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl6 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl7 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl8 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl9 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl10 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl11 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl12 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl13 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl14 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl15 = this.Factory.CreateRibbonDropDownItem();
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.cellAnalysisButton = this.Factory.CreateRibbonButton();
             this.svDataForPasteButton = this.Factory.CreateRibbonButton();
             this.repoRowUpdateButton = this.Factory.CreateRibbonButton();
+            this.customConditionFormatButton = this.Factory.CreateRibbonButton();
+            this.cellPreviewGroup = this.Factory.CreateRibbonSplitButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
-            this.customConditionFormatButton = this.Factory.CreateRibbonButton();
+            this.libraPlusOnCheck = this.Factory.CreateRibbonCheckBox();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
@@ -156,9 +149,9 @@
             this.group1.Items.Add(this.cellAnalysisButton);
             this.group1.Items.Add(this.svDataForPasteButton);
             this.group1.Items.Add(this.repoRowUpdateButton);
-            this.group1.Items.Add(this.dispEasyHtmlDocButton);
-            this.group1.Items.Add(this.dispContrastRepFormButton);
             this.group1.Items.Add(this.customConditionFormatButton);
+            this.group1.Items.Add(this.cellPreviewGroup);
+            this.group1.Items.Add(this.libraPlusOnCheck);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -180,23 +173,38 @@
             this.repoRowUpdateButton.Name = "repoRowUpdateButton";
             this.repoRowUpdateButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.repoRowUpdateButton_Click);
             // 
+            // customConditionFormatButton
+            // 
+            this.customConditionFormatButton.Label = "カスタム条件書式";
+            this.customConditionFormatButton.Name = "customConditionFormatButton";
+            this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
+            // 
+            // cellPreviewGroup
+            // 
+            this.cellPreviewGroup.Items.Add(this.dispEasyHtmlDocButton);
+            this.cellPreviewGroup.Items.Add(this.dispContrastRepFormButton);
+            this.cellPreviewGroup.Label = "セル値の表示";
+            this.cellPreviewGroup.Name = "cellPreviewGroup";
+            // 
             // dispEasyHtmlDocButton
             // 
             this.dispEasyHtmlDocButton.Label = "簡易HTML表示";
             this.dispEasyHtmlDocButton.Name = "dispEasyHtmlDocButton";
+            this.dispEasyHtmlDocButton.ShowImage = true;
             this.dispEasyHtmlDocButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispEasyHtmlDocButton_Click);
             // 
             // dispContrastRepFormButton
             // 
             this.dispContrastRepFormButton.Label = "コントラスト結果";
             this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
+            this.dispContrastRepFormButton.ShowImage = true;
             this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
             // 
-            // customConditionFormatButton
+            // libraPlusOnCheck
             // 
-            this.customConditionFormatButton.Label = "カスタム条件書式";
-            this.customConditionFormatButton.Name = "customConditionFormatButton";
-            this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
+            this.libraPlusOnCheck.Label = "LibraPS有効";
+            this.libraPlusOnCheck.Name = "libraPlusOnCheck";
+            this.libraPlusOnCheck.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.libraPlusOnCheck_Click);
             // 
             // group4
             // 
@@ -220,24 +228,6 @@
             // 
             // svRedimFlagCombo
             // 
-            ribbonDropDownItemImpl1.Label = "適合";
-            ribbonDropDownItemImpl2.Label = "不適合";
-            ribbonDropDownItemImpl3.Label = "非適用";
-            ribbonDropDownItemImpl4.Label = "適合(注記)";
-            ribbonDropDownItemImpl5.Label = "未修正";
-            ribbonDropDownItemImpl6.Label = "判断保留";
-            ribbonDropDownItemImpl7.Label = "※追記";
-            ribbonDropDownItemImpl8.Label = "※修正";
-            ribbonDropDownItemImpl9.Label = "※削除";
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl1);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl2);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl3);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl4);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl5);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl6);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl7);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl8);
-            this.svRedimFlagCombo.Items.Add(ribbonDropDownItemImpl9);
             this.svRedimFlagCombo.Label = "判定修正";
             this.svRedimFlagCombo.Name = "svRedimFlagCombo";
             this.svRedimFlagCombo.ShowLabel = false;
@@ -395,18 +385,18 @@
             // 
             // markerDropdown
             // 
-            ribbonDropDownItemImpl10.Label = "*";
-            ribbonDropDownItemImpl11.Label = "-";
-            ribbonDropDownItemImpl12.Label = "○";
-            ribbonDropDownItemImpl13.Label = "△";
-            ribbonDropDownItemImpl14.Label = "×";
-            ribbonDropDownItemImpl15.Label = "■";
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl10);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl11);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl12);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl13);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl14);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl15);
+            ribbonDropDownItemImpl1.Label = "*";
+            ribbonDropDownItemImpl2.Label = "-";
+            ribbonDropDownItemImpl3.Label = "○";
+            ribbonDropDownItemImpl4.Label = "△";
+            ribbonDropDownItemImpl5.Label = "×";
+            ribbonDropDownItemImpl6.Label = "■";
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl1);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl2);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl3);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl4);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl5);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl6);
             this.markerDropdown.Label = "comboBox1";
             this.markerDropdown.Name = "markerDropdown";
             this.markerDropdown.ShowLabel = false;
@@ -784,6 +774,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton repoRowUpdateButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox gridPasteCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton doRandomNumsButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox libraPlusOnCheck;
+        internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton cellPreviewGroup;
     }
 
     partial class ThisRibbonCollection

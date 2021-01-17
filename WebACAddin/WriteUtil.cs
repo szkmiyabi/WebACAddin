@@ -126,7 +126,7 @@ namespace WebACAddin
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
 
-            Regex svpat = new Regex(@"^(適合|不適合|適合\(注記\)|非適用|未修正)", RegexOptions.Compiled);
+            Regex svpat = new Regex(@"^(はい|いいえ|はい\(注記\)|なし|適合|不適合|適合\(注記\)|非適用|未修正)", RegexOptions.Compiled);
             string prefix = "\r\n↓\r\n";
 
             Boolean resv_flg = writeCommentReSurveyCheck.Checked;

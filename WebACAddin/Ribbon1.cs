@@ -23,6 +23,7 @@ namespace WebACAddin
         private CultureInfo culture;
         private static Random rnd = new Random();  //乱数object
         private int seed;
+        private Boolean isLibraPlusOn;
 
         //Formオブジェクト
         private static Form1 _frmObj;
@@ -46,11 +47,16 @@ namespace WebACAddin
             addLabelColorCheck.Checked = true;
             //writeCommentBreakCheck.Checked = true;
             writeCommentOverrideCheck.Checked = true;
-            addCommentPreClearCheck.Checked = true;
+            //addCommentPreClearCheck.Checked = true;
             addColorRowCheck.Checked = true;
 
             //writeCommentComboに初期スニペット登録
             init_writeCommentCombo();
+
+            //判定修正スニペットコンボ初期化
+            libraPlusOnCheck.Checked = true;
+            isLibraPlusOn = true;
+            init_svRedimFlagCombo();
 
             //乱数のシード値
             seed = Environment.TickCount;
@@ -439,6 +445,13 @@ namespace WebACAddin
         private void doRandomNumsButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_random_nums();
+        }
+
+        //LibraPlusチェックボックスON/OFF
+        private void libraPlusOnCheck_Click(object sender, RibbonControlEventArgs e)
+        {
+            isLibraPlusOn = libraPlusOnCheck.Checked;
+            init_svRedimFlagCombo();
         }
     }
 }
