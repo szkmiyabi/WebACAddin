@@ -139,7 +139,7 @@ namespace WebACAddin
         //透過表示
         private void opacityCheck_Click(object sender, EventArgs e)
         {
-            if (this.Opacity == 1) this.Opacity = 0.7;
+            if (this.Opacity == 1) this.Opacity = 0.5;
             else this.Opacity = 1;
         }
 

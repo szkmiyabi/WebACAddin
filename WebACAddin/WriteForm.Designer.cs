@@ -37,6 +37,7 @@
             this.tabStringDeleteButton = new System.Windows.Forms.Button();
             this.pullFromCellDataButton = new System.Windows.Forms.Button();
             this.pushToCellDataButton = new System.Windows.Forms.Button();
+            this.browseBaseCellDataButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.addCommentPreClearCheck = new System.Windows.Forms.CheckBox();
             this.writeFormSnipetAddButton = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.writeReplaceButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.writeFormTopMostCheck = new System.Windows.Forms.CheckBox();
-            this.browseBaseCellDataButton = new System.Windows.Forms.Button();
+            this.opacityCheck = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -176,6 +177,16 @@
             this.pushToCellDataButton.Text = "送信";
             this.pushToCellDataButton.UseVisualStyleBackColor = true;
             this.pushToCellDataButton.Click += new System.EventHandler(this.pushToCellDataButton_Click);
+            // 
+            // browseBaseCellDataButton
+            // 
+            this.browseBaseCellDataButton.Location = new System.Drawing.Point(572, 3);
+            this.browseBaseCellDataButton.Name = "browseBaseCellDataButton";
+            this.browseBaseCellDataButton.Size = new System.Drawing.Size(99, 27);
+            this.browseBaseCellDataButton.TabIndex = 6;
+            this.browseBaseCellDataButton.Text = "省略行表示";
+            this.browseBaseCellDataButton.UseVisualStyleBackColor = true;
+            this.browseBaseCellDataButton.Click += new System.EventHandler(this.browseBaseCellDataButton_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -339,6 +350,7 @@
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.writeFormTopMostCheck);
+            this.flowLayoutPanel4.Controls.Add(this.opacityCheck);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 478);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(233, 27);
@@ -355,15 +367,16 @@
             this.writeFormTopMostCheck.UseVisualStyleBackColor = true;
             this.writeFormTopMostCheck.Click += new System.EventHandler(this.writeFormTopMostCheck_Click);
             // 
-            // browseBaseCellDataButton
+            // opacityCheck
             // 
-            this.browseBaseCellDataButton.Location = new System.Drawing.Point(572, 3);
-            this.browseBaseCellDataButton.Name = "browseBaseCellDataButton";
-            this.browseBaseCellDataButton.Size = new System.Drawing.Size(99, 27);
-            this.browseBaseCellDataButton.TabIndex = 6;
-            this.browseBaseCellDataButton.Text = "省略行表示";
-            this.browseBaseCellDataButton.UseVisualStyleBackColor = true;
-            this.browseBaseCellDataButton.Click += new System.EventHandler(this.browseBaseCellDataButton_Click);
+            this.opacityCheck.AutoSize = true;
+            this.opacityCheck.Location = new System.Drawing.Point(122, 3);
+            this.opacityCheck.Name = "opacityCheck";
+            this.opacityCheck.Size = new System.Drawing.Size(56, 19);
+            this.opacityCheck.TabIndex = 1;
+            this.opacityCheck.Text = "透過";
+            this.opacityCheck.UseVisualStyleBackColor = true;
+            this.opacityCheck.Click += new System.EventHandler(this.opacityCheck_Click);
             // 
             // WriteForm
             // 
@@ -415,5 +428,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.CheckBox writeFormTopMostCheck;
         private System.Windows.Forms.Button browseBaseCellDataButton;
+        private System.Windows.Forms.CheckBox opacityCheck;
     }
 }

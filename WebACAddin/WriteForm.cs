@@ -444,6 +444,12 @@ namespace WebACAddin
         {
             browse_base_cell_data();
         }
+
+        private void opacityCheck_Click(object sender, EventArgs e)
+        {
+            if (this.Opacity == 1) this.Opacity = 0.5;
+            else this.Opacity = 1;
+        }
     }
 
 
