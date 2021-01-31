@@ -94,6 +94,40 @@ namespace WebACAddin
 
         }
 
+        //アクティブセルの省略元セルのデータを読み込み
+        private void browse_base_cell_data()
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+
+            int r, c = 0;
+            r = sa.Row;
+            c = sa.Column;
+            string body = "";
+            while (_read_browse_cell_data(ash, r, c) == "〃〃")
+            {
+                r--;
+            }
+
+            body = _read_browse_cell_data(ash, r, c);
+            writeFormText.Text = body;
+        }
+        private string _read_browse_cell_data(Excel.Worksheet ash, int r, int c)
+        {
+            string body = "";
+            Regex unixbr = new Regex(@"\n", RegexOptions.Compiled | RegexOptions.Multiline);
+            if (ash.Cells[r, c].Value != null)
+            {
+                Type t = ash.Cells[r, c].Value.GetType();
+                if (t.Equals(typeof(string)))
+                {
+                    body = (string)ash.Cells[r, c].Value;
+                }
+                body = unixbr.Replace(body, "\r\n");
+            }
+            return body;
+        }
+
         //アクティブセルにデータを送信
         private void push_to_cell_data()
         {
@@ -403,6 +437,12 @@ namespace WebACAddin
         private void writeFormTopMostCheck_Click(object sender, EventArgs e)
         {
             TopMost = !TopMost;
+        }
+
+        //省略行表示クリック
+        private void browseBaseCellDataButton_Click(object sender, EventArgs e)
+        {
+            browse_base_cell_data();
         }
     }
 

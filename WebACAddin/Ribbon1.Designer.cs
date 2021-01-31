@@ -46,7 +46,6 @@
             this.svDataForPasteButton = this.Factory.CreateRibbonButton();
             this.repoRowUpdateButton = this.Factory.CreateRibbonButton();
             this.customConditionFormatButton = this.Factory.CreateRibbonButton();
-            this.cellPreviewGroup = this.Factory.CreateRibbonSplitButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.libraPlusOnCheck = this.Factory.CreateRibbonCheckBox();
@@ -150,8 +149,8 @@
             this.group1.Items.Add(this.svDataForPasteButton);
             this.group1.Items.Add(this.repoRowUpdateButton);
             this.group1.Items.Add(this.customConditionFormatButton);
-            this.group1.Items.Add(this.cellPreviewGroup);
-            this.group1.Items.Add(this.libraPlusOnCheck);
+            this.group1.Items.Add(this.dispEasyHtmlDocButton);
+            this.group1.Items.Add(this.dispContrastRepFormButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -179,25 +178,16 @@
             this.customConditionFormatButton.Name = "customConditionFormatButton";
             this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
             // 
-            // cellPreviewGroup
-            // 
-            this.cellPreviewGroup.Items.Add(this.dispEasyHtmlDocButton);
-            this.cellPreviewGroup.Items.Add(this.dispContrastRepFormButton);
-            this.cellPreviewGroup.Label = "セル値の表示";
-            this.cellPreviewGroup.Name = "cellPreviewGroup";
-            // 
             // dispEasyHtmlDocButton
             // 
             this.dispEasyHtmlDocButton.Label = "簡易HTML表示";
             this.dispEasyHtmlDocButton.Name = "dispEasyHtmlDocButton";
-            this.dispEasyHtmlDocButton.ShowImage = true;
             this.dispEasyHtmlDocButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispEasyHtmlDocButton_Click);
             // 
             // dispContrastRepFormButton
             // 
             this.dispContrastRepFormButton.Label = "コントラスト結果";
             this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
-            this.dispContrastRepFormButton.ShowImage = true;
             this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
             // 
             // libraPlusOnCheck
@@ -222,6 +212,7 @@
             // 
             // box3
             // 
+            this.box3.Items.Add(this.libraPlusOnCheck);
             this.box3.Items.Add(this.svRedimFlagCombo);
             this.box3.Items.Add(this.svRedimInputButton);
             this.box3.Name = "box3";
@@ -775,7 +766,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox gridPasteCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton doRandomNumsButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox libraPlusOnCheck;
-        internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton cellPreviewGroup;
     }
 
     partial class ThisRibbonCollection
