@@ -48,9 +48,9 @@
             this.customConditionFormatButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
-            this.libraPlusOnCheck = this.Factory.CreateRibbonCheckBox();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
+            this.libraPlusOnCheck = this.Factory.CreateRibbonCheckBox();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
             this.svRedimInputButton = this.Factory.CreateRibbonButton();
             this.box1 = this.Factory.CreateRibbonBox();
@@ -190,12 +190,6 @@
             this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
             this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
             // 
-            // libraPlusOnCheck
-            // 
-            this.libraPlusOnCheck.Label = "LibraPS有効";
-            this.libraPlusOnCheck.Name = "libraPlusOnCheck";
-            this.libraPlusOnCheck.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.libraPlusOnCheck_Click);
-            // 
             // group4
             // 
             this.group4.Items.Add(this.box3);
@@ -216,6 +210,12 @@
             this.box3.Items.Add(this.svRedimFlagCombo);
             this.box3.Items.Add(this.svRedimInputButton);
             this.box3.Name = "box3";
+            // 
+            // libraPlusOnCheck
+            // 
+            this.libraPlusOnCheck.Label = "LibraPS有効";
+            this.libraPlusOnCheck.Name = "libraPlusOnCheck";
+            this.libraPlusOnCheck.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.libraPlusOnCheck_Click);
             // 
             // svRedimFlagCombo
             // 

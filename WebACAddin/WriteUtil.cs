@@ -23,6 +23,33 @@ namespace WebACAddin
         private string vertical_sp = "<cell:br>";
 
 
+        //win改行に変換
+        private string _encode_return(string str)
+        {
+            string ret = str;
+            Regex reg = new Regex(@"\n", RegexOptions.Multiline | RegexOptions.Compiled);
+            try
+            {
+                ret = reg.Replace(ret, "\r\n");
+            }
+            catch (Exception ex) { }
+            return ret;
+        }
+
+        //unix改行に変換
+        private string _decode_return(string str)
+        {
+            string ret = str;
+            Regex reg = new Regex(@"\r\n", RegexOptions.Multiline | RegexOptions.Compiled);
+            try
+            {
+                ret = reg.Replace(ret, "\n");
+            }
+            catch (Exception ex) { }
+            return ret;
+        }
+
+
         //PIDのグループ名を自動入力
         private void do_groupname_insert()
         {
@@ -127,7 +154,7 @@ namespace WebACAddin
             var ash = excelObj.Application.ActiveSheet;
 
             Regex svpat = new Regex(@"^(はい|いいえ|はい\(注記\)|なし|適合|不適合|適合\(注記\)|非適用|未修正)", RegexOptions.Compiled);
-            string prefix = "\r\n↓\r\n";
+            string prefix = "\n↓\n";
 
             Boolean resv_flg = writeCommentReSurveyCheck.Checked;
 
@@ -168,7 +195,7 @@ namespace WebACAddin
                         {
                             if (writeCommentBreakCheck.Checked == true)
                             {
-                                ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                ash.Cells[i, j].Value = buff + "\n" + src + "\n";
                             }
                             else
                             {
@@ -202,7 +229,7 @@ namespace WebACAddin
                             {
                                 if (writeCommentBreakCheck.Checked == true)
                                 {
-                                    ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                    ash.Cells[i, j].Value = buff + "\n" + src + "\n";
                                 }
                                 else
                                 {
@@ -297,12 +324,12 @@ namespace WebACAddin
                             {
                                 if (writeCommentInsertPositionCheck.Checked == true)
                                 {
-                                    ash.Cells[i, j].Value = src + "\r\n" + buff + "\r\n";
+                                    ash.Cells[i, j].Value = src + "\n" + buff + "\n";
 
                                 }
                                 else
                                 {
-                                    ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                    ash.Cells[i, j].Value = buff + "\n" + src + "\n";
                                 }
                             }
                             else
@@ -341,12 +368,12 @@ namespace WebACAddin
                                 {
                                     if (writeCommentInsertPositionCheck.Checked == true)
                                     {
-                                        ash.Cells[i, j].Value =  src + "\r\n" + buff + "\r\n";
+                                        ash.Cells[i, j].Value =  src + "\n" + buff + "\n";
 
                                     }
                                     else
                                     {
-                                        ash.Cells[i, j].Value = buff + "\r\n" + src + "\r\n";
+                                        ash.Cells[i, j].Value = buff + "\n" + src + "\n";
                                     }
                                 }
                                 else
@@ -443,7 +470,7 @@ namespace WebACAddin
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-            Regex pat = new Regex(@"(\r\n|\r|\n)+", RegexOptions.Compiled | RegexOptions.Multiline);
+            Regex pat = new Regex(@"\n", RegexOptions.Compiled | RegexOptions.Multiline);
 
             int r, c = 0;
             string buff = "";
@@ -617,7 +644,6 @@ namespace WebACAddin
         {
             var sa = excelObj.Application.Selection;
             var ash = excelObj.Application.ActiveSheet;
-            Regex unixbr = new Regex(@"\n", RegexOptions.Compiled | RegexOptions.Multiline);
 
             int r, c = 0;
             string body = "";
@@ -630,7 +656,7 @@ namespace WebACAddin
                 {
                     body = (string)ash.Cells[r, c].Value;
                 }
-                body = unixbr.Replace(body, "\r\n");
+                body = _encode_return(body);
             }
             wrfrmObj.Show();
             wrfrmObj.writeFormText.Text = body;

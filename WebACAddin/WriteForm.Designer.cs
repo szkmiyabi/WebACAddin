@@ -376,7 +376,6 @@
             this.opacityCheck.TabIndex = 1;
             this.opacityCheck.Text = "透過";
             this.opacityCheck.UseVisualStyleBackColor = true;
-            this.opacityCheck.Click += new System.EventHandler(this.opacityCheck_Click);
             // 
             // WriteForm
             // 
@@ -385,7 +384,10 @@
             this.ClientSize = new System.Drawing.Size(694, 509);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "WriteForm";
+            this.ShowIcon = false;
             this.Text = "セル編集";
+            this.Activated += new System.EventHandler(this.WriteForm_Activated);
+            this.Deactivate += new System.EventHandler(this.WriteForm_Deactivate);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

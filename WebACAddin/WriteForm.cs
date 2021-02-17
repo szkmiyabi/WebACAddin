@@ -29,6 +29,8 @@ namespace WebACAddin
             //常に前面表示
             TopMost = true;
             writeFormTopMostCheck.Checked = true;
+            //透過有効
+            opacityCheck.Checked = true;
         }
 
         //コンボボックスのサイズを調整
@@ -70,12 +72,37 @@ namespace WebACAddin
             pre_focuced_control = "writeReplaceText";
         }
 
+        //win改行に変換
+        private string _encode_return(string str)
+        {
+            string ret = str;
+            Regex reg = new Regex(@"\n", RegexOptions.Multiline | RegexOptions.Compiled);
+            try
+            {
+                ret = reg.Replace(ret, "\r\n");
+            }
+            catch (Exception ex) { }
+            return ret;
+        }
+
+        //unix改行に変換
+        private string _decode_return(string str)
+        {
+            string ret = str;
+            Regex reg = new Regex(@"\r\n", RegexOptions.Multiline | RegexOptions.Compiled);
+            try
+            {
+                ret = reg.Replace(ret, "\n");
+            }
+            catch (Exception ex) { }
+            return ret;
+        }
+
         //アクティブセルのデータを読み込み
         private void pull_from_cell_data()
         {
             Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
             Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
-            Regex unixbr = new Regex(@"\n", RegexOptions.Compiled | RegexOptions.Multiline);
 
             int r, c = 0;
             r = sa.Row;
@@ -88,7 +115,7 @@ namespace WebACAddin
                 {
                     body = (string)ash.Cells[r, c].Value;
                 }
-                body = unixbr.Replace(body, "\r\n");
+                body = _encode_return(body);
             }
             writeFormText.Text = body;
 
@@ -115,7 +142,6 @@ namespace WebACAddin
         private string _read_browse_cell_data(Excel.Worksheet ash, int r, int c)
         {
             string body = "";
-            Regex unixbr = new Regex(@"\n", RegexOptions.Compiled | RegexOptions.Multiline);
             if (ash.Cells[r, c].Value != null)
             {
                 Type t = ash.Cells[r, c].Value.GetType();
@@ -123,7 +149,7 @@ namespace WebACAddin
                 {
                     body = (string)ash.Cells[r, c].Value;
                 }
-                body = unixbr.Replace(body, "\r\n");
+                body = _encode_return(body);
             }
             return body;
         }
@@ -139,10 +165,12 @@ namespace WebACAddin
             c = sa.Column;
             string body = "";
             body = writeFormText.Text;
+            body = _decode_return(body);
             if (body == "") return;
             ash.Cells[r, c].Value = body;
 
         }
+
 
         //テキストを置換
         private void do_text_replace()
@@ -236,7 +264,7 @@ namespace WebACAddin
         //選択語句からドロップダウンに値を追加する
         private void do_add_snipet()
         {
-            Regex pat = new Regex(@"(\r\n|\r|\n)+", RegexOptions.Compiled | RegexOptions.Multiline);
+            Regex pat = new Regex(@"\r\n", RegexOptions.Compiled | RegexOptions.Multiline);
             string txt = get_selection();
             if (txt.Equals("")) return;
             if (addCommentPreClearCheck.Checked == true) do_clear_combo_comment_all();
@@ -445,10 +473,20 @@ namespace WebACAddin
             browse_base_cell_data();
         }
 
-        private void opacityCheck_Click(object sender, EventArgs e)
+        //ウィンドウが非アクティブの場合透明化
+        private void WriteForm_Deactivate(object sender, EventArgs e)
         {
-            if (this.Opacity == 1) this.Opacity = 0.5;
-            else this.Opacity = 1;
+            try
+            {
+                if (opacityCheck.Checked == true) this.Opacity = 0.5;
+            }
+            catch (Exception ex) { }
+        }
+
+        //ウィンドウがアクティブの場合通常表示
+        private void WriteForm_Activated(object sender, EventArgs e)
+        {
+            if (opacityCheck.Checked == true) this.Opacity = 1;
         }
     }
 

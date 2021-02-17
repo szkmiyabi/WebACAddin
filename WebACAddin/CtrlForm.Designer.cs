@@ -42,10 +42,10 @@
             // 
             // cellGoTopButton
             // 
-            this.cellGoTopButton.Location = new System.Drawing.Point(60, 19);
+            this.cellGoTopButton.Location = new System.Drawing.Point(52, 18);
             this.cellGoTopButton.Margin = new System.Windows.Forms.Padding(0);
             this.cellGoTopButton.Name = "cellGoTopButton";
-            this.cellGoTopButton.Size = new System.Drawing.Size(47, 29);
+            this.cellGoTopButton.Size = new System.Drawing.Size(41, 27);
             this.cellGoTopButton.TabIndex = 0;
             this.cellGoTopButton.Text = "↑";
             this.cellGoTopButton.UseVisualStyleBackColor = true;
@@ -53,10 +53,10 @@
             // 
             // cellGoLeftButton
             // 
-            this.cellGoLeftButton.Location = new System.Drawing.Point(13, 48);
+            this.cellGoLeftButton.Location = new System.Drawing.Point(11, 45);
             this.cellGoLeftButton.Margin = new System.Windows.Forms.Padding(0);
             this.cellGoLeftButton.Name = "cellGoLeftButton";
-            this.cellGoLeftButton.Size = new System.Drawing.Size(47, 29);
+            this.cellGoLeftButton.Size = new System.Drawing.Size(41, 27);
             this.cellGoLeftButton.TabIndex = 1;
             this.cellGoLeftButton.Text = "←";
             this.cellGoLeftButton.UseVisualStyleBackColor = true;
@@ -64,10 +64,10 @@
             // 
             // cellGoRightButton
             // 
-            this.cellGoRightButton.Location = new System.Drawing.Point(107, 48);
+            this.cellGoRightButton.Location = new System.Drawing.Point(94, 45);
             this.cellGoRightButton.Margin = new System.Windows.Forms.Padding(0);
             this.cellGoRightButton.Name = "cellGoRightButton";
-            this.cellGoRightButton.Size = new System.Drawing.Size(47, 29);
+            this.cellGoRightButton.Size = new System.Drawing.Size(41, 27);
             this.cellGoRightButton.TabIndex = 2;
             this.cellGoRightButton.Text = "→";
             this.cellGoRightButton.UseVisualStyleBackColor = true;
@@ -75,10 +75,10 @@
             // 
             // cellGoBottomButton
             // 
-            this.cellGoBottomButton.Location = new System.Drawing.Point(60, 76);
+            this.cellGoBottomButton.Location = new System.Drawing.Point(52, 71);
             this.cellGoBottomButton.Margin = new System.Windows.Forms.Padding(0);
             this.cellGoBottomButton.Name = "cellGoBottomButton";
-            this.cellGoBottomButton.Size = new System.Drawing.Size(47, 29);
+            this.cellGoBottomButton.Size = new System.Drawing.Size(41, 27);
             this.cellGoBottomButton.TabIndex = 3;
             this.cellGoBottomButton.Text = "↓";
             this.cellGoBottomButton.UseVisualStyleBackColor = true;
@@ -86,10 +86,10 @@
             // 
             // MemoryBackButton
             // 
-            this.MemoryBackButton.Location = new System.Drawing.Point(95, 139);
-            this.MemoryBackButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MemoryBackButton.Location = new System.Drawing.Point(83, 130);
+            this.MemoryBackButton.Margin = new System.Windows.Forms.Padding(4);
             this.MemoryBackButton.Name = "MemoryBackButton";
-            this.MemoryBackButton.Size = new System.Drawing.Size(59, 30);
+            this.MemoryBackButton.Size = new System.Drawing.Size(52, 28);
             this.MemoryBackButton.TabIndex = 6;
             this.MemoryBackButton.Text = "Back";
             this.MemoryBackButton.UseVisualStyleBackColor = true;
@@ -97,10 +97,10 @@
             // 
             // locationMemoryButton
             // 
-            this.locationMemoryButton.Location = new System.Drawing.Point(60, 48);
+            this.locationMemoryButton.Location = new System.Drawing.Point(52, 45);
             this.locationMemoryButton.Margin = new System.Windows.Forms.Padding(0);
             this.locationMemoryButton.Name = "locationMemoryButton";
-            this.locationMemoryButton.Size = new System.Drawing.Size(47, 29);
+            this.locationMemoryButton.Size = new System.Drawing.Size(41, 27);
             this.locationMemoryButton.TabIndex = 5;
             this.locationMemoryButton.Text = "M";
             this.locationMemoryButton.UseVisualStyleBackColor = true;
@@ -109,23 +109,22 @@
             // opacityCheck
             // 
             this.opacityCheck.AutoSize = true;
-            this.opacityCheck.Location = new System.Drawing.Point(16, 144);
-            this.opacityCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.opacityCheck.Location = new System.Drawing.Point(14, 134);
+            this.opacityCheck.Margin = new System.Windows.Forms.Padding(4);
             this.opacityCheck.Name = "opacityCheck";
-            this.opacityCheck.Size = new System.Drawing.Size(59, 19);
+            this.opacityCheck.Size = new System.Drawing.Size(56, 19);
             this.opacityCheck.TabIndex = 4;
             this.opacityCheck.Text = "透過";
             this.opacityCheck.UseVisualStyleBackColor = true;
-            this.opacityCheck.Click += new System.EventHandler(this.opacityCheck_Click);
             // 
             // CtrlFormCloseButton
             // 
             this.CtrlFormCloseButton.BackColor = System.Drawing.SystemColors.Control;
             this.CtrlFormCloseButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.CtrlFormCloseButton.Location = new System.Drawing.Point(129, -1);
-            this.CtrlFormCloseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CtrlFormCloseButton.Location = new System.Drawing.Point(113, -1);
+            this.CtrlFormCloseButton.Margin = new System.Windows.Forms.Padding(4);
             this.CtrlFormCloseButton.Name = "CtrlFormCloseButton";
-            this.CtrlFormCloseButton.Size = new System.Drawing.Size(36, 34);
+            this.CtrlFormCloseButton.Size = new System.Drawing.Size(32, 32);
             this.CtrlFormCloseButton.TabIndex = 7;
             this.CtrlFormCloseButton.Text = "x";
             this.CtrlFormCloseButton.UseVisualStyleBackColor = false;
@@ -134,18 +133,18 @@
             // jumpCellAddrText
             // 
             this.jumpCellAddrText.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.jumpCellAddrText.Location = new System.Drawing.Point(16, 109);
-            this.jumpCellAddrText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jumpCellAddrText.Location = new System.Drawing.Point(14, 102);
+            this.jumpCellAddrText.Margin = new System.Windows.Forms.Padding(4);
             this.jumpCellAddrText.Name = "jumpCellAddrText";
-            this.jumpCellAddrText.Size = new System.Drawing.Size(72, 26);
+            this.jumpCellAddrText.Size = new System.Drawing.Size(64, 25);
             this.jumpCellAddrText.TabIndex = 8;
             // 
             // jumpThisCellButton
             // 
-            this.jumpThisCellButton.Location = new System.Drawing.Point(95, 108);
-            this.jumpThisCellButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jumpThisCellButton.Location = new System.Drawing.Point(83, 101);
+            this.jumpThisCellButton.Margin = new System.Windows.Forms.Padding(4);
             this.jumpThisCellButton.Name = "jumpThisCellButton";
-            this.jumpThisCellButton.Size = new System.Drawing.Size(59, 29);
+            this.jumpThisCellButton.Size = new System.Drawing.Size(52, 27);
             this.jumpThisCellButton.TabIndex = 9;
             this.jumpThisCellButton.Text = "Go";
             this.jumpThisCellButton.UseVisualStyleBackColor = true;
@@ -153,10 +152,10 @@
             // 
             // CtrlForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(170, 174);
+            this.ClientSize = new System.Drawing.Size(149, 162);
             this.ControlBox = false;
             this.Controls.Add(this.jumpThisCellButton);
             this.Controls.Add(this.jumpCellAddrText);
@@ -168,11 +167,13 @@
             this.Controls.Add(this.cellGoRightButton);
             this.Controls.Add(this.cellGoBottomButton);
             this.Controls.Add(this.cellGoLeftButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CtrlForm";
             this.ShowIcon = false;
+            this.Activated += new System.EventHandler(this.CtrlForm_Activated);
+            this.Deactivate += new System.EventHandler(this.CtrlForm_Deactivate);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrlForm_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
