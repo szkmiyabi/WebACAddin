@@ -172,8 +172,6 @@
             this.MinimizeBox = false;
             this.Name = "CtrlForm";
             this.ShowIcon = false;
-            this.Activated += new System.EventHandler(this.CtrlForm_Activated);
-            this.Deactivate += new System.EventHandler(this.CtrlForm_Deactivate);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CtrlForm_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();

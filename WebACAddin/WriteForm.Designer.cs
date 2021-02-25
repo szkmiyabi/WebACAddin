@@ -386,8 +386,6 @@
             this.Name = "WriteForm";
             this.ShowIcon = false;
             this.Text = "セル編集";
-            this.Activated += new System.EventHandler(this.WriteForm_Activated);
-            this.Deactivate += new System.EventHandler(this.WriteForm_Deactivate);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

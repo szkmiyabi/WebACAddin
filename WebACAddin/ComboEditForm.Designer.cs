@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.52483F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.47518F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(465, 261);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(542, 304);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // comboValTable
@@ -60,8 +60,9 @@
             this.comboValTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboValTable.Location = new System.Drawing.Point(3, 3);
             this.comboValTable.Name = "comboValTable";
+            this.comboValTable.RowHeadersWidth = 49;
             this.comboValTable.RowTemplate.Height = 21;
-            this.comboValTable.Size = new System.Drawing.Size(459, 219);
+            this.comboValTable.Size = new System.Drawing.Size(536, 257);
             this.comboValTable.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -69,16 +70,16 @@
             this.flowLayoutPanel1.Controls.Add(this.comboUpdateButton);
             this.flowLayoutPanel1.Controls.Add(this.cancelButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(164, 228);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(191, 266);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(298, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(348, 35);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // comboUpdateButton
             // 
             this.comboUpdateButton.Location = new System.Drawing.Point(3, 3);
             this.comboUpdateButton.Name = "comboUpdateButton";
-            this.comboUpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.comboUpdateButton.Size = new System.Drawing.Size(87, 27);
             this.comboUpdateButton.TabIndex = 0;
             this.comboUpdateButton.Text = "値更新";
             this.comboUpdateButton.UseVisualStyleBackColor = true;
@@ -86,9 +87,9 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(84, 3);
+            this.cancelButton.Location = new System.Drawing.Point(96, 3);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(87, 27);
             this.cancelButton.TabIndex = 1;
             this.cancelButton.Text = "キャンセル";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -96,13 +97,14 @@
             // 
             // ComboEditForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 261);
+            this.ClientSize = new System.Drawing.Size(542, 304);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ComboEditForm";
+            this.ShowIcon = false;
             this.Text = "値編集";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboValTable)).EndInit();

@@ -50,7 +50,7 @@
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
-            this.libraPlusOnCheck = this.Factory.CreateRibbonCheckBox();
+            this.libraPlusToggle = this.Factory.CreateRibbonToggleButton();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
             this.svRedimInputButton = this.Factory.CreateRibbonButton();
             this.box1 = this.Factory.CreateRibbonBox();
@@ -65,6 +65,8 @@
             this.box5 = this.Factory.CreateRibbonBox();
             this.writeCommentCombo = this.Factory.CreateRibbonComboBox();
             this.writeCommentInputButton = this.Factory.CreateRibbonButton();
+            this.markerDropdown = this.Factory.CreateRibbonComboBox();
+            this.markerInputButton = this.Factory.CreateRibbonButton();
             this.box6 = this.Factory.CreateRibbonBox();
             this.writeCommentAddButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
@@ -75,14 +77,17 @@
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
             this.doEditComboButton = this.Factory.CreateRibbonButton();
             this.writeCommentComboSaveButton = this.Factory.CreateRibbonButton();
+            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
+            this.usedRangeSelectButton = this.Factory.CreateRibbonButton();
             this.box7 = this.Factory.CreateRibbonBox();
-            this.markerDropdown = this.Factory.CreateRibbonComboBox();
-            this.markerInputButton = this.Factory.CreateRibbonButton();
             this.autoNumberButton = this.Factory.CreateRibbonButton();
-            this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.doRandomNumsButton = this.Factory.CreateRibbonButton();
+            this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
+            this.criteriaStringText = this.Factory.CreateRibbonEditBox();
+            this.autoFilterAutoValSetButton = this.Factory.CreateRibbonButton();
+            this.criteriaFazzyCheck = this.Factory.CreateRibbonCheckBox();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
+            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
             this.ccBlueButton = this.Factory.CreateRibbonButton();
@@ -90,8 +95,6 @@
             this.ccPinkButton = this.Factory.CreateRibbonButton();
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
             this.ccRedButton = this.Factory.CreateRibbonButton();
-            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
-            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
             this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
             this.fontBoldButton = this.Factory.CreateRibbonButton();
             this.fontRedButton = this.Factory.CreateRibbonButton();
@@ -101,10 +104,13 @@
             this.borderMatrixButton = this.Factory.CreateRibbonButton();
             this.borderClearButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
-            this.excelFooterClearButton = this.Factory.CreateRibbonButton();
             this.box9 = this.Factory.CreateRibbonBox();
-            this.activeBookSheetsCombo = this.Factory.CreateRibbonComboBox();
+            this.excelFooterClearButton = this.Factory.CreateRibbonButton();
+            this.box4 = this.Factory.CreateRibbonBox();
             this.readActiveBookSheetsButton = this.Factory.CreateRibbonButton();
+            this.activeBookSheetsCombo = this.Factory.CreateRibbonComboBox();
+            this.box10 = this.Factory.CreateRibbonBox();
+            this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -129,6 +135,8 @@
             this.buttonGroup4.SuspendLayout();
             this.group5.SuspendLayout();
             this.box9.SuspendLayout();
+            this.box4.SuspendLayout();
+            this.box10.SuspendLayout();
             this.group2.SuspendLayout();
             this.group3.SuspendLayout();
             this.SuspendLayout();
@@ -156,37 +164,37 @@
             // 
             // cellAnalysisButton
             // 
-            this.cellAnalysisButton.Label = "セルデータ解析";
+            this.cellAnalysisButton.Label = "データ解析";
             this.cellAnalysisButton.Name = "cellAnalysisButton";
             this.cellAnalysisButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellAnalysisButton_Click);
             // 
             // svDataForPasteButton
             // 
-            this.svDataForPasteButton.Label = "判定ひな形生成";
+            this.svDataForPasteButton.Label = "判定ひな形";
             this.svDataForPasteButton.Name = "svDataForPasteButton";
             this.svDataForPasteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svDataForPasteButton_Click);
             // 
             // repoRowUpdateButton
             // 
-            this.repoRowUpdateButton.Label = "レポート行修正";
+            this.repoRowUpdateButton.Label = "レポート修正";
             this.repoRowUpdateButton.Name = "repoRowUpdateButton";
             this.repoRowUpdateButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.repoRowUpdateButton_Click);
             // 
             // customConditionFormatButton
             // 
-            this.customConditionFormatButton.Label = "カスタム条件書式";
+            this.customConditionFormatButton.Label = "条件書式";
             this.customConditionFormatButton.Name = "customConditionFormatButton";
             this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
             // 
             // dispEasyHtmlDocButton
             // 
-            this.dispEasyHtmlDocButton.Label = "簡易HTML表示";
+            this.dispEasyHtmlDocButton.Label = "HTML表示";
             this.dispEasyHtmlDocButton.Name = "dispEasyHtmlDocButton";
             this.dispEasyHtmlDocButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispEasyHtmlDocButton_Click);
             // 
             // dispContrastRepFormButton
             // 
-            this.dispContrastRepFormButton.Label = "コントラスト結果";
+            this.dispContrastRepFormButton.Label = "コントラスト";
             this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
             this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
             // 
@@ -206,22 +214,23 @@
             // 
             // box3
             // 
-            this.box3.Items.Add(this.libraPlusOnCheck);
+            this.box3.Items.Add(this.libraPlusToggle);
             this.box3.Items.Add(this.svRedimFlagCombo);
             this.box3.Items.Add(this.svRedimInputButton);
             this.box3.Name = "box3";
             // 
-            // libraPlusOnCheck
+            // libraPlusToggle
             // 
-            this.libraPlusOnCheck.Label = "LibraPS有効";
-            this.libraPlusOnCheck.Name = "libraPlusOnCheck";
-            this.libraPlusOnCheck.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.libraPlusOnCheck_Click);
+            this.libraPlusToggle.Label = "PS";
+            this.libraPlusToggle.Name = "libraPlusToggle";
+            this.libraPlusToggle.OfficeImageId = "SetPertWeights";
+            this.libraPlusToggle.ShowImage = true;
+            this.libraPlusToggle.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.libraPlusToggle_Click);
             // 
             // svRedimFlagCombo
             // 
-            this.svRedimFlagCombo.Label = "判定修正";
+            this.svRedimFlagCombo.Label = "判定";
             this.svRedimFlagCombo.Name = "svRedimFlagCombo";
-            this.svRedimFlagCombo.ShowLabel = false;
             this.svRedimFlagCombo.SizeString = "AAAAAAAA";
             this.svRedimFlagCombo.Text = null;
             // 
@@ -229,6 +238,9 @@
             // 
             this.svRedimInputButton.Label = "修正指摘する";
             this.svRedimInputButton.Name = "svRedimInputButton";
+            this.svRedimInputButton.OfficeImageId = "BrowseNext";
+            this.svRedimInputButton.ShowImage = true;
+            this.svRedimInputButton.ShowLabel = false;
             this.svRedimInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svRedimInputButton_Click);
             // 
             // box1
@@ -286,93 +298,25 @@
             // 
             this.box5.Items.Add(this.writeCommentCombo);
             this.box5.Items.Add(this.writeCommentInputButton);
+            this.box5.Items.Add(this.markerDropdown);
+            this.box5.Items.Add(this.markerInputButton);
             this.box5.Name = "box5";
             // 
             // writeCommentCombo
             // 
-            this.writeCommentCombo.Label = "文言";
+            this.writeCommentCombo.Label = "語句";
             this.writeCommentCombo.Name = "writeCommentCombo";
-            this.writeCommentCombo.SizeString = "AAAAAAAAAA";
+            this.writeCommentCombo.SizeString = "AAAAAAAAAAAAAA";
             this.writeCommentCombo.Text = null;
             // 
             // writeCommentInputButton
             // 
             this.writeCommentInputButton.Label = "語句挿入";
             this.writeCommentInputButton.Name = "writeCommentInputButton";
+            this.writeCommentInputButton.OfficeImageId = "BrowseNext";
+            this.writeCommentInputButton.ShowImage = true;
+            this.writeCommentInputButton.ShowLabel = false;
             this.writeCommentInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.surveyChangeInputButton_Click);
-            // 
-            // box6
-            // 
-            this.box6.Items.Add(this.writeCommentAddButton);
-            this.box6.Items.Add(this.writeCommentAddFromFormButton);
-            this.box6.Items.Add(this.writeCommentAddFromFileButton);
-            this.box6.Items.Add(this.addCommentPreClearCheck);
-            this.box6.Name = "box6";
-            // 
-            // writeCommentAddButton
-            // 
-            this.writeCommentAddButton.Label = "セルから追加";
-            this.writeCommentAddButton.Name = "writeCommentAddButton";
-            this.writeCommentAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddButton_Click);
-            // 
-            // writeCommentAddFromFormButton
-            // 
-            this.writeCommentAddFromFormButton.Label = "フォーム";
-            this.writeCommentAddFromFormButton.Name = "writeCommentAddFromFormButton";
-            this.writeCommentAddFromFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFormButton_Click);
-            // 
-            // writeCommentAddFromFileButton
-            // 
-            this.writeCommentAddFromFileButton.Label = "ファイル";
-            this.writeCommentAddFromFileButton.Name = "writeCommentAddFromFileButton";
-            this.writeCommentAddFromFileButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFileButton_Click);
-            // 
-            // addCommentPreClearCheck
-            // 
-            this.addCommentPreClearCheck.Label = "全クリア追加";
-            this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
-            // 
-            // box2
-            // 
-            this.box2.Items.Add(this.delCommentSingleButton);
-            this.box2.Items.Add(this.delCommentAllButton);
-            this.box2.Items.Add(this.doEditComboButton);
-            this.box2.Items.Add(this.writeCommentComboSaveButton);
-            this.box2.Name = "box2";
-            // 
-            // delCommentSingleButton
-            // 
-            this.delCommentSingleButton.Label = "1件削除";
-            this.delCommentSingleButton.Name = "delCommentSingleButton";
-            this.delCommentSingleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.delCommentSingleButton_Click);
-            // 
-            // delCommentAllButton
-            // 
-            this.delCommentAllButton.Label = "全削除";
-            this.delCommentAllButton.Name = "delCommentAllButton";
-            this.delCommentAllButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.delCommentAllButton_Click);
-            // 
-            // doEditComboButton
-            // 
-            this.doEditComboButton.Label = "値編集";
-            this.doEditComboButton.Name = "doEditComboButton";
-            this.doEditComboButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doEditComboButton_Click);
-            // 
-            // writeCommentComboSaveButton
-            // 
-            this.writeCommentComboSaveButton.Label = "保存";
-            this.writeCommentComboSaveButton.Name = "writeCommentComboSaveButton";
-            this.writeCommentComboSaveButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentComboSaveButton_Click);
-            // 
-            // box7
-            // 
-            this.box7.Items.Add(this.markerDropdown);
-            this.box7.Items.Add(this.markerInputButton);
-            this.box7.Items.Add(this.autoNumberButton);
-            this.box7.Items.Add(this.selectedAutoFillButton);
-            this.box7.Items.Add(this.autoFilteredQueryButton);
-            this.box7.Items.Add(this.doRandomNumsButton);
-            this.box7.Name = "box7";
             // 
             // markerDropdown
             // 
@@ -388,44 +332,182 @@
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl4);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl5);
             this.markerDropdown.Items.Add(ribbonDropDownItemImpl6);
-            this.markerDropdown.Label = "comboBox1";
+            this.markerDropdown.Label = "記号";
             this.markerDropdown.Name = "markerDropdown";
-            this.markerDropdown.ShowLabel = false;
-            this.markerDropdown.SizeString = "AA";
+            this.markerDropdown.SizeString = "AAAA";
             this.markerDropdown.Text = null;
             // 
             // markerInputButton
             // 
             this.markerInputButton.Label = "印を付ける";
             this.markerInputButton.Name = "markerInputButton";
+            this.markerInputButton.OfficeImageId = "BrowseNext";
+            this.markerInputButton.ShowImage = true;
+            this.markerInputButton.ShowLabel = false;
             this.markerInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.markerInputButton_Click);
+            // 
+            // box6
+            // 
+            this.box6.Items.Add(this.writeCommentAddButton);
+            this.box6.Items.Add(this.writeCommentAddFromFormButton);
+            this.box6.Items.Add(this.writeCommentAddFromFileButton);
+            this.box6.Items.Add(this.addCommentPreClearCheck);
+            this.box6.Name = "box6";
+            // 
+            // writeCommentAddButton
+            // 
+            this.writeCommentAddButton.Label = "セルから追加";
+            this.writeCommentAddButton.Name = "writeCommentAddButton";
+            this.writeCommentAddButton.OfficeImageId = "TableInsertRowsAbove";
+            this.writeCommentAddButton.ShowImage = true;
+            this.writeCommentAddButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddButton_Click);
+            // 
+            // writeCommentAddFromFormButton
+            // 
+            this.writeCommentAddFromFormButton.Label = "フォーム";
+            this.writeCommentAddFromFormButton.Name = "writeCommentAddFromFormButton";
+            this.writeCommentAddFromFormButton.OfficeImageId = "FormControlInsertMenu";
+            this.writeCommentAddFromFormButton.ShowImage = true;
+            this.writeCommentAddFromFormButton.ShowLabel = false;
+            this.writeCommentAddFromFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFormButton_Click);
+            // 
+            // writeCommentAddFromFileButton
+            // 
+            this.writeCommentAddFromFileButton.Label = "ファイル";
+            this.writeCommentAddFromFileButton.Name = "writeCommentAddFromFileButton";
+            this.writeCommentAddFromFileButton.OfficeImageId = "CreateDocumentLibrary";
+            this.writeCommentAddFromFileButton.ShowImage = true;
+            this.writeCommentAddFromFileButton.ShowLabel = false;
+            this.writeCommentAddFromFileButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentAddFromFileButton_Click);
+            // 
+            // addCommentPreClearCheck
+            // 
+            this.addCommentPreClearCheck.Label = "全削除追加";
+            this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
+            // 
+            // box2
+            // 
+            this.box2.Items.Add(this.delCommentSingleButton);
+            this.box2.Items.Add(this.delCommentAllButton);
+            this.box2.Items.Add(this.doEditComboButton);
+            this.box2.Items.Add(this.writeCommentComboSaveButton);
+            this.box2.Items.Add(this.CursolControlFormButton);
+            this.box2.Items.Add(this.usedRangeSelectButton);
+            this.box2.Name = "box2";
+            // 
+            // delCommentSingleButton
+            // 
+            this.delCommentSingleButton.Label = "1件削除";
+            this.delCommentSingleButton.Name = "delCommentSingleButton";
+            this.delCommentSingleButton.OfficeImageId = "SectionMergeWithPrevious";
+            this.delCommentSingleButton.ShowImage = true;
+            this.delCommentSingleButton.ShowLabel = false;
+            this.delCommentSingleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.delCommentSingleButton_Click);
+            // 
+            // delCommentAllButton
+            // 
+            this.delCommentAllButton.Label = "全削除";
+            this.delCommentAllButton.Name = "delCommentAllButton";
+            this.delCommentAllButton.OfficeImageId = "SectionRemoveAll";
+            this.delCommentAllButton.ShowImage = true;
+            this.delCommentAllButton.ShowLabel = false;
+            this.delCommentAllButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.delCommentAllButton_Click);
+            // 
+            // doEditComboButton
+            // 
+            this.doEditComboButton.Label = "値編集";
+            this.doEditComboButton.Name = "doEditComboButton";
+            this.doEditComboButton.OfficeImageId = "SearchTools";
+            this.doEditComboButton.ShowImage = true;
+            this.doEditComboButton.ShowLabel = false;
+            this.doEditComboButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doEditComboButton_Click);
+            // 
+            // writeCommentComboSaveButton
+            // 
+            this.writeCommentComboSaveButton.Label = "保存";
+            this.writeCommentComboSaveButton.Name = "writeCommentComboSaveButton";
+            this.writeCommentComboSaveButton.OfficeImageId = "SaveHollow";
+            this.writeCommentComboSaveButton.ShowImage = true;
+            this.writeCommentComboSaveButton.ShowLabel = false;
+            this.writeCommentComboSaveButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentComboSaveButton_Click);
+            // 
+            // CursolControlFormButton
+            // 
+            this.CursolControlFormButton.Label = "カーソル";
+            this.CursolControlFormButton.Name = "CursolControlFormButton";
+            this.CursolControlFormButton.OfficeImageId = "LeftButtonIconColor";
+            this.CursolControlFormButton.ShowImage = true;
+            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
+            // 
+            // usedRangeSelectButton
+            // 
+            this.usedRangeSelectButton.Label = "全選択";
+            this.usedRangeSelectButton.Name = "usedRangeSelectButton";
+            this.usedRangeSelectButton.OfficeImageId = "ControlPaddingNone";
+            this.usedRangeSelectButton.ShowImage = true;
+            this.usedRangeSelectButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.usedRangeSelectButton_Click);
+            // 
+            // box7
+            // 
+            this.box7.Items.Add(this.autoNumberButton);
+            this.box7.Items.Add(this.doRandomNumsButton);
+            this.box7.Items.Add(this.selectedAutoFillButton);
+            this.box7.Items.Add(this.criteriaStringText);
+            this.box7.Items.Add(this.autoFilterAutoValSetButton);
+            this.box7.Items.Add(this.criteriaFazzyCheck);
+            this.box7.Name = "box7";
             // 
             // autoNumberButton
             // 
             this.autoNumberButton.Label = "通番";
             this.autoNumberButton.Name = "autoNumberButton";
+            this.autoNumberButton.OfficeImageId = "CalculatedNumber";
+            this.autoNumberButton.ShowImage = true;
+            this.autoNumberButton.ShowLabel = false;
             this.autoNumberButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoNumberButton_Click);
-            // 
-            // selectedAutoFillButton
-            // 
-            this.selectedAutoFillButton.Label = "オートフィル";
-            this.selectedAutoFillButton.Name = "selectedAutoFillButton";
-            this.selectedAutoFillButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectedAutoFillButton_Click);
-            // 
-            // autoFilteredQueryButton
-            // 
-            this.autoFilteredQueryButton.Label = "抽出";
-            this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
-            this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
             // 
             // doRandomNumsButton
             // 
             this.doRandomNumsButton.Label = "乱数";
             this.doRandomNumsButton.Name = "doRandomNumsButton";
+            this.doRandomNumsButton.OfficeImageId = "R";
+            this.doRandomNumsButton.ShowImage = true;
+            this.doRandomNumsButton.ShowLabel = false;
             this.doRandomNumsButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doRandomNumsButton_Click);
+            // 
+            // selectedAutoFillButton
+            // 
+            this.selectedAutoFillButton.Label = "自動フィル";
+            this.selectedAutoFillButton.Name = "selectedAutoFillButton";
+            this.selectedAutoFillButton.OfficeImageId = "ArrangementGallery";
+            this.selectedAutoFillButton.ShowImage = true;
+            this.selectedAutoFillButton.ShowLabel = false;
+            this.selectedAutoFillButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectedAutoFillButton_Click);
+            // 
+            // criteriaStringText
+            // 
+            this.criteriaStringText.Label = "絞込";
+            this.criteriaStringText.Name = "criteriaStringText";
+            this.criteriaStringText.SizeString = "AAAAAAA";
+            this.criteriaStringText.Text = null;
+            // 
+            // autoFilterAutoValSetButton
+            // 
+            this.autoFilterAutoValSetButton.Label = "絞込";
+            this.autoFilterAutoValSetButton.Name = "autoFilterAutoValSetButton";
+            this.autoFilterAutoValSetButton.OfficeImageId = "InsertTimeline";
+            this.autoFilterAutoValSetButton.ShowImage = true;
+            this.autoFilterAutoValSetButton.ShowLabel = false;
+            this.autoFilterAutoValSetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilterAutoValSetButton_Click);
+            // 
+            // criteriaFazzyCheck
+            // 
+            this.criteriaFazzyCheck.Label = "曖昧";
+            this.criteriaFazzyCheck.Name = "criteriaFazzyCheck";
             // 
             // buttonGroup2
             // 
+            this.buttonGroup2.Items.Add(this.writeFormOpenButton);
             this.buttonGroup2.Items.Add(this.ccEmptyButton);
             this.buttonGroup2.Items.Add(this.ccYellowButton);
             this.buttonGroup2.Items.Add(this.ccBlueButton);
@@ -433,9 +515,15 @@
             this.buttonGroup2.Items.Add(this.ccPinkButton);
             this.buttonGroup2.Items.Add(this.ccPurpleButton);
             this.buttonGroup2.Items.Add(this.ccRedButton);
-            this.buttonGroup2.Items.Add(this.writeFormOpenButton);
-            this.buttonGroup2.Items.Add(this.CursolControlFormButton);
             this.buttonGroup2.Name = "buttonGroup2";
+            // 
+            // writeFormOpenButton
+            // 
+            this.writeFormOpenButton.Label = "セル編集";
+            this.writeFormOpenButton.Name = "writeFormOpenButton";
+            this.writeFormOpenButton.OfficeImageId = "CatalogMergeEditList";
+            this.writeFormOpenButton.ShowImage = true;
+            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
             // 
             // ccEmptyButton
             // 
@@ -478,18 +566,6 @@
             this.ccRedButton.Label = "赤";
             this.ccRedButton.Name = "ccRedButton";
             this.ccRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccRedButton_Click);
-            // 
-            // writeFormOpenButton
-            // 
-            this.writeFormOpenButton.Label = "セル編集";
-            this.writeFormOpenButton.Name = "writeFormOpenButton";
-            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
-            // 
-            // CursolControlFormButton
-            // 
-            this.CursolControlFormButton.Label = "カーソル";
-            this.CursolControlFormButton.Name = "CursolControlFormButton";
-            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
             // 
             // buttonGroup4
             // 
@@ -546,10 +622,16 @@
             // 
             // group5
             // 
-            this.group5.Items.Add(this.excelFooterClearButton);
             this.group5.Items.Add(this.box9);
+            this.group5.Items.Add(this.box4);
+            this.group5.Items.Add(this.box10);
             this.group5.Label = "文書処理";
             this.group5.Name = "group5";
+            // 
+            // box9
+            // 
+            this.box9.Items.Add(this.excelFooterClearButton);
+            this.box9.Name = "box9";
             // 
             // excelFooterClearButton
             // 
@@ -557,11 +639,20 @@
             this.excelFooterClearButton.Name = "excelFooterClearButton";
             this.excelFooterClearButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.excelFooterClearButton_Click);
             // 
-            // box9
+            // box4
             // 
-            this.box9.Items.Add(this.activeBookSheetsCombo);
-            this.box9.Items.Add(this.readActiveBookSheetsButton);
-            this.box9.Name = "box9";
+            this.box4.Items.Add(this.readActiveBookSheetsButton);
+            this.box4.Items.Add(this.activeBookSheetsCombo);
+            this.box4.Name = "box4";
+            // 
+            // readActiveBookSheetsButton
+            // 
+            this.readActiveBookSheetsButton.Label = "読込";
+            this.readActiveBookSheetsButton.Name = "readActiveBookSheetsButton";
+            this.readActiveBookSheetsButton.OfficeImageId = "TablesGallery";
+            this.readActiveBookSheetsButton.ShowImage = true;
+            this.readActiveBookSheetsButton.ShowLabel = false;
+            this.readActiveBookSheetsButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.readActiveBookSheetsButton_Click);
             // 
             // activeBookSheetsCombo
             // 
@@ -572,14 +663,18 @@
             this.activeBookSheetsCombo.Text = null;
             this.activeBookSheetsCombo.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.activeBookSheetsCombo_TextChanged);
             // 
-            // readActiveBookSheetsButton
+            // box10
             // 
-            this.readActiveBookSheetsButton.Label = "読込";
-            this.readActiveBookSheetsButton.Name = "readActiveBookSheetsButton";
-            this.readActiveBookSheetsButton.OfficeImageId = "AccessListCustomDatasheet";
-            this.readActiveBookSheetsButton.ShowImage = true;
-            this.readActiveBookSheetsButton.ShowLabel = false;
-            this.readActiveBookSheetsButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.readActiveBookSheetsButton_Click);
+            this.box10.Items.Add(this.autoFilteredQueryButton);
+            this.box10.Name = "box10";
+            // 
+            // autoFilteredQueryButton
+            // 
+            this.autoFilteredQueryButton.Label = "絞込行出力";
+            this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
+            this.autoFilteredQueryButton.OfficeImageId = "FilterBySelection";
+            this.autoFilteredQueryButton.ShowImage = true;
+            this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
             // 
             // group2
             // 
@@ -681,6 +776,10 @@
             this.group5.PerformLayout();
             this.box9.ResumeLayout(false);
             this.box9.PerformLayout();
+            this.box4.ResumeLayout(false);
+            this.box4.PerformLayout();
+            this.box10.ResumeLayout(false);
+            this.box10.PerformLayout();
             this.group2.ResumeLayout(false);
             this.group2.PerformLayout();
             this.group3.ResumeLayout(false);
@@ -765,7 +864,13 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton repoRowUpdateButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox gridPasteCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton doRandomNumsButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox libraPlusOnCheck;
+        internal Microsoft.Office.Tools.Ribbon.RibbonBox box4;
+        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox criteriaStringText;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton autoFilterAutoValSetButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonBox box10;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox criteriaFazzyCheck;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton usedRangeSelectButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton libraPlusToggle;
     }
 
     partial class ThisRibbonCollection

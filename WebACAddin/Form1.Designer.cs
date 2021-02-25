@@ -38,18 +38,19 @@
             this.reportText.Multiline = true;
             this.reportText.Name = "reportText";
             this.reportText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.reportText.Size = new System.Drawing.Size(447, 216);
+            this.reportText.Size = new System.Drawing.Size(521, 252);
             this.reportText.TabIndex = 0;
             this.reportText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.reportText_KeyDown);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 216);
+            this.ClientSize = new System.Drawing.Size(521, 252);
             this.Controls.Add(this.reportText);
             this.Name = "Form1";
-            this.Text = "セル解析フォーム";
+            this.ShowIcon = false;
+            this.Text = "テキストフォーム";
             this.ResumeLayout(false);
             this.PerformLayout();
 

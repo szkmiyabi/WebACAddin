@@ -36,14 +36,14 @@
             this.matchColorListupButton = new System.Windows.Forms.Button();
             this.matchListColoringButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.matchFilteredRowButton = new System.Windows.Forms.Button();
             this.listReverseButton = new System.Windows.Forms.Button();
+            this.csvButton = new System.Windows.Forms.Button();
+            this.matchFilteredRowButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.topMostCheck = new System.Windows.Forms.CheckBox();
             this.copyButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
-            this.csvButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -64,9 +64,9 @@
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.74274F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.25726F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(381, 313);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(444, 365);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // cellReportText
@@ -78,7 +78,7 @@
             this.cellReportText.Multiline = true;
             this.cellReportText.Name = "cellReportText";
             this.cellReportText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.cellReportText.Size = new System.Drawing.Size(375, 190);
+            this.cellReportText.Size = new System.Drawing.Size(438, 223);
             this.cellReportText.TabIndex = 0;
             this.cellReportText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cellReportText_KeyDown);
             // 
@@ -89,25 +89,25 @@
             this.flowLayoutPanel1.Controls.Add(this.matchColorListupButton);
             this.flowLayoutPanel1.Controls.Add(this.matchListColoringButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 199);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 232);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(375, 37);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(438, 45);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // colorCodeText
             // 
-            this.colorCodeText.Location = new System.Drawing.Point(3, 5);
-            this.colorCodeText.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.colorCodeText.Location = new System.Drawing.Point(3, 6);
+            this.colorCodeText.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.colorCodeText.Name = "colorCodeText";
-            this.colorCodeText.Size = new System.Drawing.Size(62, 19);
+            this.colorCodeText.Size = new System.Drawing.Size(72, 21);
             this.colorCodeText.TabIndex = 3;
             // 
             // getColorCodeButton
             // 
-            this.getColorCodeButton.Location = new System.Drawing.Point(71, 3);
-            this.getColorCodeButton.Margin = new System.Windows.Forms.Padding(3, 3, 9, 3);
+            this.getColorCodeButton.Location = new System.Drawing.Point(81, 3);
+            this.getColorCodeButton.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.getColorCodeButton.Name = "getColorCodeButton";
-            this.getColorCodeButton.Size = new System.Drawing.Size(64, 23);
+            this.getColorCodeButton.Size = new System.Drawing.Size(75, 27);
             this.getColorCodeButton.TabIndex = 4;
             this.getColorCodeButton.Text = "色値取得";
             this.getColorCodeButton.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             // 
             // matchColorListupButton
             // 
-            this.matchColorListupButton.Location = new System.Drawing.Point(147, 3);
+            this.matchColorListupButton.Location = new System.Drawing.Point(169, 3);
             this.matchColorListupButton.Name = "matchColorListupButton";
-            this.matchColorListupButton.Size = new System.Drawing.Size(98, 23);
+            this.matchColorListupButton.Size = new System.Drawing.Size(114, 27);
             this.matchColorListupButton.TabIndex = 0;
             this.matchColorListupButton.Text = "色一致セル抽出";
             this.matchColorListupButton.UseVisualStyleBackColor = true;
@@ -125,9 +125,9 @@
             // 
             // matchListColoringButton
             // 
-            this.matchListColoringButton.Location = new System.Drawing.Point(251, 3);
+            this.matchListColoringButton.Location = new System.Drawing.Point(289, 3);
             this.matchListColoringButton.Name = "matchListColoringButton";
-            this.matchListColoringButton.Size = new System.Drawing.Size(110, 23);
+            this.matchListColoringButton.Size = new System.Drawing.Size(128, 27);
             this.matchListColoringButton.TabIndex = 1;
             this.matchListColoringButton.Text = "一覧一致セル色付";
             this.matchListColoringButton.UseVisualStyleBackColor = true;
@@ -139,30 +139,41 @@
             this.flowLayoutPanel2.Controls.Add(this.csvButton);
             this.flowLayoutPanel2.Controls.Add(this.matchFilteredRowButton);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(54, 242);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(63, 283);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(324, 29);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(378, 35);
             this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // matchFilteredRowButton
-            // 
-            this.matchFilteredRowButton.Location = new System.Drawing.Point(172, 3);
-            this.matchFilteredRowButton.Name = "matchFilteredRowButton";
-            this.matchFilteredRowButton.Size = new System.Drawing.Size(89, 23);
-            this.matchFilteredRowButton.TabIndex = 2;
-            this.matchFilteredRowButton.Text = "フィルタ抽出行";
-            this.matchFilteredRowButton.UseVisualStyleBackColor = true;
-            this.matchFilteredRowButton.Click += new System.EventHandler(this.matchFilteredRowButton_Click);
             // 
             // listReverseButton
             // 
             this.listReverseButton.Location = new System.Drawing.Point(3, 3);
             this.listReverseButton.Name = "listReverseButton";
-            this.listReverseButton.Size = new System.Drawing.Size(75, 23);
+            this.listReverseButton.Size = new System.Drawing.Size(87, 27);
             this.listReverseButton.TabIndex = 3;
             this.listReverseButton.Text = "一覧を反転";
             this.listReverseButton.UseVisualStyleBackColor = true;
             this.listReverseButton.Click += new System.EventHandler(this.listReverseButton_Click);
+            // 
+            // csvButton
+            // 
+            this.csvButton.Location = new System.Drawing.Point(96, 3);
+            this.csvButton.Margin = new System.Windows.Forms.Padding(3, 3, 14, 3);
+            this.csvButton.Name = "csvButton";
+            this.csvButton.Size = new System.Drawing.Size(85, 27);
+            this.csvButton.TabIndex = 4;
+            this.csvButton.Text = "カンマ区切";
+            this.csvButton.UseVisualStyleBackColor = true;
+            this.csvButton.Click += new System.EventHandler(this.csvButton_Click);
+            // 
+            // matchFilteredRowButton
+            // 
+            this.matchFilteredRowButton.Location = new System.Drawing.Point(198, 3);
+            this.matchFilteredRowButton.Name = "matchFilteredRowButton";
+            this.matchFilteredRowButton.Size = new System.Drawing.Size(104, 27);
+            this.matchFilteredRowButton.TabIndex = 2;
+            this.matchFilteredRowButton.Text = "フィルタ抽出行";
+            this.matchFilteredRowButton.UseVisualStyleBackColor = true;
+            this.matchFilteredRowButton.Click += new System.EventHandler(this.matchFilteredRowButton_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -171,18 +182,18 @@
             this.flowLayoutPanel3.Controls.Add(this.clearButton);
             this.flowLayoutPanel3.Controls.Add(this.closeButton);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 277);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 324);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(375, 33);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(438, 38);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // topMostCheck
             // 
             this.topMostCheck.AutoSize = true;
             this.topMostCheck.Location = new System.Drawing.Point(3, 3);
-            this.topMostCheck.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
+            this.topMostCheck.Margin = new System.Windows.Forms.Padding(3, 3, 17, 3);
             this.topMostCheck.Name = "topMostCheck";
-            this.topMostCheck.Size = new System.Drawing.Size(93, 16);
+            this.topMostCheck.Size = new System.Drawing.Size(113, 19);
             this.topMostCheck.TabIndex = 0;
             this.topMostCheck.Text = "常に前面表示";
             this.topMostCheck.UseVisualStyleBackColor = true;
@@ -190,9 +201,9 @@
             // 
             // copyButton
             // 
-            this.copyButton.Location = new System.Drawing.Point(114, 3);
+            this.copyButton.Location = new System.Drawing.Point(136, 3);
             this.copyButton.Name = "copyButton";
-            this.copyButton.Size = new System.Drawing.Size(50, 23);
+            this.copyButton.Size = new System.Drawing.Size(58, 27);
             this.copyButton.TabIndex = 1;
             this.copyButton.Text = "コピー";
             this.copyButton.UseVisualStyleBackColor = true;
@@ -200,9 +211,9 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(170, 3);
+            this.clearButton.Location = new System.Drawing.Point(200, 3);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(53, 23);
+            this.clearButton.Size = new System.Drawing.Size(62, 27);
             this.clearButton.TabIndex = 2;
             this.clearButton.Text = "クリア";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -210,34 +221,24 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(229, 3);
+            this.closeButton.Location = new System.Drawing.Point(268, 3);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(54, 23);
+            this.closeButton.Size = new System.Drawing.Size(63, 27);
             this.closeButton.TabIndex = 3;
             this.closeButton.Text = "閉じる";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // csvButton
-            // 
-            this.csvButton.Location = new System.Drawing.Point(84, 3);
-            this.csvButton.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
-            this.csvButton.Name = "csvButton";
-            this.csvButton.Size = new System.Drawing.Size(73, 23);
-            this.csvButton.TabIndex = 4;
-            this.csvButton.Text = "カンマ区切";
-            this.csvButton.UseVisualStyleBackColor = true;
-            this.csvButton.Click += new System.EventHandler(this.csvButton_Click);
-            // 
             // CellForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 313);
+            this.ClientSize = new System.Drawing.Size(444, 365);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CellForm";
+            this.ShowIcon = false;
             this.Text = "セル解析";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
