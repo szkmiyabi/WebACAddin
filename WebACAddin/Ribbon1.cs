@@ -54,7 +54,7 @@ namespace WebACAddin
             init_writeCommentCombo();
 
             //判定修正スニペットコンボ初期化
-            libraPlusOnCheck.Checked = true;
+            libraPlusToggle.Checked = true;
             isLibraPlusOn = true;
             init_svRedimFlagCombo();
 
@@ -447,10 +447,22 @@ namespace WebACAddin
             do_random_nums();
         }
 
-        //LibraPlusチェックボックスON/OFF
-        private void libraPlusOnCheck_Click(object sender, RibbonControlEventArgs e)
+        //オートフィルタ文字列自動設定
+        private void autoFilterAutoValSetButton_Click(object sender, RibbonControlEventArgs e)
         {
-            isLibraPlusOn = libraPlusOnCheck.Checked;
+            set_mytext_auto_filter();
+        }
+
+        //表全体選択
+        private void usedRangeSelectButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            auto_select_used_range();
+        }
+
+        //LibraPlusトグルボタンON/OFF
+        private void libraPlusToggle_Click(object sender, RibbonControlEventArgs e)
+        {
+            isLibraPlusOn = libraPlusToggle.Checked;
             init_svRedimFlagCombo();
         }
     }

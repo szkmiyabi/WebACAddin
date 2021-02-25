@@ -473,21 +473,6 @@ namespace WebACAddin
             browse_base_cell_data();
         }
 
-        //ウィンドウが非アクティブの場合透明化
-        private void WriteForm_Deactivate(object sender, EventArgs e)
-        {
-            try
-            {
-                if (opacityCheck.Checked == true) this.Opacity = 0.5;
-            }
-            catch (Exception ex) { }
-        }
-
-        //ウィンドウがアクティブの場合通常表示
-        private void WriteForm_Activated(object sender, EventArgs e)
-        {
-            if (opacityCheck.Checked == true) this.Opacity = 1;
-        }
     }
 
 

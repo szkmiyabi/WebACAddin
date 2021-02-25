@@ -1126,6 +1126,33 @@ namespace WebACAddin
 
         }
 
+        //オートフィルタの文字列絞り込み自動設定
+        private void set_mytext_auto_filter()
+        {
+            try
+            {
+                Excel.Range acl = Globals.ThisAddIn.Application.ActiveCell;
+                Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+                int cx = acl.Column;
+                Excel.Range ur = ash.UsedRange;
+                string src = criteriaStringText.Text;
+                if (src == "") return;
+                if (criteriaFazzyCheck.Checked) src = "*" + src + "*";
+                ur.AutoFilter(cx, src, Excel.XlAutoFilterOperator.xlFilterValues);
+            }
+            catch(Exception ex) { }
+        }
+
+        //表全体自動選択
+        private void auto_select_used_range()
+        {
+            try
+            {
+                Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+                ash.UsedRange.Select();
+            }
+            catch(Exception ex) { }
+        }
 
     }
 }
