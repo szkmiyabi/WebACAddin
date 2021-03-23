@@ -56,7 +56,16 @@ namespace WebACAddin
             int rx = r;
             do
             {
-                rx++;
+                //結合セルの場合、下方向に移動しない不具合の対応
+                if(ash.Cells[rx, c].MergeCells)
+                {
+                    int dx = ash.Cells[rx, c].MergeArea.Rows.Count;
+                    rx += dx;
+                }
+                else
+                {
+                    rx++;
+                }
             }
             while (ash.Rows[rx].EntireRow.Hidden == true);
 

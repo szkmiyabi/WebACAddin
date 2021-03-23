@@ -121,6 +121,8 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.nearCellCopyButton = this.Factory.CreateRibbonSplitButton();
+            this.nearCellCopyFromLeftButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group4.SuspendLayout();
@@ -352,6 +354,7 @@
             this.box6.Items.Add(this.writeCommentAddFromFormButton);
             this.box6.Items.Add(this.writeCommentAddFromFileButton);
             this.box6.Items.Add(this.addCommentPreClearCheck);
+            this.box6.Items.Add(this.nearCellCopyButton);
             this.box6.Name = "box6";
             // 
             // writeCommentAddButton
@@ -742,6 +745,21 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // nearCellCopyButton
+            // 
+            this.nearCellCopyButton.Items.Add(this.nearCellCopyFromLeftButton);
+            this.nearCellCopyButton.Label = "splitButton1";
+            this.nearCellCopyButton.Name = "nearCellCopyButton";
+            this.nearCellCopyButton.OfficeImageId = "ChangeAssignmentDatesToComplyWithEngagementsVisibleByContext";
+            this.nearCellCopyButton.ShowLabel = false;
+            // 
+            // nearCellCopyFromLeftButton
+            // 
+            this.nearCellCopyFromLeftButton.Label = "左から";
+            this.nearCellCopyFromLeftButton.Name = "nearCellCopyFromLeftButton";
+            this.nearCellCopyFromLeftButton.ShowImage = true;
+            this.nearCellCopyFromLeftButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.nearCellCopyFromLeftButton_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -871,6 +889,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox criteriaFazzyCheck;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton usedRangeSelectButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton libraPlusToggle;
+        internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton nearCellCopyButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton nearCellCopyFromLeftButton;
     }
 
     partial class ThisRibbonCollection

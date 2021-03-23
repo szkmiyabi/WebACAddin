@@ -40,7 +40,7 @@ namespace WebACAddin
         private string _decode_return(string str)
         {
             string ret = str;
-            Regex reg = new Regex(@"\r\n", RegexOptions.Multiline | RegexOptions.Compiled);
+            Regex reg = new Regex(@"\r+\n+", RegexOptions.Multiline | RegexOptions.Compiled);
             try
             {
                 ret = reg.Replace(ret, "\n");
@@ -295,7 +295,7 @@ namespace WebACAddin
             int r1, r2, c1, c2 = 0;
 
             string src = writeCommentCombo.Text;
-            src = src.Replace(br_sp, "\r\n");
+            src = src.Replace(br_sp, "\n");
 
             r1 = sa.Row;
             r2 = sa.Rows[sa.Rows.Count].Row;
@@ -407,7 +407,7 @@ namespace WebACAddin
             int cx = c + cn;
             for (int j = c; j < cx; j++)
             {
-                string aval = cols[counter].Replace(br_sp, "\r\n");
+                string aval = cols[counter].Replace(br_sp, "\n");
                 if (writeCommentOverrideCheck.Checked)
                 {
                     try
@@ -435,7 +435,7 @@ namespace WebACAddin
             int rx = r + rn;
             for (int i = r; i < rx; i++)
             {
-                string aval = rows[counter].Replace(br_sp, "\r\n");
+                string aval = rows[counter].Replace(br_sp, "\n");
                 if (writeCommentOverrideCheck.Checked)
                 {
                     try
@@ -729,10 +729,10 @@ namespace WebACAddin
         private List<int[]> _get_color_rgb_list()
         {
             List<int[]> arr = new List<int[]>();
-            arr.Add(new int[3] { 0, 176, 240 });   //水色
-            arr.Add(new int[3] { 0, 255, 204 });  //緑色
-            arr.Add(new int[3] { 255, 102, 153 }); //桃色
-            arr.Add(new int[3] { 204, 153, 255 }); //紫色
+            arr.Add(new int[3] { 137, 255, 255 });   //水色
+            arr.Add(new int[3] { 153, 255, 153 });  //緑色
+            arr.Add(new int[3] { 255, 179, 179 }); //桃色
+            arr.Add(new int[3] { 212, 197, 255 }); //紫色
             arr.Add(new int[3] { 255, 255, 0 });   //黄色
             arr.Add(new int[3] { 255, 0, 0 });     //赤色
             return arr;
@@ -1152,6 +1152,60 @@ namespace WebACAddin
                 ash.UsedRange.Select();
             }
             catch(Exception ex) { }
+        }
+
+        //近接セルから値を取得
+        private void near_cell_copy_wrapper(string vector)
+        {
+            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+
+            List<string> selectionList = new List<string>();
+            foreach (Excel.Range item in areas)
+            {
+                selectionList.Add(item.Address);
+            }
+            ash.Range[selectionList[0]].Select();
+            for (int i = 0; i < selectionList.Count; i++)
+            {
+                ash.Range[selectionList[i]].Select();
+                near_cell_copy(vector);
+            }
+        }
+
+        private void near_cell_copy(string vector)
+        {
+            var sa = excelObj.Application.Selection;
+            var ash = excelObj.Application.ActiveSheet;
+
+            int r = sa.Row;
+            int rx = sa.Rows[sa.Rows.Count].Row;
+            int c = sa.Column;
+
+            for(int i=r; i<=rx; i++)
+            {
+                Excel.Range src_cl = null;
+                switch(vector)
+                {
+                    case "left":
+                        int cx = c;
+                        do
+                        {
+                            cx--;
+
+                        } while (ash.Columns[cx].EntireColumn.Hidden == true);
+                        src_cl = ash.Cells[i, cx];
+                        break;
+                }
+                Type t = src_cl.Value.GetType();
+                if(t.Equals(typeof(string)))
+                {
+                    ash.Cells[i, c].Value = (string)src_cl.Value;
+                }
+            }
+
+
         }
 
     }

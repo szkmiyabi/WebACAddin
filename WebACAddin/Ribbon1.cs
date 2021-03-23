@@ -465,5 +465,12 @@ namespace WebACAddin
             isLibraPlusOn = libraPlusToggle.Checked;
             init_svRedimFlagCombo();
         }
+
+        //隣接セルからコピー
+        //左からコピー
+        private void nearCellCopyFromLeftButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            near_cell_copy_wrapper("left");
+        }
     }
 }

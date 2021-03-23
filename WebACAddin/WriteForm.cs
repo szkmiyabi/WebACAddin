@@ -25,6 +25,7 @@ namespace WebACAddin
         public WriteForm()
         {
             InitializeComponent();
+            init_combo();
             combobox_fetch();
             //常に前面表示
             TopMost = true;
@@ -89,7 +90,7 @@ namespace WebACAddin
         private string _decode_return(string str)
         {
             string ret = str;
-            Regex reg = new Regex(@"\r\n", RegexOptions.Multiline | RegexOptions.Compiled);
+            Regex reg = new Regex(@"\r+\n+", RegexOptions.Multiline | RegexOptions.Compiled);
             try
             {
                 ret = reg.Replace(ret, "\n");
@@ -252,6 +253,23 @@ namespace WebACAddin
             writeFormText.Select(st + ed + "\r\n".Length, 0);
         }
 
+        //今日の日付を挿入
+        private void do_insert_date()
+        {
+            DateTime dt = DateTime.Now;
+            string ymd = dt.ToString("M/d");
+            string buff = writeFormText.Text;
+            int cnt = buff.Length;
+            int st = writeFormText.SelectionStart;
+            int ed = writeFormText.SelectionLength;
+            string front_txt = buff.Substring(0, st);
+            string back_txt = buff.Substring(st + ed);
+
+
+            writeFormText.Text = front_txt + ymd + back_txt;
+            writeFormText.Select(st + ed + ymd.Length, 0);
+        }
+
         //選択範囲の文字列を取得
         private string get_selection()
         {
@@ -387,6 +405,28 @@ namespace WebACAddin
             return path;
         }
 
+        //初期スニペットの設定
+        private void init_combo()
+        {
+            List<string> data = new List<string>();
+            DateTime ymd = DateTime.Now;
+            string md = ymd.ToString("M/d");
+            data.Add("同上");
+            data.Add("見落としがあります");
+            data.Add("過剰指摘です");
+            data.Add(md + " 修正を確認" + br_sp + br_sp);
+            data.Add(md + " 未修正" + br_sp + br_sp);
+            data.Add(md + " 新たな問題が発生しています。" + br_sp + br_sp);
+            data.Add(md + " 問題が残っています" + br_sp + br_sp);
+            data.Add(md + " 適合に差し換え" + br_sp + br_sp);
+            data.Add(md + " 非適用に差し換え" + br_sp + br_sp);
+            data.Add(md + " 承知しました。" + br_sp + br_sp);
+            foreach (string vl in data)
+            {
+                writeFormSnipetCombo.Items.Add(vl);
+            }
+        }
+
 
         //セルから読込みクリック
         private void pullFromCellDataButton_Click(object sender, EventArgs e)
@@ -443,18 +483,6 @@ namespace WebACAddin
             do_add_comment_from_ribbon();
         }
 
-        //削除クリック
-        private void delCommentSingleButton_Click(object sender, EventArgs e)
-        {
-            do_clear_combo_comment_single();
-        }
-
-        //全件削除クリック
-        private void delCommentAllButton_Click(object sender, EventArgs e)
-        {
-            do_clear_combo_comment_all();
-        }
-
         //保存クリック
         private void writeFormSnipetSaveButton_Click(object sender, EventArgs e)
         {
@@ -473,6 +501,11 @@ namespace WebACAddin
             browse_base_cell_data();
         }
 
+        //日付クリック
+        private void dateInsertButton_Click(object sender, EventArgs e)
+        {
+            do_insert_date();
+        }
     }
 
 
