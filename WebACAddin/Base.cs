@@ -8,6 +8,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Office.Tools.Ribbon;
+using System.Drawing;
 
 namespace WebACAddin
 {
@@ -360,6 +361,16 @@ namespace WebACAddin
 
             return null;
         }
+
+
+        //Excel用RGBスカラーを取得
+        private int getRGB(int r, int g, int b)
+        {
+            Color c = Color.FromArgb(r, g, b);
+            var cint = (Microsoft.Office.Interop.Excel.XlRgbColor)(c.R + 0x100 * c.G + 0x10000 * c.B);
+            return (int)cint;
+        }
+
 
     }
 }

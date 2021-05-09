@@ -327,10 +327,10 @@ namespace WebACAddin
             do_cell_red_wrapper();
         }
 
-        //縦中
-        private void cellVerticalCenterButton_Click(object sender, RibbonControlEventArgs e)
+        //縦位置
+        private void cellVerticalAlignToggleButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_cell_vcenter_wrapper();
+            do_cell_vertical_align_toggle_wrapper();
         }
 
         //折り返し
@@ -343,12 +343,6 @@ namespace WebACAddin
         private void autoNumberButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_insert_auto_number_wrapper();
-        }
-
-        //フッタークリア
-        private void excelFooterClearButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            do_excel_footer_clear();
         }
 
         //セル文字削除
@@ -472,5 +466,61 @@ namespace WebACAddin
         {
             near_cell_copy_wrapper("left");
         }
+
+        //透明枠
+        private void insertTextBoxButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            insert_textbox();
+        }
+
+        //赤枠
+        private void insertRoundedRectButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            insert_rounded_rect();
+        }
+
+        //矢印
+        private void insertLineArrowButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            insert_line_arrow();
+        }
+
+        //図矢印
+        private void insertArrowButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            insert_arrow();
+        }
+
+        //吹出
+        private void insertCalloutButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            insert_callout();
+        }
+
+        //書式無し
+        private void resetShapeStyleButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            reset_shape_style();
+        }
+
+        //最前面
+        private void bringFrontButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            bring_front();
+        }
+
+        //横反転
+        private void horizontalFlipButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            horizontal_flip();
+        }
+
+        //縦反転
+        private void verticalFlipButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            vertical_flip();
+        }
+
     }
+
 }

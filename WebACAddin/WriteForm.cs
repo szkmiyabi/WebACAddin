@@ -419,6 +419,7 @@ namespace WebACAddin
             data.Add(md + " 新たな問題が発生しています。" + br_sp + br_sp);
             data.Add(md + " 問題が残っています" + br_sp + br_sp);
             data.Add(md + " 適合に差し換え" + br_sp + br_sp);
+            data.Add(md + " 適合(注記)に差し換え" + br_sp + br_sp);
             data.Add(md + " 非適用に差し換え" + br_sp + br_sp);
             data.Add(md + " 承知しました。" + br_sp + br_sp);
             foreach (string vl in data)

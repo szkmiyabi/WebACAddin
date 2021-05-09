@@ -72,6 +72,8 @@
             this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFileButton = this.Factory.CreateRibbonButton();
             this.addCommentPreClearCheck = this.Factory.CreateRibbonCheckBox();
+            this.nearCellCopyButton = this.Factory.CreateRibbonSplitButton();
+            this.nearCellCopyFromLeftButton = this.Factory.CreateRibbonButton();
             this.box2 = this.Factory.CreateRibbonBox();
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
@@ -98,19 +100,27 @@
             this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
             this.fontBoldButton = this.Factory.CreateRibbonButton();
             this.fontRedButton = this.Factory.CreateRibbonButton();
-            this.cellVerticalCenterButton = this.Factory.CreateRibbonButton();
+            this.cellVerticalAlignToggleButton = this.Factory.CreateRibbonButton();
             this.cellLineBreakButton = this.Factory.CreateRibbonButton();
             this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
             this.borderMatrixButton = this.Factory.CreateRibbonButton();
             this.borderClearButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
             this.box9 = this.Factory.CreateRibbonBox();
-            this.excelFooterClearButton = this.Factory.CreateRibbonButton();
-            this.box4 = this.Factory.CreateRibbonBox();
             this.readActiveBookSheetsButton = this.Factory.CreateRibbonButton();
             this.activeBookSheetsCombo = this.Factory.CreateRibbonComboBox();
-            this.box10 = this.Factory.CreateRibbonBox();
             this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
+            this.box4 = this.Factory.CreateRibbonBox();
+            this.insertRoundedRectButton = this.Factory.CreateRibbonButton();
+            this.insertLineArrowButton = this.Factory.CreateRibbonButton();
+            this.insertArrowButton = this.Factory.CreateRibbonButton();
+            this.insertCalloutButton = this.Factory.CreateRibbonButton();
+            this.insertTextBoxButton = this.Factory.CreateRibbonButton();
+            this.box10 = this.Factory.CreateRibbonBox();
+            this.resetShapeStyleButton = this.Factory.CreateRibbonButton();
+            this.bringFrontButton = this.Factory.CreateRibbonButton();
+            this.horizontalFlipButton = this.Factory.CreateRibbonButton();
+            this.verticalFlipButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -121,8 +131,6 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.nearCellCopyButton = this.Factory.CreateRibbonSplitButton();
-            this.nearCellCopyFromLeftButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.group4.SuspendLayout();
@@ -388,6 +396,21 @@
             this.addCommentPreClearCheck.Label = "全削除追加";
             this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
             // 
+            // nearCellCopyButton
+            // 
+            this.nearCellCopyButton.Items.Add(this.nearCellCopyFromLeftButton);
+            this.nearCellCopyButton.Label = "splitButton1";
+            this.nearCellCopyButton.Name = "nearCellCopyButton";
+            this.nearCellCopyButton.OfficeImageId = "ChangeAssignmentDatesToComplyWithEngagementsVisibleByContext";
+            this.nearCellCopyButton.ShowLabel = false;
+            // 
+            // nearCellCopyFromLeftButton
+            // 
+            this.nearCellCopyFromLeftButton.Label = "左から";
+            this.nearCellCopyFromLeftButton.Name = "nearCellCopyFromLeftButton";
+            this.nearCellCopyFromLeftButton.ShowImage = true;
+            this.nearCellCopyFromLeftButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.nearCellCopyFromLeftButton_Click);
+            // 
             // box2
             // 
             this.box2.Items.Add(this.delCommentSingleButton);
@@ -574,7 +597,7 @@
             // 
             this.buttonGroup4.Items.Add(this.fontBoldButton);
             this.buttonGroup4.Items.Add(this.fontRedButton);
-            this.buttonGroup4.Items.Add(this.cellVerticalCenterButton);
+            this.buttonGroup4.Items.Add(this.cellVerticalAlignToggleButton);
             this.buttonGroup4.Items.Add(this.cellLineBreakButton);
             this.buttonGroup4.Items.Add(this.cellStrDeleteButton);
             this.buttonGroup4.Items.Add(this.borderMatrixButton);
@@ -593,11 +616,11 @@
             this.fontRedButton.Name = "fontRedButton";
             this.fontRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.fontRedButton_Click);
             // 
-            // cellVerticalCenterButton
+            // cellVerticalAlignToggleButton
             // 
-            this.cellVerticalCenterButton.Label = "縦中";
-            this.cellVerticalCenterButton.Name = "cellVerticalCenterButton";
-            this.cellVerticalCenterButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellVerticalCenterButton_Click);
+            this.cellVerticalAlignToggleButton.Label = "縦位置";
+            this.cellVerticalAlignToggleButton.Name = "cellVerticalAlignToggleButton";
+            this.cellVerticalAlignToggleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellVerticalAlignToggleButton_Click);
             // 
             // cellLineBreakButton
             // 
@@ -633,20 +656,9 @@
             // 
             // box9
             // 
-            this.box9.Items.Add(this.excelFooterClearButton);
+            this.box9.Items.Add(this.readActiveBookSheetsButton);
+            this.box9.Items.Add(this.activeBookSheetsCombo);
             this.box9.Name = "box9";
-            // 
-            // excelFooterClearButton
-            // 
-            this.excelFooterClearButton.Label = "フッタークリア";
-            this.excelFooterClearButton.Name = "excelFooterClearButton";
-            this.excelFooterClearButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.excelFooterClearButton_Click);
-            // 
-            // box4
-            // 
-            this.box4.Items.Add(this.readActiveBookSheetsButton);
-            this.box4.Items.Add(this.activeBookSheetsCombo);
-            this.box4.Name = "box4";
             // 
             // readActiveBookSheetsButton
             // 
@@ -662,22 +674,116 @@
             this.activeBookSheetsCombo.Label = "シート切換";
             this.activeBookSheetsCombo.Name = "activeBookSheetsCombo";
             this.activeBookSheetsCombo.ShowLabel = false;
-            this.activeBookSheetsCombo.SizeString = "AAAAA";
+            this.activeBookSheetsCombo.SizeString = "AAAAAAAAAAAAA";
             this.activeBookSheetsCombo.Text = null;
             this.activeBookSheetsCombo.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.activeBookSheetsCombo_TextChanged);
             // 
-            // box10
-            // 
-            this.box10.Items.Add(this.autoFilteredQueryButton);
-            this.box10.Name = "box10";
-            // 
             // autoFilteredQueryButton
             // 
-            this.autoFilteredQueryButton.Label = "絞込行出力";
+            this.autoFilteredQueryButton.Label = "出力";
             this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
             this.autoFilteredQueryButton.OfficeImageId = "FilterBySelection";
             this.autoFilteredQueryButton.ShowImage = true;
             this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
+            // 
+            // box4
+            // 
+            this.box4.Items.Add(this.insertRoundedRectButton);
+            this.box4.Items.Add(this.insertLineArrowButton);
+            this.box4.Items.Add(this.insertArrowButton);
+            this.box4.Items.Add(this.insertCalloutButton);
+            this.box4.Items.Add(this.insertTextBoxButton);
+            this.box4.Name = "box4";
+            // 
+            // insertRoundedRectButton
+            // 
+            this.insertRoundedRectButton.Label = "赤枠";
+            this.insertRoundedRectButton.Name = "insertRoundedRectButton";
+            this.insertRoundedRectButton.OfficeImageId = "InkFeltTipPen";
+            this.insertRoundedRectButton.ShowImage = true;
+            this.insertRoundedRectButton.ShowLabel = false;
+            this.insertRoundedRectButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertRoundedRectButton_Click);
+            // 
+            // insertLineArrowButton
+            // 
+            this.insertLineArrowButton.Label = "矢印";
+            this.insertLineArrowButton.Name = "insertLineArrowButton";
+            this.insertLineArrowButton.OfficeImageId = "Arrow";
+            this.insertLineArrowButton.ShowImage = true;
+            this.insertLineArrowButton.ShowLabel = false;
+            this.insertLineArrowButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertLineArrowButton_Click);
+            // 
+            // insertArrowButton
+            // 
+            this.insertArrowButton.Label = "図矢印";
+            this.insertArrowButton.Name = "insertArrowButton";
+            this.insertArrowButton.OfficeImageId = "MultipleSelect";
+            this.insertArrowButton.ShowImage = true;
+            this.insertArrowButton.ShowLabel = false;
+            this.insertArrowButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertArrowButton_Click);
+            // 
+            // insertCalloutButton
+            // 
+            this.insertCalloutButton.Label = "吹出";
+            this.insertCalloutButton.Name = "insertCalloutButton";
+            this.insertCalloutButton.OfficeImageId = "Callout";
+            this.insertCalloutButton.ShowImage = true;
+            this.insertCalloutButton.ShowLabel = false;
+            this.insertCalloutButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertCalloutButton_Click);
+            // 
+            // insertTextBoxButton
+            // 
+            this.insertTextBoxButton.Label = "透明枠";
+            this.insertTextBoxButton.Name = "insertTextBoxButton";
+            this.insertTextBoxButton.OfficeImageId = "DrawTextBox";
+            this.insertTextBoxButton.ShowImage = true;
+            this.insertTextBoxButton.ShowLabel = false;
+            this.insertTextBoxButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertTextBoxButton_Click);
+            // 
+            // box10
+            // 
+            this.box10.Items.Add(this.resetShapeStyleButton);
+            this.box10.Items.Add(this.bringFrontButton);
+            this.box10.Items.Add(this.horizontalFlipButton);
+            this.box10.Items.Add(this.verticalFlipButton);
+            this.box10.Items.Add(this.autoFilteredQueryButton);
+            this.box10.Name = "box10";
+            // 
+            // resetShapeStyleButton
+            // 
+            this.resetShapeStyleButton.Label = "書式無";
+            this.resetShapeStyleButton.Name = "resetShapeStyleButton";
+            this.resetShapeStyleButton.OfficeImageId = "Clear";
+            this.resetShapeStyleButton.ShowImage = true;
+            this.resetShapeStyleButton.ShowLabel = false;
+            this.resetShapeStyleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.resetShapeStyleButton_Click);
+            // 
+            // bringFrontButton
+            // 
+            this.bringFrontButton.Label = "最前面";
+            this.bringFrontButton.Name = "bringFrontButton";
+            this.bringFrontButton.OfficeImageId = "CircularReferences";
+            this.bringFrontButton.ShowImage = true;
+            this.bringFrontButton.ShowLabel = false;
+            this.bringFrontButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.bringFrontButton_Click);
+            // 
+            // horizontalFlipButton
+            // 
+            this.horizontalFlipButton.Label = "横反転";
+            this.horizontalFlipButton.Name = "horizontalFlipButton";
+            this.horizontalFlipButton.OfficeImageId = "ReviewCompareTwoVersions";
+            this.horizontalFlipButton.ShowImage = true;
+            this.horizontalFlipButton.ShowLabel = false;
+            this.horizontalFlipButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.horizontalFlipButton_Click);
+            // 
+            // verticalFlipButton
+            // 
+            this.verticalFlipButton.Label = "縦反転";
+            this.verticalFlipButton.Name = "verticalFlipButton";
+            this.verticalFlipButton.OfficeImageId = "RowHeight";
+            this.verticalFlipButton.ShowImage = true;
+            this.verticalFlipButton.ShowLabel = false;
+            this.verticalFlipButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.verticalFlipButton_Click);
             // 
             // group2
             // 
@@ -744,21 +850,6 @@
             this.openChromeBetaButton.Label = "Chrome(beta)";
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
-            // 
-            // nearCellCopyButton
-            // 
-            this.nearCellCopyButton.Items.Add(this.nearCellCopyFromLeftButton);
-            this.nearCellCopyButton.Label = "splitButton1";
-            this.nearCellCopyButton.Name = "nearCellCopyButton";
-            this.nearCellCopyButton.OfficeImageId = "ChangeAssignmentDatesToComplyWithEngagementsVisibleByContext";
-            this.nearCellCopyButton.ShowLabel = false;
-            // 
-            // nearCellCopyFromLeftButton
-            // 
-            this.nearCellCopyFromLeftButton.Label = "左から";
-            this.nearCellCopyFromLeftButton.Name = "nearCellCopyFromLeftButton";
-            this.nearCellCopyFromLeftButton.ShowImage = true;
-            this.nearCellCopyFromLeftButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.nearCellCopyFromLeftButton_Click);
             // 
             // Ribbon1
             // 
@@ -851,11 +942,10 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton ccEmptyButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton fontBoldButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton fontRedButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton cellVerticalCenterButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton cellVerticalAlignToggleButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellLineBreakButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton autoNumberButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group5;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton excelFooterClearButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box7;
         internal Microsoft.Office.Tools.Ribbon.RibbonComboBox markerDropdown;
         internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup2;
@@ -891,6 +981,15 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton libraPlusToggle;
         internal Microsoft.Office.Tools.Ribbon.RibbonSplitButton nearCellCopyButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton nearCellCopyFromLeftButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertRoundedRectButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton resetShapeStyleButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertLineArrowButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertArrowButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertCalloutButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertTextBoxButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton bringFrontButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton horizontalFlipButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton verticalFlipButton;
     }
 
     partial class ThisRibbonCollection
