@@ -81,7 +81,7 @@ namespace WebACAddin
             var rectCallout = ash.Shapes.AddShape(105, left, top, size[0], size[1]);
             rectCallout.Fill.ForeColor.RGB = getRGB(255, 255, 255);
             rectCallout.TextFrame2.TextRange.Font.Fill.ForeColor.RGB = getRGB(0, 0, 0);
-            rectCallout.TextFrame2.TextRange.Font.Size = 9;
+            rectCallout.TextFrame2.TextRange.Font.Size = 14;
             rectCallout.TextFrame2.TextRange.Font.Name = "ＭＳ Ｐゴシック";
             rectCallout.Line.ForeColor.RGB = getRGB(255, 192, 0);
             rectCallout.Line.Weight = 1.5F;
@@ -139,8 +139,25 @@ namespace WebACAddin
             var textBox = ash.Shapes.AddTextbox(MsoTextOrientation.msoTextOrientationHorizontal, left, top, size[0], size[1]);
             textBox.Fill.Visible = MsoTriState.msoFalse;
             textBox.Line.Visible = MsoTriState.msoFalse;
-            textBox.TextFrame2.TextRange.Font.Size = 9;
-            textBox.TextFrame2.TextRange.Font.Name = "ＭＳ Ｐゴシック";
+            textBox.TextFrame2.TextRange.Font.Size = 14;
+            //textBox.TextFrame2.TextRange.Font.Name = "ＭＳ Ｐゴシック";
+            textBox.Select();
+        }
+
+        //大きな文字枠を挿入
+        private void insert_big_text()
+        {
+            var ash = Globals.ThisAddIn.Application.ActiveSheet;
+            var scl = Globals.ThisAddIn.Application.ActiveCell;
+            float left = float.Parse(scl.Left.ToString());
+            float top = float.Parse(scl.Top.ToString());
+            float[] size = { 200, 100 };
+            var textBox = ash.Shapes.AddTextbox(MsoTextOrientation.msoTextOrientationHorizontal, left, top, size[0], size[1]);
+            textBox.Fill.Visible = MsoTriState.msoFalse;
+            textBox.Line.Visible = MsoTriState.msoFalse;
+            textBox.TextFrame2.TextRange.Font.Size = 30;
+            textBox.TextFrame2.WordArtformat = MsoPresetTextEffect.msoTextEffect31;
+            //textBox.TextFrame2.TextRange.Font.Name = "HGP明朝E";
             textBox.Select();
         }
 
@@ -191,6 +208,29 @@ namespace WebACAddin
             {
                 var sp = sps[i];
                 sp.Flip(MsoFlipCmd.msoFlipVertical);
+            }
+        }
+
+        //アクティブシート内の全オブジェクトを選択
+        private void select_object()
+        {
+            try
+            {
+                var ash = Globals.ThisAddIn.Application.ActiveSheet;
+                var scl = Globals.ThisAddIn.Application.ActiveCell;
+                var shapes = ash.Shapes;
+                int cnt = 0;
+                for (int i = 1; i <= shapes.Count; i++)
+                {
+                    var sp = shapes[i];
+                    if (cnt == 0) sp.Select(MsoTriState.msoTrue);
+                    else sp.Select(MsoTriState.msoFalse);
+                    cnt++;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("実行エラー：" + ex.Message);
             }
         }
 

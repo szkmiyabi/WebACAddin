@@ -109,18 +109,20 @@
             this.box9 = this.Factory.CreateRibbonBox();
             this.readActiveBookSheetsButton = this.Factory.CreateRibbonButton();
             this.activeBookSheetsCombo = this.Factory.CreateRibbonComboBox();
-            this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.box4 = this.Factory.CreateRibbonBox();
             this.insertRoundedRectButton = this.Factory.CreateRibbonButton();
             this.insertLineArrowButton = this.Factory.CreateRibbonButton();
             this.insertArrowButton = this.Factory.CreateRibbonButton();
             this.insertCalloutButton = this.Factory.CreateRibbonButton();
             this.insertTextBoxButton = this.Factory.CreateRibbonButton();
+            this.insertBigTextButton = this.Factory.CreateRibbonButton();
             this.box10 = this.Factory.CreateRibbonBox();
             this.resetShapeStyleButton = this.Factory.CreateRibbonButton();
             this.bringFrontButton = this.Factory.CreateRibbonButton();
             this.horizontalFlipButton = this.Factory.CreateRibbonButton();
             this.verticalFlipButton = this.Factory.CreateRibbonButton();
+            this.selectObjectButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -308,8 +310,6 @@
             // 
             this.box5.Items.Add(this.writeCommentCombo);
             this.box5.Items.Add(this.writeCommentInputButton);
-            this.box5.Items.Add(this.markerDropdown);
-            this.box5.Items.Add(this.markerInputButton);
             this.box5.Name = "box5";
             // 
             // writeCommentCombo
@@ -362,7 +362,6 @@
             this.box6.Items.Add(this.writeCommentAddFromFormButton);
             this.box6.Items.Add(this.writeCommentAddFromFileButton);
             this.box6.Items.Add(this.addCommentPreClearCheck);
-            this.box6.Items.Add(this.nearCellCopyButton);
             this.box6.Name = "box6";
             // 
             // writeCommentAddButton
@@ -393,7 +392,7 @@
             // 
             // addCommentPreClearCheck
             // 
-            this.addCommentPreClearCheck.Label = "全削除追加";
+            this.addCommentPreClearCheck.Label = "全削除";
             this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
             // 
             // nearCellCopyButton
@@ -417,8 +416,10 @@
             this.box2.Items.Add(this.delCommentAllButton);
             this.box2.Items.Add(this.doEditComboButton);
             this.box2.Items.Add(this.writeCommentComboSaveButton);
-            this.box2.Items.Add(this.CursolControlFormButton);
             this.box2.Items.Add(this.usedRangeSelectButton);
+            this.box2.Items.Add(this.autoNumberButton);
+            this.box2.Items.Add(this.doRandomNumsButton);
+            this.box2.Items.Add(this.selectedAutoFillButton);
             this.box2.Name = "box2";
             // 
             // delCommentSingleButton
@@ -463,6 +464,7 @@
             this.CursolControlFormButton.Name = "CursolControlFormButton";
             this.CursolControlFormButton.OfficeImageId = "LeftButtonIconColor";
             this.CursolControlFormButton.ShowImage = true;
+            this.CursolControlFormButton.ShowLabel = false;
             this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
             // 
             // usedRangeSelectButton
@@ -471,13 +473,13 @@
             this.usedRangeSelectButton.Name = "usedRangeSelectButton";
             this.usedRangeSelectButton.OfficeImageId = "ControlPaddingNone";
             this.usedRangeSelectButton.ShowImage = true;
+            this.usedRangeSelectButton.ShowLabel = false;
             this.usedRangeSelectButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.usedRangeSelectButton_Click);
             // 
             // box7
             // 
-            this.box7.Items.Add(this.autoNumberButton);
-            this.box7.Items.Add(this.doRandomNumsButton);
-            this.box7.Items.Add(this.selectedAutoFillButton);
+            this.box7.Items.Add(this.markerDropdown);
+            this.box7.Items.Add(this.markerInputButton);
             this.box7.Items.Add(this.criteriaStringText);
             this.box7.Items.Add(this.autoFilterAutoValSetButton);
             this.box7.Items.Add(this.criteriaFazzyCheck);
@@ -514,6 +516,7 @@
             // 
             this.criteriaStringText.Label = "絞込";
             this.criteriaStringText.Name = "criteriaStringText";
+            this.criteriaStringText.ShowLabel = false;
             this.criteriaStringText.SizeString = "AAAAAAA";
             this.criteriaStringText.Text = null;
             // 
@@ -533,7 +536,7 @@
             // 
             // buttonGroup2
             // 
-            this.buttonGroup2.Items.Add(this.writeFormOpenButton);
+            this.buttonGroup2.Items.Add(this.nearCellCopyButton);
             this.buttonGroup2.Items.Add(this.ccEmptyButton);
             this.buttonGroup2.Items.Add(this.ccYellowButton);
             this.buttonGroup2.Items.Add(this.ccBlueButton);
@@ -541,6 +544,8 @@
             this.buttonGroup2.Items.Add(this.ccPinkButton);
             this.buttonGroup2.Items.Add(this.ccPurpleButton);
             this.buttonGroup2.Items.Add(this.ccRedButton);
+            this.buttonGroup2.Items.Add(this.CursolControlFormButton);
+            this.buttonGroup2.Items.Add(this.writeFormOpenButton);
             this.buttonGroup2.Name = "buttonGroup2";
             // 
             // writeFormOpenButton
@@ -549,6 +554,7 @@
             this.writeFormOpenButton.Name = "writeFormOpenButton";
             this.writeFormOpenButton.OfficeImageId = "CatalogMergeEditList";
             this.writeFormOpenButton.ShowImage = true;
+            this.writeFormOpenButton.ShowLabel = false;
             this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
             // 
             // ccEmptyButton
@@ -658,6 +664,7 @@
             // 
             this.box9.Items.Add(this.readActiveBookSheetsButton);
             this.box9.Items.Add(this.activeBookSheetsCombo);
+            this.box9.Items.Add(this.autoFilteredQueryButton);
             this.box9.Name = "box9";
             // 
             // readActiveBookSheetsButton
@@ -674,17 +681,9 @@
             this.activeBookSheetsCombo.Label = "シート切換";
             this.activeBookSheetsCombo.Name = "activeBookSheetsCombo";
             this.activeBookSheetsCombo.ShowLabel = false;
-            this.activeBookSheetsCombo.SizeString = "AAAAAAAAAAAAA";
+            this.activeBookSheetsCombo.SizeString = "AAAAAAAAA";
             this.activeBookSheetsCombo.Text = null;
             this.activeBookSheetsCombo.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.activeBookSheetsCombo_TextChanged);
-            // 
-            // autoFilteredQueryButton
-            // 
-            this.autoFilteredQueryButton.Label = "出力";
-            this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
-            this.autoFilteredQueryButton.OfficeImageId = "FilterBySelection";
-            this.autoFilteredQueryButton.ShowImage = true;
-            this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
             // 
             // box4
             // 
@@ -693,6 +692,7 @@
             this.box4.Items.Add(this.insertArrowButton);
             this.box4.Items.Add(this.insertCalloutButton);
             this.box4.Items.Add(this.insertTextBoxButton);
+            this.box4.Items.Add(this.insertBigTextButton);
             this.box4.Name = "box4";
             // 
             // insertRoundedRectButton
@@ -740,13 +740,22 @@
             this.insertTextBoxButton.ShowLabel = false;
             this.insertTextBoxButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertTextBoxButton_Click);
             // 
+            // insertBigTextButton
+            // 
+            this.insertBigTextButton.Label = "大きな文字";
+            this.insertBigTextButton.Name = "insertBigTextButton";
+            this.insertBigTextButton.OfficeImageId = "AddToContentStore";
+            this.insertBigTextButton.ShowImage = true;
+            this.insertBigTextButton.ShowLabel = false;
+            this.insertBigTextButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.insertBigTextButton_Click);
+            // 
             // box10
             // 
             this.box10.Items.Add(this.resetShapeStyleButton);
             this.box10.Items.Add(this.bringFrontButton);
             this.box10.Items.Add(this.horizontalFlipButton);
             this.box10.Items.Add(this.verticalFlipButton);
-            this.box10.Items.Add(this.autoFilteredQueryButton);
+            this.box10.Items.Add(this.selectObjectButton);
             this.box10.Name = "box10";
             // 
             // resetShapeStyleButton
@@ -784,6 +793,24 @@
             this.verticalFlipButton.ShowImage = true;
             this.verticalFlipButton.ShowLabel = false;
             this.verticalFlipButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.verticalFlipButton_Click);
+            // 
+            // selectObjectButton
+            // 
+            this.selectObjectButton.Label = "図形全選択";
+            this.selectObjectButton.Name = "selectObjectButton";
+            this.selectObjectButton.OfficeImageId = "SkewerClick";
+            this.selectObjectButton.ShowImage = true;
+            this.selectObjectButton.ShowLabel = false;
+            this.selectObjectButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectObjectButton_Click);
+            // 
+            // autoFilteredQueryButton
+            // 
+            this.autoFilteredQueryButton.Label = "抽出行出力";
+            this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
+            this.autoFilteredQueryButton.OfficeImageId = "FilterBySelection";
+            this.autoFilteredQueryButton.ShowImage = true;
+            this.autoFilteredQueryButton.ShowLabel = false;
+            this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
             // 
             // group2
             // 
@@ -990,6 +1017,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton bringFrontButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton horizontalFlipButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton verticalFlipButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton insertBigTextButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton selectObjectButton;
     }
 
     partial class ThisRibbonCollection

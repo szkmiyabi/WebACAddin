@@ -470,7 +470,8 @@ namespace WebACAddin
         //透明枠
         private void insertTextBoxButton_Click(object sender, RibbonControlEventArgs e)
         {
-            insert_textbox();
+            //insert_textbox();
+            insert_big_text();
         }
 
         //赤枠
@@ -521,6 +522,17 @@ namespace WebACAddin
             vertical_flip();
         }
 
+        //大きな文字
+        private void insertBigTextButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            insert_big_text();
+        }
+
+        //図形全選択
+        private void selectObjectButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            select_object();
+        }
     }
 
 }
