@@ -470,8 +470,7 @@ namespace WebACAddin
         //透明枠
         private void insertTextBoxButton_Click(object sender, RibbonControlEventArgs e)
         {
-            //insert_textbox();
-            insert_big_text();
+            insert_textbox();
         }
 
         //赤枠
