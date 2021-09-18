@@ -172,8 +172,6 @@
             this.group1.Items.Add(this.customConditionFormatButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
-            this.group1.Items.Add(this.autoFilteredQueryButton);
-            this.group1.Items.Add(this.cellDropDownListButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
@@ -397,6 +395,7 @@
             this.box2.Items.Add(this.usedRangeSelectButton);
             this.box2.Items.Add(this.autoNumberButton);
             this.box2.Items.Add(this.doRandomNumsButton);
+            this.box2.Items.Add(this.cellDropDownListButton);
             this.box2.Items.Add(this.selectedAutoFillButton);
             this.box2.Name = "box2";
             // 
@@ -685,6 +684,7 @@
             // 
             this.box9.Items.Add(this.readActiveBookSheetsButton);
             this.box9.Items.Add(this.activeBookSheetsCombo);
+            this.box9.Items.Add(this.autoFilteredQueryButton);
             this.box9.Name = "box9";
             // 
             // readActiveBookSheetsButton
