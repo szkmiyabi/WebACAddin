@@ -1092,6 +1092,42 @@ namespace WebACAddin
 
         }
 
+        //ドロップダウンリストを自動セット
+        private void cell_drop_down_list()
+        {
+            select_this_column_range();
+            var sa = excelObj.Application.Selection;
+            object alertType = Excel.XlDVAlertStyle.xlValidAlertInformation;
+            object conditionOperator = 3;
+            object valueList = "　,適合,適合(注記),不適合,非適用";
+            try
+            {
+                sa.Validation.Add(
+                    Excel.XlDVType.xlValidateList,
+                    alertType,
+                    conditionOperator,
+                    valueList
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        //カレント列のデータ入力範囲行をアクティブセルを起点に全て選択
+        private void select_this_column_range()
+        {
+            var ash = excelObj.Application.ActiveSheet;
+            var sa = excelObj.Application.Selection;
+            Excel.Range vrange = ash.Range["A1"].End[Excel.XlDirection.xlDown];
+            int nr = vrange.Rows[vrange.Rows.Count].Row;
+            int cr = sa.Row;
+            int cc = sa.Column;
+            Excel.Range asa = ash.Range[ash.Cells[cr, cc], ash.Cells[nr, cc]];
+            asa.Select();
+        }
+
         //升目に罫線を引く
         private void do_border_matrix()
         {

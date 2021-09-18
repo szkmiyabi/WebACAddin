@@ -110,6 +110,7 @@
             this.readActiveBookSheetsButton = this.Factory.CreateRibbonButton();
             this.activeBookSheetsCombo = this.Factory.CreateRibbonComboBox();
             this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
+            this.cellDropDownListButton = this.Factory.CreateRibbonButton();
             this.box4 = this.Factory.CreateRibbonBox();
             this.insertRoundedRectButton = this.Factory.CreateRibbonButton();
             this.insertLineArrowButton = this.Factory.CreateRibbonButton();
@@ -171,43 +172,63 @@
             this.group1.Items.Add(this.customConditionFormatButton);
             this.group1.Items.Add(this.dispEasyHtmlDocButton);
             this.group1.Items.Add(this.dispContrastRepFormButton);
+            this.group1.Items.Add(this.autoFilteredQueryButton);
+            this.group1.Items.Add(this.cellDropDownListButton);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
             // 
             // cellAnalysisButton
             // 
-            this.cellAnalysisButton.Label = "データ解析";
+            this.cellAnalysisButton.Label = "解析";
             this.cellAnalysisButton.Name = "cellAnalysisButton";
+            this.cellAnalysisButton.OfficeImageId = "ChartTypeOtherInsertGallery";
+            this.cellAnalysisButton.ShowImage = true;
+            this.cellAnalysisButton.ShowLabel = false;
             this.cellAnalysisButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellAnalysisButton_Click);
             // 
             // svDataForPasteButton
             // 
-            this.svDataForPasteButton.Label = "判定ひな形";
+            this.svDataForPasteButton.Label = "ひな形";
             this.svDataForPasteButton.Name = "svDataForPasteButton";
+            this.svDataForPasteButton.OfficeImageId = "CreateClassModule";
+            this.svDataForPasteButton.ShowImage = true;
+            this.svDataForPasteButton.ShowLabel = false;
             this.svDataForPasteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svDataForPasteButton_Click);
             // 
             // repoRowUpdateButton
             // 
             this.repoRowUpdateButton.Label = "レポート修正";
             this.repoRowUpdateButton.Name = "repoRowUpdateButton";
+            this.repoRowUpdateButton.OfficeImageId = "XDInkPicture";
+            this.repoRowUpdateButton.ShowImage = true;
+            this.repoRowUpdateButton.ShowLabel = false;
             this.repoRowUpdateButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.repoRowUpdateButton_Click);
             // 
             // customConditionFormatButton
             // 
-            this.customConditionFormatButton.Label = "条件書式";
+            this.customConditionFormatButton.Label = "条件";
             this.customConditionFormatButton.Name = "customConditionFormatButton";
+            this.customConditionFormatButton.OfficeImageId = "ConditionalFormattingColorScalesGallery";
+            this.customConditionFormatButton.ShowImage = true;
+            this.customConditionFormatButton.ShowLabel = false;
             this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
             // 
             // dispEasyHtmlDocButton
             // 
             this.dispEasyHtmlDocButton.Label = "HTML表示";
             this.dispEasyHtmlDocButton.Name = "dispEasyHtmlDocButton";
+            this.dispEasyHtmlDocButton.OfficeImageId = "ViewWebLayoutView";
+            this.dispEasyHtmlDocButton.ShowImage = true;
+            this.dispEasyHtmlDocButton.ShowLabel = false;
             this.dispEasyHtmlDocButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispEasyHtmlDocButton_Click);
             // 
             // dispContrastRepFormButton
             // 
             this.dispContrastRepFormButton.Label = "コントラスト";
             this.dispContrastRepFormButton.Name = "dispContrastRepFormButton";
+            this.dispContrastRepFormButton.OfficeImageId = "ChartColorsGallery";
+            this.dispContrastRepFormButton.ShowImage = true;
+            this.dispContrastRepFormButton.ShowLabel = false;
             this.dispContrastRepFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.dispContrastRepFormButton_Click);
             // 
             // group4
@@ -664,7 +685,6 @@
             // 
             this.box9.Items.Add(this.readActiveBookSheetsButton);
             this.box9.Items.Add(this.activeBookSheetsCombo);
-            this.box9.Items.Add(this.autoFilteredQueryButton);
             this.box9.Name = "box9";
             // 
             // readActiveBookSheetsButton
@@ -693,6 +713,15 @@
             this.autoFilteredQueryButton.ShowImage = true;
             this.autoFilteredQueryButton.ShowLabel = false;
             this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
+            // 
+            // cellDropDownListButton
+            // 
+            this.cellDropDownListButton.Label = "button1";
+            this.cellDropDownListButton.Name = "cellDropDownListButton";
+            this.cellDropDownListButton.OfficeImageId = "ActiveXListBox";
+            this.cellDropDownListButton.ShowImage = true;
+            this.cellDropDownListButton.ShowLabel = false;
+            this.cellDropDownListButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellDropDownListButton_Click);
             // 
             // box4
             // 
@@ -1019,6 +1048,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton verticalFlipButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton insertBigTextButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton selectObjectButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton cellDropDownListButton;
     }
 
     partial class ThisRibbonCollection

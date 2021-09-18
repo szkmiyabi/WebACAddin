@@ -538,6 +538,12 @@ namespace WebACAddin
         {
             select_object();
         }
+
+        //判定ドロップダウンリストを自動設定
+        private void cellDropDownListButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            cell_drop_down_list();
+        }
     }
 
 }
