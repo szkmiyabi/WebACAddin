@@ -11,6 +11,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Core;
 using Microsoft.Office.Tools.Excel;
 using System.IO;
+using System.Threading;
 
 namespace WebACAddin
 {
@@ -994,17 +995,19 @@ namespace WebACAddin
         }
 
         //オートフィルタ抽出行をシートに書き出す
-        private void do_auto_filtered_query()
+        private void do_auto_filtered_query(IProgress<int> p, CancellationToken token)
         {
             List<List<string>> data = _get_auto_filtered_rows();
             var awb = excelObj.Application.ActiveWorkbook;
             var aws = awb.Worksheets;
+            int cnt = data.Count;
 
             Excel.Worksheet ws = aws.Add(After: aws[aws.Count]);
             ws.Name = "抽出_" + _get_logtime("yyyyMMdd_HHmmss");
 
             for(int i=0; i<data.Count; i++)
             {
+
                 List<string> row = data[i];
                 for(int j=0; j<row.Count; j++)
                 {
@@ -1014,6 +1017,15 @@ namespace WebACAddin
                     cell.VerticalAlignment = Excel.XlVAlign.xlVAlignTop;
                     cell.WrapText = false;
                 }
+                if (token.IsCancellationRequested)
+                {
+                    MessageBox.Show("処理をキャンセルしました。");
+                    return;
+                }
+                float step = (float)(i+1) / cnt;
+                step *= 100;
+                int percent = (int)Math.Floor(step);
+                p.Report(percent);
             }
             MessageBox.Show("オートフィルターの抽出行を新しいシートに書き出しました。");
 

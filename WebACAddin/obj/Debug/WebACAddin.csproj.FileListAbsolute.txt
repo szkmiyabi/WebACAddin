@@ -27,3 +27,4 @@ C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.C
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.dll
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.pdb
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.csproj.AssemblyReference.cache
+C:\Users\szkadmin\vs-project\WebACAddin\WebACAddin\obj\Debug\WebACAddin.Progress.resources

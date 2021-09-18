@@ -388,10 +388,15 @@ namespace WebACAddin
             ccffrmObj.Show();
         }
 
-        //抽出
-        private async void autoFilteredQueryButton_Click(object sender, RibbonControlEventArgs e)
+        //抽出オートフィルタ行抽出
+        private void autoFilteredQueryButton_Click(object sender, RibbonControlEventArgs e)
         {
-            await Task.Run(()=>do_auto_filtered_query());
+            this.autoFilteredQueryButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行抽出中");
+            prog.SetFunction(do_auto_filtered_query);
+            prog.ShowDialog();
+            this.autoFilteredQueryButton.Enabled = true;
         }
 
         //セル解析
