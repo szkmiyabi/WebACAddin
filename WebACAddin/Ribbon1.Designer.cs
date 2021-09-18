@@ -65,31 +65,29 @@
             this.box5 = this.Factory.CreateRibbonBox();
             this.writeCommentCombo = this.Factory.CreateRibbonComboBox();
             this.writeCommentInputButton = this.Factory.CreateRibbonButton();
-            this.markerDropdown = this.Factory.CreateRibbonComboBox();
-            this.markerInputButton = this.Factory.CreateRibbonButton();
             this.box6 = this.Factory.CreateRibbonBox();
             this.writeCommentAddButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFormButton = this.Factory.CreateRibbonButton();
             this.writeCommentAddFromFileButton = this.Factory.CreateRibbonButton();
             this.addCommentPreClearCheck = this.Factory.CreateRibbonCheckBox();
-            this.nearCellCopyButton = this.Factory.CreateRibbonSplitButton();
-            this.nearCellCopyFromLeftButton = this.Factory.CreateRibbonButton();
             this.box2 = this.Factory.CreateRibbonBox();
             this.delCommentSingleButton = this.Factory.CreateRibbonButton();
             this.delCommentAllButton = this.Factory.CreateRibbonButton();
             this.doEditComboButton = this.Factory.CreateRibbonButton();
             this.writeCommentComboSaveButton = this.Factory.CreateRibbonButton();
-            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
             this.usedRangeSelectButton = this.Factory.CreateRibbonButton();
-            this.box7 = this.Factory.CreateRibbonBox();
             this.autoNumberButton = this.Factory.CreateRibbonButton();
             this.doRandomNumsButton = this.Factory.CreateRibbonButton();
             this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
+            this.box7 = this.Factory.CreateRibbonBox();
+            this.markerDropdown = this.Factory.CreateRibbonComboBox();
+            this.markerInputButton = this.Factory.CreateRibbonButton();
             this.criteriaStringText = this.Factory.CreateRibbonEditBox();
             this.autoFilterAutoValSetButton = this.Factory.CreateRibbonButton();
             this.criteriaFazzyCheck = this.Factory.CreateRibbonCheckBox();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
-            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
+            this.nearCellCopyButton = this.Factory.CreateRibbonSplitButton();
+            this.nearCellCopyFromLeftButton = this.Factory.CreateRibbonButton();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
             this.ccBlueButton = this.Factory.CreateRibbonButton();
@@ -97,6 +95,8 @@
             this.ccPinkButton = this.Factory.CreateRibbonButton();
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
             this.ccRedButton = this.Factory.CreateRibbonButton();
+            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
+            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
             this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
             this.fontBoldButton = this.Factory.CreateRibbonButton();
             this.fontRedButton = this.Factory.CreateRibbonButton();
@@ -109,6 +109,7 @@
             this.box9 = this.Factory.CreateRibbonBox();
             this.readActiveBookSheetsButton = this.Factory.CreateRibbonButton();
             this.activeBookSheetsCombo = this.Factory.CreateRibbonComboBox();
+            this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.box4 = this.Factory.CreateRibbonBox();
             this.insertRoundedRectButton = this.Factory.CreateRibbonButton();
             this.insertLineArrowButton = this.Factory.CreateRibbonButton();
@@ -122,7 +123,6 @@
             this.horizontalFlipButton = this.Factory.CreateRibbonButton();
             this.verticalFlipButton = this.Factory.CreateRibbonButton();
             this.selectObjectButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.group2 = this.Factory.CreateRibbonGroup();
             this.setHrefBtn = this.Factory.CreateRibbonButton();
             this.setPageTitleBtn = this.Factory.CreateRibbonButton();
@@ -328,34 +328,6 @@
             this.writeCommentInputButton.ShowLabel = false;
             this.writeCommentInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.surveyChangeInputButton_Click);
             // 
-            // markerDropdown
-            // 
-            ribbonDropDownItemImpl1.Label = "*";
-            ribbonDropDownItemImpl2.Label = "-";
-            ribbonDropDownItemImpl3.Label = "○";
-            ribbonDropDownItemImpl4.Label = "△";
-            ribbonDropDownItemImpl5.Label = "×";
-            ribbonDropDownItemImpl6.Label = "■";
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl1);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl2);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl3);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl4);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl5);
-            this.markerDropdown.Items.Add(ribbonDropDownItemImpl6);
-            this.markerDropdown.Label = "記号";
-            this.markerDropdown.Name = "markerDropdown";
-            this.markerDropdown.SizeString = "AAAA";
-            this.markerDropdown.Text = null;
-            // 
-            // markerInputButton
-            // 
-            this.markerInputButton.Label = "印を付ける";
-            this.markerInputButton.Name = "markerInputButton";
-            this.markerInputButton.OfficeImageId = "BrowseNext";
-            this.markerInputButton.ShowImage = true;
-            this.markerInputButton.ShowLabel = false;
-            this.markerInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.markerInputButton_Click);
-            // 
             // box6
             // 
             this.box6.Items.Add(this.writeCommentAddButton);
@@ -394,21 +366,6 @@
             // 
             this.addCommentPreClearCheck.Label = "全削除";
             this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
-            // 
-            // nearCellCopyButton
-            // 
-            this.nearCellCopyButton.Items.Add(this.nearCellCopyFromLeftButton);
-            this.nearCellCopyButton.Label = "splitButton1";
-            this.nearCellCopyButton.Name = "nearCellCopyButton";
-            this.nearCellCopyButton.OfficeImageId = "ChangeAssignmentDatesToComplyWithEngagementsVisibleByContext";
-            this.nearCellCopyButton.ShowLabel = false;
-            // 
-            // nearCellCopyFromLeftButton
-            // 
-            this.nearCellCopyFromLeftButton.Label = "左から";
-            this.nearCellCopyFromLeftButton.Name = "nearCellCopyFromLeftButton";
-            this.nearCellCopyFromLeftButton.ShowImage = true;
-            this.nearCellCopyFromLeftButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.nearCellCopyFromLeftButton_Click);
             // 
             // box2
             // 
@@ -458,15 +415,6 @@
             this.writeCommentComboSaveButton.ShowLabel = false;
             this.writeCommentComboSaveButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeCommentComboSaveButton_Click);
             // 
-            // CursolControlFormButton
-            // 
-            this.CursolControlFormButton.Label = "カーソル";
-            this.CursolControlFormButton.Name = "CursolControlFormButton";
-            this.CursolControlFormButton.OfficeImageId = "LeftButtonIconColor";
-            this.CursolControlFormButton.ShowImage = true;
-            this.CursolControlFormButton.ShowLabel = false;
-            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
-            // 
             // usedRangeSelectButton
             // 
             this.usedRangeSelectButton.Label = "全選択";
@@ -475,15 +423,6 @@
             this.usedRangeSelectButton.ShowImage = true;
             this.usedRangeSelectButton.ShowLabel = false;
             this.usedRangeSelectButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.usedRangeSelectButton_Click);
-            // 
-            // box7
-            // 
-            this.box7.Items.Add(this.markerDropdown);
-            this.box7.Items.Add(this.markerInputButton);
-            this.box7.Items.Add(this.criteriaStringText);
-            this.box7.Items.Add(this.autoFilterAutoValSetButton);
-            this.box7.Items.Add(this.criteriaFazzyCheck);
-            this.box7.Name = "box7";
             // 
             // autoNumberButton
             // 
@@ -511,6 +450,43 @@
             this.selectedAutoFillButton.ShowImage = true;
             this.selectedAutoFillButton.ShowLabel = false;
             this.selectedAutoFillButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectedAutoFillButton_Click);
+            // 
+            // box7
+            // 
+            this.box7.Items.Add(this.markerDropdown);
+            this.box7.Items.Add(this.markerInputButton);
+            this.box7.Items.Add(this.criteriaStringText);
+            this.box7.Items.Add(this.autoFilterAutoValSetButton);
+            this.box7.Items.Add(this.criteriaFazzyCheck);
+            this.box7.Name = "box7";
+            // 
+            // markerDropdown
+            // 
+            ribbonDropDownItemImpl1.Label = "*";
+            ribbonDropDownItemImpl2.Label = "-";
+            ribbonDropDownItemImpl3.Label = "○";
+            ribbonDropDownItemImpl4.Label = "△";
+            ribbonDropDownItemImpl5.Label = "×";
+            ribbonDropDownItemImpl6.Label = "■";
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl1);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl2);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl3);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl4);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl5);
+            this.markerDropdown.Items.Add(ribbonDropDownItemImpl6);
+            this.markerDropdown.Label = "記号";
+            this.markerDropdown.Name = "markerDropdown";
+            this.markerDropdown.SizeString = "AAAA";
+            this.markerDropdown.Text = null;
+            // 
+            // markerInputButton
+            // 
+            this.markerInputButton.Label = "印を付ける";
+            this.markerInputButton.Name = "markerInputButton";
+            this.markerInputButton.OfficeImageId = "BrowseNext";
+            this.markerInputButton.ShowImage = true;
+            this.markerInputButton.ShowLabel = false;
+            this.markerInputButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.markerInputButton_Click);
             // 
             // criteriaStringText
             // 
@@ -548,14 +524,20 @@
             this.buttonGroup2.Items.Add(this.writeFormOpenButton);
             this.buttonGroup2.Name = "buttonGroup2";
             // 
-            // writeFormOpenButton
+            // nearCellCopyButton
             // 
-            this.writeFormOpenButton.Label = "セル編集";
-            this.writeFormOpenButton.Name = "writeFormOpenButton";
-            this.writeFormOpenButton.OfficeImageId = "CatalogMergeEditList";
-            this.writeFormOpenButton.ShowImage = true;
-            this.writeFormOpenButton.ShowLabel = false;
-            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
+            this.nearCellCopyButton.Items.Add(this.nearCellCopyFromLeftButton);
+            this.nearCellCopyButton.Label = "splitButton1";
+            this.nearCellCopyButton.Name = "nearCellCopyButton";
+            this.nearCellCopyButton.OfficeImageId = "ChangeAssignmentDatesToComplyWithEngagementsVisibleByContext";
+            this.nearCellCopyButton.ShowLabel = false;
+            // 
+            // nearCellCopyFromLeftButton
+            // 
+            this.nearCellCopyFromLeftButton.Label = "左から";
+            this.nearCellCopyFromLeftButton.Name = "nearCellCopyFromLeftButton";
+            this.nearCellCopyFromLeftButton.ShowImage = true;
+            this.nearCellCopyFromLeftButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.nearCellCopyFromLeftButton_Click);
             // 
             // ccEmptyButton
             // 
@@ -598,6 +580,24 @@
             this.ccRedButton.Label = "赤";
             this.ccRedButton.Name = "ccRedButton";
             this.ccRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ccRedButton_Click);
+            // 
+            // CursolControlFormButton
+            // 
+            this.CursolControlFormButton.Label = "カーソル";
+            this.CursolControlFormButton.Name = "CursolControlFormButton";
+            this.CursolControlFormButton.OfficeImageId = "LeftButtonIconColor";
+            this.CursolControlFormButton.ShowImage = true;
+            this.CursolControlFormButton.ShowLabel = false;
+            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
+            // 
+            // writeFormOpenButton
+            // 
+            this.writeFormOpenButton.Label = "セル編集";
+            this.writeFormOpenButton.Name = "writeFormOpenButton";
+            this.writeFormOpenButton.OfficeImageId = "CatalogMergeEditList";
+            this.writeFormOpenButton.ShowImage = true;
+            this.writeFormOpenButton.ShowLabel = false;
+            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
             // 
             // buttonGroup4
             // 
@@ -684,6 +684,15 @@
             this.activeBookSheetsCombo.SizeString = "AAAAAAAAA";
             this.activeBookSheetsCombo.Text = null;
             this.activeBookSheetsCombo.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.activeBookSheetsCombo_TextChanged);
+            // 
+            // autoFilteredQueryButton
+            // 
+            this.autoFilteredQueryButton.Label = "抽出行出力";
+            this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
+            this.autoFilteredQueryButton.OfficeImageId = "FilterBySelection";
+            this.autoFilteredQueryButton.ShowImage = true;
+            this.autoFilteredQueryButton.ShowLabel = false;
+            this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
             // 
             // box4
             // 
@@ -802,15 +811,6 @@
             this.selectObjectButton.ShowImage = true;
             this.selectObjectButton.ShowLabel = false;
             this.selectObjectButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectObjectButton_Click);
-            // 
-            // autoFilteredQueryButton
-            // 
-            this.autoFilteredQueryButton.Label = "抽出行出力";
-            this.autoFilteredQueryButton.Name = "autoFilteredQueryButton";
-            this.autoFilteredQueryButton.OfficeImageId = "FilterBySelection";
-            this.autoFilteredQueryButton.ShowImage = true;
-            this.autoFilteredQueryButton.ShowLabel = false;
-            this.autoFilteredQueryButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredQueryButton_Click);
             // 
             // group2
             // 

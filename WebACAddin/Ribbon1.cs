@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Net.Security;
+using System.Threading.Tasks;
 
 namespace WebACAddin
 {
@@ -388,9 +389,9 @@ namespace WebACAddin
         }
 
         //抽出
-        private void autoFilteredQueryButton_Click(object sender, RibbonControlEventArgs e)
+        private async void autoFilteredQueryButton_Click(object sender, RibbonControlEventArgs e)
         {
-            do_auto_filtered_query();
+            await Task.Run(()=>do_auto_filtered_query());
         }
 
         //セル解析
