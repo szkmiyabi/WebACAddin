@@ -17,8 +17,6 @@ namespace WebACAddin
     public partial class ListAddForm : Form
     {
 
-        private string br_sp = "<bkmk:br>";
-
         public ListAddForm()
         {
             InitializeComponent();
@@ -67,36 +65,20 @@ namespace WebACAddin
 
         }
 
-        //改行タグを挿入
-        private void do_insert_br()
-        {
-            string buff = ListAddFormText.Text;
-            int cnt = buff.Length;
-            int st = ListAddFormText.SelectionStart;
-            int ed = ListAddFormText.SelectionLength;
-            string front_txt = buff.Substring(0, st);
-            string back_txt = buff.Substring(st + ed);
-
-            ListAddFormText.Text = front_txt + br_sp + back_txt;
-            ListAddFormText.Select(st + ed + br_sp.Length, 0);
-        }
-
-
         //追加するボタンクリック
         private void InputFormAddButton_Click(object sender, EventArgs e)
         {
             add_data();
         }
 
-        private void InputFormText_KeyDown(object sender, KeyEventArgs e)
+        private void ListAddFormText_KeyDown(object sender, KeyEventArgs e)
         {
             //Ctrl + A
-            if(e.Control && e.KeyCode == Keys.A)
+            if (e.Control && e.KeyCode == Keys.A)
             {
                 e.SuppressKeyPress = true; //beep disabled
                 ListAddFormText.SelectAll();
             }
         }
-
     }
 }

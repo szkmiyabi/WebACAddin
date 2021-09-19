@@ -62,7 +62,7 @@
             this.ListAddFormText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ListAddFormText.Size = new System.Drawing.Size(320, 111);
             this.ListAddFormText.TabIndex = 0;
-            this.ListAddFormText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InputFormText_KeyDown);
+            this.ListAddFormText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListAddFormText_KeyDown);
             // 
             // flowLayoutPanel1
             // 
