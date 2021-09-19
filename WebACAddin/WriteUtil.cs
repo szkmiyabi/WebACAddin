@@ -1092,29 +1092,6 @@ namespace WebACAddin
 
         }
 
-        //ドロップダウンリストを自動セット
-        private void cell_drop_down_list()
-        {
-            select_this_column_range();
-            var sa = excelObj.Application.Selection;
-            object alertType = Excel.XlDVAlertStyle.xlValidAlertInformation;
-            object conditionOperator = 3;
-            object valueList = "　,適合,適合(注記),不適合,非適用";
-            try
-            {
-                sa.Validation.Add(
-                    Excel.XlDVType.xlValidateList,
-                    alertType,
-                    conditionOperator,
-                    valueList
-                );
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         //カレント列のデータ入力範囲行をアクティブセルを起点に全て選択
         private void select_this_column_range()
         {
@@ -1206,21 +1183,29 @@ namespace WebACAddin
         //近接セルから値を取得
         private void near_cell_copy_wrapper(string vector)
         {
-            Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
-            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
-            Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
+            try
+            {
+                Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
+                Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+                Excel.Areas areas = Globals.ThisAddIn.Application.Selection.Areas;
 
-            List<string> selectionList = new List<string>();
-            foreach (Excel.Range item in areas)
-            {
-                selectionList.Add(item.Address);
+                List<string> selectionList = new List<string>();
+                foreach (Excel.Range item in areas)
+                {
+                    selectionList.Add(item.Address);
+                }
+                ash.Range[selectionList[0]].Select();
+                for (int i = 0; i < selectionList.Count; i++)
+                {
+                    ash.Range[selectionList[i]].Select();
+                    near_cell_copy(vector);
+                }
             }
-            ash.Range[selectionList[0]].Select();
-            for (int i = 0; i < selectionList.Count; i++)
+            catch(Exception ex)
             {
-                ash.Range[selectionList[i]].Select();
-                near_cell_copy(vector);
+                MessageBox.Show("エラー：" + ex.Message);
             }
+
         }
 
         private void near_cell_copy(string vector)

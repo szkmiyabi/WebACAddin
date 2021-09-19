@@ -203,6 +203,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListAddForm.Designer.cs">
+      <DependentUpon>ListAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListAddForm.resx">
+      <DependentUpon>ListAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>

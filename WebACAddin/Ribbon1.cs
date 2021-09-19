@@ -37,6 +37,7 @@ namespace WebACAddin
         private static CtrlForm _ctrlfrmObj;
         private static ComboEditForm _cmbefrmObj;
         private static RepoUpdForm _rupfrmObj;
+        private static ListAddForm _laddfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -196,6 +197,19 @@ namespace WebACAddin
                     _rupfrmObj = new RepoUpdForm();
                 }
                 return _rupfrmObj;
+            }
+        }
+
+        //ListAddFormインスタンスの取得
+        public static ListAddForm laddfrmObj
+        {
+            get
+            {
+                if(_laddfrmObj == null || _laddfrmObj.IsDisposed)
+                {
+                    _laddfrmObj = new ListAddForm();
+                }
+                return _laddfrmObj;
             }
         }
 
@@ -539,10 +553,16 @@ namespace WebACAddin
             select_object();
         }
 
-        //判定ドロップダウンリストを自動設定
+        //入力規則リスト自動設定
         private void cellDropDownListButton_Click(object sender, RibbonControlEventArgs e)
         {
-            cell_drop_down_list();
+            laddfrmObj.Show();
+        }
+
+        //列範囲全選択
+        private void selectThisColumnRangeButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            select_this_column_range();
         }
     }
 
