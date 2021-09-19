@@ -564,6 +564,12 @@ namespace WebACAddin
         {
             select_this_column_range();
         }
+
+        //判定結果を整形表示
+        private void svDataDisplayButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            get_survey_disp_wrapper();
+        }
     }
 
 }

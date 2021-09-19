@@ -42,15 +42,19 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl6 = this.Factory.CreateRibbonDropDownItem();
             this.webACTab = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
+            this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
+            this.libraPlusToggle = this.Factory.CreateRibbonToggleButton();
             this.cellAnalysisButton = this.Factory.CreateRibbonButton();
-            this.svDataForPasteButton = this.Factory.CreateRibbonButton();
-            this.repoRowUpdateButton = this.Factory.CreateRibbonButton();
+            this.buttonGroup3 = this.Factory.CreateRibbonButtonGroup();
             this.customConditionFormatButton = this.Factory.CreateRibbonButton();
+            this.svDataForPasteButton = this.Factory.CreateRibbonButton();
+            this.svDataDisplayButton = this.Factory.CreateRibbonButton();
+            this.buttonGroup5 = this.Factory.CreateRibbonButtonGroup();
+            this.repoRowUpdateButton = this.Factory.CreateRibbonButton();
             this.dispEasyHtmlDocButton = this.Factory.CreateRibbonButton();
             this.dispContrastRepFormButton = this.Factory.CreateRibbonButton();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.box3 = this.Factory.CreateRibbonBox();
-            this.libraPlusToggle = this.Factory.CreateRibbonToggleButton();
             this.svRedimFlagCombo = this.Factory.CreateRibbonComboBox();
             this.svRedimInputButton = this.Factory.CreateRibbonButton();
             this.box1 = this.Factory.CreateRibbonBox();
@@ -137,6 +141,9 @@
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
+            this.buttonGroup1.SuspendLayout();
+            this.buttonGroup3.SuspendLayout();
+            this.buttonGroup5.SuspendLayout();
             this.group4.SuspendLayout();
             this.box3.SuspendLayout();
             this.box1.SuspendLayout();
@@ -167,14 +174,26 @@
             // 
             // group1
             // 
-            this.group1.Items.Add(this.cellAnalysisButton);
-            this.group1.Items.Add(this.svDataForPasteButton);
-            this.group1.Items.Add(this.repoRowUpdateButton);
-            this.group1.Items.Add(this.customConditionFormatButton);
-            this.group1.Items.Add(this.dispEasyHtmlDocButton);
-            this.group1.Items.Add(this.dispContrastRepFormButton);
+            this.group1.Items.Add(this.buttonGroup1);
+            this.group1.Items.Add(this.buttonGroup3);
+            this.group1.Items.Add(this.buttonGroup5);
             this.group1.Label = "セル解析";
             this.group1.Name = "group1";
+            // 
+            // buttonGroup1
+            // 
+            this.buttonGroup1.Items.Add(this.libraPlusToggle);
+            this.buttonGroup1.Items.Add(this.cellAnalysisButton);
+            this.buttonGroup1.Name = "buttonGroup1";
+            // 
+            // libraPlusToggle
+            // 
+            this.libraPlusToggle.Label = "PS";
+            this.libraPlusToggle.Name = "libraPlusToggle";
+            this.libraPlusToggle.OfficeImageId = "SetPertWeights";
+            this.libraPlusToggle.ShowImage = true;
+            this.libraPlusToggle.SuperTip = "Libra／LibraPlusモード切替";
+            this.libraPlusToggle.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.libraPlusToggle_Click);
             // 
             // cellAnalysisButton
             // 
@@ -187,27 +206,12 @@
             this.cellAnalysisButton.SuperTip = "セルデータをいろいろ解析します。";
             this.cellAnalysisButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellAnalysisButton_Click);
             // 
-            // svDataForPasteButton
+            // buttonGroup3
             // 
-            this.svDataForPasteButton.Label = "判定ひな形";
-            this.svDataForPasteButton.Name = "svDataForPasteButton";
-            this.svDataForPasteButton.OfficeImageId = "CreateClassModule";
-            this.svDataForPasteButton.ScreenTip = "判定ひな形";
-            this.svDataForPasteButton.ShowImage = true;
-            this.svDataForPasteButton.ShowLabel = false;
-            this.svDataForPasteButton.SuperTip = "検査報告書からLibraの判定ひな形を生成します。";
-            this.svDataForPasteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svDataForPasteButton_Click);
-            // 
-            // repoRowUpdateButton
-            // 
-            this.repoRowUpdateButton.Label = "検査報告書の行修正";
-            this.repoRowUpdateButton.Name = "repoRowUpdateButton";
-            this.repoRowUpdateButton.OfficeImageId = "XDInkPicture";
-            this.repoRowUpdateButton.ScreenTip = "検査報告書の行修正";
-            this.repoRowUpdateButton.ShowImage = true;
-            this.repoRowUpdateButton.ShowLabel = false;
-            this.repoRowUpdateButton.SuperTip = "検査報告書の内容を行単位でひな形を用いて修正します。";
-            this.repoRowUpdateButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.repoRowUpdateButton_Click);
+            this.buttonGroup3.Items.Add(this.customConditionFormatButton);
+            this.buttonGroup3.Items.Add(this.svDataForPasteButton);
+            this.buttonGroup3.Items.Add(this.svDataDisplayButton);
+            this.buttonGroup3.Name = "buttonGroup3";
             // 
             // customConditionFormatButton
             // 
@@ -219,6 +223,46 @@
             this.customConditionFormatButton.ShowLabel = false;
             this.customConditionFormatButton.SuperTip = "自由度の高い条件付き書式を設定します。";
             this.customConditionFormatButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.customConditionFormatButton_Click);
+            // 
+            // svDataForPasteButton
+            // 
+            this.svDataForPasteButton.Label = "判定ひな形";
+            this.svDataForPasteButton.Name = "svDataForPasteButton";
+            this.svDataForPasteButton.OfficeImageId = "CreateClassModule";
+            this.svDataForPasteButton.ScreenTip = "判定ひな形";
+            this.svDataForPasteButton.ShowImage = true;
+            this.svDataForPasteButton.ShowLabel = false;
+            this.svDataForPasteButton.SuperTip = "検査報告書からLibraの判定ひな形を生成します。";
+            this.svDataForPasteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svDataForPasteButton_Click);
+            // 
+            // svDataDisplayButton
+            // 
+            this.svDataDisplayButton.Label = "判定結果を整形表示";
+            this.svDataDisplayButton.Name = "svDataDisplayButton";
+            this.svDataDisplayButton.OfficeImageId = "SubmitSelectedEngagements";
+            this.svDataDisplayButton.ScreenTip = "判定結果を整形表示";
+            this.svDataDisplayButton.ShowImage = true;
+            this.svDataDisplayButton.ShowLabel = false;
+            this.svDataDisplayButton.SuperTip = "判定結果を見やすく整形して表示します。";
+            this.svDataDisplayButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.svDataDisplayButton_Click);
+            // 
+            // buttonGroup5
+            // 
+            this.buttonGroup5.Items.Add(this.repoRowUpdateButton);
+            this.buttonGroup5.Items.Add(this.dispEasyHtmlDocButton);
+            this.buttonGroup5.Items.Add(this.dispContrastRepFormButton);
+            this.buttonGroup5.Name = "buttonGroup5";
+            // 
+            // repoRowUpdateButton
+            // 
+            this.repoRowUpdateButton.Label = "検査報告書の行修正";
+            this.repoRowUpdateButton.Name = "repoRowUpdateButton";
+            this.repoRowUpdateButton.OfficeImageId = "XDInkPicture";
+            this.repoRowUpdateButton.ScreenTip = "検査報告書の行修正";
+            this.repoRowUpdateButton.ShowImage = true;
+            this.repoRowUpdateButton.ShowLabel = false;
+            this.repoRowUpdateButton.SuperTip = "検査報告書の内容を行単位でひな形を用いて修正します。";
+            this.repoRowUpdateButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.repoRowUpdateButton_Click);
             // 
             // dispEasyHtmlDocButton
             // 
@@ -258,19 +302,9 @@
             // 
             // box3
             // 
-            this.box3.Items.Add(this.libraPlusToggle);
             this.box3.Items.Add(this.svRedimFlagCombo);
             this.box3.Items.Add(this.svRedimInputButton);
             this.box3.Name = "box3";
-            // 
-            // libraPlusToggle
-            // 
-            this.libraPlusToggle.Label = "PS";
-            this.libraPlusToggle.Name = "libraPlusToggle";
-            this.libraPlusToggle.OfficeImageId = "SetPertWeights";
-            this.libraPlusToggle.ShowImage = true;
-            this.libraPlusToggle.SuperTip = "Libra／LibraPlusモード切替";
-            this.libraPlusToggle.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.libraPlusToggle_Click);
             // 
             // svRedimFlagCombo
             // 
@@ -1015,6 +1049,12 @@
             this.webACTab.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            this.buttonGroup1.ResumeLayout(false);
+            this.buttonGroup1.PerformLayout();
+            this.buttonGroup3.ResumeLayout(false);
+            this.buttonGroup3.PerformLayout();
+            this.buttonGroup5.ResumeLayout(false);
+            this.buttonGroup5.PerformLayout();
             this.group4.ResumeLayout(false);
             this.group4.PerformLayout();
             this.box3.ResumeLayout(false);
@@ -1148,6 +1188,10 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton selectObjectButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton cellDropDownListButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton selectThisColumnRangeButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup3;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup5;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton svDataDisplayButton;
     }
 
     partial class ThisRibbonCollection
