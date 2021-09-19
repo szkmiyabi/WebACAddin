@@ -64,6 +64,7 @@ namespace WebACAddin
                 lb_sv_base();
             }
             frmObj.reportText.Clear();
+            frmObj.setTitle("判定ひな形を生成");
             frmObj.reportText.Text = get_survey_base_body;
             frmObj.WindowState = FormWindowState.Normal;
             frmObj.Activate();
@@ -146,6 +147,7 @@ namespace WebACAddin
                 lbps_sv_base();
             }
             frmObj.reportText.Clear();
+            frmObj.setTitle("判定ひな形を生成");
             frmObj.reportText.Text = get_survey_base_body;
             frmObj.WindowState = FormWindowState.Normal;
             frmObj.Activate();
@@ -250,6 +252,7 @@ namespace WebACAddin
             }
 
             frmObj.reportText.Clear();
+            frmObj.setTitle("判定結果を整形表示");
             frmObj.reportText.Text = get_wa_check_comment_base_body;
             frmObj.WindowState = FormWindowState.Normal;
             frmObj.Activate();
@@ -343,6 +346,7 @@ namespace WebACAddin
             }
 
             frmObj.reportText.Clear();
+            frmObj.setTitle("判定結果を整形表示");
             frmObj.reportText.Text = get_wa_check_comment_base_body;
             frmObj.WindowState = FormWindowState.Normal;
             frmObj.Activate();

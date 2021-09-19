@@ -14,6 +14,12 @@ namespace WebACAddin
         public Form1()
         {
             InitializeComponent();
+            TopMost = true;
+        }
+
+        public void setTitle(string title)
+        {
+            this.Text = title;
         }
 
         private void reportText_KeyDown(object sender, KeyEventArgs e)
@@ -25,5 +31,6 @@ namespace WebACAddin
                 reportText.SelectAll();
             }
         }
+
     }
 }

@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(326, 156);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(326, 155);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ListAddFormText
@@ -60,7 +60,7 @@
             this.ListAddFormText.Multiline = true;
             this.ListAddFormText.Name = "ListAddFormText";
             this.ListAddFormText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ListAddFormText.Size = new System.Drawing.Size(320, 111);
+            this.ListAddFormText.Size = new System.Drawing.Size(320, 110);
             this.ListAddFormText.TabIndex = 0;
             this.ListAddFormText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListAddFormText_KeyDown);
             // 
@@ -68,7 +68,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.InputFormAddButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(123, 120);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(123, 119);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 33);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 156);
+            this.ClientSize = new System.Drawing.Size(326, 155);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ListAddForm";
             this.ShowIcon = false;

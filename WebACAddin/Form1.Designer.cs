@@ -28,36 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.reportText = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.reportText, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.33923F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.66078F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(447, 283);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // reportText
             // 
             this.reportText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportText.Location = new System.Drawing.Point(0, 0);
+            this.reportText.Location = new System.Drawing.Point(3, 3);
             this.reportText.Multiline = true;
             this.reportText.Name = "reportText";
             this.reportText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.reportText.Size = new System.Drawing.Size(521, 252);
+            this.reportText.Size = new System.Drawing.Size(441, 244);
             this.reportText.TabIndex = 0;
             this.reportText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.reportText_KeyDown);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 252);
-            this.Controls.Add(this.reportText);
+            this.ClientSize = new System.Drawing.Size(447, 283);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "テキストフォーム";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         public System.Windows.Forms.TextBox reportText;
     }
 }

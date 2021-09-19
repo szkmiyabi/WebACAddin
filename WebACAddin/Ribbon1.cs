@@ -70,6 +70,11 @@ namespace WebACAddin
             return excelObj;
         }
 
+        public Boolean getIsLibraPlusOn()
+        {
+            return isLibraPlusOn;
+        }
+
         //Form1インスタンスの取得
         public static Form1 frmObj
         {

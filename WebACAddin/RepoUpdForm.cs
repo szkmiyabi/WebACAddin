@@ -25,15 +25,17 @@ namespace WebACAddin
         public RepoUpdForm()
         {
             InitializeComponent();
+            TopMost = true;
         }
 
         //Libraの判定ひな形をExcelに反映
         private void update_report_row()
         {
+            Boolean isLibraPlus = Globals.Ribbons.Ribbon1.getIsLibraPlusOn();
+
             Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
             Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
 
-            if (ash.Name != "検査結果") return;
             string src = srcText.Text;
             if (src == null || src == "") return;
 
@@ -45,7 +47,7 @@ namespace WebACAddin
             };
 
             //デリゲート（新旧セルデータを判断した書き換え）
-            Func<string, string, string> _ov = delegate (string cell_val, string new_val)
+            Func<string, string, Boolean, string> _ov = delegate (string cell_val, string new_val, Boolean lbps_flg)
             {
                 if (new_val == null && cell_val == null) return "";
                 if (cell_val == null) return new_val;
@@ -55,7 +57,17 @@ namespace WebACAddin
 
                 string ret = "";
 
-                List<string> sv_hash = new List<string>() { "適合", "不適合", "非適用", "適合(注記)", "未" };
+                List<string> sv_hash;
+                if (lbps_flg)
+                {
+                    sv_hash = new List<string>() { "はい", "いいえ", "なし", "はい(注記)", "未" };
+                }
+                else
+                {
+                    sv_hash = new List<string>() { "適合", "不適合", "非適用", "適合(注記)", "未" };
+
+                }
+
                 if (sv_hash.Contains(cell_val))
                 {
                     if (cell_val == new_val) ret = cell_val;
@@ -64,7 +76,7 @@ namespace WebACAddin
                 else
                 {
                     if (cell_val == new_val) ret = cell_val;
-                    else ret = cell_val + "\n\n" + new_val;
+                    else ret = cell_val + "\n\n↓修正後\n\n" + new_val;
                 }
                 return ret;
             };
@@ -80,17 +92,39 @@ namespace WebACAddin
 
             if(opt_type == "ov")
             {
-                ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv);
-                ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, comment);
-                ash.Cells[r, 9].Value = _ov((string)ash.Cells[r, 9].Value, description);
-                ash.Cells[r, 10].Value = _ov((string)ash.Cells[r, 10].Value, srccode);
+                if (isLibraPlus)
+                {
+                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, true);
+                    ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, comment, true);
+                    ash.Cells[r, 9].Value = _ov((string)ash.Cells[r, 9].Value, description, true);
+                    ash.Cells[r, 10].Value = _ov((string)ash.Cells[r, 10].Value, srccode, true);
+                }
+                else
+                {
+                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, false);
+                    ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, comment, false);
+                    ash.Cells[r, 9].Value = _ov((string)ash.Cells[r, 9].Value, description, false);
+                    ash.Cells[r, 10].Value = _ov((string)ash.Cells[r, 10].Value, srccode, false);
+                }
+
             }
             else if(opt_type == "new")
             {
-                ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv);
-                ash.Cells[r, 8].Value = comment;
-                ash.Cells[r, 9].Value = description;
-                ash.Cells[r, 10].Value = srccode;
+                if (isLibraPlus)
+                {
+                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, true);
+                    ash.Cells[r, 8].Value = comment;
+                    ash.Cells[r, 9].Value = description;
+                    ash.Cells[r, 10].Value = srccode;
+                }
+                else
+                {
+                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, false);
+                    ash.Cells[r, 8].Value = comment;
+                    ash.Cells[r, 9].Value = description;
+                    ash.Cells[r, 10].Value = srccode;
+                }
+
             }
 
         }
