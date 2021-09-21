@@ -90,21 +90,48 @@ namespace WebACAddin
             string description = _text(cols[5]);
             string srccode = _text(cols[6]);
 
+            string excel_type = get_sheet_type();
+
             if(opt_type == "ov")
             {
                 if (isLibraPlus)
                 {
-                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, true);
-                    ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, comment, true);
-                    ash.Cells[r, 9].Value = _ov((string)ash.Cells[r, 9].Value, description, true);
-                    ash.Cells[r, 10].Value = _ov((string)ash.Cells[r, 10].Value, srccode, true);
+                    if(excel_type == "all-report")
+                    {
+                        ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, true);
+                        ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, comment, true);
+                        ash.Cells[r, 9].Value = _ov((string)ash.Cells[r, 9].Value, description, true);
+                        ash.Cells[r, 10].Value = _ov((string)ash.Cells[r, 10].Value, srccode, true);
+                    }
+                    else if(excel_type == "category-sv")
+                    {
+                        ash.Cells[r, 4].Value = _ov((string)ash.Cells[r, 4].Value, sv, true);
+                        ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, comment, true);
+                        ash.Cells[r, 7].Value = _ov((string)ash.Cells[r, 7].Value, description, true);
+                        ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, srccode, true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("動作対象外のSheetです。");
+                        return;
+                    }
+
                 }
                 else
                 {
-                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, false);
-                    ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, comment, false);
-                    ash.Cells[r, 9].Value = _ov((string)ash.Cells[r, 9].Value, description, false);
-                    ash.Cells[r, 10].Value = _ov((string)ash.Cells[r, 10].Value, srccode, false);
+                    if(excel_type == "my-excel")
+                    {
+                        ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, false);
+                        ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, comment, false);
+                        ash.Cells[r, 9].Value = _ov((string)ash.Cells[r, 9].Value, description, false);
+                        ash.Cells[r, 10].Value = _ov((string)ash.Cells[r, 10].Value, srccode, false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("動作対象外のSheetです。");
+                        return;
+                    }
+
                 }
 
             }
@@ -112,17 +139,42 @@ namespace WebACAddin
             {
                 if (isLibraPlus)
                 {
-                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, true);
-                    ash.Cells[r, 8].Value = comment;
-                    ash.Cells[r, 9].Value = description;
-                    ash.Cells[r, 10].Value = srccode;
+                    if(excel_type == "all-report")
+                    {
+                        ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, true);
+                        ash.Cells[r, 8].Value = comment;
+                        ash.Cells[r, 9].Value = description;
+                        ash.Cells[r, 10].Value = srccode;
+                    }
+                    else if (excel_type == "category-sv")
+                    {
+                        ash.Cells[r, 4].Value = _ov((string)ash.Cells[r, 4].Value, sv, true);
+                        ash.Cells[r, 6].Value = comment;
+                        ash.Cells[r, 7].Value = description;
+                        ash.Cells[r, 8].Value = srccode;
+                    }
+                    else
+                    {
+                        MessageBox.Show("動作対象外のSheetです。");
+                        return;
+                    }
+
                 }
                 else
                 {
-                    ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, false);
-                    ash.Cells[r, 8].Value = comment;
-                    ash.Cells[r, 9].Value = description;
-                    ash.Cells[r, 10].Value = srccode;
+                    if (excel_type == "my-excel")
+                    {
+                        ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 6].Value, sv, false);
+                        ash.Cells[r, 8].Value = comment;
+                        ash.Cells[r, 9].Value = description;
+                        ash.Cells[r, 10].Value = srccode;
+                    }
+                    else
+                    {
+                        MessageBox.Show("動作対象外のSheetです。");
+                        return;
+                    }
+
                 }
 
             }
@@ -134,6 +186,43 @@ namespace WebACAddin
         {
             update_report_row();
             this.Dispose();
+        }
+
+        //表種類の判定
+        private string get_sheet_type()
+        {
+            var ash = Globals.ThisAddIn.Application.ActiveSheet;
+            string type_name = "";
+            string[] lb_type_name = { "my-excel", "libra-excel" };
+            string[] lbps_type_name = { "fail-report", "all-report", "category-sv" };
+
+            if (Globals.Ribbons.Ribbon1.getIsLibraPlusOn())
+            {
+                if ((string)ash.Cells[1, 13].Value == "検査番号")
+                {
+                    type_name = lbps_type_name[0];
+                }
+                else if ((string)ash.Cells[1, 12].Value == "更新者")
+                {
+                    type_name = lbps_type_name[1];
+                }
+                else if ((string)ash.Cells[1, 1].Value == "検査番号")
+                {
+                    type_name = lbps_type_name[2];
+                }
+            }
+            else
+            {
+                if ((string)ash.Cells[1, 3].Value == "達成基準")
+                {
+                    type_name = lb_type_name[0];
+                }
+                else if ((string)ash.Cells[1, 3].Value == "行番号")
+                {
+                    type_name = lb_type_name[1];
+                }
+            }
+            return type_name;
         }
     }
 }
