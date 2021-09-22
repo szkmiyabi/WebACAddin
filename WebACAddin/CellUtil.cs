@@ -113,9 +113,9 @@ namespace WebACAddin
                         sv_flag = "適合(注記)";
                     }
                     techID = (string)ash.Cells[i, 7].Value;
-                    comment = _text_clean((string)ash.Cells[i, 5].Value);
+                    comment = _br_encode((string)ash.Cells[i, 5].Value);
                     description = _br_encode((string)ash.Cells[i, 4].Value);
-                    srccode = _text_clean((string)ash.Cells[i, 6].Value);
+                    srccode = _br_encode((string)ash.Cells[i, 6].Value);
                 }
 
                 get_survey_base_body += techID + tab_sp + sv_flag + tab_sp + sv_copy_flag + tab_sp + "who" + tab_sp;
@@ -279,10 +279,10 @@ namespace WebACAddin
                     string guideline = (string)ash.Cells[i, 3].Value;
                     string pageID = (string)ash.Cells[i, 1].Value;
                     string techID = (string)ash.Cells[i, 5].Value;
-                    string sv_flag = (string)ash.Cells[i, 6].Value;
-                    string comment = _text_clean((string)ash.Cells[i, 8].Value);
-                    string description = _text_clean((string)ash.Cells[i, 9].Value);
-                    string srccode = _text_clean((string)ash.Cells[i, 10].Value);
+                    string sv_flag = _text_clean((string)ash.Cells[i, 6].Value);
+                    string comment = _sv_disp_text_clean((string)ash.Cells[i, 8].Value);
+                    string description = _sv_disp_text_clean((string)ash.Cells[i, 9].Value);
+                    string srccode = _sv_disp_text_clean((string)ash.Cells[i, 10].Value);
 
                     get_wa_check_comment_base_body += "■ページID: " + pageID + "\r\n";
                     get_wa_check_comment_base_body += "■達成基準: " + guideline + "\r\n";
@@ -307,9 +307,9 @@ namespace WebACAddin
                     }
                     string guidelineAndtechID = (string)ash.Cells[i, 7].Value;
                     string pageID = (string)ash.Cells[i, 1].Value;
-                    string comment = _text_clean((string)ash.Cells[i, 5].Value);
-                    string description = _text_clean((string)ash.Cells[i, 4].Value);
-                    string srccode = _text_clean((string)ash.Cells[i, 6].Value);
+                    string comment = _sv_disp_text_clean((string)ash.Cells[i, 5].Value);
+                    string description = _sv_disp_text_clean((string)ash.Cells[i, 4].Value);
+                    string srccode = _sv_disp_text_clean((string)ash.Cells[i, 6].Value);
 
                     get_wa_check_comment_base_body += "■ページID: " + pageID + "\r\n";
                     get_wa_check_comment_base_body += "■達成基準/実装番号: " + guidelineAndtechID + "\r\n\r\n";
@@ -384,9 +384,9 @@ namespace WebACAddin
                     string category = (string)ash.Cells[i, 3].Value;
                     string guideline = (string)ash.Cells[i, 5].Value;
                     string pageID = (string)ash.Cells[i, 1].Value;
-                    string comment = _br_encode((string)ash.Cells[i, 7].Value);
-                    string description = _br_encode((string)ash.Cells[i, 8].Value);
-                    string srccode = _br_encode((string)ash.Cells[i, 9].Value);
+                    string comment = _sv_disp_text_clean((string)ash.Cells[i, 7].Value);
+                    string description = _sv_disp_text_clean((string)ash.Cells[i, 8].Value);
+                    string srccode = _sv_disp_text_clean((string)ash.Cells[i, 9].Value);
 
                     get_wa_check_comment_base_body += "■ページID: " + pageID + "\r\n";
                     get_wa_check_comment_base_body += "■検査カテゴリ: " + category + "\r\n";
@@ -404,10 +404,10 @@ namespace WebACAddin
                     string category = (string)ash.Cells[i, 3].Value;
                     string guideline = (string)ash.Cells[i, 5].Value;
                     string pageID = (string)ash.Cells[i, 1].Value;
-                    string sv_flag = _br_encode((string)ash.Cells[i, 6].Value);
-                    string comment = _br_encode((string)ash.Cells[i, 8].Value);
-                    string description = _br_encode((string)ash.Cells[i, 9].Value);
-                    string srccode = _br_encode((string)ash.Cells[i, 10].Value);
+                    string sv_flag = _text_clean((string)ash.Cells[i, 6].Value);
+                    string comment = _sv_disp_text_clean((string)ash.Cells[i, 8].Value);
+                    string description = _sv_disp_text_clean((string)ash.Cells[i, 9].Value);
+                    string srccode = _sv_disp_text_clean((string)ash.Cells[i, 10].Value);
 
                     get_wa_check_comment_base_body += "■ページID: " + pageID + "\r\n";
                     get_wa_check_comment_base_body += "■検査カテゴリ: " + category + "\r\n";
@@ -420,12 +420,12 @@ namespace WebACAddin
                 //category-sv
                 else if (excel_type == "category-sv")
                 {
-                    string sv_flag = (string)ash.Cells[i, 4].Value;
+                    string sv_flag = _text_clean((string)ash.Cells[i, 4].Value);
                     string guidelineAndtechID = (string)ash.Cells[i, 3].Value;
                     string svID = (string)ash.Cells[i, 1].Value;
-                    string comment = _text_clean((string)ash.Cells[i, 6].Value);
-                    string description = _text_clean((string)ash.Cells[i, 7].Value);
-                    string srccode = _text_clean((string)ash.Cells[i, 8].Value);
+                    string comment = _sv_disp_text_clean((string)ash.Cells[i, 6].Value);
+                    string description = _sv_disp_text_clean((string)ash.Cells[i, 7].Value);
+                    string srccode = _sv_disp_text_clean((string)ash.Cells[i, 8].Value);
 
                     get_wa_check_comment_base_body += "■検査番号: " + svID + "\r\n";
                     get_wa_check_comment_base_body += "■達成基準/達成方法: " + guidelineAndtechID + "\r\n\r\n";
@@ -449,18 +449,18 @@ namespace WebACAddin
             return Regex.Replace(str, @"(\r\n|\r|\n)", br_sp, RegexOptions.Multiline);
         }
 
-        //テキストをお掃除
-        private string _text_clean(string str)
+        //判定表示用テキストのお掃除
+        private string _sv_disp_text_clean(string str)
         {
             string ret = "";
             try
             {
                 str = Regex.Replace(str, @"^ +", "", RegexOptions.Multiline);
                 str = Regex.Replace(str, @"\t+", "", RegexOptions.Multiline);
-                str = Regex.Replace(str, @"(\r\n|\r|\n)", "", RegexOptions.Multiline);
+                str = Regex.Replace(str, @"(\r|\n)", "\r\n", RegexOptions.Multiline);
                 ret = str;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
             }
             return ret;
@@ -474,9 +474,6 @@ namespace WebACAddin
             string[] lb_type_name = { "my-excel", "libra-excel" };
             string[] lbps_type_name = { "fail-report", "all-report", "category-sv" };
 
-            System.Diagnostics.Debug.WriteLine(isLibraPlusOn);
-            System.Diagnostics.Debug.WriteLine((string)ash.Cells[1,3].Value);
-            System.Diagnostics.Debug.WriteLine((string)ash.Cells[1,3].Value);
 
             if (isLibraPlusOn)
             {

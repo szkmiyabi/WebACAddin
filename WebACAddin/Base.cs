@@ -371,6 +371,22 @@ namespace WebACAddin
             return (int)cint;
         }
 
+        //テキストをお掃除
+        private string _text_clean(string str)
+        {
+            string ret = "";
+            try
+            {
+                str = Regex.Replace(str, @"^ +", "", RegexOptions.Multiline);
+                str = Regex.Replace(str, @"\t+", "", RegexOptions.Multiline);
+                str = Regex.Replace(str, @"(\r\n|\r|\n)", "", RegexOptions.Multiline);
+                ret = str;
+            }
+            catch (Exception ex)
+            {
+            }
+            return ret;
+        }
 
     }
 }
