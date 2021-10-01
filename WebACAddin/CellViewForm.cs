@@ -15,16 +15,15 @@ namespace WebACAddin
     {
         //アクティブシート
         private Microsoft.Office.Interop.Excel.Worksheet ash;
-        private string CurrentSheetName;
 
         //コンストラクタ
         public CellViewForm()
         {
             InitializeComponent();
             TopMostCheckBox.Checked = true;
+
             TopMost = true;
             ash = Globals.ThisAddIn.Application.ActiveSheet;
-            CurrentSheetName = ash.Name;
             FirstTake();
             ash.SelectionChange += SelectionChanged;
             //ash.SelectionChange += new Microsoft.Office.Interop.Excel.DocEvents_SelectionChangeEventHandler(SelectionChanged);

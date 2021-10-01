@@ -33,6 +33,7 @@ namespace WebACAddin
             this.ContentTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.TopMostCheckBox = new System.Windows.Forms.CheckBox();
+            this.SyncronizedCheckBox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,7 @@ namespace WebACAddin
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.TopMostCheckBox);
+            this.flowLayoutPanel1.Controls.Add(this.SyncronizedCheckBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 336);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 28);
@@ -81,6 +83,16 @@ namespace WebACAddin
             this.TopMostCheckBox.Text = "常に前面表示";
             this.TopMostCheckBox.UseVisualStyleBackColor = true;
             this.TopMostCheckBox.CheckedChanged += new System.EventHandler(this.TopMostCheckBox_CheckedChanged);
+            // 
+            // SyncronizedCheckBox
+            // 
+            this.SyncronizedCheckBox.AutoSize = true;
+            this.SyncronizedCheckBox.Location = new System.Drawing.Point(102, 3);
+            this.SyncronizedCheckBox.Name = "SyncronizedCheckBox";
+            this.SyncronizedCheckBox.Size = new System.Drawing.Size(72, 16);
+            this.SyncronizedCheckBox.TabIndex = 1;
+            this.SyncronizedCheckBox.Text = "同期有効";
+            this.SyncronizedCheckBox.UseVisualStyleBackColor = true;
             // 
             // CellViewForm
             // 
@@ -108,5 +120,6 @@ namespace WebACAddin
         private System.Windows.Forms.TextBox ContentTextBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox TopMostCheckBox;
+        private System.Windows.Forms.CheckBox SyncronizedCheckBox;
     }
 }
