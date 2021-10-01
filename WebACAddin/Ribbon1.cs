@@ -218,6 +218,7 @@ namespace WebACAddin
             }
         }
 
+
         //ハイパーリンクを設定
         private void setHrefBtn_Click(object sender, RibbonControlEventArgs e)
         {
@@ -255,7 +256,7 @@ namespace WebACAddin
             do_add_survey_write_wrapper();
         }
 
-        //この語句を追記する
+        //定型句を追記する
         private void surveyChangeInputButton_Click(object sender, RibbonControlEventArgs e)
         {
             do_add_comment_write();
@@ -574,6 +575,12 @@ namespace WebACAddin
         private void svDataDisplayButton_Click(object sender, RibbonControlEventArgs e)
         {
             get_survey_disp_wrapper();
+        }
+
+        private void CellViewButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            CellViewForm cvf = new CellViewForm();
+            cvf.Show();
         }
     }
 
