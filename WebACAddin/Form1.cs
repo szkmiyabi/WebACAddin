@@ -14,17 +14,19 @@ namespace WebACAddin
         public Form1()
         {
             InitializeComponent();
+            TopMostCheckBox.Checked = true;
             TopMost = true;
         }
 
+        //フォームタイトルを変更
         public void setTitle(string title)
         {
             this.Text = title;
         }
 
+        //Ctrl + A を実装
         private void reportText_KeyDown(object sender, KeyEventArgs e)
         {
-            //Ctrl + A を実装
             if(e.Control && e.KeyCode == Keys.A)
             {
                 e.SuppressKeyPress = true; //beep解除
@@ -32,5 +34,23 @@ namespace WebACAddin
             }
         }
 
+        //常に前面表示のトグル
+        private void TopMostCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = !TopMost;
+        }
+
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            string src = reportText.Text;
+            try
+            {
+                Clipboard.SetDataObject(src, false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("コピー失敗しました。\n" + "詳細：" + ex.Message);
+            }
+        }
     }
 }
