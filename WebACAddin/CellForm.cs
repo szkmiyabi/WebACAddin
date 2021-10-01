@@ -297,7 +297,6 @@ namespace WebACAddin
             {
                 MessageBox.Show("コピー失敗しました。\n" + "詳細：" + ex.Message);
             }
-            MessageBox.Show("クリップボードにコピーしました。");
         }
 
         //クリア
