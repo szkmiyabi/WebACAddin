@@ -34,6 +34,7 @@ namespace WebACAddin
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.TopMostCheckBox = new System.Windows.Forms.CheckBox();
             this.SyncronizedCheckBox = new System.Windows.Forms.CheckBox();
+            this.CopyButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,20 +64,23 @@ namespace WebACAddin
             this.ContentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ContentTextBox.Size = new System.Drawing.Size(524, 327);
             this.ContentTextBox.TabIndex = 0;
+            this.ContentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContentTextBox_KeyDown);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.TopMostCheckBox);
             this.flowLayoutPanel1.Controls.Add(this.SyncronizedCheckBox);
+            this.flowLayoutPanel1.Controls.Add(this.CopyButton);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 336);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(326, 28);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(329, 28);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // TopMostCheckBox
             // 
             this.TopMostCheckBox.AutoSize = true;
-            this.TopMostCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.TopMostCheckBox.Location = new System.Drawing.Point(3, 8);
+            this.TopMostCheckBox.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.TopMostCheckBox.Name = "TopMostCheckBox";
             this.TopMostCheckBox.Size = new System.Drawing.Size(93, 16);
             this.TopMostCheckBox.TabIndex = 0;
@@ -87,12 +91,24 @@ namespace WebACAddin
             // SyncronizedCheckBox
             // 
             this.SyncronizedCheckBox.AutoSize = true;
-            this.SyncronizedCheckBox.Location = new System.Drawing.Point(102, 3);
+            this.SyncronizedCheckBox.Location = new System.Drawing.Point(102, 8);
+            this.SyncronizedCheckBox.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.SyncronizedCheckBox.Name = "SyncronizedCheckBox";
             this.SyncronizedCheckBox.Size = new System.Drawing.Size(72, 16);
             this.SyncronizedCheckBox.TabIndex = 1;
             this.SyncronizedCheckBox.Text = "同期有効";
             this.SyncronizedCheckBox.UseVisualStyleBackColor = true;
+            this.SyncronizedCheckBox.CheckedChanged += new System.EventHandler(this.SyncronizedCheckBox_CheckedChanged);
+            // 
+            // CopyButton
+            // 
+            this.CopyButton.Location = new System.Drawing.Point(180, 3);
+            this.CopyButton.Name = "CopyButton";
+            this.CopyButton.Size = new System.Drawing.Size(120, 23);
+            this.CopyButton.TabIndex = 2;
+            this.CopyButton.Text = "クリップボードにコピー";
+            this.CopyButton.UseVisualStyleBackColor = true;
+            this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
             // 
             // CellViewForm
             // 
@@ -121,5 +137,6 @@ namespace WebACAddin
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox TopMostCheckBox;
         private System.Windows.Forms.CheckBox SyncronizedCheckBox;
+        private System.Windows.Forms.Button CopyButton;
     }
 }

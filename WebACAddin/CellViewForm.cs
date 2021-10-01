@@ -15,13 +15,15 @@ namespace WebACAddin
     {
         //アクティブシート
         private Microsoft.Office.Interop.Excel.Worksheet ash;
+        private bool isSyncronized;
 
         //コンストラクタ
         public CellViewForm()
         {
             InitializeComponent();
             TopMostCheckBox.Checked = true;
-
+            SyncronizedCheckBox.Checked = true;
+            isSyncronized = true;
             TopMost = true;
             ash = Globals.ThisAddIn.Application.ActiveSheet;
             FirstTake();
@@ -52,19 +54,23 @@ namespace WebACAddin
         //選択切替後のセルのデータを表示する（デリゲート）
         private void SelectionChanged(Microsoft.Office.Interop.Excel.Range target)
         {
-            int r = target.Row;
-            int c = target.Column;
-            string body = "";
-            if (ash.Cells[r, c].Value != null)
+            if (isSyncronized)
             {
-                Type t = ash.Cells[r, c].Value.GetType();
-                if (t.Equals(typeof(string)))
+                int r = target.Row;
+                int c = target.Column;
+                string body = "";
+                if (ash.Cells[r, c].Value != null)
                 {
-                    body = (string)ash.Cells[r, c].Value;
+                    Type t = ash.Cells[r, c].Value.GetType();
+                    if (t.Equals(typeof(string)))
+                    {
+                        body = (string)ash.Cells[r, c].Value;
+                    }
+                    body = _encode_return(body);
                 }
-                body = _encode_return(body);
+                ContentTextBox.Text = body;
             }
-            ContentTextBox.Text = body;
+
         }
 
         //フォームを閉じたときにデリゲートを削除する
@@ -90,6 +96,37 @@ namespace WebACAddin
         private void TopMostCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             TopMost = !TopMost;
+        }
+
+        //同期有効のトグル
+        private void SyncronizedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            isSyncronized = !isSyncronized;
+        }
+
+        //コピー
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            string src = ContentTextBox.Text;
+            try
+            {
+                Clipboard.SetDataObject(src, false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("コピー失敗しました。\n" + "詳細：" + ex.Message);
+            }
+        }
+
+        //Ctrl+A実装
+        private void ContentTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Ctrl + A
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                e.SuppressKeyPress = true; //beep disabled
+                ContentTextBox.SelectAll();
+            }
         }
     }
 }

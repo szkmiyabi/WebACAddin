@@ -88,10 +88,10 @@
             this.criteriaFazzyCheck = this.Factory.CreateRibbonCheckBox();
             this.criteriaStringText = this.Factory.CreateRibbonEditBox();
             this.autoFilterAutoValSetButton = this.Factory.CreateRibbonButton();
-            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
-            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
             this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.cellDropDownListButton = this.Factory.CreateRibbonButton();
+            this.CursolControlFormButton = this.Factory.CreateRibbonButton();
+            this.writeFormOpenButton = this.Factory.CreateRibbonButton();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
             this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
             this.autoNumberButton = this.Factory.CreateRibbonButton();
@@ -596,28 +596,6 @@
             this.autoFilterAutoValSetButton.SuperTip = "オートフィルタ適用した表で現在のカーソル列の絞込を左欄に入力した語句で実行します。「曖昧」にチェックを入れると曖昧に絞込ます。";
             this.autoFilterAutoValSetButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilterAutoValSetButton_Click);
             // 
-            // writeFormOpenButton
-            // 
-            this.writeFormOpenButton.Label = "セル編集フォーム表示";
-            this.writeFormOpenButton.Name = "writeFormOpenButton";
-            this.writeFormOpenButton.OfficeImageId = "EditPermissionGroup";
-            this.writeFormOpenButton.ScreenTip = "セル編集フォーム表示";
-            this.writeFormOpenButton.ShowImage = true;
-            this.writeFormOpenButton.ShowLabel = false;
-            this.writeFormOpenButton.SuperTip = "セルの複数行編集に役立つ専用フォーム画面を立ち上げます。";
-            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
-            // 
-            // CursolControlFormButton
-            // 
-            this.CursolControlFormButton.Label = "カーソル制御";
-            this.CursolControlFormButton.Name = "CursolControlFormButton";
-            this.CursolControlFormButton.OfficeImageId = "LeftButtonIconColor";
-            this.CursolControlFormButton.ScreenTip = "カーソル制御";
-            this.CursolControlFormButton.ShowImage = true;
-            this.CursolControlFormButton.ShowLabel = false;
-            this.CursolControlFormButton.SuperTip = "セルのカーソルを上下左右、指定行へマウス操作で制御するコントローラーを立ち上げます。";
-            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
-            // 
             // autoFilteredQueryButton
             // 
             this.autoFilteredQueryButton.Label = "オートフィルタ抽出行出力";
@@ -639,6 +617,28 @@
             this.cellDropDownListButton.ShowLabel = false;
             this.cellDropDownListButton.SuperTip = "Libraの判定語句を入力規則リストに自動設定します。";
             this.cellDropDownListButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellDropDownListButton_Click);
+            // 
+            // CursolControlFormButton
+            // 
+            this.CursolControlFormButton.Label = "カーソル制御";
+            this.CursolControlFormButton.Name = "CursolControlFormButton";
+            this.CursolControlFormButton.OfficeImageId = "LeftButtonIconColor";
+            this.CursolControlFormButton.ScreenTip = "カーソル制御";
+            this.CursolControlFormButton.ShowImage = true;
+            this.CursolControlFormButton.ShowLabel = false;
+            this.CursolControlFormButton.SuperTip = "セルのカーソルを上下左右、指定行へマウス操作で制御するコントローラーを立ち上げます。";
+            this.CursolControlFormButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.CursolControlFormButton_Click);
+            // 
+            // writeFormOpenButton
+            // 
+            this.writeFormOpenButton.Label = "セル編集フォーム表示";
+            this.writeFormOpenButton.Name = "writeFormOpenButton";
+            this.writeFormOpenButton.OfficeImageId = "EditPermissionGroup";
+            this.writeFormOpenButton.ScreenTip = "セル編集フォーム表示";
+            this.writeFormOpenButton.ShowImage = true;
+            this.writeFormOpenButton.ShowLabel = false;
+            this.writeFormOpenButton.SuperTip = "セルの複数行編集に役立つ専用フォーム画面を立ち上げます。";
+            this.writeFormOpenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.writeFormOpenButton_Click);
             // 
             // buttonGroup2
             // 
