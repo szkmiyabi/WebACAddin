@@ -1169,6 +1169,16 @@ namespace WebACAddin
             catch(Exception ex) { }
         }
 
+        //オートフィルターの絞り込み解除
+        private void clear_mytext_auto_filter()
+        {
+            Excel.Range acl = Globals.ThisAddIn.Application.ActiveCell;
+            Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
+            int cx = acl.Column;
+            Excel.Range ur = ash.UsedRange;
+            ur.AutoFilter(cx);
+        }
+
         //表全体自動選択
         private void auto_select_used_range()
         {

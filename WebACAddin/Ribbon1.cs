@@ -577,10 +577,17 @@ namespace WebACAddin
             get_survey_disp_wrapper();
         }
 
+        //セル値をプレビュー
         private void CellViewButton_Click(object sender, RibbonControlEventArgs e)
         {
             CellViewForm cvf = new CellViewForm();
             cvf.Show();
+        }
+
+        //絞り込み解除
+        private void autoFilterDeleteButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            clear_mytext_auto_filter();
         }
     }
 
