@@ -55,7 +55,7 @@
             // ListAddFormText
             // 
             this.ListAddFormText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ListAddFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ListAddFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ListAddFormText.Location = new System.Drawing.Point(3, 3);
             this.ListAddFormText.Multiline = true;
             this.ListAddFormText.Name = "ListAddFormText";

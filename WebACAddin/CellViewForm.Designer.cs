@@ -57,6 +57,7 @@ namespace WebACAddin
             // ContentTextBox
             // 
             this.ContentTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContentTextBox.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ContentTextBox.Location = new System.Drawing.Point(3, 3);
             this.ContentTextBox.MaxLength = 0;
             this.ContentTextBox.Multiline = true;

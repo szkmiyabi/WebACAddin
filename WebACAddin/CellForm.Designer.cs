@@ -35,11 +35,11 @@
             this.getColorCodeButton = new System.Windows.Forms.Button();
             this.matchColorListupButton = new System.Windows.Forms.Button();
             this.matchListColoringButton = new System.Windows.Forms.Button();
-            this.listReverseButton = new System.Windows.Forms.Button();
-            this.csvButton = new System.Windows.Forms.Button();
             this.matchFilteredRowButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.topMostCheck = new System.Windows.Forms.CheckBox();
+            this.listReverseButton = new System.Windows.Forms.Button();
+            this.csvButton = new System.Windows.Forms.Button();
             this.copyButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@
             // cellReportText
             // 
             this.cellReportText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cellReportText.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.cellReportText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cellReportText.Location = new System.Drawing.Point(3, 3);
             this.cellReportText.MaxLength = 0;
             this.cellReportText.Multiline = true;
@@ -131,27 +131,6 @@
             this.matchListColoringButton.UseVisualStyleBackColor = true;
             this.matchListColoringButton.Click += new System.EventHandler(this.matchListColoringButton_Click);
             // 
-            // listReverseButton
-            // 
-            this.listReverseButton.Location = new System.Drawing.Point(114, 3);
-            this.listReverseButton.Name = "listReverseButton";
-            this.listReverseButton.Size = new System.Drawing.Size(75, 23);
-            this.listReverseButton.TabIndex = 3;
-            this.listReverseButton.Text = "一覧を反転";
-            this.listReverseButton.UseVisualStyleBackColor = true;
-            this.listReverseButton.Click += new System.EventHandler(this.listReverseButton_Click);
-            // 
-            // csvButton
-            // 
-            this.csvButton.Location = new System.Drawing.Point(195, 3);
-            this.csvButton.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
-            this.csvButton.Name = "csvButton";
-            this.csvButton.Size = new System.Drawing.Size(73, 23);
-            this.csvButton.TabIndex = 4;
-            this.csvButton.Text = "カンマ区切";
-            this.csvButton.UseVisualStyleBackColor = true;
-            this.csvButton.Click += new System.EventHandler(this.csvButton_Click);
-            // 
             // matchFilteredRowButton
             // 
             this.matchFilteredRowButton.Location = new System.Drawing.Point(367, 3);
@@ -187,6 +166,27 @@
             this.topMostCheck.Text = "常に前面表示";
             this.topMostCheck.UseVisualStyleBackColor = true;
             this.topMostCheck.Click += new System.EventHandler(this.topMostCheck_Click);
+            // 
+            // listReverseButton
+            // 
+            this.listReverseButton.Location = new System.Drawing.Point(114, 3);
+            this.listReverseButton.Name = "listReverseButton";
+            this.listReverseButton.Size = new System.Drawing.Size(75, 23);
+            this.listReverseButton.TabIndex = 3;
+            this.listReverseButton.Text = "一覧を反転";
+            this.listReverseButton.UseVisualStyleBackColor = true;
+            this.listReverseButton.Click += new System.EventHandler(this.listReverseButton_Click);
+            // 
+            // csvButton
+            // 
+            this.csvButton.Location = new System.Drawing.Point(195, 3);
+            this.csvButton.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
+            this.csvButton.Name = "csvButton";
+            this.csvButton.Size = new System.Drawing.Size(73, 23);
+            this.csvButton.TabIndex = 4;
+            this.csvButton.Text = "カンマ区切";
+            this.csvButton.UseVisualStyleBackColor = true;
+            this.csvButton.Click += new System.EventHandler(this.csvButton_Click);
             // 
             // copyButton
             // 

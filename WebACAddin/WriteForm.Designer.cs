@@ -31,30 +31,30 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.writeFormText = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.writeFormSnipetCombo = new System.Windows.Forms.ComboBox();
-            this.writeFormSnipetInputButton = new System.Windows.Forms.Button();
-            this.BrInputButton = new System.Windows.Forms.Button();
-            this.tabStringDeleteButton = new System.Windows.Forms.Button();
             this.pullFromCellDataButton = new System.Windows.Forms.Button();
             this.pushToCellDataButton = new System.Windows.Forms.Button();
             this.browseBaseCellDataButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.writeFormTopMostCheck = new System.Windows.Forms.CheckBox();
+            this.opacityCheck = new System.Windows.Forms.CheckBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.writeFormSnipetCombo = new System.Windows.Forms.ComboBox();
+            this.writeFormSnipetInputButton = new System.Windows.Forms.Button();
             this.addCommentPreClearCheck = new System.Windows.Forms.CheckBox();
             this.writeFormSnipetAddButton = new System.Windows.Forms.Button();
             this.writeFormSnipetAddFromRibbonButton = new System.Windows.Forms.Button();
             this.writeFormSnipetAddFromFileButton = new System.Windows.Forms.Button();
             this.writeFormSnipetSaveButton = new System.Windows.Forms.Button();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BrInputButton = new System.Windows.Forms.Button();
+            this.tabStringDeleteButton = new System.Windows.Forms.Button();
+            this.dateInsertButton = new System.Windows.Forms.Button();
             this.writeFormRegxCheck = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.writeSearchText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.writeReplaceText = new System.Windows.Forms.TextBox();
             this.writeReplaceButton = new System.Windows.Forms.Button();
-            this.writeFormTopMostCheck = new System.Windows.Forms.CheckBox();
-            this.opacityCheck = new System.Windows.Forms.CheckBox();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.dateInsertButton = new System.Windows.Forms.Button();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -75,24 +75,24 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.50138F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.49862F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(714, 478);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 410);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // writeFormText
             // 
             this.writeFormText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.writeFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.writeFormText.Location = new System.Drawing.Point(3, 85);
+            this.writeFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.writeFormText.Location = new System.Drawing.Point(3, 73);
             this.writeFormText.Multiline = true;
             this.writeFormText.Name = "writeFormText";
             this.writeFormText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.writeFormText.Size = new System.Drawing.Size(708, 308);
+            this.writeFormText.Size = new System.Drawing.Size(606, 264);
             this.writeFormText.TabIndex = 0;
             this.writeFormText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.writeFormText_KeyDown);
             this.writeFormText.Leave += new System.EventHandler(this.writeFormText_Leave);
@@ -103,55 +103,16 @@
             this.flowLayoutPanel1.Controls.Add(this.pushToCellDataButton);
             this.flowLayoutPanel1.Controls.Add(this.browseBaseCellDataButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(250, 399);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(214, 343);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(461, 43);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(395, 36);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // writeFormSnipetCombo
-            // 
-            this.writeFormSnipetCombo.FormattingEnabled = true;
-            this.writeFormSnipetCombo.Location = new System.Drawing.Point(7, 3);
-            this.writeFormSnipetCombo.Margin = new System.Windows.Forms.Padding(7, 3, 3, 3);
-            this.writeFormSnipetCombo.Name = "writeFormSnipetCombo";
-            this.writeFormSnipetCombo.Size = new System.Drawing.Size(171, 22);
-            this.writeFormSnipetCombo.TabIndex = 3;
-            // 
-            // writeFormSnipetInputButton
-            // 
-            this.writeFormSnipetInputButton.Location = new System.Drawing.Point(184, 3);
-            this.writeFormSnipetInputButton.Name = "writeFormSnipetInputButton";
-            this.writeFormSnipetInputButton.Size = new System.Drawing.Size(78, 27);
-            this.writeFormSnipetInputButton.TabIndex = 4;
-            this.writeFormSnipetInputButton.Text = "語句挿入";
-            this.writeFormSnipetInputButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetInputButton.Click += new System.EventHandler(this.writeFormSnipetInputButton_Click);
-            // 
-            // BrInputButton
-            // 
-            this.BrInputButton.Location = new System.Drawing.Point(3, 3);
-            this.BrInputButton.Name = "BrInputButton";
-            this.BrInputButton.Size = new System.Drawing.Size(54, 27);
-            this.BrInputButton.TabIndex = 5;
-            this.BrInputButton.Text = "改行";
-            this.BrInputButton.UseVisualStyleBackColor = true;
-            this.BrInputButton.Click += new System.EventHandler(this.BrInputButton_Click);
-            // 
-            // tabStringDeleteButton
-            // 
-            this.tabStringDeleteButton.Location = new System.Drawing.Point(63, 3);
-            this.tabStringDeleteButton.Name = "tabStringDeleteButton";
-            this.tabStringDeleteButton.Size = new System.Drawing.Size(69, 27);
-            this.tabStringDeleteButton.TabIndex = 2;
-            this.tabStringDeleteButton.Text = "タブ除去";
-            this.tabStringDeleteButton.UseVisualStyleBackColor = true;
-            this.tabStringDeleteButton.Click += new System.EventHandler(this.tabStringDeleteButton_Click);
             // 
             // pullFromCellDataButton
             // 
             this.pullFromCellDataButton.Location = new System.Drawing.Point(3, 3);
             this.pullFromCellDataButton.Name = "pullFromCellDataButton";
-            this.pullFromCellDataButton.Size = new System.Drawing.Size(69, 34);
+            this.pullFromCellDataButton.Size = new System.Drawing.Size(59, 29);
             this.pullFromCellDataButton.TabIndex = 0;
             this.pullFromCellDataButton.Text = "読込";
             this.pullFromCellDataButton.UseVisualStyleBackColor = true;
@@ -159,9 +120,9 @@
             // 
             // pushToCellDataButton
             // 
-            this.pushToCellDataButton.Location = new System.Drawing.Point(78, 3);
+            this.pushToCellDataButton.Location = new System.Drawing.Point(68, 3);
             this.pushToCellDataButton.Name = "pushToCellDataButton";
-            this.pushToCellDataButton.Size = new System.Drawing.Size(65, 34);
+            this.pushToCellDataButton.Size = new System.Drawing.Size(56, 29);
             this.pushToCellDataButton.TabIndex = 1;
             this.pushToCellDataButton.Text = "送信";
             this.pushToCellDataButton.UseVisualStyleBackColor = true;
@@ -169,141 +130,31 @@
             // 
             // browseBaseCellDataButton
             // 
-            this.browseBaseCellDataButton.Location = new System.Drawing.Point(186, 3);
-            this.browseBaseCellDataButton.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+            this.browseBaseCellDataButton.Location = new System.Drawing.Point(161, 3);
+            this.browseBaseCellDataButton.Margin = new System.Windows.Forms.Padding(34, 3, 3, 3);
             this.browseBaseCellDataButton.Name = "browseBaseCellDataButton";
-            this.browseBaseCellDataButton.Size = new System.Drawing.Size(106, 34);
+            this.browseBaseCellDataButton.Size = new System.Drawing.Size(91, 29);
             this.browseBaseCellDataButton.TabIndex = 6;
             this.browseBaseCellDataButton.Text = "省略行表示";
             this.browseBaseCellDataButton.UseVisualStyleBackColor = true;
             this.browseBaseCellDataButton.Click += new System.EventHandler(this.browseBaseCellDataButton_Click);
-            // 
-            // addCommentPreClearCheck
-            // 
-            this.addCommentPreClearCheck.AutoSize = true;
-            this.addCommentPreClearCheck.Location = new System.Drawing.Point(272, 7);
-            this.addCommentPreClearCheck.Margin = new System.Windows.Forms.Padding(7, 7, 0, 3);
-            this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
-            this.addCommentPreClearCheck.Size = new System.Drawing.Size(124, 19);
-            this.addCommentPreClearCheck.TabIndex = 6;
-            this.addCommentPreClearCheck.Text = "全クリアして追加";
-            this.addCommentPreClearCheck.UseVisualStyleBackColor = true;
-            // 
-            // writeFormSnipetAddButton
-            // 
-            this.writeFormSnipetAddButton.Location = new System.Drawing.Point(399, 3);
-            this.writeFormSnipetAddButton.Name = "writeFormSnipetAddButton";
-            this.writeFormSnipetAddButton.Size = new System.Drawing.Size(80, 27);
-            this.writeFormSnipetAddButton.TabIndex = 5;
-            this.writeFormSnipetAddButton.Text = "選択範囲";
-            this.writeFormSnipetAddButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetAddButton.Click += new System.EventHandler(this.writeFormSnipetAddButton_Click);
-            // 
-            // writeFormSnipetAddFromRibbonButton
-            // 
-            this.writeFormSnipetAddFromRibbonButton.Location = new System.Drawing.Point(485, 3);
-            this.writeFormSnipetAddFromRibbonButton.Name = "writeFormSnipetAddFromRibbonButton";
-            this.writeFormSnipetAddFromRibbonButton.Size = new System.Drawing.Size(56, 27);
-            this.writeFormSnipetAddFromRibbonButton.TabIndex = 8;
-            this.writeFormSnipetAddFromRibbonButton.Text = "リボン";
-            this.writeFormSnipetAddFromRibbonButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetAddFromRibbonButton.Click += new System.EventHandler(this.writeFormSnipetAddFromRibbonButton_Click);
-            // 
-            // writeFormSnipetAddFromFileButton
-            // 
-            this.writeFormSnipetAddFromFileButton.Location = new System.Drawing.Point(547, 3);
-            this.writeFormSnipetAddFromFileButton.Name = "writeFormSnipetAddFromFileButton";
-            this.writeFormSnipetAddFromFileButton.Size = new System.Drawing.Size(68, 27);
-            this.writeFormSnipetAddFromFileButton.TabIndex = 7;
-            this.writeFormSnipetAddFromFileButton.Text = "ファイル";
-            this.writeFormSnipetAddFromFileButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetAddFromFileButton.Click += new System.EventHandler(this.writeFormSnipetAddFromFileButton_Click);
-            // 
-            // writeFormSnipetSaveButton
-            // 
-            this.writeFormSnipetSaveButton.Location = new System.Drawing.Point(621, 3);
-            this.writeFormSnipetSaveButton.Name = "writeFormSnipetSaveButton";
-            this.writeFormSnipetSaveButton.Size = new System.Drawing.Size(55, 27);
-            this.writeFormSnipetSaveButton.TabIndex = 11;
-            this.writeFormSnipetSaveButton.Text = "保存";
-            this.writeFormSnipetSaveButton.UseVisualStyleBackColor = true;
-            this.writeFormSnipetSaveButton.Click += new System.EventHandler(this.writeFormSnipetSaveButton_Click);
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.writeFormTopMostCheck);
             this.flowLayoutPanel3.Controls.Add(this.opacityCheck);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 448);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 385);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(708, 27);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(606, 22);
             this.flowLayoutPanel3.TabIndex = 3;
-            // 
-            // writeFormRegxCheck
-            // 
-            this.writeFormRegxCheck.AutoSize = true;
-            this.writeFormRegxCheck.Location = new System.Drawing.Point(196, 7);
-            this.writeFormRegxCheck.Margin = new System.Windows.Forms.Padding(7, 7, 3, 3);
-            this.writeFormRegxCheck.Name = "writeFormRegxCheck";
-            this.writeFormRegxCheck.Size = new System.Drawing.Size(86, 19);
-            this.writeFormRegxCheck.TabIndex = 0;
-            this.writeFormRegxCheck.Text = "正規表現";
-            this.writeFormRegxCheck.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 9, 0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "検索:";
-            // 
-            // writeSearchText
-            // 
-            this.writeSearchText.Location = new System.Drawing.Point(331, 5);
-            this.writeSearchText.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.writeSearchText.Name = "writeSearchText";
-            this.writeSearchText.Size = new System.Drawing.Size(115, 21);
-            this.writeSearchText.TabIndex = 1;
-            this.writeSearchText.Leave += new System.EventHandler(this.writeSearchText_Leave);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(452, 9);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 9, 0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "置換:";
-            // 
-            // writeReplaceText
-            // 
-            this.writeReplaceText.Location = new System.Drawing.Point(495, 5);
-            this.writeReplaceText.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.writeReplaceText.Name = "writeReplaceText";
-            this.writeReplaceText.Size = new System.Drawing.Size(120, 21);
-            this.writeReplaceText.TabIndex = 2;
-            this.writeReplaceText.Leave += new System.EventHandler(this.writeReplaceText_Leave);
-            // 
-            // writeReplaceButton
-            // 
-            this.writeReplaceButton.Location = new System.Drawing.Point(621, 3);
-            this.writeReplaceButton.Name = "writeReplaceButton";
-            this.writeReplaceButton.Size = new System.Drawing.Size(64, 27);
-            this.writeReplaceButton.TabIndex = 3;
-            this.writeReplaceButton.Text = "置換";
-            this.writeReplaceButton.UseVisualStyleBackColor = true;
-            this.writeReplaceButton.Click += new System.EventHandler(this.writeReplaceButton_Click);
             // 
             // writeFormTopMostCheck
             // 
             this.writeFormTopMostCheck.AutoSize = true;
             this.writeFormTopMostCheck.Location = new System.Drawing.Point(3, 3);
             this.writeFormTopMostCheck.Name = "writeFormTopMostCheck";
-            this.writeFormTopMostCheck.Size = new System.Drawing.Size(56, 19);
+            this.writeFormTopMostCheck.Size = new System.Drawing.Size(48, 16);
             this.writeFormTopMostCheck.TabIndex = 0;
             this.writeFormTopMostCheck.Text = "前面";
             this.writeFormTopMostCheck.UseVisualStyleBackColor = true;
@@ -312,9 +163,9 @@
             // opacityCheck
             // 
             this.opacityCheck.AutoSize = true;
-            this.opacityCheck.Location = new System.Drawing.Point(65, 3);
+            this.opacityCheck.Location = new System.Drawing.Point(57, 3);
             this.opacityCheck.Name = "opacityCheck";
-            this.opacityCheck.Size = new System.Drawing.Size(56, 19);
+            this.opacityCheck.Size = new System.Drawing.Size(48, 16);
             this.opacityCheck.TabIndex = 1;
             this.opacityCheck.Text = "透過";
             this.opacityCheck.UseVisualStyleBackColor = true;
@@ -331,18 +182,78 @@
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(708, 34);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(606, 28);
             this.flowLayoutPanel4.TabIndex = 4;
             // 
-            // dateInsertButton
+            // writeFormSnipetCombo
             // 
-            this.dateInsertButton.Location = new System.Drawing.Point(138, 3);
-            this.dateInsertButton.Name = "dateInsertButton";
-            this.dateInsertButton.Size = new System.Drawing.Size(48, 27);
-            this.dateInsertButton.TabIndex = 8;
-            this.dateInsertButton.Text = "日付";
-            this.dateInsertButton.UseVisualStyleBackColor = true;
-            this.dateInsertButton.Click += new System.EventHandler(this.dateInsertButton_Click);
+            this.writeFormSnipetCombo.FormattingEnabled = true;
+            this.writeFormSnipetCombo.Location = new System.Drawing.Point(6, 3);
+            this.writeFormSnipetCombo.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.writeFormSnipetCombo.Name = "writeFormSnipetCombo";
+            this.writeFormSnipetCombo.Size = new System.Drawing.Size(147, 20);
+            this.writeFormSnipetCombo.TabIndex = 3;
+            // 
+            // writeFormSnipetInputButton
+            // 
+            this.writeFormSnipetInputButton.Location = new System.Drawing.Point(159, 3);
+            this.writeFormSnipetInputButton.Name = "writeFormSnipetInputButton";
+            this.writeFormSnipetInputButton.Size = new System.Drawing.Size(67, 23);
+            this.writeFormSnipetInputButton.TabIndex = 4;
+            this.writeFormSnipetInputButton.Text = "語句挿入";
+            this.writeFormSnipetInputButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetInputButton.Click += new System.EventHandler(this.writeFormSnipetInputButton_Click);
+            // 
+            // addCommentPreClearCheck
+            // 
+            this.addCommentPreClearCheck.AutoSize = true;
+            this.addCommentPreClearCheck.Location = new System.Drawing.Point(235, 6);
+            this.addCommentPreClearCheck.Margin = new System.Windows.Forms.Padding(6, 6, 0, 3);
+            this.addCommentPreClearCheck.Name = "addCommentPreClearCheck";
+            this.addCommentPreClearCheck.Size = new System.Drawing.Size(102, 16);
+            this.addCommentPreClearCheck.TabIndex = 6;
+            this.addCommentPreClearCheck.Text = "全クリアして追加";
+            this.addCommentPreClearCheck.UseVisualStyleBackColor = true;
+            // 
+            // writeFormSnipetAddButton
+            // 
+            this.writeFormSnipetAddButton.Location = new System.Drawing.Point(340, 3);
+            this.writeFormSnipetAddButton.Name = "writeFormSnipetAddButton";
+            this.writeFormSnipetAddButton.Size = new System.Drawing.Size(69, 23);
+            this.writeFormSnipetAddButton.TabIndex = 5;
+            this.writeFormSnipetAddButton.Text = "選択範囲";
+            this.writeFormSnipetAddButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetAddButton.Click += new System.EventHandler(this.writeFormSnipetAddButton_Click);
+            // 
+            // writeFormSnipetAddFromRibbonButton
+            // 
+            this.writeFormSnipetAddFromRibbonButton.Location = new System.Drawing.Point(415, 3);
+            this.writeFormSnipetAddFromRibbonButton.Name = "writeFormSnipetAddFromRibbonButton";
+            this.writeFormSnipetAddFromRibbonButton.Size = new System.Drawing.Size(48, 23);
+            this.writeFormSnipetAddFromRibbonButton.TabIndex = 8;
+            this.writeFormSnipetAddFromRibbonButton.Text = "リボン";
+            this.writeFormSnipetAddFromRibbonButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetAddFromRibbonButton.Click += new System.EventHandler(this.writeFormSnipetAddFromRibbonButton_Click);
+            // 
+            // writeFormSnipetAddFromFileButton
+            // 
+            this.writeFormSnipetAddFromFileButton.Location = new System.Drawing.Point(469, 3);
+            this.writeFormSnipetAddFromFileButton.Name = "writeFormSnipetAddFromFileButton";
+            this.writeFormSnipetAddFromFileButton.Size = new System.Drawing.Size(58, 23);
+            this.writeFormSnipetAddFromFileButton.TabIndex = 7;
+            this.writeFormSnipetAddFromFileButton.Text = "ファイル";
+            this.writeFormSnipetAddFromFileButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetAddFromFileButton.Click += new System.EventHandler(this.writeFormSnipetAddFromFileButton_Click);
+            // 
+            // writeFormSnipetSaveButton
+            // 
+            this.writeFormSnipetSaveButton.Location = new System.Drawing.Point(533, 3);
+            this.writeFormSnipetSaveButton.Name = "writeFormSnipetSaveButton";
+            this.writeFormSnipetSaveButton.Size = new System.Drawing.Size(47, 23);
+            this.writeFormSnipetSaveButton.TabIndex = 11;
+            this.writeFormSnipetSaveButton.Text = "保存";
+            this.writeFormSnipetSaveButton.UseVisualStyleBackColor = true;
+            this.writeFormSnipetSaveButton.Click += new System.EventHandler(this.writeFormSnipetSaveButton_Click);
             // 
             // flowLayoutPanel5
             // 
@@ -356,16 +267,105 @@
             this.flowLayoutPanel5.Controls.Add(this.writeReplaceText);
             this.flowLayoutPanel5.Controls.Add(this.writeReplaceButton);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 43);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 37);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(708, 36);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(606, 30);
             this.flowLayoutPanel5.TabIndex = 5;
+            // 
+            // BrInputButton
+            // 
+            this.BrInputButton.Location = new System.Drawing.Point(3, 3);
+            this.BrInputButton.Name = "BrInputButton";
+            this.BrInputButton.Size = new System.Drawing.Size(46, 23);
+            this.BrInputButton.TabIndex = 5;
+            this.BrInputButton.Text = "改行";
+            this.BrInputButton.UseVisualStyleBackColor = true;
+            this.BrInputButton.Click += new System.EventHandler(this.BrInputButton_Click);
+            // 
+            // tabStringDeleteButton
+            // 
+            this.tabStringDeleteButton.Location = new System.Drawing.Point(55, 3);
+            this.tabStringDeleteButton.Name = "tabStringDeleteButton";
+            this.tabStringDeleteButton.Size = new System.Drawing.Size(59, 23);
+            this.tabStringDeleteButton.TabIndex = 2;
+            this.tabStringDeleteButton.Text = "タブ除去";
+            this.tabStringDeleteButton.UseVisualStyleBackColor = true;
+            this.tabStringDeleteButton.Click += new System.EventHandler(this.tabStringDeleteButton_Click);
+            // 
+            // dateInsertButton
+            // 
+            this.dateInsertButton.Location = new System.Drawing.Point(120, 3);
+            this.dateInsertButton.Name = "dateInsertButton";
+            this.dateInsertButton.Size = new System.Drawing.Size(41, 23);
+            this.dateInsertButton.TabIndex = 8;
+            this.dateInsertButton.Text = "日付";
+            this.dateInsertButton.UseVisualStyleBackColor = true;
+            this.dateInsertButton.Click += new System.EventHandler(this.dateInsertButton_Click);
+            // 
+            // writeFormRegxCheck
+            // 
+            this.writeFormRegxCheck.AutoSize = true;
+            this.writeFormRegxCheck.Location = new System.Drawing.Point(170, 6);
+            this.writeFormRegxCheck.Margin = new System.Windows.Forms.Padding(6, 6, 3, 3);
+            this.writeFormRegxCheck.Name = "writeFormRegxCheck";
+            this.writeFormRegxCheck.Size = new System.Drawing.Size(72, 16);
+            this.writeFormRegxCheck.TabIndex = 0;
+            this.writeFormRegxCheck.Text = "正規表現";
+            this.writeFormRegxCheck.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(248, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "検索:";
+            // 
+            // writeSearchText
+            // 
+            this.writeSearchText.Location = new System.Drawing.Point(282, 4);
+            this.writeSearchText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.writeSearchText.Name = "writeSearchText";
+            this.writeSearchText.Size = new System.Drawing.Size(99, 19);
+            this.writeSearchText.TabIndex = 1;
+            this.writeSearchText.Leave += new System.EventHandler(this.writeSearchText_Leave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(387, 8);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 12);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "置換:";
+            // 
+            // writeReplaceText
+            // 
+            this.writeReplaceText.Location = new System.Drawing.Point(421, 4);
+            this.writeReplaceText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
+            this.writeReplaceText.Name = "writeReplaceText";
+            this.writeReplaceText.Size = new System.Drawing.Size(103, 19);
+            this.writeReplaceText.TabIndex = 2;
+            this.writeReplaceText.Leave += new System.EventHandler(this.writeReplaceText_Leave);
+            // 
+            // writeReplaceButton
+            // 
+            this.writeReplaceButton.Location = new System.Drawing.Point(530, 3);
+            this.writeReplaceButton.Name = "writeReplaceButton";
+            this.writeReplaceButton.Size = new System.Drawing.Size(55, 23);
+            this.writeReplaceButton.TabIndex = 3;
+            this.writeReplaceButton.Text = "置換";
+            this.writeReplaceButton.UseVisualStyleBackColor = true;
+            this.writeReplaceButton.Click += new System.EventHandler(this.writeReplaceButton_Click);
             // 
             // WriteForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 478);
+            this.ClientSize = new System.Drawing.Size(612, 410);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "WriteForm";
             this.ShowIcon = false;

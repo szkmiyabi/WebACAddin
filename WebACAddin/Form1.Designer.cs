@@ -55,6 +55,7 @@
             // reportText
             // 
             this.reportText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.reportText.Location = new System.Drawing.Point(3, 3);
             this.reportText.Multiline = true;
             this.reportText.Name = "reportText";

@@ -49,19 +49,19 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 182);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(326, 156);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // InputFormText
             // 
             this.InputFormText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InputFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.InputFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.InputFormText.Location = new System.Drawing.Point(3, 3);
             this.InputFormText.Multiline = true;
             this.InputFormText.Name = "InputFormText";
             this.InputFormText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.InputFormText.Size = new System.Drawing.Size(374, 130);
+            this.InputFormText.Size = new System.Drawing.Size(320, 111);
             this.InputFormText.TabIndex = 0;
             this.InputFormText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InputFormText_KeyDown);
             // 
@@ -70,16 +70,16 @@
             this.flowLayoutPanel1.Controls.Add(this.InputFormAddButton);
             this.flowLayoutPanel1.Controls.Add(this.doInsertBrButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(144, 139);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(123, 120);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(233, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 33);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // InputFormAddButton
             // 
             this.InputFormAddButton.Location = new System.Drawing.Point(3, 3);
             this.InputFormAddButton.Name = "InputFormAddButton";
-            this.InputFormAddButton.Size = new System.Drawing.Size(87, 27);
+            this.InputFormAddButton.Size = new System.Drawing.Size(75, 23);
             this.InputFormAddButton.TabIndex = 0;
             this.InputFormAddButton.Text = "追加する";
             this.InputFormAddButton.UseVisualStyleBackColor = true;
@@ -87,10 +87,10 @@
             // 
             // doInsertBrButton
             // 
-            this.doInsertBrButton.Location = new System.Drawing.Point(122, 3);
-            this.doInsertBrButton.Margin = new System.Windows.Forms.Padding(29, 3, 3, 3);
+            this.doInsertBrButton.Location = new System.Drawing.Point(106, 3);
+            this.doInsertBrButton.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.doInsertBrButton.Name = "doInsertBrButton";
-            this.doInsertBrButton.Size = new System.Drawing.Size(99, 27);
+            this.doInsertBrButton.Size = new System.Drawing.Size(85, 23);
             this.doInsertBrButton.TabIndex = 1;
             this.doInsertBrButton.Text = "改行タグ挿入";
             this.doInsertBrButton.UseVisualStyleBackColor = true;
@@ -98,9 +98,9 @@
             // 
             // InputForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 182);
+            this.ClientSize = new System.Drawing.Size(326, 156);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "InputForm";
             this.ShowIcon = false;

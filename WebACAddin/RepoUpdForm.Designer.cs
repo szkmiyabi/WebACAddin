@@ -49,18 +49,19 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.72289F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.27711F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 209);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(372, 179);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // srcText
             // 
             this.srcText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.srcText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.srcText.Location = new System.Drawing.Point(3, 3);
             this.srcText.MaxLength = 0;
             this.srcText.Multiline = true;
             this.srcText.Name = "srcText";
             this.srcText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.srcText.Size = new System.Drawing.Size(428, 162);
+            this.srcText.Size = new System.Drawing.Size(366, 138);
             this.srcText.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -68,16 +69,16 @@
             this.flowLayoutPanel1.Controls.Add(this.repoUpdateButton);
             this.flowLayoutPanel1.Controls.Add(this.overWriteCheck);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(142, 171);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(121, 147);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(289, 35);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(248, 29);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // repoUpdateButton
             // 
             this.repoUpdateButton.Location = new System.Drawing.Point(3, 3);
             this.repoUpdateButton.Name = "repoUpdateButton";
-            this.repoUpdateButton.Size = new System.Drawing.Size(100, 27);
+            this.repoUpdateButton.Size = new System.Drawing.Size(86, 23);
             this.repoUpdateButton.TabIndex = 0;
             this.repoUpdateButton.Text = "変更を反映";
             this.repoUpdateButton.UseVisualStyleBackColor = true;
@@ -86,19 +87,19 @@
             // overWriteCheck
             // 
             this.overWriteCheck.AutoSize = true;
-            this.overWriteCheck.Location = new System.Drawing.Point(109, 7);
-            this.overWriteCheck.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.overWriteCheck.Location = new System.Drawing.Point(95, 6);
+            this.overWriteCheck.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.overWriteCheck.Name = "overWriteCheck";
-            this.overWriteCheck.Size = new System.Drawing.Size(56, 19);
+            this.overWriteCheck.Size = new System.Drawing.Size(48, 16);
             this.overWriteCheck.TabIndex = 1;
             this.overWriteCheck.Text = "追記";
             this.overWriteCheck.UseVisualStyleBackColor = true;
             // 
             // RepoUpdForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 209);
+            this.ClientSize = new System.Drawing.Size(372, 179);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "RepoUpdForm";
             this.ShowIcon = false;

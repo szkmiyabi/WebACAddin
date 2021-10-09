@@ -89,17 +89,17 @@
             this.markerInputButton = this.Factory.CreateRibbonButton();
             this.criteriaFazzyCheck = this.Factory.CreateRibbonCheckBox();
             this.buttonGroup2 = this.Factory.CreateRibbonButtonGroup();
+            this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
             this.autoNumberButton = this.Factory.CreateRibbonButton();
             this.doRandomNumsButton = this.Factory.CreateRibbonButton();
-            this.selectedAutoFillButton = this.Factory.CreateRibbonButton();
             this.nearCellCopyButton = this.Factory.CreateRibbonSplitButton();
             this.nearCellCopyFromLeftButton = this.Factory.CreateRibbonButton();
             this.cellDropDownListButton = this.Factory.CreateRibbonButton();
             this.buttonGroup4 = this.Factory.CreateRibbonButtonGroup();
-            this.fontBoldButton = this.Factory.CreateRibbonButton();
-            this.fontRedButton = this.Factory.CreateRibbonButton();
-            this.cellVerticalAlignToggleButton = this.Factory.CreateRibbonButton();
+            this.borderClearButton = this.Factory.CreateRibbonButton();
+            this.borderMatrixButton = this.Factory.CreateRibbonButton();
             this.cellLineBreakButton = this.Factory.CreateRibbonButton();
+            this.cellVerticalAlignToggleButton = this.Factory.CreateRibbonButton();
             this.box11 = this.Factory.CreateRibbonBox();
             this.criteriaStringText = this.Factory.CreateRibbonEditBox();
             this.autoFilterAutoValSetButton = this.Factory.CreateRibbonButton();
@@ -114,9 +114,9 @@
             this.ccPurpleButton = this.Factory.CreateRibbonButton();
             this.ccRedButton = this.Factory.CreateRibbonButton();
             this.box13 = this.Factory.CreateRibbonBox();
+            this.fontBoldButton = this.Factory.CreateRibbonButton();
+            this.fontRedButton = this.Factory.CreateRibbonButton();
             this.cellStrDeleteButton = this.Factory.CreateRibbonButton();
-            this.borderMatrixButton = this.Factory.CreateRibbonButton();
-            this.borderClearButton = this.Factory.CreateRibbonButton();
             this.group5 = this.Factory.CreateRibbonGroup();
             this.box9 = this.Factory.CreateRibbonBox();
             this.readActiveBookSheetsButton = this.Factory.CreateRibbonButton();
@@ -613,6 +613,17 @@
             this.buttonGroup2.Items.Add(this.cellDropDownListButton);
             this.buttonGroup2.Name = "buttonGroup2";
             // 
+            // selectedAutoFillButton
+            // 
+            this.selectedAutoFillButton.Label = "カスタム自動フィル";
+            this.selectedAutoFillButton.Name = "selectedAutoFillButton";
+            this.selectedAutoFillButton.OfficeImageId = "ArrangementGallery";
+            this.selectedAutoFillButton.ScreenTip = "カスタム自動フィル";
+            this.selectedAutoFillButton.ShowImage = true;
+            this.selectedAutoFillButton.ShowLabel = false;
+            this.selectedAutoFillButton.SuperTip = "通常のオートフィルを単純化。選択範囲の先頭セルの内容で埋めます。数式は自動反映対応しています。";
+            this.selectedAutoFillButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectedAutoFillButton_Click);
+            // 
             // autoNumberButton
             // 
             this.autoNumberButton.Label = "連番自動挿入";
@@ -634,17 +645,6 @@
             this.doRandomNumsButton.ShowLabel = false;
             this.doRandomNumsButton.SuperTip = "選択範囲に乱数を挿入します。";
             this.doRandomNumsButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.doRandomNumsButton_Click);
-            // 
-            // selectedAutoFillButton
-            // 
-            this.selectedAutoFillButton.Label = "カスタム自動フィル";
-            this.selectedAutoFillButton.Name = "selectedAutoFillButton";
-            this.selectedAutoFillButton.OfficeImageId = "ArrangementGallery";
-            this.selectedAutoFillButton.ScreenTip = "カスタム自動フィル";
-            this.selectedAutoFillButton.ShowImage = true;
-            this.selectedAutoFillButton.ShowLabel = false;
-            this.selectedAutoFillButton.SuperTip = "通常のオートフィルを単純化。選択範囲の先頭セルの内容で埋めます。数式は自動反映対応しています。";
-            this.selectedAutoFillButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.selectedAutoFillButton_Click);
             // 
             // nearCellCopyButton
             // 
@@ -682,29 +682,29 @@
             this.buttonGroup4.Items.Add(this.cellVerticalAlignToggleButton);
             this.buttonGroup4.Name = "buttonGroup4";
             // 
-            // fontBoldButton
+            // borderClearButton
             // 
-            this.fontBoldButton.Label = "太字";
-            this.fontBoldButton.Name = "fontBoldButton";
-            this.fontBoldButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.fontBoldButton_Click);
+            this.borderClearButton.Label = "無地";
+            this.borderClearButton.Name = "borderClearButton";
+            this.borderClearButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.borderClearButton_Click);
             // 
-            // fontRedButton
+            // borderMatrixButton
             // 
-            this.fontRedButton.Label = "赤字";
-            this.fontRedButton.Name = "fontRedButton";
-            this.fontRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.fontRedButton_Click);
-            // 
-            // cellVerticalAlignToggleButton
-            // 
-            this.cellVerticalAlignToggleButton.Label = "縦位置";
-            this.cellVerticalAlignToggleButton.Name = "cellVerticalAlignToggleButton";
-            this.cellVerticalAlignToggleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellVerticalAlignToggleButton_Click);
+            this.borderMatrixButton.Label = "升目";
+            this.borderMatrixButton.Name = "borderMatrixButton";
+            this.borderMatrixButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.borderMatrixButton_Click);
             // 
             // cellLineBreakButton
             // 
             this.cellLineBreakButton.Label = "折返";
             this.cellLineBreakButton.Name = "cellLineBreakButton";
             this.cellLineBreakButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellLineBreakButton_Click);
+            // 
+            // cellVerticalAlignToggleButton
+            // 
+            this.cellVerticalAlignToggleButton.Label = "縦位置";
+            this.cellVerticalAlignToggleButton.Name = "cellVerticalAlignToggleButton";
+            this.cellVerticalAlignToggleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellVerticalAlignToggleButton_Click);
             // 
             // box11
             // 
@@ -816,23 +816,23 @@
             this.box13.Items.Add(this.cellStrDeleteButton);
             this.box13.Name = "box13";
             // 
+            // fontBoldButton
+            // 
+            this.fontBoldButton.Label = "太字";
+            this.fontBoldButton.Name = "fontBoldButton";
+            this.fontBoldButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.fontBoldButton_Click);
+            // 
+            // fontRedButton
+            // 
+            this.fontRedButton.Label = "赤字";
+            this.fontRedButton.Name = "fontRedButton";
+            this.fontRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.fontRedButton_Click);
+            // 
             // cellStrDeleteButton
             // 
             this.cellStrDeleteButton.Label = "削除";
             this.cellStrDeleteButton.Name = "cellStrDeleteButton";
             this.cellStrDeleteButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.cellStrDeleteButton_Click);
-            // 
-            // borderMatrixButton
-            // 
-            this.borderMatrixButton.Label = "升目";
-            this.borderMatrixButton.Name = "borderMatrixButton";
-            this.borderMatrixButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.borderMatrixButton_Click);
-            // 
-            // borderClearButton
-            // 
-            this.borderClearButton.Label = "無地";
-            this.borderClearButton.Name = "borderClearButton";
-            this.borderClearButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.borderClearButton_Click);
             // 
             // group5
             // 
