@@ -110,6 +110,12 @@ namespace WebACAddin
                         ash.Cells[r, 7].Value = _ov((string)ash.Cells[r, 7].Value, description, true);
                         ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 8].Value, srccode, true);
                     }
+                    else if(excel_type == "fail-report")
+                    {
+                        ash.Cells[r, 6].Value = _ov((string)ash.Cells[r, 7].Value, comment, true);
+                        ash.Cells[r, 7].Value = _ov((string)ash.Cells[r, 8].Value, description, true);
+                        ash.Cells[r, 8].Value = _ov((string)ash.Cells[r, 9].Value, srccode, true);
+                    }
                     else
                     {
                         MessageBox.Show("動作対象外のSheetです。");
@@ -152,6 +158,12 @@ namespace WebACAddin
                         ash.Cells[r, 6].Value = comment;
                         ash.Cells[r, 7].Value = description;
                         ash.Cells[r, 8].Value = srccode;
+                    }
+                    else if(excel_type == "fail-report")
+                    {
+                        ash.Cells[r, 7].Value = comment;
+                        ash.Cells[r, 8].Value = description;
+                        ash.Cells[r, 9].Value = srccode;
                     }
                     else
                     {
