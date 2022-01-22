@@ -17,6 +17,8 @@ namespace WebACAddin
         private Microsoft.Office.Interop.Excel.Worksheet ash;
         private bool isSyncronized;
 
+        private float fontSize;
+
         //コンストラクタ
         public CellViewForm()
         {
@@ -29,6 +31,8 @@ namespace WebACAddin
             FirstTake();
             ash.SelectionChange += SelectionChanged;
             //ash.SelectionChange += new Microsoft.Office.Interop.Excel.DocEvents_SelectionChangeEventHandler(SelectionChanged);
+            fontSize = 10.5f;
+            this.ContentTextBox.Font = new Font("ＭＳ Ｐゴシック", fontSize);
         }
 
         //初期挙動
@@ -127,6 +131,26 @@ namespace WebACAddin
                 e.SuppressKeyPress = true; //beep disabled
                 ContentTextBox.SelectAll();
             }
+        }
+
+        //文字サイズ大
+        private void fontSizeLargeButton_Click(object sender, EventArgs e)
+        {
+            fontSize += 1;
+            this.ContentTextBox.Font = new Font("ＭＳ Ｐゴシック", fontSize);
+
+        }
+
+        //文字サイズ小
+        private void fontSizeMinusButton_Click(object sender, EventArgs e)
+        {
+            if (fontSize == 10.5f)
+            {
+                MessageBox.Show("これ以上小さく出来ません");
+                return;
+            }
+            fontSize -= 1;
+            this.ContentTextBox.Font = new Font("ＭＳ Ｐゴシック", fontSize);
         }
     }
 }

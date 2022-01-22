@@ -21,6 +21,7 @@ namespace WebACAddin
 
         private string pre_focuced_control = "";
         private string br_sp = "<bkmk:br>";
+        private float fontSize;
 
         public WriteForm()
         {
@@ -32,6 +33,8 @@ namespace WebACAddin
             writeFormTopMostCheck.Checked = true;
             //透過有効
             opacityCheck.Checked = true;
+            fontSize = 10.5f;
+            this.writeFormText.Font = new Font("ＭＳ Ｐゴシック", fontSize);
         }
 
         //コンボボックスのサイズを調整
@@ -506,6 +509,28 @@ namespace WebACAddin
         private void dateInsertButton_Click(object sender, EventArgs e)
         {
             do_insert_date();
+        }
+
+        private void fontSizeLargeButton_Click(object sender, EventArgs e)
+        {
+            fontSize += 1;
+            this.writeFormText.Font = new Font("ＭＳ Ｐゴシック", fontSize);
+
+        }
+
+        private void fontSizeMinusButton_Click(object sender, EventArgs e)
+        {
+            if(fontSize == 10.5f)
+            {
+                if (fontSize == 10.5f)
+                {
+                    MessageBox.Show("これ以上小さく出来ません");
+                    return;
+                }
+            }
+            fontSize -= 1;
+            this.writeFormText.Font = new Font("ＭＳ Ｐゴシック", fontSize);
+
         }
     }
 

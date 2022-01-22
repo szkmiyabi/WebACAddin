@@ -24,6 +24,10 @@ namespace WebACAddin
         };
         private List<string> libraplusSvArr = new List<string>()
         {
+            "適合",
+            "不適合",
+            "非適用",
+            "適合(注記)",
             "はい",
             "いいえ",
             "なし",

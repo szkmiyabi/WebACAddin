@@ -55,6 +55,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.writeReplaceText = new System.Windows.Forms.TextBox();
             this.writeReplaceButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.fontSizeLargeButton = new System.Windows.Forms.Button();
+            this.fontSizeMinusButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -100,12 +103,15 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.pullFromCellDataButton);
-            this.flowLayoutPanel1.Controls.Add(this.pushToCellDataButton);
+            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.fontSizeLargeButton);
+            this.flowLayoutPanel1.Controls.Add(this.fontSizeMinusButton);
             this.flowLayoutPanel1.Controls.Add(this.browseBaseCellDataButton);
+            this.flowLayoutPanel1.Controls.Add(this.pushToCellDataButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(214, 343);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(202, 343);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(395, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(407, 36);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // pullFromCellDataButton
@@ -120,7 +126,7 @@
             // 
             // pushToCellDataButton
             // 
-            this.pushToCellDataButton.Location = new System.Drawing.Point(68, 3);
+            this.pushToCellDataButton.Location = new System.Drawing.Point(335, 3);
             this.pushToCellDataButton.Name = "pushToCellDataButton";
             this.pushToCellDataButton.Size = new System.Drawing.Size(56, 29);
             this.pushToCellDataButton.TabIndex = 1;
@@ -130,7 +136,7 @@
             // 
             // browseBaseCellDataButton
             // 
-            this.browseBaseCellDataButton.Location = new System.Drawing.Point(161, 3);
+            this.browseBaseCellDataButton.Location = new System.Drawing.Point(238, 3);
             this.browseBaseCellDataButton.Margin = new System.Windows.Forms.Padding(34, 3, 3, 3);
             this.browseBaseCellDataButton.Name = "browseBaseCellDataButton";
             this.browseBaseCellDataButton.Size = new System.Drawing.Size(91, 29);
@@ -361,6 +367,38 @@
             this.writeReplaceButton.UseVisualStyleBackColor = true;
             this.writeReplaceButton.Click += new System.EventHandler(this.writeReplaceButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(73, 12);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 12, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 12);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "文字サイズ";
+            // 
+            // fontSizeLargeButton
+            // 
+            this.fontSizeLargeButton.Location = new System.Drawing.Point(137, 5);
+            this.fontSizeLargeButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.fontSizeLargeButton.Name = "fontSizeLargeButton";
+            this.fontSizeLargeButton.Size = new System.Drawing.Size(31, 23);
+            this.fontSizeLargeButton.TabIndex = 8;
+            this.fontSizeLargeButton.Text = "＋";
+            this.fontSizeLargeButton.UseVisualStyleBackColor = true;
+            this.fontSizeLargeButton.Click += new System.EventHandler(this.fontSizeLargeButton_Click);
+            // 
+            // fontSizeMinusButton
+            // 
+            this.fontSizeMinusButton.Location = new System.Drawing.Point(174, 5);
+            this.fontSizeMinusButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.fontSizeMinusButton.Name = "fontSizeMinusButton";
+            this.fontSizeMinusButton.Size = new System.Drawing.Size(27, 23);
+            this.fontSizeMinusButton.TabIndex = 9;
+            this.fontSizeMinusButton.Text = "－";
+            this.fontSizeMinusButton.UseVisualStyleBackColor = true;
+            this.fontSizeMinusButton.Click += new System.EventHandler(this.fontSizeMinusButton_Click);
+            // 
             // WriteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -373,6 +411,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
@@ -412,5 +451,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Button dateInsertButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button fontSizeLargeButton;
+        private System.Windows.Forms.Button fontSizeMinusButton;
     }
 }
