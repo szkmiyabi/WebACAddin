@@ -1092,16 +1092,12 @@ namespace WebACAddin
 
         }
 
-        //オートフィルタ抽出行の先頭セルを黄色にする
+        //オートフィルタ抽出行の先頭セルを色付する
         private void do_autofiltered_first_cell_coloring(IProgress<int> p, CancellationToken token, Object[] options)
         {
             string color_type = (string)options[0];
-
             List<string> data = _get_autofiltered_first_cell_addr();
             var ash = excelObj.Application.ActiveSheet;
-
-            var awb = excelObj.Application.ActiveWorkbook;
-            var aws = awb.Worksheets;
             int cnt = data.Count;
 
             for (int i = 0; i < data.Count; i++)
@@ -1110,14 +1106,28 @@ namespace WebACAddin
                 string row = data[i];
                 switch (color_type)
                 {
-                    case "黄":
-                        ash.Range[row].Interior.Color = Color.FromArgb(255, 255, 0);
+                    case "空":
+                        ash.Range[row].Interior.Color = Color.FromArgb(137, 255, 255);
                         break;
                     case "緑":
                         ash.Range[row].Interior.Color = Color.FromArgb(153, 255, 153);
                         break;
+                    case "桃":
+                        ash.Range[row].Interior.Color = Color.FromArgb(255, 179, 179);
+                        break;
+                    case "紫":
+                        ash.Range[row].Interior.Color = Color.FromArgb(212, 197, 255);
+                        break;
+                    case "黄":
+                        ash.Range[row].Interior.Color = Color.FromArgb(255, 255, 0);
+                        break;
+                    case "赤":
+                        ash.Range[row].Interior.Color = Color.FromArgb(255, 0, 0);
+                        break;
+                    case "灰":
+                        ash.Range[row].Interior.Color = Color.FromArgb(208, 206, 206);
+                        break;
                 }
-
                 if (token.IsCancellationRequested)
                 {
                     MessageBox.Show("処理をキャンセルしました。");

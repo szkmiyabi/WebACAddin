@@ -420,18 +420,6 @@ namespace WebACAddin
             this.autoFilteredQueryButton.Enabled = true;
         }
 
-
-        private void autoFilteredColoringButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            this.autoFilteredColoringButton.Enabled = false;
-            Progress prog = new Progress();
-            prog.SetTitle("オートフィルタ行色付中");
-            prog.SetFuncOptions(new Object[] { "緑" });
-            prog.SetFunction(do_autofiltered_first_cell_coloring);
-            prog.ShowDialog();
-            this.autoFilteredColoringButton.Enabled = true;
-        }
-
         //セル解析
         private void cellAnalysisButton_Click(object sender, RibbonControlEventArgs e)
         {
@@ -603,6 +591,77 @@ namespace WebACAddin
             clear_mytext_auto_filter();
         }
 
+        //抽出オートフィルタ行色付
+        private void autoFilteredColoringYellowButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringYellowButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "黄" });
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringYellowButton.Enabled = true;
+        }
+        private void autoFilteredColoringBlueButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringBlueButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "空" });
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringBlueButton.Enabled = true;
+        }
+        private void autoFilteredColoringGreenButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringGreenButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "緑" });
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringGreenButton.Enabled = true;
+        }
+        private void autoFilteredColoringPinkButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringPinkButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "桃" });
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringPinkButton.Enabled = true;
+        }
+        private void autoFilteredColoringPurpleButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringPurpleButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "紫" });
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringPurpleButton.Enabled = true;
+        }
+        private void autoFilteredColoringRedButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringRedButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "赤" });
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringRedButton.Enabled = true;
+        }
+        private void autoFilteredColoringGrayButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringGrayButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "灰" });
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringGrayButton.Enabled = true;
+        }
     }
 
 }
