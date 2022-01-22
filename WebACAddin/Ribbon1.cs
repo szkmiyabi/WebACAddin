@@ -414,6 +414,7 @@ namespace WebACAddin
             this.autoFilteredQueryButton.Enabled = false;
             Progress prog = new Progress();
             prog.SetTitle("オートフィルタ行抽出中");
+            prog.SetFuncOptions(null);
             prog.SetFunction(do_auto_filtered_query);
             prog.ShowDialog();
             this.autoFilteredQueryButton.Enabled = true;
@@ -425,6 +426,7 @@ namespace WebACAddin
             this.autoFilteredColoringButton.Enabled = false;
             Progress prog = new Progress();
             prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFuncOptions(new Object[] { "緑" });
             prog.SetFunction(do_autofiltered_first_cell_coloring);
             prog.ShowDialog();
             this.autoFilteredColoringButton.Enabled = true;

@@ -13,10 +13,11 @@ namespace WebACAddin
 {
     public partial class Progress : Form
     {
-        public delegate void Func(IProgress<int> p, CancellationToken cancelToken);
+        public delegate void Func(IProgress<int> p, CancellationToken cancelToken, Object[] options);
         CancellationTokenSource _cancellTokenSource;
         Task m_Task;
         Func m_Func;
+        Object[] m_options;
 
         public Progress()
         {
@@ -31,6 +32,11 @@ namespace WebACAddin
         public void SetFunction(Func func)
         {
             m_Func = func;
+        }
+
+        public void SetFuncOptions(Object[] options)
+        {
+            m_options = options;
         }
 
         private void ShowProgress(int percent)
@@ -48,7 +54,7 @@ namespace WebACAddin
             _cancellTokenSource = new CancellationTokenSource();
             var cancelToken = _cancellTokenSource.Token;
             var p = new Progress<int>(ShowProgress);
-            m_Task = Task.Run(() => m_Func(p, cancelToken));
+            m_Task = Task.Run(() => m_Func(p, cancelToken, m_options));
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

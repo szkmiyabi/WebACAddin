@@ -995,7 +995,7 @@ namespace WebACAddin
         }
 
         //オートフィルタ抽出行をシートに書き出す
-        private void do_auto_filtered_query(IProgress<int> p, CancellationToken token)
+        private void do_auto_filtered_query(IProgress<int> p, CancellationToken token, Object[] options)
         {
             List<List<string>> data = _get_auto_filtered_rows();
             var awb = excelObj.Application.ActiveWorkbook;
@@ -1093,8 +1093,10 @@ namespace WebACAddin
         }
 
         //オートフィルタ抽出行の先頭セルを黄色にする
-        private void do_autofiltered_first_cell_coloring(IProgress<int> p, CancellationToken token)
+        private void do_autofiltered_first_cell_coloring(IProgress<int> p, CancellationToken token, Object[] options)
         {
+            string color_type = (string)options[0];
+
             List<string> data = _get_autofiltered_first_cell_addr();
             var ash = excelObj.Application.ActiveSheet;
 
@@ -1106,7 +1108,15 @@ namespace WebACAddin
             {
                 if (i == 0) continue;
                 string row = data[i];
-                ash.Range[row].Interior.Color = Color.FromArgb(255, 255, 0);
+                switch (color_type)
+                {
+                    case "黄":
+                        ash.Range[row].Interior.Color = Color.FromArgb(255, 255, 0);
+                        break;
+                    case "緑":
+                        ash.Range[row].Interior.Color = Color.FromArgb(153, 255, 153);
+                        break;
+                }
 
                 if (token.IsCancellationRequested)
                 {
@@ -1118,7 +1128,7 @@ namespace WebACAddin
                 int percent = (int)Math.Floor(step);
                 p.Report(percent);
             }
-            MessageBox.Show("オートフィルターの抽出行を新しいシートに書き出しました。");
+            MessageBox.Show("オートフィルターの抽出行の先頭セルの色を" + color_type + "色に塗りつぶしました。");
         }
         private List<string> _get_autofiltered_first_cell_addr()
         {
