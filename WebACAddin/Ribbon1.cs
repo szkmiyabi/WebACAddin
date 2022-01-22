@@ -419,6 +419,17 @@ namespace WebACAddin
             this.autoFilteredQueryButton.Enabled = true;
         }
 
+
+        private void autoFilteredColoringButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.autoFilteredColoringButton.Enabled = false;
+            Progress prog = new Progress();
+            prog.SetTitle("オートフィルタ行色付中");
+            prog.SetFunction(do_autofiltered_first_cell_coloring);
+            prog.ShowDialog();
+            this.autoFilteredColoringButton.Enabled = true;
+        }
+
         //セル解析
         private void cellAnalysisButton_Click(object sender, RibbonControlEventArgs e)
         {
@@ -589,6 +600,7 @@ namespace WebACAddin
         {
             clear_mytext_auto_filter();
         }
+
     }
 
 }

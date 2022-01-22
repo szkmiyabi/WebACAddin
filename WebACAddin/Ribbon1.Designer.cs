@@ -144,6 +144,7 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredColoringButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.buttonGroup1.SuspendLayout();
@@ -712,6 +713,7 @@
             this.box11.Items.Add(this.autoFilterAutoValSetButton);
             this.box11.Items.Add(this.autoFilterDeleteButton);
             this.box11.Items.Add(this.autoFilteredQueryButton);
+            this.box11.Items.Add(this.autoFilteredColoringButton);
             this.box11.Name = "box11";
             // 
             // criteriaStringText
@@ -1086,6 +1088,12 @@
             this.openChromeBetaButton.SuperTip = "Chrome ベータ版でURLをプレビュー(インストールしている方のみ)";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
             // 
+            // autoFilteredColoringButton
+            // 
+            this.autoFilteredColoringButton.Label = "button1";
+            this.autoFilteredColoringButton.Name = "autoFilteredColoringButton";
+            this.autoFilteredColoringButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringButton_Click);
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -1250,6 +1258,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box12;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box13;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton autoFilterDeleteButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton autoFilteredColoringButton;
     }
 
     partial class ThisRibbonCollection

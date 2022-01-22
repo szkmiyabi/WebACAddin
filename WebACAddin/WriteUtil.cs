@@ -1092,6 +1092,61 @@ namespace WebACAddin
 
         }
 
+        //オートフィルタ抽出行の先頭セルを黄色にする
+        private void do_autofiltered_first_cell_coloring(IProgress<int> p, CancellationToken token)
+        {
+            List<string> data = _get_autofiltered_first_cell_addr();
+            var ash = excelObj.Application.ActiveSheet;
+
+            var awb = excelObj.Application.ActiveWorkbook;
+            var aws = awb.Worksheets;
+            int cnt = data.Count;
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                if (i == 0) continue;
+                string row = data[i];
+                ash.Range[row].Interior.Color = Color.FromArgb(255, 255, 0);
+
+                if (token.IsCancellationRequested)
+                {
+                    MessageBox.Show("処理をキャンセルしました。");
+                    return;
+                }
+                float step = (float)(i + 1) / cnt;
+                step *= 100;
+                int percent = (int)Math.Floor(step);
+                p.Report(percent);
+            }
+            MessageBox.Show("オートフィルターの抽出行を新しいシートに書き出しました。");
+        }
+        private List<string> _get_autofiltered_first_cell_addr()
+        {
+            var ash = excelObj.Application.ActiveSheet;
+
+            //データ入力範囲の処理
+            Excel.Range vrange = ash.Range["A1"].End[Excel.XlDirection.xlDown];
+
+            int nr = 0;
+            nr = vrange.Rows[vrange.Rows.Count].Row;
+
+            //データ入力範囲を自動選択
+            Excel.Range sa = ash.Range[ash.Cells[1, 1], ash.Cells[nr, 1]];
+            sa.Select();
+
+            int r1, r2 = 0;
+            r1 = sa.Row;
+            r2 = sa.Rows[sa.Rows.Count].Row;
+            List<string> data = new List<string>();
+
+            for (int i = r1; i <= r2; i++)
+            {
+                if (sa.Cells[i, 1].EntireRow.Hidden == true) continue;
+                data.Add(sa.Cells[i, 1].Address);
+            }
+            return data;
+        }
+
         //カレント列のデータ入力範囲行をアクティブセルを起点に全て選択
         private void select_this_column_range()
         {
