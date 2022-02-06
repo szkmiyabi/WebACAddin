@@ -107,6 +107,12 @@
             this.autoFilteredQueryButton = this.Factory.CreateRibbonButton();
             this.autoFilteredColoringSplitButton = this.Factory.CreateRibbonSplitButton();
             this.autoFilteredColoringYellowButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredColoringBlueButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredColoringGreenButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredColoringPinkButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredColoringPurpleButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredColoringRedButton = this.Factory.CreateRibbonButton();
+            this.autoFilteredColoringGrayButton = this.Factory.CreateRibbonButton();
             this.box12 = this.Factory.CreateRibbonBox();
             this.ccEmptyButton = this.Factory.CreateRibbonButton();
             this.ccYellowButton = this.Factory.CreateRibbonButton();
@@ -146,12 +152,6 @@
             this.openChromeButton = this.Factory.CreateRibbonButton();
             this.openFirefoxDevButton = this.Factory.CreateRibbonButton();
             this.openChromeBetaButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredColoringBlueButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredColoringGreenButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredColoringPinkButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredColoringPurpleButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredColoringRedButton = this.Factory.CreateRibbonButton();
-            this.autoFilteredColoringGrayButton = this.Factory.CreateRibbonButton();
             this.webACTab.SuspendLayout();
             this.group1.SuspendLayout();
             this.buttonGroup1.SuspendLayout();
@@ -788,6 +788,54 @@
             this.autoFilteredColoringYellowButton.ShowImage = true;
             this.autoFilteredColoringYellowButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringYellowButton_Click);
             // 
+            // autoFilteredColoringBlueButton
+            // 
+            this.autoFilteredColoringBlueButton.Label = "空";
+            this.autoFilteredColoringBlueButton.Name = "autoFilteredColoringBlueButton";
+            this.autoFilteredColoringBlueButton.OfficeImageId = "AcceptInvitation";
+            this.autoFilteredColoringBlueButton.ShowImage = true;
+            this.autoFilteredColoringBlueButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringBlueButton_Click);
+            // 
+            // autoFilteredColoringGreenButton
+            // 
+            this.autoFilteredColoringGreenButton.Label = "緑";
+            this.autoFilteredColoringGreenButton.Name = "autoFilteredColoringGreenButton";
+            this.autoFilteredColoringGreenButton.OfficeImageId = "AcceptInvitation";
+            this.autoFilteredColoringGreenButton.ShowImage = true;
+            this.autoFilteredColoringGreenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringGreenButton_Click);
+            // 
+            // autoFilteredColoringPinkButton
+            // 
+            this.autoFilteredColoringPinkButton.Label = "桃";
+            this.autoFilteredColoringPinkButton.Name = "autoFilteredColoringPinkButton";
+            this.autoFilteredColoringPinkButton.OfficeImageId = "AcceptInvitation";
+            this.autoFilteredColoringPinkButton.ShowImage = true;
+            this.autoFilteredColoringPinkButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringPinkButton_Click);
+            // 
+            // autoFilteredColoringPurpleButton
+            // 
+            this.autoFilteredColoringPurpleButton.Label = "紫";
+            this.autoFilteredColoringPurpleButton.Name = "autoFilteredColoringPurpleButton";
+            this.autoFilteredColoringPurpleButton.OfficeImageId = "AcceptInvitation";
+            this.autoFilteredColoringPurpleButton.ShowImage = true;
+            this.autoFilteredColoringPurpleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringPurpleButton_Click);
+            // 
+            // autoFilteredColoringRedButton
+            // 
+            this.autoFilteredColoringRedButton.Label = "赤";
+            this.autoFilteredColoringRedButton.Name = "autoFilteredColoringRedButton";
+            this.autoFilteredColoringRedButton.OfficeImageId = "AcceptInvitation";
+            this.autoFilteredColoringRedButton.ShowImage = true;
+            this.autoFilteredColoringRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringRedButton_Click);
+            // 
+            // autoFilteredColoringGrayButton
+            // 
+            this.autoFilteredColoringGrayButton.Label = "灰";
+            this.autoFilteredColoringGrayButton.Name = "autoFilteredColoringGrayButton";
+            this.autoFilteredColoringGrayButton.OfficeImageId = "AcceptInvitation";
+            this.autoFilteredColoringGrayButton.ShowImage = true;
+            this.autoFilteredColoringGrayButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringGrayButton_Click);
+            // 
             // box12
             // 
             this.box12.Items.Add(this.ccEmptyButton);
@@ -1117,54 +1165,6 @@
             this.openChromeBetaButton.Name = "openChromeBetaButton";
             this.openChromeBetaButton.SuperTip = "Chrome ベータ版でURLをプレビュー(インストールしている方のみ)";
             this.openChromeBetaButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.openChromeBetaButton_Click);
-            // 
-            // autoFilteredColoringBlueButton
-            // 
-            this.autoFilteredColoringBlueButton.Label = "空";
-            this.autoFilteredColoringBlueButton.Name = "autoFilteredColoringBlueButton";
-            this.autoFilteredColoringBlueButton.OfficeImageId = "AcceptInvitation";
-            this.autoFilteredColoringBlueButton.ShowImage = true;
-            this.autoFilteredColoringBlueButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringBlueButton_Click);
-            // 
-            // autoFilteredColoringGreenButton
-            // 
-            this.autoFilteredColoringGreenButton.Label = "緑";
-            this.autoFilteredColoringGreenButton.Name = "autoFilteredColoringGreenButton";
-            this.autoFilteredColoringGreenButton.OfficeImageId = "AcceptInvitation";
-            this.autoFilteredColoringGreenButton.ShowImage = true;
-            this.autoFilteredColoringGreenButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringGreenButton_Click);
-            // 
-            // autoFilteredColoringPinkButton
-            // 
-            this.autoFilteredColoringPinkButton.Label = "桃";
-            this.autoFilteredColoringPinkButton.Name = "autoFilteredColoringPinkButton";
-            this.autoFilteredColoringPinkButton.OfficeImageId = "AcceptInvitation";
-            this.autoFilteredColoringPinkButton.ShowImage = true;
-            this.autoFilteredColoringPinkButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringPinkButton_Click);
-            // 
-            // autoFilteredColoringPurpleButton
-            // 
-            this.autoFilteredColoringPurpleButton.Label = "紫";
-            this.autoFilteredColoringPurpleButton.Name = "autoFilteredColoringPurpleButton";
-            this.autoFilteredColoringPurpleButton.OfficeImageId = "AcceptInvitation";
-            this.autoFilteredColoringPurpleButton.ShowImage = true;
-            this.autoFilteredColoringPurpleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringPurpleButton_Click);
-            // 
-            // autoFilteredColoringRedButton
-            // 
-            this.autoFilteredColoringRedButton.Label = "赤";
-            this.autoFilteredColoringRedButton.Name = "autoFilteredColoringRedButton";
-            this.autoFilteredColoringRedButton.OfficeImageId = "AcceptInvitation";
-            this.autoFilteredColoringRedButton.ShowImage = true;
-            this.autoFilteredColoringRedButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringRedButton_Click);
-            // 
-            // autoFilteredColoringGrayButton
-            // 
-            this.autoFilteredColoringGrayButton.Label = "灰";
-            this.autoFilteredColoringGrayButton.Name = "autoFilteredColoringGrayButton";
-            this.autoFilteredColoringGrayButton.OfficeImageId = "AcceptInvitation";
-            this.autoFilteredColoringGrayButton.ShowImage = true;
-            this.autoFilteredColoringGrayButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.autoFilteredColoringGrayButton_Click);
             // 
             // Ribbon1
             // 

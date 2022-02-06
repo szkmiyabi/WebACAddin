@@ -23,6 +23,8 @@ namespace WebACAddin
         private string br_sp = "<bkmk:br>";
         private float fontSize;
 
+        private Microsoft.Office.Interop.Excel.Worksheet ash;
+
         public WriteForm()
         {
             InitializeComponent();
@@ -35,6 +37,15 @@ namespace WebACAddin
             opacityCheck.Checked = true;
             fontSize = 10.5f;
             this.writeFormText.Font = new Font("ＭＳ Ｐゴシック", fontSize);
+            ash = Globals.ThisAddIn.Application.ActiveSheet;
+            ash.SelectionChange += setTitle;
+            this.Text = "セル編集（" + Globals.ThisAddIn.Application.ActiveCell.Address[false, false] + "）";
+        }
+
+        //フォームタイトル変更
+        private void setTitle(Microsoft.Office.Interop.Excel.Range target)
+        {
+            this.Text = "セル編集（" + target.Address[false, false] + "）";
         }
 
         //コンボボックスのサイズを調整
@@ -531,6 +542,11 @@ namespace WebACAddin
             fontSize -= 1;
             this.writeFormText.Font = new Font("ＭＳ Ｐゴシック", fontSize);
 
+        }
+
+        private void WriteForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ash.SelectionChange -= setTitle;
         }
     }
 

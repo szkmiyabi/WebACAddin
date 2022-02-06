@@ -33,6 +33,13 @@ namespace WebACAddin
             //ash.SelectionChange += new Microsoft.Office.Interop.Excel.DocEvents_SelectionChangeEventHandler(SelectionChanged);
             fontSize = 10.5f;
             this.ContentTextBox.Font = new Font("ＭＳ Ｐゴシック", fontSize);
+            this.Text = "セルプレビュー（" + Globals.ThisAddIn.Application.ActiveCell.Address[false, false] + "）";
+        }
+
+        //フォームタイトル変更
+        private void setTitle(Microsoft.Office.Interop.Excel.Range target)
+        {
+            this.Text = "セルプレビュー（" + target.Address[false,false] + "）";
         }
 
         //初期挙動
@@ -62,6 +69,7 @@ namespace WebACAddin
             {
                 int r = target.Row;
                 int c = target.Column;
+                setTitle(target);
                 string body = "";
                 if (ash.Cells[r, c].Value != null)
                 {
