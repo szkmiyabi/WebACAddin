@@ -252,10 +252,11 @@ namespace WebACAddin
             }
 
             dpfrmObj.ContentTextBox.Clear();
-            frmObj.setTitle("判定結果を整形表示");
             dpfrmObj.ContentTextBox.Text = get_wa_check_comment_base_body;
             dpfrmObj.WindowState = FormWindowState.Normal;
             dpfrmObj.Activate();
+            dpfrmObj.ContentTextBox.Select(0, 0);
+
 
         }
         //判定結果を整形表示実装（Libra）
