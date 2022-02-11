@@ -215,7 +215,7 @@ namespace WebACAddin
         }
 
         //判定結果を整形表示
-        private void get_survey_disp_wrapper()
+        public void get_survey_disp_wrapper()
         {
             //LibraPlusモード
             if (isLibraPlusOn)
@@ -233,7 +233,7 @@ namespace WebACAddin
         private void lb_sv_disp_wrap()
         {
             if (get_wa_check_comment_base_body != "") get_wa_check_comment_base_body = "";
-            if (frmObj.Visible == false) frmObj.Show();
+            if (dpfrmObj.Visible == false) dpfrmObj.Show();
 
             Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
             Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
@@ -251,11 +251,11 @@ namespace WebACAddin
                 lb_sv_disp();
             }
 
-            frmObj.reportText.Clear();
+            dpfrmObj.ContentTextBox.Clear();
             frmObj.setTitle("判定結果を整形表示");
-            frmObj.reportText.Text = get_wa_check_comment_base_body;
-            frmObj.WindowState = FormWindowState.Normal;
-            frmObj.Activate();
+            dpfrmObj.ContentTextBox.Text = get_wa_check_comment_base_body;
+            dpfrmObj.WindowState = FormWindowState.Normal;
+            dpfrmObj.Activate();
 
         }
         //判定結果を整形表示実装（Libra）
@@ -327,7 +327,7 @@ namespace WebACAddin
         private void lbps_sv_disp_wrap()
         {
             if (get_wa_check_comment_base_body != "") get_wa_check_comment_base_body = "";
-            if (frmObj.Visible == false) frmObj.Show();
+            if (dpfrmObj.Visible == false) dpfrmObj.Show();
 
             Excel.Range sa = Globals.ThisAddIn.Application.ActiveCell;
             Excel.Worksheet ash = Globals.ThisAddIn.Application.ActiveSheet;
@@ -345,12 +345,11 @@ namespace WebACAddin
                 lbps_sv_disp();
             }
 
-            frmObj.reportText.Clear();
-            frmObj.setTitle("判定結果を整形表示");
-            frmObj.reportText.Text = get_wa_check_comment_base_body;
-            frmObj.WindowState = FormWindowState.Normal;
-            frmObj.Activate();
-
+            dpfrmObj.ContentTextBox.Clear();
+            dpfrmObj.ContentTextBox.Text = get_wa_check_comment_base_body;
+            dpfrmObj.WindowState = FormWindowState.Normal;
+            dpfrmObj.Activate();
+            dpfrmObj.ContentTextBox.Select(0, 0);
         }
         //判定結果を整形表示実装（LibraPlus）
         private void lbps_sv_disp()

@@ -38,6 +38,7 @@ namespace WebACAddin
         private static ComboEditForm _cmbefrmObj;
         private static RepoUpdForm _rupfrmObj;
         private static ListAddForm _laddfrmObj;
+        private static DispForm _dpfrmObj;
 
         //コンストラクタ
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
@@ -215,6 +216,19 @@ namespace WebACAddin
                     _laddfrmObj = new ListAddForm();
                 }
                 return _laddfrmObj;
+            }
+        }
+
+        //DispFormインスタンスの取得
+        public static DispForm dpfrmObj
+        {
+            get
+            {
+                if(_dpfrmObj == null || _dpfrmObj.IsDisposed)
+                {
+                    _dpfrmObj = new DispForm();
+                }
+                return _dpfrmObj;
             }
         }
 
