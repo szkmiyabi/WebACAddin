@@ -45,15 +45,15 @@ namespace WebACAddin
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.ContentTextBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.26941F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.73059F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(502, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -64,7 +64,7 @@ namespace WebACAddin
             this.ContentTextBox.Multiline = true;
             this.ContentTextBox.Name = "ContentTextBox";
             this.ContentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ContentTextBox.Size = new System.Drawing.Size(496, 395);
+            this.ContentTextBox.Size = new System.Drawing.Size(496, 403);
             this.ContentTextBox.TabIndex = 0;
             this.ContentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContentTextBox_KeyDown);
             // 
@@ -76,9 +76,9 @@ namespace WebACAddin
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.fontSizeLargeButton);
             this.flowLayoutPanel1.Controls.Add(this.fontSizeMinusButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 404);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 412);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(484, 43);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(484, 35);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // TopMostCheckBox

@@ -78,12 +78,11 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.50138F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.49862F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(612, 410);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -91,11 +90,11 @@
             // 
             this.writeFormText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.writeFormText.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.writeFormText.Location = new System.Drawing.Point(3, 73);
+            this.writeFormText.Location = new System.Drawing.Point(3, 83);
             this.writeFormText.Multiline = true;
             this.writeFormText.Name = "writeFormText";
             this.writeFormText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.writeFormText.Size = new System.Drawing.Size(606, 264);
+            this.writeFormText.Size = new System.Drawing.Size(606, 256);
             this.writeFormText.TabIndex = 0;
             this.writeFormText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.writeFormText_KeyDown);
             this.writeFormText.Leave += new System.EventHandler(this.writeFormText_Leave);
@@ -109,9 +108,9 @@
             this.flowLayoutPanel1.Controls.Add(this.browseBaseCellDataButton);
             this.flowLayoutPanel1.Controls.Add(this.pushToCellDataButton);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(202, 343);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(202, 345);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(407, 36);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(407, 35);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // pullFromCellDataButton
@@ -182,9 +181,9 @@
             this.flowLayoutPanel3.Controls.Add(this.writeFormTopMostCheck);
             this.flowLayoutPanel3.Controls.Add(this.opacityCheck);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 385);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 386);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(606, 22);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(606, 21);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // writeFormTopMostCheck
@@ -220,7 +219,7 @@
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(606, 28);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(606, 34);
             this.flowLayoutPanel4.TabIndex = 4;
             // 
             // writeFormSnipetCombo
@@ -305,9 +304,9 @@
             this.flowLayoutPanel5.Controls.Add(this.writeReplaceText);
             this.flowLayoutPanel5.Controls.Add(this.writeReplaceButton);
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 37);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 43);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(606, 30);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(606, 34);
             this.flowLayoutPanel5.TabIndex = 5;
             // 
             // BrInputButton

@@ -35,9 +35,9 @@ namespace WebACAddin
             this.TopMostCheckBox = new System.Windows.Forms.CheckBox();
             this.SyncronizedCheckBox = new System.Windows.Forms.CheckBox();
             this.CopyButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.fontSizeLargeButton = new System.Windows.Forms.Button();
             this.fontSizeMinusButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,15 +45,15 @@ namespace WebACAddin
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.ContentTextBox, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.88889F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.111111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(530, 367);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -66,7 +66,7 @@ namespace WebACAddin
             this.ContentTextBox.Multiline = true;
             this.ContentTextBox.Name = "ContentTextBox";
             this.ContentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ContentTextBox.Size = new System.Drawing.Size(524, 327);
+            this.ContentTextBox.Size = new System.Drawing.Size(524, 320);
             this.ContentTextBox.TabIndex = 0;
             this.ContentTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContentTextBox_KeyDown);
             // 
@@ -78,7 +78,7 @@ namespace WebACAddin
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.fontSizeLargeButton);
             this.flowLayoutPanel1.Controls.Add(this.fontSizeMinusButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 336);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 329);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(449, 28);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -117,6 +117,16 @@ namespace WebACAddin
             this.CopyButton.UseVisualStyleBackColor = true;
             this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(311, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 8, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "文字サイズ";
+            // 
             // fontSizeLargeButton
             // 
             this.fontSizeLargeButton.Location = new System.Drawing.Point(375, 3);
@@ -136,16 +146,6 @@ namespace WebACAddin
             this.fontSizeMinusButton.Text = "ー";
             this.fontSizeMinusButton.UseVisualStyleBackColor = true;
             this.fontSizeMinusButton.Click += new System.EventHandler(this.fontSizeMinusButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(311, 8);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 8, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 12);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "文字サイズ";
             // 
             // CellViewForm
             // 
