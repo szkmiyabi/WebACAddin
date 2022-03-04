@@ -778,7 +778,9 @@
             this.autoFilteredColoringSplitButton.Label = "splitButton1";
             this.autoFilteredColoringSplitButton.Name = "autoFilteredColoringSplitButton";
             this.autoFilteredColoringSplitButton.OfficeImageId = "AnimationCustomAddEmphasisDialog";
+            this.autoFilteredColoringSplitButton.ScreenTip = "絞込行先頭列に色付";
             this.autoFilteredColoringSplitButton.ShowLabel = false;
+            this.autoFilteredColoringSplitButton.SuperTip = "オートフィルタで絞込んだ行の先頭列に色付します。";
             // 
             // autoFilteredColoringYellowButton
             // 
