@@ -1,3 +1,2 @@
-C:\Users\szkadmin\vs-project\WebACAddin\WebACAddinSetup\WebACAddinSetup\bin\Release\cab1.cab
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddinSetup\WebACAddinSetup\bin\Release\WebACAddinSetup.msi
 C:\Users\szkadmin\vs-project\WebACAddin\WebACAddinSetup\WebACAddinSetup\bin\Release\WebACAddinSetup.wixpdb
