@@ -477,11 +477,11 @@ namespace WebACAddin
 
             if (isLibraPlusOn)
             {
-                if((string)ash.Cells[1, 13].Value == "検査番号")
+                if ((string)ash.Cells[1, 1].Value == "管理番号" && (string)ash.Cells[1, 12].Value != "更新者")
                 {
-                    type_name = lbps_type_name[0];
+                        type_name = lbps_type_name[0];
                 }
-                else if((string)ash.Cells[1, 12].Value == "更新者")
+                else if((string)ash.Cells[1, 1].Value == "管理番号" && (string)ash.Cells[1, 12].Value == "更新者")
                 {
                     type_name = lbps_type_name[1];
                 }
